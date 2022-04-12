@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movapp</string>
+    <string name="title_dictionary">Slovníček</string>
+    <string name="title_alphabet">Abeceda</string>
+    <string name="title_search">Hledat</string>
+    <string name="title_forchildren">Pro děti</string>
+    <string name="title_about">O</string>
+</resources>

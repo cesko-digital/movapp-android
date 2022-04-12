@@ -1,0 +1,5 @@
+package digital.cesko.movapp.ui.dictionary
+
+data class DictionarySectionsData(val id: String, val from: String, val to: String, val translation_ids: List<String>)
+
+data class DictionaryTranslationsData(val id: String, val translation_from: String, val transcription_from: String, val translation_to: String, val transcription_to: String)

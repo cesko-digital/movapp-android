@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movapp</string>
+    <string name="title_forchildren">для дітей</string>
+    <string name="title_alphabet">Алфавіт</string>
+    <string name="title_dictionary">Словник</string>
+    <string name="title_search">Пошук</string>
+    <string name="title_about">Про</string>
+</resources>
