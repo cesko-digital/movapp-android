@@ -44,6 +44,6 @@ class AlphabetAdapter (
         for (i in item.examples) {
             examples += "%s [%s]\n".format(i.example, i.transcription)
         }
-        holder.textExamples.text = examples
+        holder.textExamples.text = examples.trim()
     }
 }

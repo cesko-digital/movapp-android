@@ -15,18 +15,27 @@ import digital.cesko.movapp.MainViewModel
 import digital.cesko.movapp.R
 import digital.cesko.movapp.adapter.DictionaryAdapter
 import digital.cesko.movapp.databinding.FragmentDictionaryBinding
+import digital.cesko.movapp.FavoritesViewModel
+import digital.cesko.movapp.FavoritesViewModelFactory
+import digital.cesko.movapp.data.FavoritesDatabase
 
 class DictionaryFragment : Fragment() {
 
     private var _binding: FragmentDictionaryBinding? = null
-    private var fromUa: Boolean = true
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val favoritesDatabase: FavoritesDatabase by lazy { FavoritesDatabase.getDatabase(requireContext()) }
+    private val favoritesViewModel: FavoritesViewModel by activityViewModels{
+        FavoritesViewModelFactory(
+            favoritesDatabase.favoritesDao()
+        )
+    }
+
     private val mainSharedViewModel: MainViewModel by activityViewModels()
-    private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels{DictionaryViewModelFactory(requireActivity().application)}
+    private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels{DictionaryViewModelFactory(requireActivity().application, favoritesViewModel)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

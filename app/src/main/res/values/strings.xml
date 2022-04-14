@@ -4,5 +4,6 @@
     <string name="title_alphabet">Alphabet</string>
     <string name="title_forchildren">For kids</string>
     <string name="title_search">Search</string>
+    <string name="title_favorites">Favorites</string>
     <string name="title_about">About</string>
 </resources>

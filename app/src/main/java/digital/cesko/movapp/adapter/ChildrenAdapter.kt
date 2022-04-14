@@ -3,8 +3,6 @@ package digital.cesko.movapp.adapter
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Configuration
-import android.content.res.Resources
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import digital.cesko.movapp.MainActivity
 import digital.cesko.movapp.R
 import digital.cesko.movapp.ui.children.ChildrenData
 

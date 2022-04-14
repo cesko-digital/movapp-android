@@ -5,8 +5,9 @@ import androidx.lifecycle.*
 import digital.cesko.movapp.adapter.DictionaryAdapter
 import digital.cesko.movapp.adapter.DictionaryContentAdapter
 import digital.cesko.movapp.data.DictionaryDatasource
+import digital.cesko.movapp.FavoritesViewModel
 
-class DictionaryViewModel(application: Application) : AndroidViewModel(application) {
+class DictionaryViewModel(application: Application, favoritesViewModel: FavoritesViewModel) : AndroidViewModel(application) {
 
     private val context = application.applicationContext
 
@@ -26,18 +27,18 @@ class DictionaryViewModel(application: Application) : AndroidViewModel(applicati
 
     val sections: LiveData<DictionaryAdapter> = _sections
 
-    private val _translations = MutableLiveData<DictionaryContentAdapter>().apply {
-        value = DictionaryContentAdapter(context, DictionaryDatasource().loadTranslations(context))
-    }
+    val translations = DictionaryContentAdapter(context, DictionaryDatasource().loadTranslations(context), favoritesViewModel)
 
-    val translations: LiveData<DictionaryContentAdapter> = _translations
+    fun selectedTranslations(sectionId: String, translationIds: List<String>):List<DictionaryTranslationsData>? {
+        _currentSectionTitle.value = _sections.value?.getSectionTitle(sectionId)
 
-    fun setSelectedTranslationIds(translationIds: List<String>) {
-        _translations.value?.setSelectedTranslationIds(translationIds)
+        return translations.getSelectedTranslations(translationIds)
     }
 
     fun search(constraint: String) {
-        _translations.value?.filter?.filter(constraint)
+
+        translations.search(constraint)
+
         _currentSectionTitle.value = when (val title = _sections.value?.getSectionTitle(constraint)) {
             "" -> constraint
             else -> title
@@ -45,8 +46,8 @@ class DictionaryViewModel(application: Application) : AndroidViewModel(applicati
     }
 }
 
-class DictionaryViewModelFactory(private val application: Application): ViewModelProvider.NewInstanceFactory()  {
+class DictionaryViewModelFactory(private val application: Application, private val favoritesViewModel: FavoritesViewModel): ViewModelProvider.NewInstanceFactory()  {
     override fun <T: ViewModel> create(modelClass:Class<T>): T {
-        return DictionaryViewModel(application) as T
+        return DictionaryViewModel(application, favoritesViewModel) as T
     }
 }

@@ -2,7 +2,6 @@ package digital.cesko.movapp.adapter
 
 import android.content.Context
 import android.content.res.Resources
-import android.graphics.drawable.Drawable
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import digital.cesko.movapp.MainActivity
-import digital.cesko.movapp.MainViewModel
 import digital.cesko.movapp.R
 import digital.cesko.movapp.ui.dictionary.DictionarySectionsData
 import digital.cesko.movapp.ui.dictionary.DictionaryFragmentDirections
@@ -59,7 +55,7 @@ class DictionaryAdapter (
         else
             holder.textFromTo.text = "%s - %s".format(item.from, item.to)
 
-        holder.textFromTo.setOnClickListener {
+        holder.itemView.setOnClickListener {
             val action = DictionaryFragmentDirections.actionNavigationDictionaryToDictionaryContentFragment(constraint = item.id, translationIds = item.translation_ids.toTypedArray())
             holder.itemView.findNavController().navigate(action)
         }

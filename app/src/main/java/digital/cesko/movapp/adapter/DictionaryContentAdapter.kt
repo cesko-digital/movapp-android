@@ -6,23 +6,36 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import digital.cesko.movapp.MainActivity
 import digital.cesko.movapp.R
 import digital.cesko.movapp.ui.dictionary.DictionaryTranslationsData
+import digital.cesko.movapp.FavoritesViewModel
+import java.text.Normalizer
+import java.util.*
 
 class DictionaryContentAdapter (
     private val context: Context,
-    private val wholeDataset: List<DictionaryTranslationsData>
-    ): RecyclerView.Adapter<DictionaryContentAdapter.ItemViewHolder>(), Filterable {
+    private val wholeDataset: List<DictionaryTranslationsData>,
+    private val favoritesViewModel: FavoritesViewModel,
+    ): ListAdapter<DictionaryTranslationsData, DictionaryContentAdapter.ItemViewHolder>(DiffCallback) {
 
-    private var dataset = wholeDataset
-    private var _translationsIds: List<String> = listOf()
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<DictionaryTranslationsData>() {
+            override fun areItemsTheSame(oldItem: DictionaryTranslationsData, newItem: DictionaryTranslationsData): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: DictionaryTranslationsData, newItem: DictionaryTranslationsData): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 
     var fromUa = true
 
@@ -30,6 +43,7 @@ class DictionaryContentAdapter (
         val textFrom: TextView = view.findViewById(R.id.text_dictionary_from)
         val textTo: TextView = view.findViewById(R.id.text_dictionary_to)
         val layout: ConstraintLayout = view.findViewById(R.id.layoutDictionaryContentItem)
+        val imageFavorites: ImageView = view.findViewById(R.id.image_favorites)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -38,12 +52,8 @@ class DictionaryContentAdapter (
         return ItemViewHolder(adapterLayout)
     }
 
-    override fun getItemCount(): Int {
-        return dataset.size
-    }
-
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
+        val item = getItem(position)
 
         if (position % 2 == 1) {
             //holder.layout.setBackgroundColor(ContextCompat.getColor(context, R.color.oddItem))
@@ -79,46 +89,43 @@ class DictionaryContentAdapter (
                 true -> item.transcription_from
             }
         )
-        holder.textFrom.setOnClickListener {
+        holder.textTo.setOnClickListener {
 
+        }
+
+        holder.imageFavorites.setOnClickListener {
+            println(item.id)
         }
     }
 
-    fun setSelectedTranslationIds(translations: List<String>) {
-        _translationsIds = translations
-        filter.filter("")
+    fun getSelectedTranslations(translationsIds: List<String>): List<DictionaryTranslationsData> {
+        return if (translationsIds.isEmpty()) {
+            wholeDataset
+        } else {
+            val filtered = mutableListOf<DictionaryTranslationsData>()
+            wholeDataset.filter { it.id in translationsIds }.forEach { filtered.add(it) }
+            filtered
+        }
     }
 
-    override fun getFilter() : Filter {
-        return object : Filter() {
-            override fun performFiltering(constraint: CharSequence): FilterResults {
-                val searchString = constraint.toString().lowercase()
-                val filteredDataset = if (searchString.isEmpty())
-                    wholeDataset
-                else {
-                    val filtered = mutableListOf<DictionaryTranslationsData>()
-                    wholeDataset
-                        .filter {
-                            (it.id in _translationsIds) or (it.translation_from.lowercase().contains(searchString) or (it.translation_to.lowercase().contains(searchString)))
-                        }
-                        .forEach { filtered.add(it) }
-                    filtered
-                }
-                return FilterResults().apply { values = filteredDataset }
-            }
+    private fun stripAccents(input: String): String {
+        var output = Normalizer.normalize(input, Normalizer.Form.NFD)
+        return output.replace(Regex("[^\\p{ASCII}]"), "")
+    }
 
-            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                dataset = if (results?.values == null)
-                    listOf()
-                else {
-                    if (fromUa)
-                            (results.values as List<DictionaryTranslationsData>).sortedBy { it.translation_from.lowercase() }
-                    else
-                        (results.values as List<DictionaryTranslationsData>).sortedBy { it.translation_to.lowercase() }
-                }
-
-                notifyDataSetChanged()
-            }
+    fun search(constraint: String) {
+        val searchString = stripAccents(constraint.toString().lowercase(Locale.getDefault()))
+        val result =  if (searchString.isEmpty()) {
+            wholeDataset
+        } else {
+            val filtered = mutableListOf<DictionaryTranslationsData>()
+            wholeDataset
+                .filter { (stripAccents(it.translation_from).lowercase(Locale.getDefault()).contains(searchString) or
+                        (stripAccents(it.translation_to).lowercase(Locale.getDefault()).contains(searchString))) }
+                .forEach { filtered.add(it) }
+            filtered
         }
+
+        submitList(result)
     }
 }

@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import digital.cesko.movapp.data.FavoritesDatabase
 import digital.cesko.movapp.databinding.ActivityMainBinding
 import digital.cesko.movapp.ui.dictionary.DictionaryViewModel
 
@@ -20,10 +21,18 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+
     var fromUa = true
 
     private val dictionarySharedViewModel: DictionaryViewModel by viewModels()
     private val mainSharedModel: MainViewModel by viewModels()
+
+    private val favoritesDatabase: FavoritesDatabase by lazy { FavoritesDatabase.getDatabase(this) }
+    private val favoritesSharedViewModel: FavoritesViewModel by viewModels {
+        FavoritesViewModelFactory(
+            favoritesDatabase.favoritesDao()
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                      */
                     navController.getBackStackEntry(R.id.dictionary_content_fragment)
 
-                    dictionarySharedViewModel.setSelectedTranslationIds(listOf())
                     dictionarySharedViewModel.search(binding.inputSearch.text.toString())
                 } catch (ex: IllegalArgumentException) {
                     val bundle = Bundle()
@@ -103,6 +111,10 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.top_menu_about -> {
                 Toast.makeText(this, "This is Movapp", Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+            R.id.top_menu_favorites -> {
                 return true
             }
             //  Otherwise, do nothing and use the core event handling

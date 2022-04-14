@@ -7,17 +7,20 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.RecyclerView
 import digital.cesko.movapp.MainViewModel
 import digital.cesko.movapp.adapter.DictionaryContentAdapter
 import digital.cesko.movapp.databinding.FragmentDictionaryContentBinding
+import kotlinx.coroutines.launch
 
 class DictionaryContentFragment : Fragment() {
 
     private var _binding: FragmentDictionaryContentBinding? = null
     private var constraint: String = ""
-    private var fromUa: Boolean = true
     private lateinit var translationIts: List<String>
+
+    private lateinit var recyclerView: RecyclerView
 
     private val mainSharedViewModel: MainViewModel by activityViewModels()
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
@@ -35,9 +38,6 @@ class DictionaryContentFragment : Fragment() {
 
             translationIts = it.getStringArray("translation_ids")?.toList() ?: listOf<String>()
         }
-
-        dictionarySharedViewModel.setSelectedTranslationIds(translationIts)
-        dictionarySharedViewModel.search(constraint)
     }
 
     override fun onCreateView(
@@ -51,13 +51,10 @@ class DictionaryContentFragment : Fragment() {
         _binding = FragmentDictionaryContentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView: RecyclerView = binding.recyclerViewDictionaryContent
-        dictionarySharedViewModel.translations.observe(viewLifecycleOwner) {
-            recyclerView.adapter = it
-            recyclerView.setHasFixedSize(true)
+        recyclerView = binding.recyclerViewDictionaryContent
+        recyclerView.setHasFixedSize(true)
 
-            it.fromUa = mainSharedViewModel.fromUa.value == true
-        }
+        recyclerView.adapter = dictionarySharedViewModel.translations
 
         mainSharedViewModel.fromUa.observe(viewLifecycleOwner) {
             (recyclerView.adapter as DictionaryContentAdapter).fromUa = mainSharedViewModel.fromUa.value == true
@@ -69,6 +66,22 @@ class DictionaryContentFragment : Fragment() {
         }
 
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if (translationIts.isNotEmpty())
+            lifecycle.coroutineScope.launch {
+                (recyclerView.adapter as DictionaryContentAdapter).submitList(
+                    dictionarySharedViewModel.selectedTranslations(constraint, translationIts)
+                )
+            }
+
+        if (translationIts.isEmpty() and constraint.isNotEmpty())
+            lifecycle.coroutineScope.launch {
+                (recyclerView.adapter as DictionaryContentAdapter).search(constraint)
+            }
     }
 
     override fun onDestroyView() {
