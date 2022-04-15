@@ -3,29 +3,28 @@ package digital.cesko.movapp
 import androidx.lifecycle.*
 import digital.cesko.movapp.data.Favorites
 import digital.cesko.movapp.data.FavoritesDAO
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class FavoritesViewModel(private val favoritesDao: FavoritesDAO): ViewModel() {
 
-    val allFavorites: LiveData<List<Favorites>> = favoritesDao.getAllFavorites().asLiveData()
-
+    val favorites: LiveData<List<Favorites>> = favoritesDao.getAllFavorites()
 
     private fun insertItem(item: Favorites) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             favoritesDao.insert(item)
         }
     }
 
     private fun deleteItem(item: Favorites) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             favoritesDao.delete(item)
         }
     }
 
-    fun deleteFavorite(translationId: String) {
-        val favorites = favoritesDao.getFavorite(translationId).asLiveData().value as List<Favorites>
-        for (favorite in favorites) {
-            deleteItem(favorite)
+    fun removeFavorite(translationId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            favoritesDao.deleteTranslationId(translationId)
         }
     }
 
@@ -35,7 +34,7 @@ class FavoritesViewModel(private val favoritesDao: FavoritesDAO): ViewModel() {
         )
     }
 
-    fun addNewItem(favoritesId: String) {
+    fun addFavorites(favoritesId: String) {
         val newItem = getNewItemEntry(favoritesId)
         insertItem(newItem)
     }

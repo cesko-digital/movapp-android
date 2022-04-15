@@ -1,20 +1,21 @@
 package digital.cesko.movapp.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoritesDAO {
 
-    @Query("SELECT * from favorites WHERE translation_id = :translationId")
-    fun getFavorite(translationId: String): Flow<List<Favorites>>
+    @Query("DELETE from favorites WHERE translation_id = :translationId")
+    fun deleteTranslationId(translationId: String)
 
     @Query("SELECT * FROM favorites")
-    fun getAllFavorites():  Flow<List<Favorites>>
+    fun getAllFavorites(): LiveData<List<Favorites>>
+    //fun getAllFavorites():  Flow<List<Favorites>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(item: Favorites)

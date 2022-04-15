@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import digital.cesko.movapp.R
+import digital.cesko.movapp.data.Favorites
 import digital.cesko.movapp.ui.dictionary.DictionarySectionsData
 import digital.cesko.movapp.ui.dictionary.DictionaryFragmentDirections
 
@@ -21,6 +22,7 @@ class DictionaryAdapter (
     ): RecyclerView.Adapter<DictionaryAdapter.ItemViewHolder>() {
 
     var fromUa = true
+    var favorites = listOf<Favorites>()
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textFromTo: TextView = view.findViewById(R.id.text_dictionary_from_to)
@@ -56,7 +58,13 @@ class DictionaryAdapter (
             holder.textFromTo.text = "%s - %s".format(item.from, item.to)
 
         holder.itemView.setOnClickListener {
-            val action = DictionaryFragmentDirections.actionNavigationDictionaryToDictionaryContentFragment(constraint = item.id, translationIds = item.translation_ids.toTypedArray())
+            val favoritesIds = mutableListOf<String>()
+            favorites.forEach {
+                if (item.translation_ids.contains(it.translationId))
+                    favoritesIds.add(it.translationId)
+
+            }
+            val action = DictionaryFragmentDirections.actionNavigationDictionaryToDictionaryContentFragment(constraint = item.id, translationIds = item.translation_ids.toTypedArray(), favoritesIds = favoritesIds.toTypedArray())
             holder.itemView.findNavController().navigate(action)
         }
     }

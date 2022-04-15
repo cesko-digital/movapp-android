@@ -1,6 +1,7 @@
 package digital.cesko.movapp.adapter
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -38,6 +39,7 @@ class DictionaryContentAdapter (
     }
 
     var fromUa = true
+    var favoritesIds = mutableListOf<String>()
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textFrom: TextView = view.findViewById(R.id.text_dictionary_from)
@@ -93,8 +95,28 @@ class DictionaryContentAdapter (
 
         }
 
+        setFavoriteStar(holder, favoritesIds.contains(item.id))
+
         holder.imageFavorites.setOnClickListener {
-            println(item.id)
+            if (favoritesIds.contains(item.id)) {
+                favoritesIds.remove(item.id)
+                favoritesViewModel.removeFavorite(item.id)
+                setFavoriteStar(holder, false)
+            } else {
+                favoritesIds.add(item.id)
+                favoritesViewModel.addFavorites(item.id)
+                setFavoriteStar(holder, true)
+            }
+        }
+    }
+
+    private fun setFavoriteStar(holder: ItemViewHolder, isSet: Boolean) {
+        if (isSet) {
+            holder.imageFavorites.setImageResource(android.R.drawable.star_big_on)
+            holder.imageFavorites.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.secondaryColor))
+        } else {
+            holder.imageFavorites.setImageResource(android.R.drawable.star_big_off)
+            holder.imageFavorites.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.primaryColor))
         }
     }
 

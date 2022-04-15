@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import digital.cesko.movapp.MainActivity
 import digital.cesko.movapp.MainViewModel
 import digital.cesko.movapp.R
-import digital.cesko.movapp.adapter.ChildrenAdapter
 import digital.cesko.movapp.databinding.FragmentAlphabetBinding
 
 class AlphabetFragment : Fragment() {

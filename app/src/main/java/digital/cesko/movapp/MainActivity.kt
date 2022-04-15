@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import digital.cesko.movapp.data.Favorites
 import digital.cesko.movapp.data.FavoritesDatabase
 import digital.cesko.movapp.databinding.ActivityMainBinding
 import digital.cesko.movapp.ui.dictionary.DictionaryViewModel
@@ -23,16 +24,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     var fromUa = true
+    var favorites = listOf<Favorites>()
 
     private val dictionarySharedViewModel: DictionaryViewModel by viewModels()
     private val mainSharedModel: MainViewModel by viewModels()
 
     private val favoritesDatabase: FavoritesDatabase by lazy { FavoritesDatabase.getDatabase(this) }
-    private val favoritesSharedViewModel: FavoritesViewModel by viewModels {
-        FavoritesViewModelFactory(
-            favoritesDatabase.favoritesDao()
-        )
-    }
+    private val favoritesViewModel: FavoritesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,6 +98,10 @@ class MainActivity : AppCompatActivity() {
                 /* nothing */
             }
         }
+
+        favoritesViewModel.favorites.observe(this) {
+            favorites = it
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -115,6 +117,24 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.top_menu_favorites -> {
+                val favoritesIds = mutableListOf<String>()
+                favorites.forEach {
+                        favoritesIds.add(it.translationId)
+                }
+
+                try {
+                    /**
+                     *  if this fails then we need to change the fragment
+                     *  to fragment with search results
+                     */
+                    navController.getBackStackEntry(R.id.dictionary_content_fragment)
+
+                } catch (ex: IllegalArgumentException) {
+                    val bundle = Bundle()
+                    bundle.putStringArray("translation_ids", favoritesIds.toTypedArray())
+                    bundle.putStringArray("favorites_ids", favoritesIds.toTypedArray())
+                    navController.navigate(R.id.dictionary_content_fragment, bundle)
+                }
                 return true
             }
             //  Otherwise, do nothing and use the core event handling
