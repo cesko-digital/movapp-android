@@ -6,4 +6,5 @@
     <string name="title_dictionary">Словник</string>
     <string name="title_search">Пошук</string>
     <string name="title_about">Про</string>
+    <string name="title_favorites">Вибране</string>
 </resources>

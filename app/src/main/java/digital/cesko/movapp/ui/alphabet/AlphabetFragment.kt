@@ -42,9 +42,6 @@ class AlphabetFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //val alphabetViewModel =
-        //    ViewModelProvider(this).get(AlphabetViewModel::class.java)
-
         val languageStr = when (mainSharedViewModel.fromUa.value == true) {
             true -> "uk"
             false -> "cs"

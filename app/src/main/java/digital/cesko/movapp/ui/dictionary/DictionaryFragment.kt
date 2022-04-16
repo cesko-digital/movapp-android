@@ -36,7 +36,11 @@ class DictionaryFragment : Fragment() {
     }
 
     private val mainSharedViewModel: MainViewModel by activityViewModels()
-    private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels{DictionaryViewModelFactory(requireActivity().application, favoritesViewModel)}
+    private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels{
+        DictionaryViewModelFactory(
+            requireActivity().application,favoritesViewModel
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +82,6 @@ class DictionaryFragment : Fragment() {
 
         favoritesViewModel.favorites.observe(activity as LifecycleOwner) {
             if (recyclerView.adapter !== null) {
-                println(it.size)
                 (recyclerView.adapter as DictionaryAdapter).favorites = it
             }
         }

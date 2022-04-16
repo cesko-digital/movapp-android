@@ -22,7 +22,7 @@ class DictionaryContentFragment : Fragment() {
 
     private var _binding: FragmentDictionaryContentBinding? = null
     private var constraint: String = ""
-    private lateinit var translationIts: List<String>
+    private lateinit var translationIds: List<String>
     private var favoritesIds = mutableListOf<String>()
 
     private lateinit var recyclerView: RecyclerView
@@ -42,7 +42,7 @@ class DictionaryContentFragment : Fragment() {
             // constraint can be sectionId or search string
             constraint = it.getString("constraint").toString()
 
-            translationIts = it.getStringArray("translation_ids")?.toList() ?: listOf<String>()
+            translationIds = it.getStringArray("translation_ids")?.toList() ?: listOf<String>()
         }
 
         if (constraint.isEmpty()) {
@@ -59,9 +59,6 @@ class DictionaryContentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //val viewModel =
-        //    ViewModelProvider(this, DictionaryViewModelFactory(requireActivity().application, constraint, translationIds)).get(DictionaryViewModel::class.java)
-
         _binding = FragmentDictionaryContentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -79,7 +76,8 @@ class DictionaryContentFragment : Fragment() {
 
             (recyclerView.adapter as DictionaryContentAdapter).favoritesIds = favoritesIds
 
-            checkAndShowFavorites()
+            if (!checkAndShowFavorites() and constraint.isEmpty() and translationIds.isEmpty())
+                setEmptyTranslations()
         }
 
         mainSharedViewModel.fromUa.observe(viewLifecycleOwner) {
@@ -100,20 +98,32 @@ class DictionaryContentFragment : Fragment() {
         if (checkAndShowFavorites())
             return
 
-        if (translationIts.isNotEmpty())
+        if (translationIds.isNotEmpty()) {
             (recyclerView.adapter as DictionaryContentAdapter).submitList(
-                dictionarySharedViewModel.selectedTranslations(constraint, translationIts)
+                dictionarySharedViewModel.selectedTranslations(constraint, translationIds)
             )
+            return
+        }
 
-        if (translationIts.isEmpty() and constraint.isNotEmpty())
+        if (translationIds.isEmpty() and constraint.isNotEmpty()) {
             (recyclerView.adapter as DictionaryContentAdapter).search(constraint)
+            return
+        }
+
+        setEmptyTranslations()
+    }
+
+    private fun setEmptyTranslations() {
+        (recyclerView.adapter as DictionaryContentAdapter).submitList(
+            dictionarySharedViewModel.selectedTranslations("", listOf())
+        )
     }
 
     private fun checkAndShowFavorites(): Boolean {
         if (favoritesIds.isEmpty())
             return false
 
-        if (translationIts.isEmpty() and constraint.isEmpty()) {
+        if (translationIds.isEmpty() and constraint.isEmpty() and favoritesIds.isNotEmpty()) {
             (recyclerView.adapter as DictionaryContentAdapter).submitList(
                 dictionarySharedViewModel.selectedTranslations(constraint, favoritesIds)
             )

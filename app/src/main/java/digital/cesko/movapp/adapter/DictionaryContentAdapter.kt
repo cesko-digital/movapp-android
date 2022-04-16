@@ -119,7 +119,7 @@ class DictionaryContentAdapter (
 
     fun getSelectedTranslations(translationsIds: List<String>): List<DictionaryTranslationsData> {
         return if (translationsIds.isEmpty()) {
-            wholeDataset
+            listOf<DictionaryTranslationsData>()
         } else {
             val filtered = mutableListOf<DictionaryTranslationsData>()
             wholeDataset.filter { it.id in translationsIds }.forEach { filtered.add(it) }

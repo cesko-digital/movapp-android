@@ -12,5 +12,5 @@
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
 
-    <color name="oddItem">#DDDDDD</color>
+    <color name="oddItem">#E4E4E4</color>
 </resources>

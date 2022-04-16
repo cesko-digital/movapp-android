@@ -42,9 +42,6 @@ class ChildrenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //val childrenViewModel =
-            //ViewModelProvider(this).get(ChildrenViewModel::class.java)
-
         _binding = FragmentChildrenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
