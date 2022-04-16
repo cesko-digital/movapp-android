@@ -32,9 +32,6 @@ class AlphabetFragment : Fragment() {
 
         val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, 0)
-
-       requireActivity().findViewById<TextInputLayout>(R.id.input_layout_search)?.clearFocus()
-       requireActivity().findViewById<TextInputEditText>(R.id.input_search)?.text?.clear()
     }
 
     override fun onCreateView(
@@ -46,6 +43,7 @@ class AlphabetFragment : Fragment() {
             true -> "uk"
             false -> "cs"
         }
+
         val alphabetViewModel =
             ViewModelProvider(this, AlphabetViewModelFactory(requireActivity().application, languageStr)).get(AlphabetViewModel::class.java)
 

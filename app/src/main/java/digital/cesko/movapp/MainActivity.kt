@@ -3,6 +3,7 @@ package digital.cesko.movapp
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -51,54 +52,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        binding.inputSearch.addTextChangedListener {
-            if (binding.inputSearch.text.toString().isNotEmpty()) {
-                try {
-                    /**
-                     *  if this fails then we need to change the fragment
-                     *  to fragment with search results
-                     */
-                    navController.getBackStackEntry(R.id.dictionary_content_fragment)
-
-                    dictionarySharedViewModel.search(binding.inputSearch.text.toString())
-                } catch (ex: IllegalArgumentException) {
-                    val bundle = Bundle()
-                    bundle.putString("constraint", binding.inputSearch.text.toString())
-                    navController.navigate(R.id.dictionary_content_fragment, bundle)
-                }
-            }
-        }
-
-        binding.inputLayoutSearch.setEndIconOnClickListener {
-            fromUa = mainSharedModel.fromUa.value == true
-            fromUa = when (fromUa) {
-                true -> {
-                    binding.inputLayoutSearch.setEndIconDrawable(R.drawable.cz)
-                    false
-                }
-                false -> {
-                    binding.inputLayoutSearch.setEndIconDrawable(R.drawable.ua)
-                    true
-                }
-            }
-
-            mainSharedModel.setFromUa(fromUa)
-
-            try {
-                /**
-                 * if the next line fails, it is OK
-                 * it just mean we are a different fragment
-                 * and do not want to call the rest...
-                 */
-                navController.getBackStackEntry(R.id.navigation_alphabet)
-
-                navController.popBackStack()
-                navController.navigate(R.id.navigation_alphabet)
-            } catch (ex: IllegalArgumentException){
-                /* nothing */
-            }
-        }
-
         favoritesViewModel.favorites.observe(this) {
             favorites = it
         }
@@ -106,6 +59,39 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_menu, menu)
+
+        val search = menu?.findItem(R.id.search_bar)
+        val searchView = search?.actionView as SearchView
+        searchView.queryHint = resources.getString(R.string.title_search)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean  = searchDictionary(query)
+            override fun onQueryTextChange(query: String?): Boolean = searchDictionary(query)
+
+            fun searchDictionary(query: String?): Boolean {
+                if (query != null) {
+                    if (query.isNotEmpty()) {
+                        try {
+                            /**
+                             *  if this fails then we need to change the fragment
+                             *  to fragment with search results
+                             */
+                            navController.getBackStackEntry(R.id.dictionary_content_fragment)
+
+                            dictionarySharedViewModel.search(query)
+                        } catch (ex: IllegalArgumentException) {
+                            val bundle = Bundle()
+                            bundle.putString("constraint", query)
+                            navController.navigate(R.id.dictionary_content_fragment, bundle)
+                        }
+                    }
+                    return true
+                }
+
+                return false
+            }
+        })
+
         return true
     }
 
@@ -113,6 +99,38 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.top_menu_about -> {
                 Toast.makeText(this, "This is Movapp", Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+            R.id.top_menu_switch_language -> {
+                fromUa = mainSharedModel.fromUa.value == true
+                fromUa = when (fromUa) {
+                    true -> {
+                        item.setIcon(R.drawable.cz)
+                        false
+                    }
+                    false -> {
+                        item.setIcon(R.drawable.ua)
+                        true
+                    }
+                }
+
+                mainSharedModel.setFromUa(fromUa)
+
+                try {
+                    /**
+                     * if the next line fails, it is OK
+                     * it just mean we are a different fragment
+                     * and do not want to call the rest...
+                     */
+                    navController.getBackStackEntry(R.id.navigation_alphabet)
+
+                    navController.popBackStack()
+                    navController.navigate(R.id.navigation_alphabet)
+                } catch (ex: IllegalArgumentException){
+                    /* nothing */
+                }
+
                 return true
             }
 

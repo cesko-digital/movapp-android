@@ -5,27 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_search"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:endIconDrawable="@drawable/ua"
-        app:endIconMode="custom"
-        app:endIconTint="@color/white"
-        app:endIconTintMode="multiply"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment_activity_main" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/title_search" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -35,7 +14,7 @@
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_layout_search"
+        app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
