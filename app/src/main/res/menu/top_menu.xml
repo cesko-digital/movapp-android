@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/top_menu_favorites"
-        android:title="@string/title_favorites"
-        android:icon="@drawable/menu" />
     <item android:id="@+id/top_menu_about"
         android:title="@string/title_about"
         android:icon="@drawable/menu" />

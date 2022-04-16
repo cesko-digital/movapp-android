@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_dictionary, R.id.navigation_alphabet, R.id.navigation_children
+                R.id.navigation_dictionary, R.id.navigation_favorites, R.id.navigation_alphabet, R.id.navigation_children
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -116,27 +116,6 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
 
-            R.id.top_menu_favorites -> {
-                val favoritesIds = mutableListOf<String>()
-                favorites.forEach {
-                        favoritesIds.add(it.translationId)
-                }
-
-                try {
-                    /**
-                     *  if this fails then we need to change the fragment
-                     *  to fragment with search results
-                     */
-                    navController.getBackStackEntry(R.id.dictionary_content_fragment)
-
-                } catch (ex: IllegalArgumentException) {
-                    val bundle = Bundle()
-                    bundle.putStringArray("translation_ids", favoritesIds.toTypedArray())
-                    bundle.putStringArray("favorites_ids", favoritesIds.toTypedArray())
-                    navController.navigate(R.id.dictionary_content_fragment, bundle)
-                }
-                return true
-            }
             //  Otherwise, do nothing and use the core event handling
 
             // when clauses require that all possible paths be accounted for explicitly,

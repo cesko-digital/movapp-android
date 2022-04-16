@@ -16,6 +16,22 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="digital.cesko.movapp.ui.dictionary.DictionaryContentFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/fragment_dictionary_content" >
+        <argument
+            android:name="constraint"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="translation_ids"
+            app:argType="string[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_alphabet"
         android:name="digital.cesko.movapp.ui.alphabet.AlphabetFragment"
         android:label="@string/title_alphabet"
@@ -39,11 +55,6 @@
             app:argType="string" />
         <argument
             android:name="translation_ids"
-            app:argType="string[]"
-            app:nullable="true"
-            android:defaultValue="@null" />
-        <argument
-            android:name="favorites_ids"
             app:argType="string[]"
             app:nullable="true"
             android:defaultValue="@null" />

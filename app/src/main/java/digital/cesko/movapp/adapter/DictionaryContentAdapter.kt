@@ -111,13 +111,10 @@ class DictionaryContentAdapter (
     }
 
     private fun setFavoriteStar(holder: ItemViewHolder, isSet: Boolean) {
-        if (isSet) {
-            holder.imageFavorites.setImageResource(android.R.drawable.star_big_on)
+        if (isSet)
             holder.imageFavorites.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.secondaryColor))
-        } else {
-            holder.imageFavorites.setImageResource(android.R.drawable.star_big_off)
+        else
             holder.imageFavorites.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.primaryColor))
-        }
     }
 
     fun getSelectedTranslations(translationsIds: List<String>): List<DictionaryTranslationsData> {

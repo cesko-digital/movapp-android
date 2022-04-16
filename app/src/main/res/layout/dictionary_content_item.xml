@@ -23,7 +23,7 @@
             android:id="@+id/image_favorites"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/star_off"
+            app:srcCompat="@drawable/ic_baseline_star_24"
             app:layout_constraintEnd_toStartOf="@+id/layout_dictionary_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
