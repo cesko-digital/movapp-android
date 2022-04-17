@@ -8,13 +8,10 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import digital.cesko.movapp.MainViewModel
-import digital.cesko.movapp.R
 import digital.cesko.movapp.databinding.FragmentAlphabetBinding
 
 class AlphabetFragment : Fragment() {
@@ -39,30 +36,32 @@ class AlphabetFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val languageStr = when (mainSharedViewModel.fromUa.value == true) {
-            true -> "uk"
-            false -> "cs"
-        }
 
-        val alphabetViewModel =
-            ViewModelProvider(this, AlphabetViewModelFactory(requireActivity().application, languageStr)).get(AlphabetViewModel::class.java)
-
+        val viewModel =
+            ViewModelProvider(this, AlphabetViewModel.Factory(this.requireActivity().application, mainSharedViewModel))
+                .get(AlphabetViewModel::class.java)
         _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val recyclerView: RecyclerView = binding.recyclerViewAlphabet
-        alphabetViewModel.alphabet.observe(viewLifecycleOwner) {
-            recyclerView.adapter = it
-            recyclerView.setHasFixedSize(true)
+
+        mainSharedViewModel.fromUa.observe(viewLifecycleOwner, Observer { fromUa ->
+            viewModel.setCurrentAlphabet(fromUa)
+        })
+
+        viewModel.currentAlphabet.observe(viewLifecycleOwner) {
+            binding.recyclerViewAlphabet.adapter = it
+            binding.recyclerViewAlphabet.setHasFixedSize(true)
         }
 
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.recyclerViewAlphabet.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
+
+

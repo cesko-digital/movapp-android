@@ -6,12 +6,23 @@ import digital.cesko.movapp.ui.alphabet.LetterExampleData
 import org.json.JSONObject
 import java.io.IOException
 
-class AlphabetDatasource {
-    fun loadLanguage(context: Context, language: String): List<AlphabetData> {
+/**
+ * non-standard lang code ie. uk for Ukraine instead of ua
+ */
+fun toStrangeLangCode(fromUa: Boolean?) = if (fromUa == true) "uk" else "cs"
+
+class AlphabetDatasource(private val context: Context) {
+
+    private val cache = mutableMapOf(
+        true to listOf<AlphabetData>(),
+        false to listOf<AlphabetData>()
+    )
+
+    fun loadByLanguage(langCode: String): List<AlphabetData> {
         var jsonString: String = ""
         var alphabet = mutableListOf<AlphabetData>()
 
-        val fileName = "alphabet/%s-alphabet.json".format(language)
+        val fileName = "alphabet/%s-alphabet.json".format(langCode)
 
         try {
             jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
@@ -39,7 +50,7 @@ class AlphabetDatasource {
 
             alphabet.add(AlphabetData(
                 jsonLetterObj.getString("id"),
-                language,
+                langCode,
                 jsonLetterObj.getJSONArray("letter").get(0).toString(),
                 jsonLetterObj.getJSONArray("letter").get(1).toString(),
                 jsonLetterObj.getString("transcription"),
@@ -49,4 +60,19 @@ class AlphabetDatasource {
 
         return alphabet
     }
+
+    fun load(fromUa: Boolean): List<AlphabetData> {
+        return lazyCacheLoad(fromUa)
+    }
+
+    private fun lazyCacheLoad(fromUa: Boolean): List<AlphabetData> {
+        val selected = cache[fromUa]!!
+        return if (selected.isEmpty()) {
+            cache[fromUa] = loadByLanguage(toStrangeLangCode(fromUa))
+            cache[fromUa]!!
+        } else {
+            selected
+        }
+    }
+
 }

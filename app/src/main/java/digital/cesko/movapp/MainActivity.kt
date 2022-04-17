@@ -108,19 +108,7 @@ class MainActivity : AppCompatActivity() {
             R.id.top_menu_switch_language -> {
                 mainSharedModel.setFromUa(!mainSharedModel.fromUa.value!!)
 
-                try {
-                    /**
-                     * if the next line fails, it is OK
-                     * it just mean we are a different fragment
-                     * and do not want to call the rest...
-                     */
-                    navController.getBackStackEntry(R.id.navigation_alphabet)
-
-                    navController.popBackStack()
-                    navController.navigate(R.id.navigation_alphabet)
-                } catch (ex: IllegalArgumentException){
-                    /* nothing */
-                }
+                switchAlphabetFragmentLanguage()
 
                 return true
             }
@@ -131,6 +119,22 @@ class MainActivity : AppCompatActivity() {
             //  for instance both the true and false cases if the value is a Boolean,
             //  or an else to catch all unhandled cases.
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    fun switchAlphabetFragmentLanguage() {
+        try {
+            /**
+             * if the next line fails, it is OK
+             * it just mean we are a different fragment
+             * and do not want to call the rest...
+             */
+            navController.getBackStackEntry(R.id.navigation_alphabet)
+
+            navController.popBackStack()
+            navController.navigate(R.id.navigation_alphabet)
+        } catch (ex: IllegalArgumentException) {
+            /* nothing */
         }
     }
 

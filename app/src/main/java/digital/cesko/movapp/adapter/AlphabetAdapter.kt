@@ -1,6 +1,5 @@
 package digital.cesko.movapp.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import digital.cesko.movapp.R
 import digital.cesko.movapp.ui.alphabet.AlphabetData
 
-class AlphabetAdapter (
-    private val context: Context,
+class AlphabetAdapter(
     private val dataset: List<AlphabetData>
 ): RecyclerView.Adapter<AlphabetAdapter.ItemViewHolder>() {
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textLetter: TextView = view.findViewById(R.id.text_alphabet_letter)
         val textTranscription: TextView = view.findViewById(R.id.text_alphabet_transcription)
         val textExamples: TextView = view.findViewById(R.id.text_alphabet_examples)

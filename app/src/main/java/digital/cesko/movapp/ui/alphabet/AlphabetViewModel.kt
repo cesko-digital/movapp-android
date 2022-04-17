@@ -2,23 +2,38 @@ package digital.cesko.movapp.ui.alphabet
 
 import android.app.Application
 import androidx.lifecycle.*
+import digital.cesko.movapp.App
+import digital.cesko.movapp.MainViewModel
 import digital.cesko.movapp.adapter.AlphabetAdapter
+import digital.cesko.movapp.appModule
 import digital.cesko.movapp.data.AlphabetDatasource
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class AlphabetViewModel(application: Application, language: String) : AndroidViewModel(application) {
+class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) : AndroidViewModel(application) {
 
-    private val context = application.applicationContext
+    val currentAlphabet = MutableLiveData(AlphabetAdapter(listOf()))
 
-    private val _alphabet = MutableLiveData<AlphabetAdapter>().apply {
-        value = AlphabetAdapter(context, AlphabetDatasource().loadLanguage(context, language))
+    init {
+        loadAlphabet(getApplication<App>().appModule().alphabetDataSource, mainViewModel.fromUa.value)
     }
 
-    val alphabet: MutableLiveData<AlphabetAdapter> = _alphabet
-
-}
-
-class AlphabetViewModelFactory(private val application: Application, private val language: String): ViewModelProvider.NewInstanceFactory()  {
-    override fun <T: ViewModel> create(modelClass:Class<T>): T {
-        return AlphabetViewModel(application, language) as T
+    private fun loadAlphabet(alphabetDatasource: AlphabetDatasource, fromUa: Boolean?) {
+        viewModelScope.launch(Dispatchers.IO) {
+            fromUa?.let { alphabetDatasource.load(it) }
+                ?.let { currentAlphabet.postValue(AlphabetAdapter(it))  }
+        }
     }
+
+    fun setCurrentAlphabet(fromUa: Boolean) {
+        loadAlphabet(getApplication<App>().appModule().alphabetDataSource, fromUa)
+    }
+
+    class Factory(private val application: Application, private val language: MainViewModel) :
+        ViewModelProvider.NewInstanceFactory() {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return AlphabetViewModel(application, language) as T
+        }
+    }
+
 }
