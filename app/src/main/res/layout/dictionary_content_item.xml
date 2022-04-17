@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layoutDictionaryContentItem"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/general_padding">
+    android:paddingStart="@dimen/general_padding"
+    android:paddingEnd="@dimen/general_padding"
+    >
 
     <LinearLayout
         android:id="@+id/layout_dictionary_item"
@@ -16,23 +18,45 @@
 
         <ImageView
             android:id="@+id/image_favorites"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="4dp"
             app:srcCompat="@drawable/ic_baseline_star_24" />
 
         <LinearLayout
-            android:id="@+id/layout_dictionary_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/general_padding">
+            >
 
-            <TextView
-                android:id="@+id/text_dictionary_from"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="From"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/text_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/secondaryTextColor"
+                    android:text="From"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/text_from_trans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/secondaryTextColor"
+                    android:paddingStart="4dp"
+                    android:text="[Trans]"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
 
             <View
                 android:id="@+id/dictionary_line"
@@ -40,12 +64,28 @@
                 android:layout_height="1dp"
                 android:background="@color/secondaryColor" />
 
-            <TextView
-                android:id="@+id/text_dictionary_to"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="To"
-                android:textSize="20sp" />
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                >
+                <TextView
+                    android:id="@+id/text_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/text_to_trans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[Trans]"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </LinearLayout>
