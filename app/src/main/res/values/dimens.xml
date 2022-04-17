@@ -5,4 +5,11 @@
 
     <dimen name="corner_rounding">8dp</dimen>
     <dimen name="general_padding">5dp</dimen>
+
+    <dimen name="divider_margin">10dp</dimen>
+    <dimen name="about_padding_section">40dp</dimen>
+    <dimen name="about_padding_item">8dp</dimen>
+    <dimen name="about_headline_text">22sp</dimen>
+    <dimen name="about_item_text_standard">18sp</dimen>
+    <dimen name="about_item_text_small">14sp</dimen>
 </resources>

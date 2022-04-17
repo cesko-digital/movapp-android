@@ -59,4 +59,11 @@
             app:nullable="true"
             android:defaultValue="@null" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="digital.cesko.movapp.ui.about.AboutFragment"
+        android:label="@string/title_about"
+        tools:layout="@layout/fragment_about" >
+    </fragment>
 </navigation>

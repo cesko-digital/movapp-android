@@ -5,6 +5,15 @@
     <string name="title_alphabet">Abeceda</string>
     <string name="title_search">Hledat</string>
     <string name="title_children">Pro děti</string>
-    <string name="title_about">O</string>
+    <string name="title_about">O...</string>
     <string name="title_favorites">Oblíbené</string>
+    <string name="about_project">O PROJEKTU</string>
+    <string name="about_web">Web</string>
+    <string name="about_twitter">Twitter</string>
+    <string name="about_instagram">Instagram</string>
+    <string name="about_application">O APLIKACI</string>
+    <string name="about_report">Chci vylepšit aplikaci</string>
+    <string name="about_license">Licence</string>
+    <string name="about_version">Verze: %s</string>
+    <string name="about_authors">AUTOŘI APLIKACE</string>
 </resources>

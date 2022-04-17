@@ -7,4 +7,13 @@
     <string name="title_search">Пошук</string>
     <string name="title_about">Про</string>
     <string name="title_favorites">Вибране</string>
+    <string name="about_project">ПРО ЦЕЙ ПРОЕКТ</string>
+    <string name="about_web">Інтернет</string>
+    <string name="about_twitter">твіттер</string>
+    <string name="about_instagram">інстаграм</string>
+    <string name="about_application">Про застосування</string>
+    <string name="about_report">Довідка або звіт про помилку</string>
+    <string name="about_license">Ліцензія</string>
+    <string name="about_version">Версія: %s</string>
+    <string name="about_authors">АВТОРИ</string>
 </resources>

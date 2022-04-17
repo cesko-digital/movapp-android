@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.top_menu_about -> {
-                Toast.makeText(this, "This is Movapp", Toast.LENGTH_SHORT).show()
+                navController.navigate(R.id.navigation_about)
                 return true
             }
 

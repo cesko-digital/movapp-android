@@ -6,4 +6,13 @@
     <string name="title_search">Search</string>
     <string name="title_favorites">Favourites</string>
     <string name="title_about">About</string>
+    <string name="about_project">THIS PROJECT</string>
+    <string name="about_web">Web</string>
+    <string name="about_twitter">Twitter</string>
+    <string name="about_instagram">Instagram</string>
+    <string name="about_application">THIS APPLICATION</string>
+    <string name="about_report">Help or bug report</string>
+    <string name="about_license">License</string>
+    <string name="about_version">Version: %s</string>
+    <string name="about_authors">AUTHORS</string>
 </resources>
