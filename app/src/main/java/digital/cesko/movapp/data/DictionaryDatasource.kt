@@ -3,8 +3,6 @@ package digital.cesko.movapp.data
 import android.content.Context
 import digital.cesko.movapp.ui.dictionary.DictionarySectionsData
 import digital.cesko.movapp.ui.dictionary.DictionaryTranslationsData
-import kotlinx.coroutines.flow.Flow
-import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 

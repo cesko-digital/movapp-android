@@ -29,10 +29,10 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
         loadAlphabet(getApplication<App>().appModule().alphabetDataSource, fromUa)
     }
 
-    class Factory(private val application: Application, private val language: MainViewModel) :
+    class Factory(private val application: Application, private val mainViewModel: MainViewModel) :
         ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return AlphabetViewModel(application, language) as T
+            return AlphabetViewModel(application, mainViewModel) as T
         }
     }
 

@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import digital.cesko.movapp.BuildConfig
 import digital.cesko.movapp.R
 import digital.cesko.movapp.databinding.FragmentAboutBinding
@@ -33,7 +35,6 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         binding.textAboutVersion.text = resources.getString(R.string.about_version).format(BuildConfig.VERSION_NAME)
 
@@ -57,7 +58,14 @@ class AboutFragment : Fragment() {
             openUri(HTTP_MOVAPP_LICENCE)
         }
 
-        return root
+
+        lifecycle.addObserver(object : DefaultLifecycleObserver {
+            override fun onDestroy(owner: LifecycleOwner) {
+                _binding = null
+            }
+        })
+
+        return binding.root
     }
 
     private fun openUri(textUri: String) {
@@ -66,8 +74,4 @@ class AboutFragment : Fragment() {
         context?.startActivity(intent)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

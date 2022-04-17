@@ -2,14 +2,12 @@ package digital.cesko.movapp.ui.dictionary
 
 import android.app.Application
 import androidx.lifecycle.*
+import digital.cesko.movapp.FavoritesViewModel
 import digital.cesko.movapp.adapter.DictionaryAdapter
 import digital.cesko.movapp.adapter.DictionaryContentAdapter
 import digital.cesko.movapp.data.DictionaryDatasource
-import digital.cesko.movapp.FavoritesViewModel
 
-class DictionaryViewModel(application: Application, favoritesViewModel: FavoritesViewModel) : AndroidViewModel(application) {
-
-    private val context = application.applicationContext
+class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewModel) : AndroidViewModel(app) {
 
     private val _currentSectionTitle = MutableLiveData<String>()
 
@@ -17,12 +15,16 @@ class DictionaryViewModel(application: Application, favoritesViewModel: Favorite
         get() = _currentSectionTitle
 
     private val _sections = MutableLiveData<DictionaryAdapter>().apply {
-        value = DictionaryAdapter(context, DictionaryDatasource().loadSections(context))
+        value = DictionaryAdapter(app.applicationContext, DictionaryDatasource().loadSections(app.applicationContext))
     }
 
     val sections: LiveData<DictionaryAdapter> = _sections
 
-    val translations = DictionaryContentAdapter(context, DictionaryDatasource().loadTranslations(context), favoritesViewModel)
+    val translations = DictionaryContentAdapter(
+        app.applicationContext,
+        DictionaryDatasource().loadTranslations(app.applicationContext),
+        favoritesViewModel
+    )
 
     fun setCustomTitle(title: String) {
         _currentSectionTitle.value = title
