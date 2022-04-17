@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-    private val _fromUa = MutableLiveData<Boolean>(true)
+    private val _fromUa = MutableLiveData(true)
 
     val fromUa: LiveData<Boolean>
         get() = _fromUa

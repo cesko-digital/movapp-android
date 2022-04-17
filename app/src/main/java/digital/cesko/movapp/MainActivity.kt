@@ -6,16 +6,15 @@ import android.view.MenuItem
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import digital.cesko.movapp.data.Favorites
-import digital.cesko.movapp.data.FavoritesDatabase
 import digital.cesko.movapp.databinding.ActivityMainBinding
 import digital.cesko.movapp.ui.dictionary.DictionaryViewModel
 
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
-    var fromUa = true
+
     var favorites = listOf<Favorites>()
 
     private val dictionarySharedViewModel: DictionaryViewModel by viewModels()
@@ -57,6 +56,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_menu, menu)
+
+
+        mainSharedModel.fromUa.observe(this, Observer { fromUa ->
+            val languageItem = menu?.findItem(R.id.top_menu_switch_language)
+            languageItem?.setIcon(if (fromUa) R.drawable.ua else R.drawable.cz)
+        })
 
         val search = menu?.findItem(R.id.search_bar)
         val searchView = search?.actionView as SearchView
@@ -101,19 +106,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.top_menu_switch_language -> {
-                fromUa = mainSharedModel.fromUa.value == true
-                fromUa = when (fromUa) {
-                    true -> {
-                        item.setIcon(R.drawable.cz)
-                        false
-                    }
-                    false -> {
-                        item.setIcon(R.drawable.ua)
-                        true
-                    }
-                }
-
-                mainSharedModel.setFromUa(fromUa)
+                mainSharedModel.setFromUa(!mainSharedModel.fromUa.value!!)
 
                 try {
                     /**
