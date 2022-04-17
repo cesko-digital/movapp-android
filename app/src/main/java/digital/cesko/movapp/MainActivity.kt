@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity() {
 
     private val dictionarySharedViewModel: DictionaryViewModel by viewModels()
     private val mainSharedModel: MainViewModel by viewModels()
-
-    private val favoritesDatabase: FavoritesDatabase by lazy { FavoritesDatabase.getDatabase(this) }
     private val favoritesViewModel: FavoritesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

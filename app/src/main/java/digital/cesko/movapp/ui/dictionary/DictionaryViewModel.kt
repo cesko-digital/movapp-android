@@ -24,6 +24,10 @@ class DictionaryViewModel(application: Application, favoritesViewModel: Favorite
 
     val translations = DictionaryContentAdapter(context, DictionaryDatasource().loadTranslations(context), favoritesViewModel)
 
+    fun setCustomTitle(title: String) {
+        _currentSectionTitle.value = title
+    }
+
     fun selectedTranslations(sectionId: String, translationIds: List<String>):List<DictionaryTranslationsData>? {
         _currentSectionTitle.value = _sections.value?.getSectionTitle(sectionId)
 
@@ -31,13 +35,7 @@ class DictionaryViewModel(application: Application, favoritesViewModel: Favorite
     }
 
     fun search(constraint: String) {
-
         translations.search(constraint)
-
-        _currentSectionTitle.value = when (val title = _sections.value?.getSectionTitle(constraint)) {
-            "" -> constraint
-            else -> title
-        }
     }
 }
 

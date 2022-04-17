@@ -125,6 +125,8 @@ class DictionaryContentFragment : Fragment() {
                 dictionarySharedViewModel.selectedTranslations(constraint, favoritesIds)
             )
 
+            dictionarySharedViewModel.setCustomTitle(resources.getString(R.string.title_favorites))
+
             return true
         }
 
