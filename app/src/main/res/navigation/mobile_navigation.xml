@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/navigation_children"
         android:name="digital.cesko.movapp.ui.children.ChildrenFragment"
-        android:label="@string/title_forchildren"
+        android:label="@string/title_children"
         tools:layout="@layout/fragment_children" >
     </fragment>
 

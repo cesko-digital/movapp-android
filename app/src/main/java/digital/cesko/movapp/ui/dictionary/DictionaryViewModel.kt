@@ -11,11 +11,6 @@ class DictionaryViewModel(application: Application, favoritesViewModel: Favorite
 
     private val context = application.applicationContext
 
-    private val _currentSectionId = MutableLiveData<String>()
-
-    val currentSectionId: LiveData<String>
-        get() = _currentSectionId
-
     private val _currentSectionTitle = MutableLiveData<String>()
 
     val currentSectionTitle: LiveData<String>

@@ -43,7 +43,6 @@ class DictionaryAdapter (
         val item = dataset[position]
 
         if (position % 2 == 1) {
-            //holder.layout.setBackgroundColor(ContextCompat.getColor(context, R.color.oddItem))
             holder.layout.background = ContextCompat.getDrawable(context, R.drawable.odd_outline)
         } else {
             val typedValue = TypedValue()

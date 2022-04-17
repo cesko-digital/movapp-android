@@ -54,12 +54,6 @@ class DictionaryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        //val viewModel =
-        //    ViewModelProvider(this, DictionaryViewModelFactory(requireActivity().application, "", listOf())).get(DictionaryViewModel::class.java)
-            //ViewModelProvider(this).get(DictionaryViewModel::class.java)
-        //val viewModel = DictionaryViewModel(requireActivity().application, "", listOf())
-
         _binding = FragmentDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 

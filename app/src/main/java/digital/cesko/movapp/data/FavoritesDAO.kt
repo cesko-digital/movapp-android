@@ -15,13 +15,10 @@ interface FavoritesDAO {
 
     @Query("SELECT * FROM favorites")
     fun getAllFavorites(): LiveData<List<Favorites>>
-    //fun getAllFavorites():  Flow<List<Favorites>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(item: Favorites)
-    //suspend fun insert(item: Favorites)
 
     @Delete
     fun delete(item: Favorites)
-    //suspend fun delete(item: Favorites)
 }
