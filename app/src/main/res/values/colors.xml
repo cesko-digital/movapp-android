@@ -10,7 +10,7 @@
     <color name="secondaryLightColor">#ffff52</color>
     <color name="secondaryDarkColor">#c7a400</color>
     <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#2D2D2D</color>
 
-    <color name="oddItem">#E4E4E4</color>
+    <color name="oddItem">#F2F2F2</color>
 </resources>
