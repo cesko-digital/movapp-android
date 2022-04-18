@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image_latter_play_sound"
         android:layout_width="64dp"
         android:layout_height="64dp"
         app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
@@ -42,7 +42,7 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
         app:layout_constraintTop_toBottomOf="@+id/text_alphabet_letter"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/image_latter_play_sound"
         />
 
     <LinearLayout
@@ -58,7 +58,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/image_latter_play_sound">
 
         <TextView
             android:id="@+id/text_alphabet_examples"
