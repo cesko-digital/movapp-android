@@ -1,7 +1,6 @@
 package digital.cesko.movapp.adapter
 
 import android.content.Context
-import android.content.res.Resources
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +12,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import digital.cesko.movapp.R
 import digital.cesko.movapp.data.Favorites
-import digital.cesko.movapp.ui.dictionary.DictionarySectionsData
 import digital.cesko.movapp.ui.dictionary.DictionaryFragmentDirections
+import digital.cesko.movapp.ui.dictionary.DictionarySectionsData
 
 class DictionaryAdapter (
     private val context: Context,
@@ -46,8 +45,7 @@ class DictionaryAdapter (
             holder.layout.background = ContextCompat.getDrawable(context, R.drawable.odd_outline)
         } else {
             val typedValue = TypedValue()
-            val theme: Resources.Theme = context.theme
-            val got: Boolean = theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+            context.theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
             holder.layout.setBackgroundColor(typedValue.data)
         }
 
@@ -67,6 +65,7 @@ class DictionaryAdapter (
             holder.itemView.findNavController().navigate(action)
         }
     }
+
 
     fun getSectionTitle(sectionId: String): String {
         for (i in dataset) {
