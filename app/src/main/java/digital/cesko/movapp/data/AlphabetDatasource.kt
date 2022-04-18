@@ -66,10 +66,11 @@ class AlphabetDatasource(private val context: Context) {
     }
 
     private fun lazyCacheLoad(fromUa: Boolean): List<AlphabetData> {
-        val selected = cache[fromUa]!!
+        var selected = cache[fromUa]!!
         return if (selected.isEmpty()) {
-            cache[fromUa] = loadByLanguage(toStrangeLangCode(fromUa))
-            cache[fromUa]!!
+            selected = loadByLanguage(toStrangeLangCode(fromUa))
+            cache[fromUa] = selected
+            selected
         } else {
             selected
         }
