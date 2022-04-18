@@ -70,8 +70,8 @@ class DictionaryContentAdapter(
             if (fromUa) {
                 textFrom.text = item.translation_to
                 textFromTrans.text = brackets(item.transcription_to)
-//                textTo.text = item.translation_from
-//                textToTrans.text = brackets(item.transcription_from)
+                textTo.text = item.translation_from
+                textToTrans.text = brackets(item.transcription_from)
             } else {
                 textFrom.text = item.translation_from
                 textFromTrans.text = brackets(item.transcription_from)
