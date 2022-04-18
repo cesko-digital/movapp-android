@@ -3,11 +3,14 @@ package digital.cesko.movapp.data
 import android.content.Context
 import digital.cesko.movapp.ui.alphabet.AlphabetData
 import digital.cesko.movapp.ui.alphabet.LetterExampleData
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 
 /**
  * non-standard lang code ie. uk for Ukraine instead of ua
+ *
+ * see app/src/main/assets/alphabet/cs-alphabet.json
  */
 fun toStrangeLangCode(fromUa: Boolean?) = if (fromUa == true) "uk" else "cs"
 
@@ -48,13 +51,16 @@ class AlphabetDatasource(private val context: Context) {
                 ))
             }
 
+            val letterLowerCase = jsonLetterObj.getJSONArray("letter").getNullString(1)
             alphabet.add(AlphabetData(
-                jsonLetterObj.getString("id"),
-                langCode,
-                jsonLetterObj.getJSONArray("letter").get(0).toString(),
-                jsonLetterObj.getJSONArray("letter").get(1).toString(),
-                jsonLetterObj.getString("transcription"),
-                examples)
+                    jsonLetterObj.getString("id"),
+                    langCode,
+                    jsonLetterObj.getJSONArray("letter").getNullString(0),
+                    letterLowerCase,
+                    letterSoundAssetFile = (if(letterLowerCase == null) null else "alphabet/$langCode-alphabet/$letterLowerCase.mp3"),
+                    jsonLetterObj.getString("transcription"),
+                    examples
+            )
             )
         }
 
@@ -76,4 +82,9 @@ class AlphabetDatasource(private val context: Context) {
         }
     }
 
+}
+
+fun JSONArray.getNullString(index: Int): String? {
+    val string = this.getString(index)
+    return if (string == "null") null else string
 }

@@ -55,5 +55,7 @@ dependencies {
     implementation "androidx.room:room-ktx:2.3.0"
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+    testImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation "com.google.truth:truth:1.0.1"
 
 }
