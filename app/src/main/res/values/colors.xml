@@ -14,4 +14,7 @@
 
     <color name="oddItem">#F2F2F2</color>
     <color name="alphabetSurfaceColor">#ffd500</color>
+
+    <color name="navColorSelected">#013abd</color>
+    <color name="navColorUnselected">#2D2D2D</color>
 </resources>
