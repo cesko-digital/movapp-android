@@ -50,16 +50,18 @@ class AlphabetDatasource(private val context: Context) {
                 ))
             }
 
-            val letterLowerCase = jsonLetterObj.getJSONArray("letter").getNullString(1)
-            alphabet.add(AlphabetData(
-                    jsonLetterObj.getString("id"),
-                    langCode,
-                    jsonLetterObj.getJSONArray("letter").getNullString(0),
-                    letterLowerCase,
-                    letterSoundAssetFile = (if(letterLowerCase == null) null else "alphabet/$langCode-alphabet/$letterLowerCase.mp3"),
-                    jsonLetterObj.getString("transcription"),
-                    examples
-            )
+            val file_name = jsonLetterObj.getNullString("file_name")
+            alphabet.add(
+                AlphabetData(
+                    id = jsonLetterObj.getString("id"),
+                    language = langCode,
+                    letter_capital = jsonLetterObj.getJSONArray("letter").getNullString(0),
+                    letter = jsonLetterObj.getJSONArray("letter").getNullString(1),
+                    file_name = file_name,
+                    letterSoundAssetFile = (if (file_name == null) null else "alphabet/$langCode-alphabet/$file_name"),
+                    transcription = jsonLetterObj.getString("transcription"),
+                    examples = examples
+                )
             )
         }
 
@@ -85,5 +87,10 @@ class AlphabetDatasource(private val context: Context) {
 
 fun JSONArray.getNullString(index: Int): String? {
     val string = this.getString(index)
+    return if (string == "null") null else string
+}
+
+fun JSONObject.getNullString(name: String): String? {
+    val string = this.getString(name)
     return if (string == "null") null else string
 }
