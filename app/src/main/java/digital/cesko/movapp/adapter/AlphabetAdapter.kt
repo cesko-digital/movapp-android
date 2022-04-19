@@ -42,12 +42,12 @@ class AlphabetAdapter(
 
             if (item.letterSoundAssetFile != null){
                 binding.imageLatterPlaySound.visibility = View.VISIBLE
-                binding.imageLatterPlaySound.setOnClickListener { view ->
+                binding.layout.setOnClickListener { view ->
                     playSound(view.context, item.letterSoundAssetFile)
                 }
             } else {
                 binding.imageLatterPlaySound.visibility = View.GONE
-                binding.imageLatterPlaySound.setOnClickListener(null)
+                binding.layout.setOnClickListener(null)
             }
 
         }
