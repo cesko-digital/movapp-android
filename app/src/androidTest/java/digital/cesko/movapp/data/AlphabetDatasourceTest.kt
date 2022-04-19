@@ -1,13 +1,10 @@
 package digital.cesko.movapp.data
 
 import android.content.Context
-import androidx.core.net.toFile
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
-import digital.cesko.movapp.adapter.assetFileNameToUri
 import digital.cesko.movapp.adapter.playSound
-import digital.cesko.movapp.adapter.playSound2
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -35,23 +32,10 @@ class AlphabetDatasourceTest {
             .map { alphabetData -> alphabetData.letterSoundAssetFile?.let { appContext.assets.open(it) } }
     }
 
-
-    @Test
-    fun assetFileNameToUri() {
-        assertThat(assetFileNameToUri("alphabet/cs-alphabet/e.mp3")?.toFile()?.exists()).isTrue()
-    }
-
     @Test
     fun playSound() {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         assertThat(playSound(appContext,"alphabet/cs-alphabet/e.mp3")).isNotNull()
-    }
-
-    @Test
-    fun playSound2() {
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-
-        assertThat(playSound2(appContext,"alphabet/cs-alphabet/e.mp3")).isNotNull()
     }
 }

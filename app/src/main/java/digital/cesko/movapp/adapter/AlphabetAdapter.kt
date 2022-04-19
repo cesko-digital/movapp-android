@@ -3,13 +3,12 @@ package digital.cesko.movapp.adapter
 import android.content.Context
 import android.content.res.AssetFileDescriptor
 import android.media.MediaPlayer
-import android.net.Uri
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import digital.cesko.movapp.databinding.AlphabetItemBinding
 import digital.cesko.movapp.ui.alphabet.AlphabetData
-import java.io.File
 
 
 class AlphabetAdapter(
@@ -32,23 +31,23 @@ class AlphabetAdapter(
         val item = dataset[position]
 
         holder.apply {
-            binding.textAlphabetLetter.text = "%s %s".format(item.letter_capital,
-                    when (item.letter) {
-                        null -> ""
-                        else -> item.letter
-                    })
-            binding.textAlphabetTranscription.text = "%s".format(item.transcription)
+            binding.textAlphabetLetter.text = "${item.letter_capital} ${item.letter ?: ""}"
+            binding.textAlphabetTranscription.text = item.transcription
 
             var examples = ""
             for (i in item.examples) {
-                examples += "%s [%s]\n".format(i.example, i.transcription)
+                examples += "${i.example} [${i.transcription}]\n"
             }
             binding.textAlphabetExamples.text = examples.trim()
 
-            item.letterSoundAssetFile?.let {
+            if (item.letterSoundAssetFile != null){
+                binding.imageLatterPlaySound.visibility = View.VISIBLE
                 binding.imageLatterPlaySound.setOnClickListener { view ->
-                    playSound2(view.context, item.letterSoundAssetFile)
+                    playSound(view.context, item.letterSoundAssetFile)
                 }
+            } else {
+                binding.imageLatterPlaySound.visibility = View.GONE
+                binding.imageLatterPlaySound.setOnClickListener(null)
             }
 
         }
@@ -57,33 +56,6 @@ class AlphabetAdapter(
 
 
 
-}
-
-/**
- * @return null if failed
- */
-fun playSound2(
-    context: Context,
-    assetFileName: String
-): MediaPlayer? {
-    val uri = assetFileNameToUri(assetFileName)
-    uri?.let{
-        val afd: AssetFileDescriptor = context.assets.openFd(assetFileName)
-        var player:MediaPlayer? = MediaPlayer()
-        player?.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
-
-        player?.setOnCompletionListener { mp ->
-            mp?.reset()
-            mp?.release()
-            player = null
-        }
-        player?.prepare()
-        player?.start()
-
-        return player
-    }
-
-    return null
 }
 
 /**
@@ -93,25 +65,17 @@ fun playSound(
     context: Context,
     assetFileName: String
 ): MediaPlayer? {
-    val uri = assetFileNameToUri(assetFileName)
-    uri?.let{
-        var player = MediaPlayer.create(context, uri)
-        player?.setOnCompletionListener { mp ->
-            mp?.reset()
-            mp?.release()
-            player = null
-        }
-        player?.start()
+    val afd: AssetFileDescriptor = context.assets.openFd(assetFileName)
+    var player:MediaPlayer? = MediaPlayer()
+    player?.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
 
-        return player
+    player?.setOnCompletionListener { mp ->
+        mp?.reset()
+        mp?.release()
+        player = null
     }
+    player?.prepare()
+    player?.start()
 
-    return null
-}
-
-/**
- * @param assetFileName - path in asset folder
- */
-fun assetFileNameToUri(assetFileName: String?): Uri? {
-    return Uri.fromFile(File("//android_asset/$assetFileName"))
+    return player
 }
