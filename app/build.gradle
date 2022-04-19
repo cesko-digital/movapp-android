@@ -9,7 +9,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "digital.cesko.movapp"
+        applicationId "cz.movapp.app"
         minSdk 21
         targetSdk 32
         versionCode 1

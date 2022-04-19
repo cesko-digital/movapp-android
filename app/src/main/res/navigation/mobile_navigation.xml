@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_dictionary"
-        android:name="digital.cesko.movapp.ui.dictionary.DictionaryFragment"
+        android:name="cz.movapp.app.ui.dictionary.DictionaryFragment"
         android:label="@string/title_dictionary"
         tools:layout="@layout/fragment_dictionary" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="digital.cesko.movapp.ui.dictionary.DictionaryContentFragment"
+        android:name="cz.movapp.app.ui.dictionary.DictionaryContentFragment"
         android:label="@string/title_favorites"
         tools:layout="@layout/fragment_dictionary_content" >
         <argument
@@ -33,21 +33,21 @@
 
     <fragment
         android:id="@+id/navigation_alphabet"
-        android:name="digital.cesko.movapp.ui.alphabet.AlphabetFragment"
+        android:name="cz.movapp.app.ui.alphabet.AlphabetFragment"
         android:label="@string/title_alphabet"
         tools:layout="@layout/fragment_alphabet" >
     </fragment>
 
     <fragment
         android:id="@+id/navigation_children"
-        android:name="digital.cesko.movapp.ui.children.ChildrenFragment"
+        android:name="cz.movapp.app.ui.children.ChildrenFragment"
         android:label="@string/title_children"
         tools:layout="@layout/fragment_children" >
     </fragment>
 
     <fragment
         android:id="@+id/dictionary_content_fragment"
-        android:name="digital.cesko.movapp.ui.dictionary.DictionaryContentFragment"
+        android:name="cz.movapp.app.ui.dictionary.DictionaryContentFragment"
         android:label="@string/title_dictionary"
         tools:layout="@layout/fragment_dictionary_content" >
         <argument
@@ -62,7 +62,7 @@
 
     <fragment
         android:id="@+id/navigation_about"
-        android:name="digital.cesko.movapp.ui.about.AboutFragment"
+        android:name="cz.movapp.app.ui.about.AboutFragment"
         android:label="@string/title_about"
         tools:layout="@layout/fragment_about" >
     </fragment>
