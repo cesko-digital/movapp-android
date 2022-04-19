@@ -15,4 +15,7 @@
     <color name="oddItem">#1B1B1B</color>
     <color name="alphabetSurfaceColor">#413700</color>
     <color name="playColor">#E42D00</color>
+
+    <color name="navColorSelected">#013abd</color>
+    <color name="navColorUnselected">#BFBEBE</color>
 </resources>
