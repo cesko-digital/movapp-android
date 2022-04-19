@@ -14,5 +14,8 @@
         <!-- Customize your theme here. -->
 
         <item name="android:textColor">@color/secondaryTextColor</item>
+
+        <item name="android:fontFamily">@font/font_source_sans_pro</item>
+
     </style>
 </resources>

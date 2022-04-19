@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="corner_rounding">8dp</dimen>
+    <dimen name="corner_rounding">12dp</dimen>
     <dimen name="general_padding">4dp</dimen>
 
     <dimen name="divider_margin">10dp</dimen>

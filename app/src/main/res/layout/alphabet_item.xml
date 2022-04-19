@@ -49,8 +49,8 @@
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="@id/flow"
         app:layout_constraintTop_toTopOf="@+id/flow"
-        tools:text="long text tadasjahjkahsdjkahs\nsdfsdsdsdfsdfsdfsdfsdfsdfsdfdsssdfsdfsd\ndsf"
-        />
+        tools:layout_editor_absoluteX="68dp"
+        tools:text="long text tadasjahjkahsdjkahs\nsdfsdsdsdfsdfsdfsdfsdfsdfsdfdsssdfsdfsd\ndsf" />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow"
