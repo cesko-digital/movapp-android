@@ -7,13 +7,12 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 
+
+fun toLanguageCode(fromUa: Boolean?) = if (fromUa == true) "uk" else "cs"
+
 /**
- * non-standard lang code ie. uk for Ukraine instead of ua
- *
  * see app/src/main/assets/alphabet/cs-alphabet.json
  */
-fun toStrangeLangCode(fromUa: Boolean?) = if (fromUa == true) "uk" else "cs"
-
 class AlphabetDatasource(private val context: Context) {
 
     private val cache = mutableMapOf(
@@ -74,7 +73,7 @@ class AlphabetDatasource(private val context: Context) {
     private fun lazyCacheLoad(fromUa: Boolean): List<AlphabetData> {
         var selected = cache[fromUa]!!
         return if (selected.isEmpty()) {
-            selected = loadByLanguage(toStrangeLangCode(fromUa))
+            selected = loadByLanguage(toLanguageCode(fromUa))
             cache[fromUa] = selected
             selected
         } else {
