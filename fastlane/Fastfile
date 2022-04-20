@@ -22,5 +22,11 @@ platform :android do
     gradle(task: "clean bundleRelease")
     upload_to_play_store(track: 'alpha')
   end
+
+  desc "Check build"
+  lane :build do
+    gradle(task: "clean bundleRelease")
+    gradle(tasks: ["assembleRelease", "bundleRelease"])
+end
   
 end
