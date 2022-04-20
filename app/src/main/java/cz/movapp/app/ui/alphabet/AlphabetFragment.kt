@@ -8,11 +8,19 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
+import cz.movapp.app.adapter.AlphabetAdapter
+import cz.movapp.app.appModule
 import cz.movapp.app.databinding.FragmentAlphabetBinding
+
 
 class AlphabetFragment : Fragment() {
 
@@ -37,25 +45,36 @@ class AlphabetFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        val app = this.requireActivity().application as App
+        val appModule = app.appModule()
         val viewModel =
-            ViewModelProvider(this, AlphabetViewModel.Factory(this.requireActivity().application, mainSharedViewModel))
+            ViewModelProvider(this, AlphabetViewModel.Factory(app, mainSharedViewModel))
                 .get(AlphabetViewModel::class.java)
         _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
 
+        binding.recyclerViewAlphabet.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        mainSharedViewModel.fromUa.observe(viewLifecycleOwner, Observer { fromUa ->
-            viewModel.setCurrentAlphabet(fromUa)
-        })
-
-        viewModel.currentAlphabet.observe(viewLifecycleOwner) {
-            binding.recyclerViewAlphabet.adapter = it
-            binding.recyclerViewAlphabet.setHasFixedSize(true)
+        viewModel.alphabetsState.observe(viewLifecycleOwner) {
+            if(it.isLoaded){
+                binding.recyclerViewAlphabet.adapter = AlphabetAdapter(it.alphabetData)
+                binding.recyclerViewAlphabet.restoreSavableScrollState(it.scrollPositions[it.fromUa]!!)
+                binding.recyclerViewAlphabet.setHasFixedSize(true)
+            }
         }
 
-        binding.recyclerViewAlphabet.layoutManager = GridLayoutManager(requireContext(), 2)
+        mainSharedViewModel.fromUa.observe(viewLifecycleOwner, Observer { fromUa ->
+            viewModel.onLanguageChanged(fromUa, binding.recyclerViewAlphabet.getSavableScrollState())
+        })
+
+        this.lifecycle.addObserver(object : DefaultLifecycleObserver {
+            override fun onPause(owner: LifecycleOwner) {
+                viewModel.onLanguageChanged( oldScrollPosition = binding.recyclerViewAlphabet.getSavableScrollState())
+            }
+        })
 
         return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -65,3 +84,15 @@ class AlphabetFragment : Fragment() {
 }
 
 
+fun RecyclerView.getSavableScrollState(): Int {
+    return when (this.layoutManager) {
+        null -> throw UnsupportedOperationException("RecyclerView: No LayoutManager set")
+        is LinearLayoutManager -> (this.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
+        else -> throw UnsupportedOperationException("RecyclerView: Can't save scroll state. Unknown LayoutManager")
+    }
+}
+
+fun RecyclerView.restoreSavableScrollState(position: Int) {
+    val layoutManager = this.layoutManager as LinearLayoutManager?
+    layoutManager?.scrollToPositionWithOffset(position, 0)
+}

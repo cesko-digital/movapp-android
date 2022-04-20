@@ -33,6 +33,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 
@@ -55,7 +56,14 @@ dependencies {
     implementation "androidx.room:room-ktx:2.3.0"
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1-native-mt'
     testImplementation "com.google.truth:truth:1.0.1"
     androidTestImplementation "com.google.truth:truth:1.0.1"
 
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    testImplementation "org.mockito:mockito-core:4.5.1"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
 }
