@@ -3,8 +3,7 @@ package cz.movapp.app
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
-import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -52,6 +51,15 @@ class MainActivity : AppCompatActivity() {
         favoritesViewModel.favorites.observe(this) {
             favorites = it
         }
+
+        supportActionBar?.apply {
+            setDisplayShowTitleEnabled(false)
+
+            setDisplayShowHomeEnabled(true)
+            setDisplayUseLogoEnabled(true)
+            /* actionbar logo height should be 24dp */
+            setLogo(R.drawable.ic_actionbar_logo)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -68,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         searchView.queryHint = resources.getString(R.string.title_search)
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean  = searchDictionary(query)
+            override fun onQueryTextSubmit(query: String?): Boolean = searchDictionary(query)
             override fun onQueryTextChange(query: String?): Boolean = searchDictionary(query)
 
             fun searchDictionary(query: String?): Boolean {

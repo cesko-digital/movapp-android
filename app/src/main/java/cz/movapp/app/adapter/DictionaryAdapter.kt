@@ -65,17 +65,4 @@ class DictionaryAdapter (
             holder.itemView.findNavController().navigate(action)
         }
     }
-
-
-    fun getSectionTitle(sectionId: String): String {
-        for (i in dataset) {
-            if (sectionId == i.id) {
-                return when (fromUa) {
-                    true -> i.to
-                    false -> i.from
-                }
-            }
-        }
-        return ""
-    }
 }
