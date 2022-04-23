@@ -65,6 +65,8 @@ class StateStoreTest{
 
             stateStoreMock.saveState(k3, v3)
             val restoreState = stateStoreMock.restoreState(k3,object : TypeToken<Map<Boolean, Int>>() {}.type)
+
+
             assertThat(restoreState.first()!!).isEqualTo(v3)
         }
     }
@@ -77,6 +79,7 @@ class StateStoreTest{
 
             stateStoreMock.saveState(k3, v3)
             val restoreState = stateStoreMock.restoreState(k3)
+
             assertThat(restoreState.first()!!).isEqualTo(v4)
         }
     }
@@ -90,8 +93,11 @@ class StateStoreTest{
             val dataMap = mutableMapOf<Preferences.Key<String>, String?>()
             val stateStoreMock = stateStoreMock(dataMap, this)
 
+
             stateStoreMock.saveState(k4, v4)
             val restoreState = stateStoreMock.restoreState(k4)
+
+
             assertThat(restoreState.first()!!).isEqualTo(v4)
         }
     }

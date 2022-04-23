@@ -6,14 +6,12 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.toList
-import org.junit.Test
 
 
 class AlphabetViewModelTest {
 
-    @Test
+    //@Test
     fun flow() = runBlocking {
-
         val testContext = this.coroutineContext
         val async1 = async(Dispatchers.IO) {
             flowOf(1, 2, 3, 4, 5)
