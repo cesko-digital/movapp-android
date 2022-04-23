@@ -77,10 +77,16 @@ dependencies {
     testImplementation "com.google.truth:truth:1.0.1"
     androidTestImplementation "com.google.truth:truth:1.0.1"
 
+    //Key value pair storage
     implementation "androidx.datastore:datastore-preferences:1.0.0"
 
+    //Json de/serialization
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    //Mocking framework
     testImplementation "org.mockito:mockito-core:4.5.1"
     testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+
+    //Leak detection lib
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 }
