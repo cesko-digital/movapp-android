@@ -82,10 +82,6 @@ class DictionaryContentFragment : Fragment() {
             recyclerView.adapter?.notifyDataSetChanged()
         }
 
-        dictionarySharedViewModel.currentSectionTitle.observe(viewLifecycleOwner) {
-            label -> (activity as AppCompatActivity).supportActionBar?.title = label
-        }
-
         return root
     }
 
@@ -124,8 +120,6 @@ class DictionaryContentFragment : Fragment() {
             (recyclerView.adapter as DictionaryContentAdapter).submitList(
                 dictionarySharedViewModel.selectedTranslations(constraint, favoritesIds)
             )
-
-            dictionarySharedViewModel.setCustomTitle(resources.getString(R.string.title_favorites))
 
             return true
         }
