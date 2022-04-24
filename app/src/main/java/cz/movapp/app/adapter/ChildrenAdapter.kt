@@ -1,22 +1,21 @@
 package cz.movapp.app.adapter
 
-import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.app.LanguagePair
 import cz.movapp.app.R
 import cz.movapp.app.databinding.ChildrenItemBinding
 import cz.movapp.app.ui.children.ChildrenData
 
 class ChildrenAdapter (
-    private val context: Context,
     private val dataset: List<ChildrenData>
 ): RecyclerView.Adapter<ChildrenAdapter.ItemViewHolder>() {
 
-    var fromUa = true
+    var langPair = LanguagePair.getDefault()
 
     class ItemViewHolder(binding: ChildrenItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val binding = binding
@@ -32,7 +31,7 @@ class ChildrenAdapter (
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-
+        val context = holder.binding.root.context
         /* for dark theme, use white color as tint */
         when (context.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
             Configuration.UI_MODE_NIGHT_YES -> {
@@ -46,7 +45,7 @@ class ChildrenAdapter (
         holder.binding.apply {
             imageChildrenMain.setImageDrawable(item.image)
 
-            if (fromUa) {
+            if (!langPair.isReversed) {
                 textChildrenFrom.text = formatTrans(item.translation_from, item.transcription_from)
                 textChildrenTo.text = formatTrans(item.translation_to, item.transcription_to)
 

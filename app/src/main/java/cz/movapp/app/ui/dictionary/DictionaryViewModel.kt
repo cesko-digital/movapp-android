@@ -10,7 +10,7 @@ import cz.movapp.app.data.DictionaryDatasource
 class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewModel) : AndroidViewModel(app) {
 
     private val _sections = MutableLiveData<DictionaryAdapter>().apply {
-        value = DictionaryAdapter(app.applicationContext, DictionaryDatasource().loadSections(app.applicationContext))
+        value = DictionaryAdapter(DictionaryDatasource().loadSections(app.applicationContext))
     }
 
     val sections: LiveData<DictionaryAdapter> = _sections

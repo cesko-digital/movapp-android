@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
+import cz.movapp.app.LanguagePair
 import cz.movapp.app.R
 import cz.movapp.app.databinding.DictionaryContentItemBinding
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
@@ -41,7 +42,7 @@ class DictionaryContentAdapter(
         }
     }
 
-    var fromUa = true
+    var langPair = LanguagePair.getDefault()
     var favoritesIds = mutableListOf<String>()
 
     class ItemViewHolder(binding: DictionaryContentItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -66,7 +67,7 @@ class DictionaryContentAdapter(
         }
 
         holder.binding.apply {
-            if (fromUa) {
+            if (langPair.isReversed) {
                 textFrom.text = item.translation_to
                 textTo.text = item.translation_from
                 textToTrans.text = brackets(item.transcription_from)

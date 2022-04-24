@@ -3,9 +3,9 @@ package cz.movapp.app
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -13,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import cz.movapp.app.LanguagePair.Companion.nextLanguage
 import cz.movapp.app.data.Favorites
 import cz.movapp.app.databinding.ActivityMainBinding
 import cz.movapp.app.ui.dictionary.DictionaryViewModel
@@ -66,9 +67,9 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.top_menu, menu)
 
 
-        mainSharedModel.fromUa.observe(this, Observer { fromUa ->
+        mainSharedModel.selectedLanguage.observe(this, Observer { fromUa ->
             val languageItem = menu?.findItem(R.id.top_menu_switch_language)
-            languageItem?.setIcon(if (fromUa) R.drawable.ua else R.drawable.cz)
+            languageItem?.setIcon(fromUa.from.flagResId)
         })
 
         val search = menu?.findItem(R.id.search_bar)
@@ -114,7 +115,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.top_menu_switch_language -> {
-                mainSharedModel.setFromUa(!mainSharedModel.fromUa.value!!)
+                mainSharedModel.selectLanguage(nextLanguage(mainSharedModel.selectedLanguage.value!!))
                 return true
             }
 

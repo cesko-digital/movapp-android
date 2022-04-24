@@ -6,6 +6,6 @@ import cz.movapp.android.StateStore
 class AlphabetStateKeys{
     companion object{
         val SCROLL_POSITIONS =
-            StateStore.Key<Map<Boolean, Int>>("AlphabetState.scrollPositions", object : TypeToken<Map<Boolean, Int>>() {}.type)
+            StateStore.Key<Map<String, Int>>("AlphabetState.scrollPositions", object : TypeToken<Map<String, Int>>() {}.type)
     }
 }

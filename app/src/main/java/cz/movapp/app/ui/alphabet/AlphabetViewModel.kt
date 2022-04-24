@@ -3,6 +3,8 @@ package cz.movapp.app.ui.alphabet
 import android.app.Application
 import androidx.lifecycle.*
 import cz.movapp.app.App
+import cz.movapp.app.LanguagePair
+import cz.movapp.app.LanguagePair.Companion.getDefault
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.appModule
 import kotlinx.coroutines.Dispatchers
@@ -18,26 +20,26 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
 
     data class AlphabetState(
         val alphabetData: List<AlphabetData> = listOf(),
-        val scrollPositions: Map<Boolean, Int> = mapOf(true to 0, false to 0),
-        val fromUa: Boolean = true,
+        val scrollPositions: Map<String, Int> = mapOf(),
+        val lang: LanguagePair = getDefault(),
         val isLoaded: Boolean = false
     ) {
     }
 
     init {
-        mainViewModel.fromUa.value?.let { fromUa: Boolean ->
+        mainViewModel.selectedLanguage.value?.let { lang: LanguagePair ->
 
             viewModelScope.launch(Dispatchers.IO) {
                 val storedScrollPositions =
                     appModule().stateStore.restoreState(AlphabetStateKeys.SCROLL_POSITIONS)
 
                 val scrollPositions = storedScrollPositions.first()
-                val alphabetData = appModule().alphabetDataSource.load(fromUa)
+                val alphabetData = appModule().alphabetDataSource.load(lang)
 
                 withContext(Dispatchers.Main){
                     val newValue = alphabetsState.value!!.copy(
                         alphabetData = alphabetData,
-                        fromUa = fromUa,
+                        lang = lang,
                         scrollPositions = scrollPositions ?: AlphabetState().scrollPositions,
                         isLoaded = true
                     )
@@ -49,13 +51,13 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
     }
 
     fun onLanguageChanged(
-        fromUa: Boolean = alphabetsState.value!!.fromUa,
+        lang: LanguagePair = alphabetsState.value!!.lang,
         oldScrollPosition: Int
     ) {
         if (alphabetsState.value!!.isLoaded){
             viewModelScope.launch(Dispatchers.IO) {
                 appModule().alphabetDataSource
-                    .load(fromUa)
+                    .load(lang)
                     .let {
 
                         withContext(Dispatchers.Main){
@@ -63,10 +65,10 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
                                 alphabetData = it,
                                 scrollPositions = ifIsLoadedUpdateScrollPosition(
                                     alphabetsState.value!!,
-                                    fromUa,
+                                    lang,
                                     oldScrollPosition
                                 ),
-                                fromUa = fromUa,
+                                lang = lang,
                                 isLoaded = true,
                             )
                             alphabetsState.setValue(newValue)
@@ -78,11 +80,11 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
 
     private fun ifIsLoadedUpdateScrollPosition(
         alphaState: AlphabetState,
-        fromUa: Boolean,
+        langPair: LanguagePair,
         oldScrollPosition: Int
     ) =
         if (alphaState.isLoaded) {
-            alphaState.scrollPositions.toMutableMap() + mapOf(fromUa to oldScrollPosition)
+            alphaState.scrollPositions.toMutableMap() + mapOf(langPair.from.langCode to oldScrollPosition)
         } else {
             alphaState.scrollPositions
         }

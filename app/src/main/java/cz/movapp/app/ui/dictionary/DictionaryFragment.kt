@@ -10,12 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.FavoritesViewModelFactory
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.R
 import cz.movapp.app.adapter.DictionaryAdapter
 import cz.movapp.app.data.FavoritesDatabase
 import cz.movapp.app.databinding.FragmentDictionaryBinding
@@ -62,11 +59,11 @@ class DictionaryFragment : Fragment() {
             recyclerView.adapter = it
             recyclerView.setHasFixedSize(true)
 
-            it.fromUa = mainSharedViewModel.fromUa.value == true
+            it.langPair = mainSharedViewModel.selectedLanguage.value!!
         }
 
-        mainSharedViewModel.fromUa.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryAdapter).fromUa = mainSharedViewModel.fromUa.value == true
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
+            (recyclerView.adapter as DictionaryAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
         }
 

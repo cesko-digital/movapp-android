@@ -13,8 +13,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.android.getSavableScrollState
+import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.AlphabetAdapter
@@ -57,12 +57,14 @@ class AlphabetFragment : Fragment() {
         viewModel.alphabetsState.observe(viewLifecycleOwner) {
             if(it.isLoaded){
                 binding.recyclerViewAlphabet.adapter = AlphabetAdapter(it.alphabetData)
-                binding.recyclerViewAlphabet.restoreSavableScrollState(it.scrollPositions[it.fromUa]!!)
+                it.scrollPositions[it.lang.from.langCode]?.let { scrollPos ->
+                    binding.recyclerViewAlphabet.restoreSavableScrollState(scrollPos)
+                }
                 binding.recyclerViewAlphabet.setHasFixedSize(true)
             }
         }
 
-        mainSharedViewModel.fromUa.observe(viewLifecycleOwner, Observer { fromUa ->
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { fromUa ->
             viewModel.onLanguageChanged(fromUa, binding.recyclerViewAlphabet.getSavableScrollState())
         })
 
@@ -81,18 +83,4 @@ class AlphabetFragment : Fragment() {
         _binding = null
     }
 
-}
-
-
-fun RecyclerView.getSavableScrollState(): Int {
-    return when (this.layoutManager) {
-        null -> throw UnsupportedOperationException("RecyclerView: No LayoutManager set")
-        is LinearLayoutManager -> (this.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
-        else -> throw UnsupportedOperationException("RecyclerView: Can't save scroll state. Unknown LayoutManager")
-    }
-}
-
-fun RecyclerView.restoreSavableScrollState(position: Int) {
-    val layoutManager = this.layoutManager as LinearLayoutManager?
-    layoutManager?.scrollToPositionWithOffset(position, 0)
 }

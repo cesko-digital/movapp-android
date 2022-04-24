@@ -5,13 +5,15 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
+
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-    private val _fromUa = MutableLiveData(true)
 
-    val fromUa: LiveData<Boolean>
-        get() = _fromUa
+    private val _selectedLanguage = MutableLiveData(LanguagePair.getDefault())
 
-    fun setFromUa(fromUa: Boolean) {
-        _fromUa.value = fromUa
+    val selectedLanguage: LiveData<LanguagePair>
+        get() = _selectedLanguage
+
+    fun selectLanguage(lang: LanguagePair) {
+        _selectedLanguage.value = lang
     }
 }

@@ -9,10 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.R
 import cz.movapp.app.adapter.ChildrenAdapter
 import cz.movapp.app.databinding.FragmentChildrenBinding
 
@@ -44,14 +41,14 @@ class ChildrenFragment : Fragment() {
 
         val recyclerView: RecyclerView = binding.recyclerViewChildren
         childrenViewModel.children.observe(viewLifecycleOwner) {
+            it.langPair = mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter = it
             recyclerView.setHasFixedSize(true)
 
-            it.fromUa = mainSharedViewModel.fromUa.value == true
         }
 
-        mainSharedViewModel.fromUa.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as ChildrenAdapter).fromUa = mainSharedViewModel.fromUa.value == true
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
+            (recyclerView.adapter as ChildrenAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
         }
 

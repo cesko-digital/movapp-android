@@ -6,15 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.R
 import cz.movapp.app.adapter.DictionaryContentAdapter
 import cz.movapp.app.databinding.FragmentDictionaryContentBinding
 
@@ -77,8 +73,8 @@ class DictionaryContentFragment : Fragment() {
                 setEmptyTranslations()
         }
 
-        mainSharedViewModel.fromUa.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryContentAdapter).fromUa = mainSharedViewModel.fromUa.value == true
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
+            (recyclerView.adapter as DictionaryContentAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
         }
 
