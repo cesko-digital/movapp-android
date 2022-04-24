@@ -16,7 +16,6 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
     val sections: LiveData<DictionaryAdapter> = _sections
 
     val translations = DictionaryContentAdapter(
-        app.applicationContext,
         DictionaryDatasource().loadTranslations(app.applicationContext),
         favoritesViewModel
     )

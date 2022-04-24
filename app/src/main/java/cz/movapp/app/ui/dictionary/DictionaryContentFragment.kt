@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.DictionaryContentAdapter
@@ -20,8 +19,6 @@ class DictionaryContentFragment : Fragment() {
     private var constraint: String = ""
     private lateinit var translationIds: List<String>
     private var favoritesIds = mutableListOf<String>()
-
-    private lateinit var recyclerView: RecyclerView
 
     private val mainSharedViewModel: MainViewModel by activityViewModels()
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
@@ -55,27 +52,27 @@ class DictionaryContentFragment : Fragment() {
         _binding = FragmentDictionaryContentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        recyclerView = binding.recyclerViewDictionaryContent
-        recyclerView.setHasFixedSize(true)
+        binding.recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.translations
+        binding.recyclerView.adapter = dictionarySharedViewModel.translations
 
-        (recyclerView.adapter as DictionaryContentAdapter).favoritesIds = favoritesIds
+        (binding.recyclerView.adapter as DictionaryContentAdapter).favoritesIds = favoritesIds
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
             favoritesIds = mutableListOf<String>()
 
             it.forEach { favoritesIds.add(it.translationId) }
 
-            (recyclerView.adapter as DictionaryContentAdapter).favoritesIds = favoritesIds
+            (binding.recyclerView.adapter as DictionaryContentAdapter).favoritesIds = favoritesIds
 
             if (!checkAndShowFavorites() and constraint.isEmpty() and translationIds.isEmpty())
                 setEmptyTranslations()
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryContentAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
-            recyclerView.adapter?.notifyDataSetChanged()
+            (binding.recyclerView.adapter as DictionaryContentAdapter).langPair =
+                mainSharedViewModel.selectedLanguage.value!!
+            binding.recyclerView.adapter?.notifyDataSetChanged()
         }
 
         return root
@@ -88,14 +85,14 @@ class DictionaryContentFragment : Fragment() {
             return
 
         if (translationIds.isNotEmpty()) {
-            (recyclerView.adapter as DictionaryContentAdapter).submitList(
+            (binding.recyclerView.adapter as DictionaryContentAdapter).submitList(
                 dictionarySharedViewModel.selectedTranslations(constraint, translationIds)
             )
             return
         }
 
         if (translationIds.isEmpty() and constraint.isNotEmpty()) {
-            (recyclerView.adapter as DictionaryContentAdapter).search(constraint)
+            (binding.recyclerView.adapter as DictionaryContentAdapter).search(constraint)
             return
         }
 
@@ -103,7 +100,7 @@ class DictionaryContentFragment : Fragment() {
     }
 
     private fun setEmptyTranslations() {
-        (recyclerView.adapter as DictionaryContentAdapter).submitList(
+        (binding.recyclerView.adapter as DictionaryContentAdapter).submitList(
             dictionarySharedViewModel.selectedTranslations("", listOf())
         )
     }
@@ -113,7 +110,7 @@ class DictionaryContentFragment : Fragment() {
             return false
 
         if (translationIds.isEmpty() and constraint.isEmpty() and favoritesIds.isNotEmpty()) {
-            (recyclerView.adapter as DictionaryContentAdapter).submitList(
+            (binding.recyclerView.adapter as DictionaryContentAdapter).submitList(
                 dictionarySharedViewModel.selectedTranslations(constraint, favoritesIds)
             )
 

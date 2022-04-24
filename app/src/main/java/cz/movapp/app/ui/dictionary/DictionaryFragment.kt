@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.FavoritesViewModelFactory
@@ -68,7 +67,7 @@ class DictionaryFragment : Fragment() {
         }
 
 
-        favoritesViewModel.favorites.observe(activity as LifecycleOwner) {
+        favoritesViewModel.favorites.observe(viewLifecycleOwner) {
             if (recyclerView.adapter !== null) {
                 (recyclerView.adapter as DictionaryAdapter).favorites = it
             }

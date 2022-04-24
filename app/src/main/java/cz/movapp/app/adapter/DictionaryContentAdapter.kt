@@ -1,6 +1,5 @@
 package cz.movapp.app.adapter
 
-import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.util.TypedValue
@@ -19,7 +18,6 @@ import java.text.Normalizer
 import java.util.*
 
 class DictionaryContentAdapter(
-    private val context: Context,
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
 ) : ListAdapter<DictionaryTranslationsData, DictionaryContentAdapter.ItemViewHolder>(DiffCallback) {
@@ -55,6 +53,7 @@ class DictionaryContentAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
+        val context = holder.binding.root.context
 
         if (position % 2 == 1) {
             holder.binding.layout.background = ContextCompat.getDrawable(context, R.drawable.odd_outline)
@@ -98,6 +97,8 @@ class DictionaryContentAdapter(
     }
 
     private fun setFavoriteStar(holder: ItemViewHolder, isSet: Boolean) {
+        val context = holder.binding.root.context
+
         if (isSet)
             holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
