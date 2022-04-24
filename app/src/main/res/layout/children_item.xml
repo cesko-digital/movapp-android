@@ -32,9 +32,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:padding="@dimen/general_padding">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/layout_children_from"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
@@ -48,6 +48,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/general_padding"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
                 app:srcCompat="@drawable/ua" />
 
             <TextView
@@ -55,13 +57,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
+                android:layout_toRightOf="@+id/image_children_flag_from"
+                android:layout_toLeftOf="@+id/image_play_sound_from"
+                android:layout_centerVertical="true"
                 android:text="From" />
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/image_play_sound_from"
+                android:layout_width="@dimen/playSize"
+                android:layout_height="@dimen/playSize"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="play transcription"
+                app:srcCompat="@drawable/ic_play" />
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/layout_children_to"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
@@ -75,6 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/general_padding"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
                 app:srcCompat="@drawable/cz" />
 
 
@@ -83,8 +99,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
+                android:layout_toRightOf="@+id/image_children_flag_to"
+                android:layout_toLeftOf="@+id/image_play_sound_to"
+                android:layout_centerVertical="true"
                 android:text="To" />
-        </LinearLayout>
+
+            <ImageView
+                android:id="@+id/image_play_sound_to"
+                android:layout_width="@dimen/playSize"
+                android:layout_height="@dimen/playSize"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="play transcription"
+                app:srcCompat="@drawable/ic_play" />
+        </RelativeLayout>
 
     </LinearLayout>
 

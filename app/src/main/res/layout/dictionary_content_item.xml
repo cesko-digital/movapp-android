@@ -52,27 +52,47 @@
                 android:layout_height="1dp"
                 android:background="@color/secondaryColor" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="10dp"
-                >
-                <TextView
-                    android:id="@+id/text_to"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/layout_to"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="To"
-                    android:textSize="20sp" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toLeftOf="@+id/image_play_sound"
+                    android:orientation="vertical" >
 
-                <TextView
-                    android:id="@+id/text_to_trans"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="[Trans]"
-                    android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/text_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="To"
+                        android:textSize="20sp" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/text_to_trans"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="[Trans]"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/image_play_sound"
+                    android:layout_width="@dimen/playSize"
+                    android:layout_height="@dimen/playSize"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="play transcription"
+                    app:srcCompat="@drawable/ic_play" />
+
+            </RelativeLayout>
 
 
         </LinearLayout>

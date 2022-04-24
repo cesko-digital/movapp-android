@@ -1,12 +1,19 @@
 package cz.movapp.app.adapter
 
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.generateViewId
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.android.playSound
+import cz.movapp.app.R
 import cz.movapp.app.databinding.AlphabetItemBinding
 import cz.movapp.app.ui.alphabet.AlphabetData
+import cz.movapp.app.ui.alphabet.LetterExampleData
 
 
 class AlphabetAdapter(
@@ -32,27 +39,88 @@ class AlphabetAdapter(
             binding.textAlphabetLetter.text = "${item.letter_capital} ${item.letter ?: ""}"
             binding.textAlphabetTranscription.text = item.transcription
 
-            var examples = ""
-            for (i in item.examples) {
-                examples += "${i.example} [${i.transcription}]\n"
-            }
-            binding.textAlphabetExamples.text = examples.trim()
-
             if (item.letterSoundAssetFile != null){
                 binding.imageLatterPlaySound.visibility = View.VISIBLE
-                binding.layout.setOnClickListener { view ->
+                binding.imageLatterPlaySound.setOnClickListener { view ->
                     playSound(view.context, item.letterSoundAssetFile)
                 }
             } else {
                 binding.imageLatterPlaySound.visibility = View.GONE
-                binding.layout.setOnClickListener(null)
+                binding.imageLatterPlaySound.setOnClickListener(null)
             }
 
-        }
+            binding.layoutAlphabetExamples.removeAllViewsInLayout()
 
+            for (example in item.examples.listIterator()) {
+                binding.layoutAlphabetExamples.addView(
+                    createDynamicExample(holder, example)
+                )
+            }
+        }
     }
 
+    private fun createDynamicExample(holder: AlphabetAdapter.ItemViewHolder, exampleData: LetterExampleData): RelativeLayout {
+        lateinit var paramsExample: RelativeLayout.LayoutParams
+
+        /* create relative layout for one example */
+        val layout = RelativeLayout(holder.itemView.context).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        }
+
+        /* create textview for one example */
+        val textExample = TextView(holder.itemView.context).apply {
+            text =  "${exampleData.example} [${exampleData.transcription}]"
+
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
+
+            setTextSize(
+                TypedValue.COMPLEX_UNIT_PX,
+                resources.getDimension(R.dimen.about_item_text_small)
+            )
+
+            id = generateViewId()
+        }
 
 
+        /* create imageview - play icon for one example */
+        val imagePlayExample = ImageView(holder.itemView.context).apply {
+            setImageResource(R.drawable.ic_play)
+            layoutParams = ViewGroup.LayoutParams(
+                resources.getDimension(R.dimen.playSize).toInt(),
+                resources.getDimension(R.dimen.playSize).toInt()
+            )
+
+            id = generateViewId()
+        }
+
+        /* set layout params of textview */
+        paramsExample = RelativeLayout.LayoutParams(textExample.layoutParams)
+        paramsExample.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
+        paramsExample.addRule(RelativeLayout.CENTER_VERTICAL)
+        paramsExample.addRule(RelativeLayout.LEFT_OF, imagePlayExample.id)
+        textExample.layoutParams = paramsExample
+
+        /* set layout params of imageview */
+        paramsExample = RelativeLayout.LayoutParams(imagePlayExample.layoutParams)
+        paramsExample.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
+        paramsExample.addRule(RelativeLayout.CENTER_VERTICAL)
+        imagePlayExample.layoutParams = paramsExample
+
+        imagePlayExample.setOnClickListener { view ->
+            // TODO: import sounds to assets and use it here
+            // playSound(view.context, exampleData.soundAssetFile)
+        }
+
+        layout.addView(textExample)
+        layout.addView(imagePlayExample)
+
+        return layout
+    }
 }
 

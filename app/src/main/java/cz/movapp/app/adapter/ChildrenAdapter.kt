@@ -51,12 +51,28 @@ class ChildrenAdapter (
 
                 imageChildrenFlagFrom.setImageResource(R.drawable.ua)
                 imageChildrenFlagTo.setImageResource(R.drawable.cz)
+
+                // TODO: import sounds to assets and use it here
+                imagePlaySoundFrom.setOnClickListener {
+                    //playSound(holder.itemView.context, item.soundAssetFileFrom)
+                }
+                imagePlaySoundTo.setOnClickListener {
+                    //playSound(holder.itemView.context, item.soundAssetFileTo)
+                }
             } else {
                 textChildrenFrom.text = formatTrans(item.translation_to, item.transcription_to)
                 textChildrenTo.text = formatTrans(item.translation_from, item.transcription_from)
 
                 imageChildrenFlagFrom.setImageResource(R.drawable.cz)
                 imageChildrenFlagTo.setImageResource(R.drawable.ua)
+
+                // TODO: import sounds to assets and use it here
+                imagePlaySoundFrom.setOnClickListener {
+                    //playSound(holder.itemView.context, item.soundAssetFileTo)
+                }
+                imagePlaySoundTo.setOnClickListener {
+                    //playSound(holder.itemView.context, item.soundAssetFileFrom)
+                }
             }
         }
     }

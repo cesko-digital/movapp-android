@@ -91,6 +91,11 @@ class DictionaryContentAdapter(
                 setFavoriteStar(holder, true)
             }
         }
+
+        holder.binding.imagePlaySound.setOnClickListener {
+            // TODO: import sounds to assets and use it here
+            //playSound(holder.itemView.context, item.soundAssetFile)
+        }
     }
 
     private fun brackets(s: String): CharSequence? {
