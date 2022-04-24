@@ -16,4 +16,5 @@
     <string name="about_license">Ліцензія</string>
     <string name="about_version">Версія: %s</string>
     <string name="about_authors">АВТОРИ</string>
+    <string name="about_build">Будувати" %s</string>
 </resources>

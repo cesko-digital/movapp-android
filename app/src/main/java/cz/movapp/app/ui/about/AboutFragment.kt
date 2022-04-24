@@ -37,6 +37,7 @@ class AboutFragment : Fragment() {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
 
         binding.textAboutVersion.text = resources.getString(R.string.about_version).format(BuildConfig.VERSION_NAME)
+        binding.textAboutBuild.text = resources.getString(R.string.about_build).format(BuildConfig.VERSION_CODE)
 
         binding.textAboutWeb.setOnClickListener {
             openUri(HTTP_MOVAPP_WEB)
