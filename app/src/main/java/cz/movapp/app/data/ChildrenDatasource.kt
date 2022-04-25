@@ -42,10 +42,10 @@ class ChildrenDatasource {
 
             children.add(ChildrenData(
                 "null",
-                jsonObj.getString("ua_translation"),
-                jsonObj.getString("ua_transcription"),
                 jsonObj.getString("cz_translation"),
                 jsonObj.getString("cz_transcription"),
+                jsonObj.getString("ua_translation"),
+                jsonObj.getString("ua_transcription"),
                 image
                 )
             )
