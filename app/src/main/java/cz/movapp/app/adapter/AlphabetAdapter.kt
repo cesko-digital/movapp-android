@@ -68,6 +68,8 @@ class AlphabetAdapter(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
+            val paddingPixels = resources.getDimension(R.dimen.items_with_play_padding).toInt()
+            setPadding(paddingPixels, paddingPixels, paddingPixels, paddingPixels)
         }
 
         /* create textview for one example */
@@ -76,12 +78,12 @@ class AlphabetAdapter(
 
             layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
+                ViewGroup.LayoutParams.WRAP_CONTENT
             )
 
             setTextSize(
                 TypedValue.COMPLEX_UNIT_PX,
-                resources.getDimension(R.dimen.about_item_text_small)
+                resources.getDimension(R.dimen.alphabet_example_text_size)
             )
 
             id = generateViewId()
