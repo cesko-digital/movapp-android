@@ -46,7 +46,7 @@ class DictionaryAdapter (
             holder.layout.background = ContextCompat.getDrawable(context, R.drawable.odd_outline)
         } else {
             val typedValue = TypedValue()
-            context.theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+            context.theme.resolveAttribute(R.color.primaryColor, typedValue, true)
             holder.layout.setBackgroundColor(typedValue.data)
         }
 

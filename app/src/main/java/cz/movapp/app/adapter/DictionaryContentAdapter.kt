@@ -62,7 +62,7 @@ class DictionaryContentAdapter(
             val typedValue = TypedValue()
             val theme: Resources.Theme = context.theme
             val got: Boolean =
-                theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+                theme.resolveAttribute(R.color.primaryColor, typedValue, true)
             holder.binding.layout.setBackgroundColor(typedValue.data)
         }
 
