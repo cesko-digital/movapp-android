@@ -1,164 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/general_padding">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/image_logo"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        android:layout_height="match_parent"
+        android:padding="@dimen/general_padding">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/image_logo"
-        >
-
-        <TextView
+        <ImageView
+            android:id="@+id/image_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_project"
-            style="@style/AboutHeading" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/odd_outline"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/text_about_web"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/about_padding_item"
-                android:text="@string/about_web"
-                android:textColor="@color/primaryColor"
-                android:textSize="@dimen/about_item_text_standard" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/divider_margin"
-                android:layout_marginEnd="@dimen/divider_margin"
-                android:background="@color/secondaryColor" />
-
-            <TextView
-                android:id="@+id/text_about_twitter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/about_padding_item"
-                android:text="@string/about_twitter"
-                android:textColor="@color/primaryColor"
-                android:textSize="@dimen/about_item_text_standard" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/divider_margin"
-                android:layout_marginEnd="@dimen/divider_margin"
-                android:background="@color/secondaryColor" />
-
-            <TextView
-                android:id="@+id/text_about_instagram"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/about_padding_item"
-                android:text="@string/about_instagram"
-                android:textColor="@color/primaryColor"
-                android:textSize="@dimen/about_item_text_standard" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_application"
-            style="@style/AboutHeading"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/odd_outline"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/text_about_suggestion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/about_padding_item"
-                android:text="@string/about_report"
-                android:textColor="@color/primaryColor"
-                android:textSize="@dimen/about_item_text_standard" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/divider_margin"
-                android:layout_marginEnd="@dimen/divider_margin"
-                android:background="@color/secondaryColor" />
-
-            <TextView
-                android:id="@+id/text_about_license"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/about_padding_item"
-                android:text="@string/about_license"
-                android:textColor="@color/primaryColor"
-                android:textSize="@dimen/about_item_text_standard" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/text_about_version"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/about_padding_item"
-            android:text="@string/about_version"
-            android:textSize="@dimen/about_item_text_small" />
-
-        <TextView
-            android:id="@+id/text_about_build"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/about_padding_item"
-            android:text="@string/about_build"
-            android:textSize="@dimen/about_item_text_small" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/about_authors"
-            style="@style/AboutHeading"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/odd_outline"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/image_logo"
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/about_project"
+                style="@style/AboutHeading" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/odd_outline"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_about_web"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/about_padding_item"
+                    android:text="@string/about_web"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="@dimen/about_item_text_standard" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/divider_margin"
+                    android:layout_marginEnd="@dimen/divider_margin"
+                    android:background="@color/secondaryColor" />
+
+                <TextView
+                    android:id="@+id/text_about_twitter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/about_padding_item"
+                    android:text="@string/about_twitter"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="@dimen/about_item_text_standard" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/divider_margin"
+                    android:layout_marginEnd="@dimen/divider_margin"
+                    android:background="@color/secondaryColor" />
+
+                <TextView
+                    android:id="@+id/text_about_instagram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/about_padding_item"
+                    android:text="@string/about_instagram"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="@dimen/about_item_text_standard" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_application"
+                style="@style/AboutHeading"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/odd_outline"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_about_suggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/about_padding_item"
+                    android:text="@string/about_report"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="@dimen/about_item_text_standard" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/divider_margin"
+                    android:layout_marginEnd="@dimen/divider_margin"
+                    android:background="@color/secondaryColor" />
+
+                <TextView
+                    android:id="@+id/text_about_license"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/about_padding_item"
+                    android:text="@string/about_license"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="@dimen/about_item_text_standard" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_about_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:padding="@dimen/about_padding_item"
-                android:text="Václav Chlumský"
+                android:text="@string/about_version"
+                android:textSize="@dimen/about_item_text_small" />
+
+            <TextView
+                android:id="@+id/text_about_build"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/about_padding_item"
+                android:text="@string/about_build"
                 android:textSize="@dimen/about_item_text_small" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/about_padding_item"
-                android:text="Ondřej Málek"
-                android:textSize="@dimen/about_item_text_small" />
+                android:text="@string/about_authors"
+                style="@style/AboutHeading"
+                />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/odd_outline"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/about_padding_item"
+                    android:text="Václav Chlumský"
+                    android:textSize="@dimen/about_item_text_small" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/about_padding_item"
+                    android:text="Ondřej Málek"
+                    android:textSize="@dimen/about_item_text_small" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+
