@@ -3,171 +3,164 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp">
+    android:padding="@dimen/general_padding">
 
     <ImageView
         android:id="@+id/image_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/scroll_about"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <ScrollView
-        android:id="@+id/scroll_about"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_logo">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/image_logo"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/about_padding_section"
+            android:text="@string/about_project"
+
+            android:textSize="@dimen/about_headline_text" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:background="@drawable/odd_outline"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/about_project"
-                android:paddingTop="@dimen/about_padding_section"
-                android:textSize="@dimen/about_headline_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@drawable/odd_outline" >
-
-                <TextView
-                    android:id="@+id/text_about_web"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/about_padding_item"
-                    android:text="@string/about_web"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="@dimen/about_item_text_standard" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="@dimen/divider_margin"
-                    android:layout_marginEnd="@dimen/divider_margin"
-                    android:background="@color/secondaryColor" />
-
-                <TextView
-                    android:id="@+id/text_about_twitter"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/about_padding_item"
-                    android:text="@string/about_twitter"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="@dimen/about_item_text_standard" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="@dimen/divider_margin"
-                    android:layout_marginEnd="@dimen/divider_margin"
-                    android:background="@color/secondaryColor" />
-
-                <TextView
-                    android:id="@+id/text_about_instagram"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/about_padding_item"
-                    android:text="@string/about_instagram"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="@dimen/about_item_text_standard" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/about_padding_section"
-                android:text="@string/about_application"
-                android:textSize="@dimen/about_headline_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@drawable/odd_outline" >
-
-                <TextView
-                    android:id="@+id/text_about_suggestion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/about_padding_item"
-                    android:text="@string/about_report"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="@dimen/about_item_text_standard" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="@dimen/divider_margin"
-                    android:layout_marginEnd="@dimen/divider_margin"
-                    android:background="@color/secondaryColor" />
-
-                <TextView
-                    android:id="@+id/text_about_license"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/about_padding_item"
-                    android:text="@string/about_license"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="@dimen/about_item_text_standard" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/text_about_version"
+                android:id="@+id/text_about_web"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/about_padding_item"
-                android:text="@string/about_version"
-                android:textSize="@dimen/about_item_text_small" />
+                android:text="@string/about_web"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/about_item_text_standard" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/divider_margin"
+                android:layout_marginEnd="@dimen/divider_margin"
+                android:background="@color/secondaryColor" />
+
             <TextView
-                android:id="@+id/text_about_build"
+                android:id="@+id/text_about_twitter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/about_padding_item"
-                android:text="@string/about_build"
-                android:textSize="@dimen/about_item_text_small" />
+                android:text="@string/about_twitter"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/about_item_text_standard" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/divider_margin"
+                android:layout_marginEnd="@dimen/divider_margin"
+                android:background="@color/secondaryColor" />
 
             <TextView
+                android:id="@+id/text_about_instagram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/about_padding_section"
-                android:text="@string/about_authors"
-                android:textSize="@dimen/about_headline_text" />
+                android:padding="@dimen/about_padding_item"
+                android:text="@string/about_instagram"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/about_item_text_standard" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@drawable/odd_outline" >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Václav Chlumský"
-                    android:textSize="@dimen/about_item_text_small"
-                    android:padding="@dimen/about_padding_item"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ondřej Málek"
-                    android:textSize="@dimen/about_item_text_small"
-                    android:padding="@dimen/about_padding_item" />
-
-            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/about_padding_section"
+            android:text="@string/about_application"
+            android:textSize="@dimen/about_headline_text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/odd_outline"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_about_suggestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/about_padding_item"
+                android:text="@string/about_report"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/about_item_text_standard" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/divider_margin"
+                android:layout_marginEnd="@dimen/divider_margin"
+                android:background="@color/secondaryColor" />
+
+            <TextView
+                android:id="@+id/text_about_license"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/about_padding_item"
+                android:text="@string/about_license"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/about_item_text_standard" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_about_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/about_padding_item"
+            android:text="@string/about_version"
+            android:textSize="@dimen/about_item_text_small" />
+
+        <TextView
+            android:id="@+id/text_about_build"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/about_padding_item"
+            android:text="@string/about_build"
+            android:textSize="@dimen/about_item_text_small" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/about_padding_section"
+            android:text="@string/about_authors"
+            android:textSize="@dimen/about_headline_text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/odd_outline"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/about_padding_item"
+                android:text="Václav Chlumský"
+                android:textSize="@dimen/about_item_text_small" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/about_padding_item"
+                android:text="Ondřej Málek"
+                android:textSize="@dimen/about_item_text_small" />
+
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
