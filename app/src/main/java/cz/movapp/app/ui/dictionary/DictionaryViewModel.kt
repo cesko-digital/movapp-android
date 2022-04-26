@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.adapter.DictionaryAdapter
-import cz.movapp.app.adapter.DictionaryContentAdapter
+import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.data.DictionaryDatasource
 
 class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewModel) : AndroidViewModel(app) {
@@ -15,7 +15,7 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
 
     val sections: LiveData<DictionaryAdapter> = _sections
 
-    val translations = DictionaryContentAdapter(
+    val translations = DictionaryTranslationsAdapter(
         app.applicationContext,
         DictionaryDatasource().loadTranslations(app.applicationContext),
         favoritesViewModel

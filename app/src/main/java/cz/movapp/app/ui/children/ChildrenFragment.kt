@@ -39,7 +39,7 @@ class ChildrenFragment : Fragment() {
         _binding = FragmentChildrenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView: RecyclerView = binding.recyclerViewChildren
+        val recyclerView = binding.recyclerViewChildren
         childrenViewModel.children.observe(viewLifecycleOwner) {
             it.langPair = mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter = it
@@ -57,6 +57,7 @@ class ChildrenFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.recyclerViewChildren.adapter = null
         _binding = null
     }
 }

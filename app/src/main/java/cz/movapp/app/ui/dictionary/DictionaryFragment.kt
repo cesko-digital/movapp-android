@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LifecycleOwner
-import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.FavoritesViewModelFactory
 import cz.movapp.app.MainViewModel
@@ -54,10 +52,10 @@ class DictionaryFragment : Fragment() {
         _binding = FragmentDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView: RecyclerView = binding.recyclerViewDictionary
+        val recyclerView = binding.recyclerViewDictionary
+        recyclerView.setHasFixedSize(true)
         dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
             recyclerView.adapter = it
-            recyclerView.setHasFixedSize(true)
 
             it.langPair = mainSharedViewModel.selectedLanguage.value!!
         }
@@ -67,18 +65,12 @@ class DictionaryFragment : Fragment() {
             recyclerView.adapter?.notifyDataSetChanged()
         }
 
-
-        favoritesViewModel.favorites.observe(activity as LifecycleOwner) {
-            if (recyclerView.adapter !== null) {
-                (recyclerView.adapter as DictionaryAdapter).favorites = it
-            }
-        }
-
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.recyclerViewDictionary.adapter = null
         _binding = null
     }
 }

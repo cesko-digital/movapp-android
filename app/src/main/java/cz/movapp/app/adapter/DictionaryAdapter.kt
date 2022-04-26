@@ -62,7 +62,7 @@ class DictionaryAdapter (
                     favoritesIds.add(it.translationId)
 
             }
-            val action = DictionaryFragmentDirections.actionNavigationDictionaryToDictionaryContentFragment(constraint = item.id, translationIds = item.translation_ids.toTypedArray())
+            val action = DictionaryFragmentDirections.actionNavigationDictionaryToDictionaryTranslationsFragment(constraint = item.id, translationIds = item.translation_ids.toTypedArray())
             holder.itemView.findNavController().navigate(action)
         }
     }

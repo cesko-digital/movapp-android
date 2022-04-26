@@ -13,16 +13,16 @@ import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.LanguagePair
 import cz.movapp.app.R
-import cz.movapp.app.databinding.DictionaryContentItemBinding
+import cz.movapp.app.databinding.DictionaryTranslationItemBinding
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import java.text.Normalizer
 import java.util.*
 
-class DictionaryContentAdapter(
+class DictionaryTranslationsAdapter(
     private val context: Context,
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
-) : ListAdapter<DictionaryTranslationsData, DictionaryContentAdapter.ItemViewHolder>(DiffCallback) {
+) : ListAdapter<DictionaryTranslationsData, DictionaryTranslationsAdapter.ItemViewHolder>(DiffCallback) {
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<DictionaryTranslationsData>() {
@@ -45,12 +45,12 @@ class DictionaryContentAdapter(
     var langPair = LanguagePair.getDefault()
     var favoritesIds = mutableListOf<String>()
 
-    class ItemViewHolder(binding: DictionaryContentItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ItemViewHolder(binding: DictionaryTranslationItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val binding = binding
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        return ItemViewHolder(DictionaryContentItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ItemViewHolder(DictionaryTranslationItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
