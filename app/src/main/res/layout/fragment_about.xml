@@ -24,10 +24,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/about_padding_section"
             android:text="@string/about_project"
-
-            android:textSize="@dimen/about_headline_text" />
+            style="@style/AboutHeading" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,9 +79,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/about_padding_section"
             android:text="@string/about_application"
-            android:textSize="@dimen/about_headline_text" />
+            style="@style/AboutHeading"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,9 +135,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/about_padding_section"
             android:text="@string/about_authors"
-            android:textSize="@dimen/about_headline_text" />
+            style="@style/AboutHeading"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
