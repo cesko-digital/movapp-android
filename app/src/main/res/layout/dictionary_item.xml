@@ -15,7 +15,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="FromTO"
-        android:textStyle="bold"
+        android:fontFamily="@font/source_sans_pro_bold"
         android:textSize="24sp"
         android:textColor="@color/primaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
