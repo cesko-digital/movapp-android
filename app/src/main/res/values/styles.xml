@@ -3,6 +3,7 @@
 
     <style name="AboutHeading">
         <item name="android:paddingTop">@dimen/about_padding_section</item>
+        <item name="android:paddingBottom">@dimen/about_padding_section</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/primaryColor</item>
         <item name="android:textSize">@dimen/about_headline_text</item>
