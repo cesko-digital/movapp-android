@@ -18,4 +18,8 @@
         <item name="android:fontFamily">@font/font_source_sans_pro</item>
 
     </style>
+
+    <style name="Theme.Movapp.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    </style>
 </resources>

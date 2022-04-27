@@ -18,4 +18,6 @@
     <color name="navColorSelected">#013abd</color>
     <color name="navColorUnselected">#2D2D2D</color>
     <color name="playColor">#E42D00</color>
+
+    <color name="dividerColor">#D2D2D2</color>
 </resources>

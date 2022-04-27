@@ -46,11 +46,10 @@
             </LinearLayout>
 
 
-            <View
-                android:id="@+id/dictionary_line"
+            <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/secondaryColor" />
+                android:layout_height="wrap_content"
+                android:background="@color/dividerColor"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
