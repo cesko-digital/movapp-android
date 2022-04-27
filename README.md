@@ -1,6 +1,6 @@
 ![](./.github/banner.jpg)
 
-Cílem [Movapp.cz](Movapp.cz) je usnadnit dorozumění mezi Čechy a Ukrajinci. Mова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. 
+Cílem [Movapp.cz](https://www.movapp.cz) je usnadnit dorozumění mezi Čechy a Ukrajinci. Mова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. 
 
 Projekt vzniká v komunitě expertních dobrovolníků [Česko.Digital](https://cesko.digital). Kontakt: [pryvit@movapp.cz](mailto:pryvit@movapp.cz).
 

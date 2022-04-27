@@ -42,5 +42,5 @@ jobs:
         env:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
 
-      - name: Distribute app to Alpha track 🚀
-        run: bundle exec fastlane alpha
+      - name: Distribute app to Google Play track 🚀
+        run: bundle exec fastlane release

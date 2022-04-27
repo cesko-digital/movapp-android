@@ -17,14 +17,8 @@ default_platform(:android)
 
 platform :android do
 
-  desc "Deploy an alpha version to the Google Play"
-  lane :alpha do
-    gradle(task: "clean bundleRelease")
-    upload_to_play_store(track: 'alpha')
-  end
-
-  desc "Deploy an internal release"
-  lane :internal_release do
+  desc "Deploy to Google Play internal track"
+  lane :release do
     gradle(task: "clean bundleRelease")
     upload_to_play_store(track: 'internal')
   end

@@ -6,5 +6,4 @@ Používáme schéma `x.y.z`, kde změny `z` znamenají pouze interní releasy, 
 
 Pro automatizaci releasů používáme [Fastlane](https://fastlane.tools).
 
- - Release pro interní testování se provede na větvi `internal_release`. 
- - Produkční release se provede na větvi `release`. Tato větev v současnosti vede do alpha kanálu na Google Play. Po vydání produkční verze se nastaví na produkci.
+ - Release se provede na větvi `release`. Tato větev vede do `internal` kanálu na Google Play. Pro vydání produkční verze se v Google Play Console přesune vydání do produkčního kanálu.
