@@ -42,9 +42,6 @@
         android:label="@string/title_dictionary"
         tools:layout="@layout/fragment_dictionary_translations" >
         <argument
-            android:name="constraint"
-            app:argType="string" />
-        <argument
             android:name="translation_ids"
             app:argType="string[]"
             app:nullable="true"

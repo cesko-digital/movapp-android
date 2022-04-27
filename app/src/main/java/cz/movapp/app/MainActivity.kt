@@ -89,13 +89,11 @@ class MainActivity : AppCompatActivity() {
                              *  to fragment with search results
                              */
                             navController.getBackStackEntry(R.id.dictionary_translations_fragment)
-
-                            dictionarySharedViewModel.search(query)
                         } catch (ex: IllegalArgumentException) {
-                            val bundle = Bundle()
-                            bundle.putString("constraint", query)
-                            navController.navigate(R.id.dictionary_translations_fragment, bundle)
+                            navController.navigate(R.id.dictionary_translations_fragment)
                         }
+
+                        dictionarySharedViewModel.setSearchQuery(query)
                     }
                     return true
                 }

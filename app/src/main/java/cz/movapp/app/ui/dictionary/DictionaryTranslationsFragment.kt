@@ -1,11 +1,9 @@
 package cz.movapp.app.ui.dictionary
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import cz.movapp.app.FavoritesViewModel
@@ -13,10 +11,9 @@ import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.databinding.FragmentDictionaryTranslationsBinding
 
-open class DictionaryTranslationsFragment : Fragment() {
+class DictionaryTranslationsFragment : Fragment() {
 
     private var _binding: FragmentDictionaryTranslationsBinding? = null
-    private var constraint: String = ""
     private lateinit var translationIds: List<String>
     private var favoritesIds = mutableListOf<String>()
 
@@ -32,16 +29,11 @@ open class DictionaryTranslationsFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            // constraint can be sectionId or search string
-            constraint = it.getString("constraint").toString()
-
             translationIds = it.getStringArray("translation_ids")?.toList() ?: listOf<String>()
         }
 
-        if (constraint.isEmpty()) {
-            val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, 0)
-        }
+        if (translationIds.isNotEmpty())
+            dictionarySharedViewModel.setSearchQuery("")
     }
 
     override fun onCreateView(
@@ -72,6 +64,13 @@ open class DictionaryTranslationsFragment : Fragment() {
             recyclerView.adapter?.notifyDataSetChanged()
         }
 
+        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
+            if (dictionarySharedViewModel.searchQuery.value!!.isNotEmpty())
+                (recyclerView.adapter as DictionaryTranslationsAdapter).search(
+                    dictionarySharedViewModel.searchQuery.value!!
+                )
+        }
+
         return root
     }
 
@@ -82,13 +81,8 @@ open class DictionaryTranslationsFragment : Fragment() {
 
         if (translationIds.isNotEmpty()) {
             (recyclerView.adapter as DictionaryTranslationsAdapter).submitList(
-                dictionarySharedViewModel.selectedTranslations(constraint, translationIds)
+                dictionarySharedViewModel.selectedTranslations(translationIds)
             )
-            return
-        }
-
-        if (translationIds.isEmpty() and constraint.isNotEmpty()) {
-            (recyclerView.adapter as DictionaryTranslationsAdapter).search(constraint)
             return
         }
 
@@ -97,7 +91,7 @@ open class DictionaryTranslationsFragment : Fragment() {
 
     private fun setEmptyTranslations() {
         (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).submitList(
-            dictionarySharedViewModel.selectedTranslations("", listOf())
+            dictionarySharedViewModel.selectedTranslations(listOf())
         )
     }
 

@@ -21,12 +21,17 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
         favoritesViewModel
     )
 
-    fun selectedTranslations(sectionId: String, translationIds: List<String>):List<DictionaryTranslationsData>? {
+    fun selectedTranslations(translationIds: List<String>):List<DictionaryTranslationsData>? {
         return translations.getSelectedTranslations(translationIds)
     }
 
-    fun search(constraint: String) {
-        translations.search(constraint)
+    private val _searchQuery = MutableLiveData<String>()
+
+    val searchQuery: LiveData<String>
+        get() = _searchQuery
+
+    fun setSearchQuery(query: String) {
+        _searchQuery.value = query
     }
 }
 

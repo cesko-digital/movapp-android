@@ -56,7 +56,7 @@ class DictionaryFavoritesFragment : Fragment() {
             (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
 
             (recyclerView.adapter as DictionaryTranslationsAdapter).submitList(
-                dictionarySharedViewModel.selectedTranslations("", favoritesIds)
+                dictionarySharedViewModel.selectedTranslations(favoritesIds)
             )
         }
 
@@ -72,7 +72,7 @@ class DictionaryFavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         (binding.recyclerViewDictionaryFavorites.adapter as DictionaryTranslationsAdapter).submitList(
-            dictionarySharedViewModel.selectedTranslations("", favoritesIds)
+            dictionarySharedViewModel.selectedTranslations(favoritesIds)
         )
     }
 
