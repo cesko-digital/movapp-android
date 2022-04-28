@@ -1,22 +1,24 @@
 package cz.movapp.app
 
 import android.os.Bundle
-import android.text.Editable
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import cz.movapp.android.TextWatcherAdapter
+import cz.movapp.android.textChanges
 import cz.movapp.app.LanguagePair.Companion.nextLanguage
 import cz.movapp.app.data.Favorites
 import cz.movapp.app.databinding.ActivityMainBinding
 import cz.movapp.app.databinding.ToolbarSearchBinding
 import cz.movapp.app.ui.dictionary.DictionaryViewModel
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -93,11 +95,13 @@ class MainActivity : AppCompatActivity() {
         this.binding.toolbar.addView(binding.root)
         binding.searchView.hint = resources.getString(R.string.title_search)
 
-        binding.searchView.addTextChangedListener(object : TextWatcherAdapter() {
-            override fun afterTextChanged(text: Editable?) {
-                searchDictionary(text.toString())
-            }
-        })
+        lifecycleScope.launch {
+            binding.searchView.textChanges()
+                .debounce(300)
+                .collect{ text ->
+                    searchDictionary(text.toString())
+                }
+        }
 
         binding.flagView.setOnClickListener { view ->
             mainSharedModel.selectLanguage(nextLanguage(mainSharedModel.selectedLanguage.value!!))
