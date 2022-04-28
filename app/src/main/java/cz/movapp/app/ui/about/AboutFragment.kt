@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
-import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -47,6 +46,11 @@ class AboutFragment : Fragment() {
             }
         })
 
+        val mainActivity = requireActivity() as MainActivity
+        setupToolbar(mainActivity)
+
+        val context = this.requireContext()
+
         binding.textAboutVersion.text = resources.getString(R.string.about_version).format(BuildConfig.VERSION_NAME)
         binding.textAboutBuild.text = resources.getString(R.string.about_build).format(BuildConfig.VERSION_CODE)
 
@@ -82,6 +86,17 @@ class AboutFragment : Fragment() {
         binding.webView.enableDarkMode()
 
         return binding.root
+    }
+
+    private fun setupToolbar(mainActivity: MainActivity) {
+        mainActivity.binding.apply {
+            toolbar.setTitle(R.string.title_about)
+            toolbar.menu.clear()
+            toolbar.invalidateMenu()
+        }
+
+        mainActivity.searchBinding.root.visibility = View.GONE
+
     }
 
 }

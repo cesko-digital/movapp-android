@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.ChildrenAdapter
 import cz.movapp.app.databinding.FragmentChildrenBinding
@@ -36,6 +36,8 @@ class ChildrenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
+
         _binding = FragmentChildrenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 

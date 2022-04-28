@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/navigation_dictionary"
         android:name="cz.movapp.app.ui.dictionary.DictionaryFragment"
-        android:label="@string/title_dictionary"
         tools:layout="@layout/fragment_dictionary" >
         <action
             android:id="@+id/to_dictionaryTranslationsFragment"
@@ -18,28 +17,24 @@
     <fragment
         android:id="@+id/navigation_favorites"
         android:name="cz.movapp.app.ui.dictionary.DictionaryFavoritesFragment"
-        android:label="@string/title_favorites"
         tools:layout="@layout/fragment_dictionary_favorites" >
     </fragment>
 
     <fragment
         android:id="@+id/navigation_alphabet"
         android:name="cz.movapp.app.ui.alphabet.AlphabetFragment"
-        android:label="@string/title_alphabet"
         tools:layout="@layout/fragment_alphabet" >
     </fragment>
 
     <fragment
         android:id="@+id/navigation_children"
         android:name="cz.movapp.app.ui.children.ChildrenFragment"
-        android:label="@string/title_children"
         tools:layout="@layout/fragment_children" >
     </fragment>
 
     <fragment
         android:id="@+id/dictionary_translations_fragment"
         android:name="cz.movapp.app.ui.dictionary.DictionaryTranslationsFragment"
-        android:label="@string/title_dictionary"
         tools:layout="@layout/fragment_dictionary_translations" >
         <argument
             android:name="translation_ids"

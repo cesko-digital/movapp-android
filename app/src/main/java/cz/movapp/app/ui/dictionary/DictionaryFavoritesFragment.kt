@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import cz.movapp.app.FavoritesViewModel
+import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
@@ -38,6 +39,8 @@ class DictionaryFavoritesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
+
         _binding = FragmentDictionaryFavoritesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -64,6 +67,8 @@ class DictionaryFavoritesFragment : Fragment() {
             (recyclerView.adapter as DictionaryTranslationsAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
         }
+
+
 
         return root
     }

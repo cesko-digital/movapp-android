@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/searchViewTIL"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:hintEnabled="false"
+    android:hint="Hint"
+    app:helperTextEnabled="false"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    app:startIconDrawable="@drawable/ic_baseline_search_24"
+    app:endIconMode="clear_text"
+    >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchView"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_corner"
+        tools:text="Search dict.."
+        android:layout_marginBottom="0dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        />
+</com.google.android.material.textfield.TextInputLayout>

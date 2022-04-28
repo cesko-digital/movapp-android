@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import cz.movapp.android.getSavableScrollState
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
+import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.AlphabetAdapter
-import cz.movapp.app.appModule
 import cz.movapp.app.databinding.FragmentAlphabetBinding
 
 
@@ -46,7 +46,6 @@ class AlphabetFragment : Fragment() {
     ): View {
 
         val app = this.requireActivity().application as App
-        val appModule = app.appModule()
         val viewModel =
             ViewModelProvider(this, AlphabetViewModel.Factory(app, mainSharedViewModel))
                 .get(AlphabetViewModel::class.java)
@@ -73,6 +72,8 @@ class AlphabetFragment : Fragment() {
                 viewModel.onLanguageChanged( oldScrollPosition = binding.recyclerViewAlphabet.getSavableScrollState())
             }
         })
+
+        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
 
         return binding.root
     }
