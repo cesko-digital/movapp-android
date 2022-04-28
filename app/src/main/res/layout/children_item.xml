@@ -48,9 +48,11 @@
                 android:id="@+id/image_children_flag_from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/general_padding"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
+                android:background="@drawable/shadow"
+                android:contentDescription="@string/country_flag"
+                android:padding="@dimen/general_padding"
                 app:srcCompat="@drawable/ua" />
 
             <TextView
@@ -70,9 +72,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
-                android:contentDescription="play transcription"
+                android:contentDescription="@string/play_transcription"
                 android:visibility="gone"
-                app:srcCompat="@drawable/ic_play" />
+                app:srcCompat="@drawable/ic_play_kids" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -91,9 +93,10 @@
                 android:id="@+id/image_children_flag_to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/general_padding"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
+                android:background="@drawable/shadow"
+                android:padding="@dimen/general_padding"
                 app:srcCompat="@drawable/cz" />
 
 
@@ -101,11 +104,11 @@
                 android:id="@+id/text_children_to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:layout_toRightOf="@+id/image_children_flag_to"
-                android:layout_toLeftOf="@+id/image_play_sound_to"
                 android:layout_centerVertical="true"
-                android:text="To" />
+                android:layout_toLeftOf="@+id/image_play_sound_to"
+                android:layout_toRightOf="@+id/image_children_flag_to"
+                android:text="To"
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/image_play_sound_to"
@@ -114,9 +117,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
-                android:contentDescription="play transcription"
+                android:contentDescription="@string/play_transcription"
                 android:visibility="gone"
-                app:srcCompat="@drawable/ic_play" />
+                app:srcCompat="@drawable/ic_play_kids" />
         </RelativeLayout>
 
     </LinearLayout>

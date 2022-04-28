@@ -18,4 +18,6 @@
     <string name="facebook">Facebook</string>
     <string name="linkedin">LinkedIn</string>
     <string name="github">Github</string>
+    <string name="country_flag">country flag</string>
+    <string name="play_transcription">play transcription</string>
 </resources>
