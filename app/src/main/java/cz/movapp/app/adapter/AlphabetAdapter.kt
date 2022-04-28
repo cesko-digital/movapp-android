@@ -99,6 +99,8 @@ class AlphabetAdapter(
             )
 
             id = generateViewId()
+
+            visibility = View.GONE
         }
 
         /* set layout params of textview */
