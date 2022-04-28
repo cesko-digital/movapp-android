@@ -20,7 +20,6 @@ class DictionaryAdapter (
     ): RecyclerView.Adapter<DictionaryAdapter.ItemViewHolder>() {
 
     var langPair = LanguagePair.getDefault()
-    var favorites = listOf<Favorites>()
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textFromTo: TextView = view.findViewById(R.id.text_dictionary_from_to)
@@ -56,12 +55,6 @@ class DictionaryAdapter (
             holder.textFromTo.text = "%s - %s".format(item.from, item.to)
 
         holder.itemView.setOnClickListener {
-            val favoritesIds = mutableListOf<String>()
-            favorites.forEach {
-                if (item.translation_ids.contains(it.translationId))
-                    favoritesIds.add(it.translationId)
-
-            }
             val action = DictionaryFragmentDirections.toDictionaryTranslationsFragment(translationIds = item.translation_ids.toTypedArray())
             holder.itemView.findNavController().navigate(action)
         }
