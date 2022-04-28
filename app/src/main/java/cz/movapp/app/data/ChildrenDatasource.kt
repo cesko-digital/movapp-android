@@ -31,7 +31,7 @@ class ChildrenDatasource {
             var image: Drawable? = null
 
             try {
-                val imageStream = context.assets.open("children/images/%s.png".format(imageName))
+                val imageStream = context.assets.open("children/images/%s.webp".format(imageName))
                 image = Drawable.createFromStream(imageStream, imageName)
             } catch (ioException: IOException) {
                 ioException.printStackTrace()
