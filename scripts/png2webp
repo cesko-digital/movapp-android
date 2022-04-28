@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# convert png to webp format and remove original
+SCRIPT_PATH=$(dirname "$0")
+
+find . -name '*.png' | while read line; do
+    $($SCRIPT_PATH/libwebp-1.2.2-rc2-linux-x86-64/bin/cwebp  $line -o $(echo $line | sed 's/\.png/\.webp/'))
+
+    rm -rv $line
+done
+
+
+
