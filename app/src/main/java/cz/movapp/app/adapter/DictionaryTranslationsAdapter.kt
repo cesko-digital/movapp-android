@@ -56,23 +56,15 @@ class DictionaryTranslationsAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
 
-        if (position % 2 == 1) {
-            holder.binding.layout.background = ContextCompat.getDrawable(context, R.drawable.odd_outline)
-        } else {
-            val typedValue = TypedValue()
-            val theme: Resources.Theme = context.theme
-            val got: Boolean =
-                theme.resolveAttribute(R.color.surfaceColor, typedValue, true)
-            holder.binding.layout.setBackgroundColor(typedValue.data)
-        }
-
         holder.binding.apply {
             if (langPair.isReversed) {
                 textFrom.text = item.translation_to
+                textFromTrans.text = brackets(item.transcription_to)
                 textTo.text = item.translation_from
                 textToTrans.text = brackets(item.transcription_from)
             } else {
                 textFrom.text = item.translation_from
+                textFromTrans.text = brackets(item.transcription_from)
                 textTo.text = item.translation_to
                 textToTrans.text = brackets(item.transcription_to)
             }
@@ -92,7 +84,13 @@ class DictionaryTranslationsAdapter(
             }
         }
 
-        holder.binding.imagePlaySound.setOnClickListener {
+        holder.binding.imagePlaySoundFrom.setOnClickListener {
+            // TODO: import sounds to assets and use it here
+            //playSound(holder.itemView.context, item.soundAssetFile)
+        }
+
+
+        holder.binding.imagePlaySoundTo.setOnClickListener {
             // TODO: import sounds to assets and use it here
             //playSound(holder.itemView.context, item.soundAssetFile)
         }
