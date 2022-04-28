@@ -31,7 +31,11 @@ class AboutFragment : Fragment() {
         const val HTTP_MOVAPP_INSTAGRAM = "https://instagram.com/movappcz"
         const val HTTP_MOVAPP_SUGGESTION = "https://github.com/cesko-digital/movapp-android"
         const val HTTP_MOVAPP_LICENCE = "https://github.com/cesko-digital/movapp-android/blob/main/LICENSE"
+        const val HTTP_MOVAPP_LINKEDIN = "https://www.linkedin.com/company/movapp-cz"
+        const val HTTP_MOVAPP_FACEBOOK = "https://www.facebook.com/movappcz"
+        const val HTTP_MOVAPP_GITHUB_ANDROID = "https://github.com/cesko-digital/movapp-android"
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,6 +78,17 @@ class AboutFragment : Fragment() {
             openUri(context, HTTP_MOVAPP_LICENCE)
         }
 
+        binding.textAboutLinkedin.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_LINKEDIN)
+        }
+
+        binding.textAboutFacebook.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_FACEBOOK)
+        }
+
+        binding.textAboutGithub.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_GITHUB_ANDROID)
+        }
 
 
         val langCode = LanguagePair.getDefault().from.langCode
