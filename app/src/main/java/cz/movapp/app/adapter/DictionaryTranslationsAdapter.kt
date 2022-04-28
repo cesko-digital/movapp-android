@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
@@ -84,12 +85,13 @@ class DictionaryTranslationsAdapter(
             }
         }
 
+        holder.binding.imagePlaySoundFrom.visibility = View.GONE
         holder.binding.imagePlaySoundFrom.setOnClickListener {
             // TODO: import sounds to assets and use it here
             //playSound(holder.itemView.context, item.soundAssetFile)
         }
 
-
+        holder.binding.imagePlaySoundTo.visibility = View.GONE
         holder.binding.imagePlaySoundTo.setOnClickListener {
             // TODO: import sounds to assets and use it here
             //playSound(holder.itemView.context, item.soundAssetFile)

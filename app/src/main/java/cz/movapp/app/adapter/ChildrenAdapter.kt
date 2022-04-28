@@ -3,6 +3,7 @@ package cz.movapp.app.adapter
 import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -53,6 +54,8 @@ class ChildrenAdapter (
                 imageChildrenFlagTo.setImageResource(R.drawable.ua)
 
                 // TODO: import sounds to assets and use it here
+                imagePlaySoundFrom.visibility = View.GONE
+                imagePlaySoundTo.visibility = View.GONE
                 imagePlaySoundFrom.setOnClickListener {
                     //playSound(holder.itemView.context, item.soundAssetFileFrom)
                 }
@@ -67,6 +70,8 @@ class ChildrenAdapter (
                 imageChildrenFlagTo.setImageResource(R.drawable.cz)
 
                 // TODO: import sounds to assets and use it here
+                imagePlaySoundFrom.visibility = View.GONE
+                imagePlaySoundTo.visibility = View.GONE
                 imagePlaySoundFrom.setOnClickListener {
                     //playSound(holder.itemView.context, item.soundAssetFileTo)
                 }
