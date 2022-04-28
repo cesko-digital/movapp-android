@@ -62,7 +62,7 @@ class DictionaryTranslationsAdapter(
             val typedValue = TypedValue()
             val theme: Resources.Theme = context.theme
             val got: Boolean =
-                theme.resolveAttribute(R.color.primaryColor, typedValue, true)
+                theme.resolveAttribute(R.color.surfaceColor, typedValue, true)
             holder.binding.layout.setBackgroundColor(typedValue.data)
         }
 
@@ -106,15 +106,13 @@ class DictionaryTranslationsAdapter(
         if (isSet)
             holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
-                    context, R.color
-                        .secondaryColor
+                    context, R.color.secondaryColor
                 )
             )
         else
             holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
-                    context, R.color
-                        .primaryColor
+                    context, R.color.primaryColor
                 )
             )
     }

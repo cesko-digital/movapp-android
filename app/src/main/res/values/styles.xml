@@ -5,13 +5,13 @@
         <item name="android:paddingTop">@dimen/about_padding_section</item>
         <item name="android:paddingBottom">@dimen/about_padding_section</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textSize">@dimen/about_headline_text</item>
     </style>
 
     <style name="AboutClickable" parent="AboutNormal">
         <item name="android:fontFamily">@font/source_sans_pro_semi_bold</item>
-        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
     <style name="AboutNormal">
