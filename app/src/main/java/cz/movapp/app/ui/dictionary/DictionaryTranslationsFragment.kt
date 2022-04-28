@@ -68,9 +68,10 @@ class DictionaryTranslationsFragment : Fragment() {
         }
 
         dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryTranslationsAdapter).search(
-                dictionarySharedViewModel.searchQuery.value!!
-            )
+            if (dictionarySharedViewModel.searchQuery.value!!.isNotEmpty())
+                (recyclerView.adapter as DictionaryTranslationsAdapter).search(
+                    dictionarySharedViewModel.searchQuery.value!!
+                )
         }
 
         return root
