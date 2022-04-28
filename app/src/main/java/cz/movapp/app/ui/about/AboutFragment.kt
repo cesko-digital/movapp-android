@@ -90,9 +90,9 @@ class AboutFragment : Fragment() {
 
     private fun setupToolbar(mainActivity: MainActivity) {
         mainActivity.binding.apply {
-            toolbar.setTitle(R.string.title_about)
-            toolbar.menu.clear()
-            toolbar.invalidateMenu()
+            topAppBar.setTitle(R.string.title_about)
+            topAppBar.menu.clear()
+            topAppBar.invalidateMenu()
         }
 
         mainActivity.searchBinding.root.visibility = View.GONE

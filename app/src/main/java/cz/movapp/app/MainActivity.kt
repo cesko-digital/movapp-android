@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        val navView: BottomNavigationView = binding.bottomNavigation
 
         navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        binding.toolbar.setupWithNavController(navController,appBarConfiguration)
+        binding.topAppBar.setupWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
 
         favoritesViewModel.favorites.observe(this) {
@@ -65,34 +65,34 @@ class MainActivity : AppCompatActivity() {
      * setup toolbar
      */
     fun setupTopAppBarWithSearchWithMenu() {
-        binding.toolbar.menu.clear()
-        binding.toolbar.inflateMenu(R.menu.top_menu)
+        binding.topAppBar.menu.clear()
+        binding.topAppBar.inflateMenu(R.menu.top_menu)
 
 
-        binding.toolbar.menu.findItem(R.id.top_menu_about).setOnMenuItemClickListener {
+        binding.topAppBar.menu.findItem(R.id.top_menu_about).setOnMenuItemClickListener {
             navController.navigate(R.id.navigation_about)
             true
         }
 
-        binding.toolbar.menu.findItem(R.id.top_menu_switch_language).setOnMenuItemClickListener {
+        binding.topAppBar.menu.findItem(R.id.top_menu_switch_language).setOnMenuItemClickListener {
             mainSharedModel.selectLanguage(nextLanguage(mainSharedModel.selectedLanguage.value!!))
             true
         }
 
         mainSharedModel.selectedLanguage.observe(this, Observer { fromUa ->
-            val languageItem = binding.toolbar.menu?.findItem(R.id.top_menu_switch_language)
+            val languageItem = binding.topAppBar.menu?.findItem(R.id.top_menu_switch_language)
             languageItem?.setIcon(fromUa.from.flagResId)
         })
 
         searchBinding.root.visibility = View.VISIBLE
-        binding.toolbar.title = ""
+        binding.topAppBar.title = ""
     }
 
     private fun setupTopAppBarSearch(): ToolbarSearchBinding {
         val binding =
-            ToolbarSearchBinding.inflate(this.layoutInflater, binding.toolbar, false)
+            ToolbarSearchBinding.inflate(this.layoutInflater, binding.topAppBar, false)
 
-        this.binding.toolbar.addView(binding.root)
+        this.binding.topAppBar.addView(binding.root)
         binding.searchView.hint = resources.getString(R.string.title_search)
 
         lifecycleScope.launch {
