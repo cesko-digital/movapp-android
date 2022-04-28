@@ -16,5 +16,5 @@
     <dimen name="items_with_play_padding">6dp</dimen>
     <dimen name="playSize">36dp</dimen>
     <dimen name="alphabetPlaySize">64dp</dimen>
-    <dimen name="search_corner_radius">4dp</dimen>
+    <dimen name="search_corner_radius">18dp</dimen>
 </resources>

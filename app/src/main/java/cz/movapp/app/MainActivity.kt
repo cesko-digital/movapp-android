@@ -87,20 +87,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTopAppBarSearch(): ToolbarSearchBinding {
-        val searchViewBinding =
+        val binding =
             ToolbarSearchBinding.inflate(this.layoutInflater, binding.toolbar, false)
-        val searchView = searchViewBinding.searchView
 
-        binding.toolbar.addView(searchViewBinding.root)
-        searchView.hint = resources.getString(R.string.title_search)
+        this.binding.toolbar.addView(binding.root)
+        binding.searchView.hint = resources.getString(R.string.title_search)
 
-        searchView.addTextChangedListener(object : TextWatcherAdapter() {
+        binding.searchView.addTextChangedListener(object : TextWatcherAdapter() {
             override fun afterTextChanged(text: Editable?) {
                 searchDictionary(text.toString())
             }
         })
 
-        return searchViewBinding
+        binding.flagView.setOnClickListener { view ->
+            mainSharedModel.selectLanguage(nextLanguage(mainSharedModel.selectedLanguage.value!!))
+        }
+
+        mainSharedModel.selectedLanguage.observe(this, Observer { fromUa ->
+            binding.flagView.setImageResource(fromUa.from.flagResId)
+        })
+
+        return binding
     }
 
     fun searchDictionary(query: String?): Boolean {
@@ -116,8 +123,8 @@ class MainActivity : AppCompatActivity() {
                     this@MainActivity.navController.navigate(R.id.dictionary_translations_fragment)
                 }
 
-                dictionarySharedViewModel.setSearchQuery(query)
             }
+            dictionarySharedViewModel.setSearchQuery(query)
             return true
         }
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import cz.movapp.app.FavoritesViewModel
+import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.databinding.FragmentDictionaryTranslationsBinding
@@ -41,6 +42,8 @@ class DictionaryTranslationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
+
         _binding = FragmentDictionaryTranslationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -65,10 +68,9 @@ class DictionaryTranslationsFragment : Fragment() {
         }
 
         dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
-            if (dictionarySharedViewModel.searchQuery.value!!.isNotEmpty())
-                (recyclerView.adapter as DictionaryTranslationsAdapter).search(
-                    dictionarySharedViewModel.searchQuery.value!!
-                )
+            (recyclerView.adapter as DictionaryTranslationsAdapter).search(
+                dictionarySharedViewModel.searchQuery.value!!
+            )
         }
 
         return root
