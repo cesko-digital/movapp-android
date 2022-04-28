@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
@@ -68,11 +69,33 @@ class DictionaryTranslationsFragment : Fragment() {
         }
 
         dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
-            if (dictionarySharedViewModel.searchQuery.value!!.isNotEmpty())
+            if (dictionarySharedViewModel.searchQuery.value!!.isNotEmpty()) {
                 (recyclerView.adapter as DictionaryTranslationsAdapter).search(
                     dictionarySharedViewModel.searchQuery.value!!
                 )
+            }
         }
+
+        (recyclerView.adapter as DictionaryTranslationsAdapter).registerAdapterDataObserver(object: RecyclerView.AdapterDataObserver() {
+                override fun onChanged() {
+                    recyclerView.scrollToPosition(0)
+                }
+                override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
+                    recyclerView.scrollToPosition(0)
+                }
+                override fun onItemRangeMoved(fromPosition: Int, toPosition: Int, itemCount: Int) {
+                    recyclerView.scrollToPosition(0)
+                }
+                override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                    recyclerView.scrollToPosition(0)
+                }
+                override fun onItemRangeChanged(positionStart: Int, itemCount: Int) {
+                    recyclerView.scrollToPosition(0)
+                }
+                override fun onItemRangeChanged(positionStart: Int, itemCount: Int, payload: Any?) {
+                    recyclerView.scrollToPosition(0)
+                }
+            })
 
         return root
     }
