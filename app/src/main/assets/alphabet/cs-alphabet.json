@@ -212,8 +212,8 @@
 			"id": "a6ee485f14145c51e56ca89dca901307",
 			"file_name": "ě.mp3",
 			"letter": [
-				"ě",
-				null
+				"Ě",
+				"ě"
 			],
 			"transcription": "[є] (читаємо попередній приголосний м'яко)",
 			"examples": [
@@ -787,8 +787,8 @@
 			"id": "4c142bbbbc45248988c78ee7c9730a18",
 			"file_name": "ů.mp3",
 			"letter": [
-				"ů",
-				null
+				"Ů",
+				"ů"
 			],
 			"transcription": "довгий [у] в середині слова",
 			"examples": [
@@ -902,8 +902,8 @@
 			"id": "a30287a07fb7538ad4807d28e9461f98",
 			"file_name": "ý.mp3",
 			"letter": [
-				"ý",
-				null
+				"Ý",
+				"ý"
 			],
 			"transcription": "довгий [и]",
 			"examples": [

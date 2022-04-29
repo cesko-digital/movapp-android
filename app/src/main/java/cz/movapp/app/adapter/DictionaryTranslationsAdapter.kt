@@ -158,7 +158,7 @@ class DictionaryTranslationsAdapter(
                     /**
                      * detect Levenshtein direction
                      * Levenshtein can not be used on both direction at the same time
-                     * (because is says A > B and B > C but C < A)
+                     * (because it says A > B and B > C but C < A)
                      *
                      * in order to detect direction we simply look at sum of lev. dist.
                      * of both strings and we select the smaller sum

@@ -55,7 +55,7 @@ class AlphabetDatasource(private val context: Context) {
                     letter_capital = jsonLetterObj.getJSONArray("letter").getNullString(0),
                     letter = jsonLetterObj.getJSONArray("letter").getNullString(1),
                     file_name = file_name,
-                    letterSoundAssetFile = (if (file_name == null) null else "alphabet/$langCode-alphabet/$file_name"),
+                    letterSoundAssetFile = (if (file_name == null) null else "alphabet/$langCode-alphabet/${jsonLetterObj.getString("id") + ".mp3"}"),
                     transcription = jsonLetterObj.getString("transcription"),
                     examples = examples
                 )
