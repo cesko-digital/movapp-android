@@ -1,14 +1,10 @@
 package cz.movapp.app.data
 
 import android.content.Context
-import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import cz.movapp.app.ui.children.ChildrenData
 import org.json.JSONArray
 import java.io.IOException
-import kotlin.math.roundToInt
 
 class ChildrenDatasource {
 
@@ -31,7 +27,7 @@ class ChildrenDatasource {
             var image: Drawable? = null
 
             try {
-                val imageStream = context.assets.open("children/images/%s.png".format(imageName))
+                val imageStream = context.assets.open("children/images/%s.webp".format(imageName))
                 image = Drawable.createFromStream(imageStream, imageName)
             } catch (ioException: IOException) {
                 ioException.printStackTrace()
