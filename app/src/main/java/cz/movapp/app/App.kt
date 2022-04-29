@@ -1,6 +1,7 @@
 package cz.movapp.app
 
 import android.app.Application
+import android.os.StrictMode
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 
@@ -15,6 +16,9 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        if (BuildConfig.DEBUG){
+            StrictMode.enableDefaults()
+        }
         appModule = AppModule(this.applicationContext)
     }
 
