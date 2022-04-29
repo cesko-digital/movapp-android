@@ -32,12 +32,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:padding="@dimen/general_padding">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/layout_children_from"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:padding="@dimen/items_with_play_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -47,6 +48,11 @@
                 android:id="@+id/image_children_flag_from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shadow"
+                android:contentDescription="@string/country_flag"
                 android:padding="@dimen/general_padding"
                 app:srcCompat="@drawable/ua" />
 
@@ -55,16 +61,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
+                android:layout_toRightOf="@+id/image_children_flag_from"
+                android:layout_toLeftOf="@+id/image_play_sound_from"
+                android:layout_centerVertical="true"
                 android:text="From" />
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/image_play_sound_from"
+                android:layout_width="@dimen/playSize"
+                android:layout_height="@dimen/playSize"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/play_transcription"
+                app:srcCompat="@drawable/ic_play_kids" />
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/layout_children_to"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:padding="@dimen/items_with_play_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_children_from"
@@ -74,6 +93,10 @@
                 android:id="@+id/image_children_flag_to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shadow"
                 android:padding="@dimen/general_padding"
                 app:srcCompat="@drawable/cz" />
 
@@ -82,9 +105,22 @@
                 android:id="@+id/text_children_to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="To" />
-        </LinearLayout>
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/image_play_sound_to"
+                android:layout_toRightOf="@+id/image_children_flag_to"
+                android:text="To"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/image_play_sound_to"
+                android:layout_width="@dimen/playSize"
+                android:layout_height="@dimen/playSize"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/play_transcription"
+                app:srcCompat="@drawable/ic_play_kids" />
+        </RelativeLayout>
 
     </LinearLayout>
 

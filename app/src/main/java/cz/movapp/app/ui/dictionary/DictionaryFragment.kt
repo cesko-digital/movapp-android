@@ -8,14 +8,12 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.FavoritesViewModelFactory
+import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.R
 import cz.movapp.app.adapter.DictionaryAdapter
 import cz.movapp.app.data.FavoritesDatabase
 import cz.movapp.app.databinding.FragmentDictionaryBinding
@@ -57,31 +55,45 @@ class DictionaryFragment : Fragment() {
         _binding = FragmentDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView: RecyclerView = binding.recyclerViewDictionary
+        val recyclerView = binding.recyclerViewDictionary
+        recyclerView.setHasFixedSize(true)
         dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
             recyclerView.adapter = it
-            recyclerView.setHasFixedSize(true)
 
-            it.fromUa = mainSharedViewModel.fromUa.value == true
+            it.langPair = mainSharedViewModel.selectedLanguage.value!!
         }
 
-        mainSharedViewModel.fromUa.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryAdapter).fromUa = mainSharedViewModel.fromUa.value == true
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
+            (recyclerView.adapter as DictionaryAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
         }
 
-
-        favoritesViewModel.favorites.observe(activity as LifecycleOwner) {
-            if (recyclerView.adapter !== null) {
-                (recyclerView.adapter as DictionaryAdapter).favorites = it
-            }
-        }
+        setupTopAppBarWithSearchWithMenu()
 
         return root
     }
 
+    /**
+     * Activity binding is not init when application starts
+     * thus postponing it to onStart when app starts/binding is null, otherwise do it right away
+     */
+    private fun setupTopAppBarWithSearchWithMenu() {
+        val mainActivity = requireActivity() as MainActivity
+        try {
+            mainActivity.setupTopAppBarWithSearchWithMenu()
+        } catch (e: UninitializedPropertyAccessException) {
+            lifecycle.addObserver(object : DefaultLifecycleObserver {
+                override fun onStart(owner: LifecycleOwner) {
+                    //must be in onStart otherwise activity binding not init yet
+                    mainActivity.setupTopAppBarWithSearchWithMenu()
+                }
+            })
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.recyclerViewDictionary.adapter = null
         _binding = null
     }
 }

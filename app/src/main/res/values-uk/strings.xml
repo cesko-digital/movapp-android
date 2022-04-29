@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Movapp</string>
     <string name="title_children">для дітей</string>
     <string name="title_alphabet">Алфавіт</string>
     <string name="title_dictionary">Словник</string>
@@ -16,4 +15,10 @@
     <string name="about_license">Ліцензія</string>
     <string name="about_version">Версія: %s</string>
     <string name="about_authors">АВТОРИ</string>
+    <string name="about_build">Будувати" %s</string>
+    <string name="facebook">Facebook</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="github">Github</string>
+    <string name="country_flag">country flag</string>
+    <string name="play_transcription">play transcription</string>
 </resources>

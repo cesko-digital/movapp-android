@@ -11,7 +11,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
     private val context = application.applicationContext
 
     private val _children = MutableLiveData<ChildrenAdapter>().apply {
-        value = ChildrenAdapter(context, ChildrenDatasource().loadChildren(context))
+        value = ChildrenAdapter(ChildrenDatasource().loadChildren(context))
     }
 
     val children: MutableLiveData<ChildrenAdapter> = _children

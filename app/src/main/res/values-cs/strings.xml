@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Movapp</string>
     <string name="title_dictionary">Slovníček</string>
     <string name="title_alphabet">Abeceda</string>
     <string name="title_search">Hledat</string>
     <string name="title_children">Pro děti</string>
-    <string name="title_about">O...</string>
+    <string name="title_about">O nás</string>
     <string name="title_favorites">Oblíbené</string>
     <string name="about_project">O PROJEKTU</string>
     <string name="about_web">Web</string>
@@ -16,4 +15,10 @@
     <string name="about_license">Licence</string>
     <string name="about_version">Verze: %s</string>
     <string name="about_authors">AUTOŘI APLIKACE</string>
+    <string name="about_build">Sestavení: %s</string>
+    <string name="facebook">Facebook</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="github">Github</string>
+    <string name="country_flag">country flag</string>
+    <string name="play_transcription">play transcription</string>
 </resources>

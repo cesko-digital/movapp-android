@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Movapp</string>
     <string name="title_dictionary">Dictionary</string>
     <string name="title_alphabet">Alphabet</string>
     <string name="title_children">For kids</string>
@@ -15,4 +14,10 @@
     <string name="about_license">License</string>
     <string name="about_version">Version: %s</string>
     <string name="about_authors">AUTHORS</string>
+    <string name="about_build">Build: %s</string>
+    <string name="facebook">Facebook</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="github">Github</string>
+    <string name="country_flag">country flag</string>
+    <string name="play_transcription">play transcription</string>
 </resources>

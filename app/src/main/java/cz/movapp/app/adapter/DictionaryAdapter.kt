@@ -1,6 +1,5 @@
 package cz.movapp.app.adapter
 
-import android.content.Context
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -10,20 +9,19 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.app.LanguagePair
 import cz.movapp.app.R
 import cz.movapp.app.data.Favorites
 import cz.movapp.app.ui.dictionary.DictionaryFragmentDirections
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 
 class DictionaryAdapter (
-    private val context: Context,
     private val dataset: List<DictionarySectionsData>
     ): RecyclerView.Adapter<DictionaryAdapter.ItemViewHolder>() {
 
-    var fromUa = true
-    var favorites = listOf<Favorites>()
+    var langPair = LanguagePair.getDefault()
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textFromTo: TextView = view.findViewById(R.id.text_dictionary_from_to)
         val layout: ConstraintLayout = view.findViewById(R.id.layoutDictionaryItem)
     }
@@ -41,41 +39,24 @@ class DictionaryAdapter (
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
+        val context = holder.layout.context
+
         if (position % 2 == 1) {
             holder.layout.background = ContextCompat.getDrawable(context, R.drawable.odd_outline)
         } else {
             val typedValue = TypedValue()
-            context.theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+            context.theme.resolveAttribute(R.color.surfaceColor, typedValue, true)
             holder.layout.setBackgroundColor(typedValue.data)
         }
 
-        if (fromUa)
+        if (langPair.isReversed)
             holder.textFromTo.text = "%s - %s".format(item.to, item.from)
         else
             holder.textFromTo.text = "%s - %s".format(item.from, item.to)
 
         holder.itemView.setOnClickListener {
-            val favoritesIds = mutableListOf<String>()
-            favorites.forEach {
-                if (item.translation_ids.contains(it.translationId))
-                    favoritesIds.add(it.translationId)
-
-            }
-            val action = DictionaryFragmentDirections.actionNavigationDictionaryToDictionaryContentFragment(constraint = item.id, translationIds = item.translation_ids.toTypedArray())
+            val action = DictionaryFragmentDirections.toDictionaryTranslationsFragment(translationIds = item.translation_ids.toTypedArray())
             holder.itemView.findNavController().navigate(action)
         }
-    }
-
-
-    fun getSectionTitle(sectionId: String): String {
-        for (i in dataset) {
-            if (sectionId == i.id) {
-                return when (fromUa) {
-                    true -> i.to
-                    false -> i.from
-                }
-            }
-        }
-        return ""
     }
 }

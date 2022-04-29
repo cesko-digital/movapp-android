@@ -1,26 +1,29 @@
 package cz.movapp.app
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.SearchView
-import android.widget.Toast
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import cz.movapp.android.textChanges
+import cz.movapp.app.LanguagePair.Companion.nextLanguage
 import cz.movapp.app.data.Favorites
 import cz.movapp.app.databinding.ActivityMainBinding
+import cz.movapp.app.databinding.ToolbarSearchBinding
 import cz.movapp.app.ui.dictionary.DictionaryViewModel
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
+    lateinit var searchBinding: ToolbarSearchBinding
     private lateinit var navController: NavController
 
 
@@ -32,11 +35,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        val navView: BottomNavigationView = binding.bottomNavigation
 
         navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
@@ -46,102 +48,90 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_dictionary, R.id.navigation_favorites, R.id.navigation_alphabet, R.id.navigation_children
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        binding.topAppBar.setupWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
 
         favoritesViewModel.favorites.observe(this) {
             favorites = it
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.top_menu, menu)
 
 
-        mainSharedModel.fromUa.observe(this, Observer { fromUa ->
-            val languageItem = menu?.findItem(R.id.top_menu_switch_language)
-            languageItem?.setIcon(if (fromUa) R.drawable.ua else R.drawable.cz)
-        })
-
-        val search = menu?.findItem(R.id.search_bar)
-        val searchView = search?.actionView as SearchView
-        searchView.queryHint = resources.getString(R.string.title_search)
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean  = searchDictionary(query)
-            override fun onQueryTextChange(query: String?): Boolean = searchDictionary(query)
-
-            fun searchDictionary(query: String?): Boolean {
-                if (query != null) {
-                    if (query.isNotEmpty()) {
-                        try {
-                            /**
-                             *  if this fails then we need to change the fragment
-                             *  to fragment with search results
-                             */
-                            navController.getBackStackEntry(R.id.dictionary_content_fragment)
-
-                            dictionarySharedViewModel.search(query)
-                        } catch (ex: IllegalArgumentException) {
-                            val bundle = Bundle()
-                            bundle.putString("constraint", query)
-                            navController.navigate(R.id.dictionary_content_fragment, bundle)
-                        }
-                    }
-                    return true
-                }
-
-                return false
-            }
-        })
-
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.top_menu_about -> {
-                navController.navigate(R.id.navigation_about)
-                return true
-            }
-
-            R.id.top_menu_switch_language -> {
-                mainSharedModel.setFromUa(!mainSharedModel.fromUa.value!!)
-
-                switchAlphabetFragmentLanguage()
-
-                return true
-            }
-
-            //  Otherwise, do nothing and use the core event handling
-
-            // when clauses require that all possible paths be accounted for explicitly,
-            //  for instance both the true and false cases if the value is a Boolean,
-            //  or an else to catch all unhandled cases.
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    fun switchAlphabetFragmentLanguage() {
-        try {
-            /**
-             * if the next line fails, it is OK
-             * it just mean we are a different fragment
-             * and do not want to call the rest...
-             */
-            navController.getBackStackEntry(R.id.navigation_alphabet)
-
-            navController.popBackStack()
-            navController.navigate(R.id.navigation_alphabet)
-        } catch (ex: IllegalArgumentException) {
-            /* nothing */
-        }
+        searchBinding = setupTopAppBarSearch()
+//        setupTopAppBarWithSearchWithMenu()
     }
 
     /**
-     * Enables back button support. Simply navigates one element up on the stack.
+     * setup toolbar
      */
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+    fun setupTopAppBarWithSearchWithMenu() {
+        binding.topAppBar.menu.clear()
+        binding.topAppBar.inflateMenu(R.menu.top_menu)
+
+
+        binding.topAppBar.menu.findItem(R.id.top_menu_about).setOnMenuItemClickListener {
+            navController.navigate(R.id.navigation_about)
+            true
+        }
+
+        binding.topAppBar.menu.findItem(R.id.top_menu_switch_language).setOnMenuItemClickListener {
+            mainSharedModel.selectLanguage(nextLanguage(mainSharedModel.selectedLanguage.value!!))
+            true
+        }
+
+        mainSharedModel.selectedLanguage.observe(this, Observer { fromUa ->
+            val languageItem = binding.topAppBar.menu?.findItem(R.id.top_menu_switch_language)
+            languageItem?.setIcon(fromUa.from.flagResId)
+        })
+
+        searchBinding.root.visibility = View.VISIBLE
+        binding.topAppBar.title = ""
+    }
+
+    private fun setupTopAppBarSearch(): ToolbarSearchBinding {
+        val binding =
+            ToolbarSearchBinding.inflate(this.layoutInflater, binding.topAppBar, false)
+
+        this.binding.topAppBar.addView(binding.root)
+        binding.searchView.hint = resources.getString(R.string.title_search)
+
+        lifecycleScope.launch {
+            binding.searchView.textChanges()
+                .debounce(300)
+                .collect{ text ->
+                    searchDictionary(text.toString())
+                }
+        }
+
+        binding.flagView.setOnClickListener { view ->
+            mainSharedModel.selectLanguage(nextLanguage(mainSharedModel.selectedLanguage.value!!))
+        }
+
+        mainSharedModel.selectedLanguage.observe(this, Observer { fromUa ->
+            binding.flagView.setImageResource(fromUa.from.flagResId)
+        })
+
+        return binding
+    }
+
+    fun searchDictionary(query: String?): Boolean {
+        if (query != null) {
+            if (query.isNotEmpty()) {
+                try {
+                    /**
+                     *  if this fails then we need to change the fragment
+                     *  to fragment with search results
+                     */
+                    this@MainActivity.navController.getBackStackEntry(R.id.dictionary_translations_fragment)
+                } catch (ex: IllegalArgumentException) {
+                    this@MainActivity.navController.navigate(R.id.dictionary_translations_fragment)
+                }
+
+            }
+            dictionarySharedViewModel.setSearchQuery(query)
+            return true
+        }
+
+        return false
     }
 }

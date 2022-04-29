@@ -1,6 +1,8 @@
 package cz.movapp.app.data
 
 import android.content.Context
+import cz.movapp.app.Language
+import cz.movapp.app.LanguagePair
 import cz.movapp.app.ui.alphabet.AlphabetData
 import cz.movapp.app.ui.alphabet.LetterExampleData
 import org.json.JSONArray
@@ -8,17 +10,12 @@ import org.json.JSONObject
 import java.io.IOException
 
 
-fun toLanguageCode(fromUa: Boolean?) = if (fromUa == true) "uk" else "cs"
-
 /**
  * see app/src/main/assets/alphabet/cs-alphabet.json
  */
 class AlphabetDatasource(private val context: Context) {
 
-    private val cache = mutableMapOf(
-        true to listOf<AlphabetData>(),
-        false to listOf<AlphabetData>()
-    )
+    private val cache = mutableMapOf<String,List<AlphabetData>>()
 
     fun loadByLanguage(langCode: String): List<AlphabetData> {
         var jsonString: String = ""
@@ -50,31 +47,33 @@ class AlphabetDatasource(private val context: Context) {
                 ))
             }
 
-            val letterLowerCase = jsonLetterObj.getJSONArray("letter").getNullString(1)
-            alphabet.add(AlphabetData(
-                    jsonLetterObj.getString("id"),
-                    langCode,
-                    jsonLetterObj.getJSONArray("letter").getNullString(0),
-                    letterLowerCase,
-                    letterSoundAssetFile = (if(letterLowerCase == null) null else "alphabet/$langCode-alphabet/$letterLowerCase.mp3"),
-                    jsonLetterObj.getString("transcription"),
-                    examples
-            )
+            val file_name = jsonLetterObj.getNullString("file_name")
+            alphabet.add(
+                AlphabetData(
+                    id = jsonLetterObj.getString("id"),
+                    language = langCode,
+                    letter_capital = jsonLetterObj.getJSONArray("letter").getNullString(0),
+                    letter = jsonLetterObj.getJSONArray("letter").getNullString(1),
+                    file_name = file_name,
+                    letterSoundAssetFile = (if (file_name == null) null else "alphabet/$langCode-alphabet/${jsonLetterObj.getString("id") + ".mp3"}"),
+                    transcription = jsonLetterObj.getString("transcription"),
+                    examples = examples
+                )
             )
         }
 
         return alphabet
     }
 
-    fun load(fromUa: Boolean): List<AlphabetData> {
-        return lazyCacheLoad(fromUa)
+    fun load(fromUa: LanguagePair): List<AlphabetData> {
+        return lazyCacheLoad(fromUa.from)
     }
 
-    private fun lazyCacheLoad(fromUa: Boolean): List<AlphabetData> {
-        var selected = cache[fromUa]!!
-        return if (selected.isEmpty()) {
-            selected = loadByLanguage(toLanguageCode(fromUa))
-            cache[fromUa] = selected
+    private fun lazyCacheLoad(language: Language): List<AlphabetData> {
+        var selected = cache[language.langCode]
+        return if (selected == null) {
+            selected = loadByLanguage(language.langCode)
+            cache[language.langCode] = selected
             selected
         } else {
             selected
@@ -85,5 +84,10 @@ class AlphabetDatasource(private val context: Context) {
 
 fun JSONArray.getNullString(index: Int): String? {
     val string = this.getString(index)
+    return if (string == "null") null else string
+}
+
+fun JSONObject.getNullString(name: String): String? {
+    val string = this.getString(name)
     return if (string == "null") null else string
 }

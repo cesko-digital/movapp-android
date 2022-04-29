@@ -5,6 +5,8 @@ import cz.movapp.app.ui.dictionary.DictionarySectionsData
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import org.json.JSONObject
 import java.io.IOException
+import java.text.Normalizer
+import java.util.*
 
 class DictionaryDatasource {
 
@@ -63,11 +65,18 @@ class DictionaryDatasource {
                     jsonObjItem.getString("translation_from"),
                     jsonObjItem.getString("transcription_from"),
                     jsonObjItem.getString("translation_to"),
-                    jsonObjItem.getString("transcription_to")
+                    jsonObjItem.getString("transcription_to"),
+                    stripAccents(jsonObjItem.getString("translation_from").toString().lowercase(Locale.getDefault())),
+                    jsonObjItem.getString("translation_to").lowercase(Locale.getDefault())
                 )
             )
         }
 
         return translations
+    }
+
+    private fun stripAccents(input: String): String {
+        var output = Normalizer.normalize(input, Normalizer.Form.NFD)
+        return output.replace(Regex("[^\\p{ASCII}]"), "")
     }
 }

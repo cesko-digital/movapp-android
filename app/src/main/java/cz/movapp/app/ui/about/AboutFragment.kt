@@ -1,15 +1,19 @@
 package cz.movapp.app.ui.about
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import cz.movapp.android.LoadAssetsOtherwiseOpenInBrowserWebViewClient
+import cz.movapp.android.enableDarkMode
+import cz.movapp.android.openUri
 import cz.movapp.app.BuildConfig
+import cz.movapp.app.LanguagePair
+import cz.movapp.app.MainActivity
 import cz.movapp.app.R
 import cz.movapp.app.databinding.FragmentAboutBinding
 
@@ -27,7 +31,11 @@ class AboutFragment : Fragment() {
         const val HTTP_MOVAPP_INSTAGRAM = "https://instagram.com/movappcz"
         const val HTTP_MOVAPP_SUGGESTION = "https://github.com/cesko-digital/movapp-android"
         const val HTTP_MOVAPP_LICENCE = "https://github.com/cesko-digital/movapp-android/blob/main/LICENSE"
+        const val HTTP_MOVAPP_LINKEDIN = "https://www.linkedin.com/company/movapp-cz"
+        const val HTTP_MOVAPP_FACEBOOK = "https://www.facebook.com/movappcz"
+        const val HTTP_MOVAPP_GITHUB_ANDROID = "https://github.com/cesko-digital/movapp-android"
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,42 +44,74 @@ class AboutFragment : Fragment() {
     ): View {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
 
-        binding.textAboutVersion.text = resources.getString(R.string.about_version).format(BuildConfig.VERSION_NAME)
-
-        binding.textAboutWeb.setOnClickListener {
-            openUri(HTTP_MOVAPP_WEB)
-        }
-
-        binding.textAboutTwitter.setOnClickListener {
-            openUri(HTTP_MOVAPP_TWITTER)
-        }
-
-        binding.textAboutInstagram.setOnClickListener {
-            openUri(HTTP_MOVAPP_INSTAGRAM)
-        }
-
-        binding.textAboutSuggestion.setOnClickListener {
-            openUri(HTTP_MOVAPP_SUGGESTION)
-        }
-
-        binding.textAboutLicense.setOnClickListener {
-            openUri(HTTP_MOVAPP_LICENCE)
-        }
-
-
         lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onDestroy(owner: LifecycleOwner) {
                 _binding = null
             }
         })
 
+        val mainActivity = requireActivity() as MainActivity
+        setupToolbar(mainActivity)
+
+        val context = this.requireContext()
+
+        binding.textAboutVersion.text = resources.getString(R.string.about_version).format(BuildConfig.VERSION_NAME)
+        binding.textAboutBuild.text = resources.getString(R.string.about_build).format(BuildConfig.VERSION_CODE)
+
+        binding.textAboutWeb.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_WEB)
+        }
+
+        binding.textAboutTwitter.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_TWITTER)
+        }
+
+        binding.textAboutInstagram.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_INSTAGRAM)
+        }
+
+        binding.textAboutSuggestion.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_SUGGESTION)
+        }
+
+        binding.textAboutLicense.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_LICENCE)
+        }
+
+        binding.textAboutLinkedin.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_LINKEDIN)
+        }
+
+        binding.textAboutFacebook.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_FACEBOOK)
+        }
+
+        binding.textAboutGithub.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_GITHUB_ANDROID)
+        }
+
+
+        val langCode = LanguagePair.getDefault().from.langCode
+        // To get html file I used Firefox plugin Save File and them remove redundant stuff manually - ie.  kept styles and <main>
+        binding.webView.loadUrl("https://appassets.androidplatform.net/assets/about/$langCode-about.html")
+        binding.webView.webViewClient = LoadAssetsOtherwiseOpenInBrowserWebViewClient(context)
+
+        //bug in WebView sometimes does not load with msg net::ERR_CACHE_MISS it still does even with this.
+        binding.webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        binding.webView.enableDarkMode()
+
         return binding.root
     }
 
-    private fun openUri(textUri: String) {
-        val queryUrl: Uri = Uri.parse(textUri)
-        val intent = Intent(Intent.ACTION_VIEW, queryUrl)
-        context?.startActivity(intent)
+    private fun setupToolbar(mainActivity: MainActivity) {
+        mainActivity.binding.apply {
+            topAppBar.setTitle(R.string.title_about)
+            topAppBar.menu.clear()
+            topAppBar.invalidateMenu()
+        }
+
+        mainActivity.searchBinding.root.visibility = View.GONE
+
     }
 
 }

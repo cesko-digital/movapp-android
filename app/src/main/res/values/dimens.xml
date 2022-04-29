@@ -7,10 +7,14 @@
     <dimen name="general_padding">4dp</dimen>
 
     <dimen name="divider_margin">10dp</dimen>
-    <dimen name="about_padding_section">40dp</dimen>
+    <dimen name="about_padding_section">18dp</dimen>
     <dimen name="about_padding_item">8dp</dimen>
     <dimen name="about_headline_text">22sp</dimen>
     <dimen name="about_item_text_standard">18sp</dimen>
     <dimen name="about_item_text_small">14sp</dimen>
+    <dimen name="alphabet_example_text_size">16sp</dimen>
+    <dimen name="items_with_play_padding">6dp</dimen>
+    <dimen name="playSize">36dp</dimen>
     <dimen name="alphabetPlaySize">64dp</dimen>
+    <dimen name="search_corner_radius">18dp</dimen>
 </resources>

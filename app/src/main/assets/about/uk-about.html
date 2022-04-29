@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang=uk>
+<!--
+ Page saved with SingleFile 
+ url: https://www.movapp.cz/uk/about 
+ saved date: Wed Apr 27 2022 14:56:16 GMT+0200 (Central European Summer Time)
+
+ To get html file I used Firefox plugin Save File and them remove redundant stuff manually - ie.  kept styles and <main>
+-->
+<meta charset=utf-8>
+<style>
+    *,
+    :after,
+    :before {
+        box-sizing: border-box;
+        border: 0 solid #e5e7eb
+    }
+
+    :after,
+    :before {
+        --tw-content: ""
+    }
+
+    html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji
+    }
+
+    body {
+        margin: 0;
+        line-height: inherit
+    }
+
+    a {
+        color: inherit;
+        text-decoration: inherit
+    }
+
+    strong {
+        font-weight: bolder
+    }
+
+    button {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: inherit;
+        color: inherit;
+        margin: 0
+    }
+
+    button {
+        text-transform: none
+    }
+
+    button {
+        -webkit-appearance: button;
+        background-image: none
+    }
+
+    :-moz-focusring {
+        outline: auto
+    }
+
+    :-moz-ui-invalid {
+        box-shadow: none
+    }
+
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+        height: auto
+    }
+
+    ::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit
+    }
+
+    p {
+        margin: 0
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+
+    :disabled {
+        cursor: default
+    }
+
+    img,
+    svg {
+        display: block;
+        vertical-align: middle
+    }
+
+    *,
+    :after,
+    :before {
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246/0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia:
+    }
+
+    .fixed {
+        position: fixed
+    }
+
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky
+    }
+
+    .bottom-6 {
+        bottom: 1.5rem
+    }
+
+    .right-6 {
+        right: 1.5rem
+    }
+
+    .top-0 {
+        top: 0
+    }
+
+    .z-10 {
+        z-index: 10
+    }
+
+    .m-auto {
+        margin: auto
+    }
+
+    .my-2 {
+        margin-top: .5rem;
+        margin-bottom: .5rem
+    }
+
+    .mx-2 {
+        margin-left: .5rem;
+        margin-right: .5rem
+    }
+
+    .mb-2 {
+        margin-bottom: .5rem
+    }
+
+    .mb-1 {
+        margin-bottom: .25rem
+    }
+
+    .mt-5 {
+        margin-top: 1.25rem
+    }
+
+    .mb-6 {
+        margin-bottom: 1.5rem
+    }
+
+    .mt-2 {
+        margin-top: .5rem
+    }
+
+    .mr-2 {
+        margin-right: .5rem
+    }
+
+    .ml-2 {
+        margin-left: .5rem
+    }
+
+    .flex {
+        display: flex
+    }
+
+    .hidden {
+        display: none
+    }
+
+    .h-full {
+        height: 100%
+    }
+
+    .h-14 {
+        height: 3.5rem
+    }
+
+    .min-h-screen {
+        min-height: 100vh
+    }
+
+    .w-full {
+        width: 100%
+    }
+
+    .max-w-7xl {
+        max-width: 80rem
+    }
+
+    .max-w-4xl {
+        max-width: 56rem
+    }
+
+    .cursor-pointer {
+        cursor: pointer
+    }
+
+    .flex-col {
+        flex-direction: column
+    }
+
+    .items-center {
+        align-items: center
+    }
+
+    .justify-end {
+        justify-content: flex-end
+    }
+
+    .justify-between {
+        justify-content: space-between
+    }
+
+    .rounded-md {
+        border-radius: .375rem
+    }
+
+    .border-b-2 {
+        border-bottom-width: 2px
+    }
+
+    .border-b-primary-yellow {
+        --tw-border-opacity: 1;
+        border-bottom-color: rgb(255 213 0/var(--tw-border-opacity))
+    }
+
+    .bg-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255/var(--tw-bg-opacity))
+    }
+
+    .bg-primary-blue {
+        --tw-bg-opacity: 1;
+        background-color: rgb(1 58 189/var(--tw-bg-opacity))
+    }
+
+    .bg-primary-yellow {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 213 0/var(--tw-bg-opacity))
+    }
+
+    .p-2 {
+        padding: .5rem
+    }
+
+    .px-2 {
+        padding-left: .5rem;
+        padding-right: .5rem
+    }
+
+    .py-1 {
+        padding-top: .25rem;
+        padding-bottom: .25rem
+    }
+
+    .pb-6 {
+        padding-bottom: 1.5rem
+    }
+
+    .pt-2 {
+        padding-top: .5rem
+    }
+
+    .pt-10 {
+        padding-top: 2.5rem
+    }
+
+    .pb-5 {
+        padding-bottom: 1.25rem
+    }
+
+    .pr-10 {
+        padding-right: 2.5rem
+    }
+
+    .text-center {
+        text-align: center
+    }
+
+    .text-sm {
+        font-size: .875rem;
+        line-height: 1.25rem
+    }
+
+    .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem
+    }
+
+    .text-xs {
+        font-size: .75rem;
+        line-height: 1rem
+    }
+
+    .font-light {
+        font-weight: 300
+    }
+
+    .font-black {
+        font-weight: 900
+    }
+
+    .font-bold {
+        font-weight: 700
+    }
+
+    .text-primary-blue {
+        --tw-text-opacity: 1;
+        color: rgb(1 58 189/var(--tw-text-opacity))
+    }
+
+    .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255/var(--tw-text-opacity))
+    }
+
+    .text-primary-black {
+        --tw-text-opacity: 1;
+        color: rgb(45 45 45/var(--tw-text-opacity))
+    }
+
+    .text-primary-yellow {
+        --tw-text-opacity: 1;
+        color: rgb(255 213 0/var(--tw-text-opacity))
+    }
+
+    .underline {
+        -webkit-text-decoration-line: underline;
+        text-decoration-line: underline
+    }
+
+    .shadow-around {
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+    }
+
+    .shadow-around {
+        --tw-shadow: 5px 5px 12px rgba(16, 24, 40, 0.25);
+        --tw-shadow-colored: 5px 5px 12px var(--tw-shadow-color)
+    }
+
+    * {
+        font-family: Roboto, Source Sans Pro;
+        scroll-margin: 116px 0 0 0
+    }
+
+    h1 {
+        line-height: 40px;
+        font-size: 32px
+    }
+
+    h1,
+    h2 {
+        font-weight: 700;
+        margin: 1rem 0
+    }
+
+    h2 {
+        line-height: 36px;
+        font-size: 28px
+    }
+
+    @media screen and (max-width:640px) {
+        h1 {
+            line-height: 30px;
+            font-size: 24px;
+            margin: .5rem 0
+        }
+
+        h1,
+        h2 {
+            font-weight: 700
+        }
+
+        h2 {
+            line-height: 26px;
+            font-size: 20px;
+            margin: 1rem 0
+        }
+    }
+
+    .logo span {
+        display: block !important
+    }
+
+    .hover\:text-primary-yellow:hover {
+        --tw-text-opacity: 1;
+        color: rgb(255 213 0/var(--tw-text-opacity))
+    }
+
+    @media (min-width:640px) {
+        .sm\:my-4 {
+            margin-top: 1rem
+        }
+
+        .sm\:my-4 {
+            margin-bottom: 1rem
+        }
+
+        .sm\:mt-4 {
+            margin-top: 1rem
+        }
+
+        .sm\:mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .sm\:block {
+            display: block
+        }
+
+        .sm\:w-2\/6 {
+            width: 33.333333%
+        }
+
+        .sm\:flex-row {
+            flex-direction: row
+        }
+
+        .sm\:bg-primary-grey {
+            --tw-bg-opacity: 1;
+            background-color: rgb(245 245 245/var(--tw-bg-opacity))
+        }
+
+        .sm\:py-5 {
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem
+        }
+
+        .sm\:text-base {
+            font-size: 1rem;
+            line-height: 1.5rem
+        }
+
+        .sm\:text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .sm\:text-sm {
+            font-size: .875rem;
+            line-height: 1.25rem
+        }
+    }
+
+</style>
+
+<body>
+<div id=__next data-reactroot>
+    <main class="bg-white sm:bg-primary-grey pt-2 pb-5 min-h-screen px-2 m-auto">
+        <div class="max-w-7xl m-auto pb-6">
+            <h1 class=text-primary-blue><strong>Movapp.cz</strong> –
+                це проект, який створено в рамках ініціативи <strong>Stojíme za Ukrajinou</strong> в
+                спільноті експертів-волонтерів <strong>Česko.Digital.</strong></h1>
+            <h2 class="mb-1 mt-5 sm:my-4 text-primary-blue">Мета Movapp.cz</h2>Метою Movapp.cz є
+            полегшення спілкування між чехами та українцями. На першому етапі було опубліковано
+            список базових чесько-українських фраз. На наступних етапах ми плануємо створити
+            інструменти для практики цих фраз. Також ми будемо додавати посилання на інші
+            інструменти та матеріали, які допоможуть вам у вивченні української та чеської мови.<h2
+                class="mb-1 mt-5 sm:my-4 text-primary-blue">Чому Movapp?</h2>
+            <p class=mb-6><i>Мова [mova]</i> означає українською <i>мова</i>. Movapp — це додаток
+                для вивчення мови.
+            <p class=mb-6>Movapp доступний безплатно і створений як програмне забезпечення з
+                відкритим кодом за ліцензією MIT, а це означає, що ви можете не тільки безплатно
+                використовувати його, але й модифікувати (якщо маєте навички програмування).
+            <p class=mb-6>Тексти, зображення та аудіофайли Movapp ліцензовані відповідно до <a
+                    target=_blank
+                    class="underline text-primary-blue"
+                    href=https://creativecommons.org/licenses/by-nc/4.0/deed.cs>ліцензією CC BY-NC
+                4.0</a> (походження – не використовувати в комерційних цілях 4.0), що означає, що ви
+                можете використовувати їх для власних потреб без будь-яких обмеження. Якщо ви
+                бажаєте розповсюдити їх (в оригінальному або зміненому вигляді), ви можете зробити
+                це лише некомерційним способом та з указанням авторів.</p>Оригінальним автором <a
+                target=_blank
+                class="underline text-primary-blue"
+                href=https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw>списку
+            базових чесько-українських слів та фраз</a> є Тереза Яворницька та Євгенія Валова
+            (EDUA Group). Цей набір підтримується та розповсюджується командою Movapp.<h2
+                class="mb-1 mt-5 sm:my-4 text-primary-blue">Наша команда</h2>
+            <p class=mb-6>Основними членами команди Movapp.cz є: Мартін Хассман, Олег Антоняк,
+                Татіана Хитілова, Петр Іллек, Валерія Куна, Моніка Фабриова, Юрай Углар, Бара
+                Скалова, Тереза Яворніцка, Алена Бурнелейт, Анна Ламберова, Роман Жидик та Мартіна
+                Крейчі. Їм допомагають і інші волонтери.
+            <p class=mb-6>Автори ілюстрацій для дітей: Алена Бурнелейт, Анна Ламберова, Луціє
+                Ломова, Катержина Вацкова Мнюкова та Марі Краус.</p>Ви хочете нам допомогти із
+            вмістом чи взяти участь у проєкті? <br> <a target=_self
+                                                       class="underline text-primary-blue"
+                                                       href=https://www.movapp.cz/uk/contacts>Контактуйте
+            нас</a>.<h2 class="mb-1 mt-5 sm:my-4 text-primary-blue">Stojíme za Ukrajinou</h2><a
+                target=_blank
+                class="underline text-primary-blue" href=https://stojimezaukrajinou.cz/>Stojíme za
+            Ukrajinou</a> –
+            це ініціатива,
+            створена волонтерами з різних організацій та спілок. Ми - звичайні громадяни, яким
+            небайдужа нинішня ситуація, спричинена військовим конфліктом, розв'язаним Росією проти
+            суверенної демократичної України. Ця ініціатива закономірно виникла та розвинулася на
+            базі нашої довготривалої підтримки України після анексії Криму, через ескалацією
+            напруги, що відбулася в публічному просторі 19 лютого 2022 і, відтоді, лише зростає.<h2
+                class="mb-1 mt-5 sm:my-4 text-primary-blue">Česko.Digital</h2><a target=_blank
+                                                                                 class="underline text-primary-blue"
+                                                                                 href=https://cesko.digital/>Česko.Digital</a>
+            – це спільнота експертів-волонтерів з багатьох сфер, таких як ІT, управління проектами,
+            маркетинг, які у вільний час допомагають державі та неурядовим організаціям. Таким чином
+            вони змінюють Чехію на краще. Спільнота Česko.Digital була заснована у 2019 році Якубом
+            Нешетржилом, Радкою Гораковою та Євою Павліковою.
+        </div>
+    </main>
+
+
+</div>
+</body>
