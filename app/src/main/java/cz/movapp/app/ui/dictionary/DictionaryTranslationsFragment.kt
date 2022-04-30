@@ -22,6 +22,7 @@ class DictionaryTranslationsFragment : Fragment() {
     private val mainSharedViewModel: MainViewModel by activityViewModels()
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
+    private var adapterDataObservers = mutableListOf<RecyclerView.AdapterDataObserver>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -76,26 +77,44 @@ class DictionaryTranslationsFragment : Fragment() {
             }
         }
 
-        (recyclerView.adapter as DictionaryTranslationsAdapter).registerAdapterDataObserver(object: RecyclerView.AdapterDataObserver() {
+        /**
+         * This data observer is used to scroll up in case of data change.
+         * It is necessary e.g. in searching. As the user writes, the recyclerview
+         * would remain on previously found result but the more accurate result
+         * is on top.
+         */
+        (recyclerView.adapter as DictionaryTranslationsAdapter).registerAdapterDataObserver(
+            object: RecyclerView.AdapterDataObserver() {
+                init {
+                    adapterDataObservers.add(this)
+                }
+
                 override fun onChanged() {
-                    recyclerView.scrollToPosition(0)
+                    if (_binding != null)
+                        binding.recyclerViewDictionaryTranslations.scrollToPosition(0)
                 }
                 override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
-                    recyclerView.scrollToPosition(0)
+                    if (_binding != null)
+                        binding.recyclerViewDictionaryTranslations.scrollToPosition(0)
                 }
                 override fun onItemRangeMoved(fromPosition: Int, toPosition: Int, itemCount: Int) {
-                    recyclerView.scrollToPosition(0)
+                    if (_binding != null)
+                        binding.recyclerViewDictionaryTranslations.scrollToPosition(0)
                 }
                 override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-                    recyclerView.scrollToPosition(0)
+                    if (_binding != null)
+                        binding.recyclerViewDictionaryTranslations.scrollToPosition(0)
                 }
                 override fun onItemRangeChanged(positionStart: Int, itemCount: Int) {
-                    recyclerView.scrollToPosition(0)
+                    if (_binding != null)
+                        binding.recyclerViewDictionaryTranslations.scrollToPosition(0)
                 }
                 override fun onItemRangeChanged(positionStart: Int, itemCount: Int, payload: Any?) {
-                    recyclerView.scrollToPosition(0)
+                    if (_binding != null)
+                        binding.recyclerViewDictionaryTranslations.scrollToPosition(0)
                 }
-            })
+            }
+        )
 
         return root
     }
@@ -123,6 +142,11 @@ class DictionaryTranslationsFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+
+        for (observer in adapterDataObservers)
+            (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).
+                unregisterAdapterDataObserver(observer)
+
         binding.recyclerViewDictionaryTranslations.adapter = null
         _binding = null
     }
