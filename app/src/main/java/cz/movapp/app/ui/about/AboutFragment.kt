@@ -46,6 +46,7 @@ class AboutFragment : Fragment() {
 
         lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onDestroy(owner: LifecycleOwner) {
+                binding.scrollView.removeAllViews()
                 _binding = null
             }
         })
