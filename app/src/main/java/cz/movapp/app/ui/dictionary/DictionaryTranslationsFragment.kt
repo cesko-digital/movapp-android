@@ -146,6 +146,7 @@ class DictionaryTranslationsFragment : Fragment() {
         for (observer in adapterDataObservers)
             (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).
                 unregisterAdapterDataObserver(observer)
+        adapterDataObservers.clear()
 
         binding.recyclerViewDictionaryTranslations.adapter = null
         _binding = null
