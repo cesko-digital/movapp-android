@@ -1,7 +1,6 @@
 package cz.movapp.app.data
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import cz.movapp.app.ui.children.ChildrenData
 import org.json.JSONArray
 import java.io.IOException
@@ -24,17 +23,7 @@ class ChildrenDatasource {
             val jsonObj = jsonArr.getJSONObject(i)
 
             val imageName = jsonObj.getString("image")
-            var image: Drawable? = null
-
-            try {
-                val imageStream = context.assets.open("children/images/%s.webp".format(imageName))
-                image = Drawable.createFromStream(imageStream, imageName)
-            } catch (ioException: IOException) {
-                ioException.printStackTrace()
-            }
-
-            if (image == null)
-                continue
+            val imagePath = "children/images/%s.webp".format(imageName)
 
             children.add(ChildrenData(
                 "null",
@@ -42,7 +31,7 @@ class ChildrenDatasource {
                 jsonObj.getString("cz_transcription"),
                 jsonObj.getString("ua_translation"),
                 jsonObj.getString("ua_transcription"),
-                image
+                imagePath
                 )
             )
         }
