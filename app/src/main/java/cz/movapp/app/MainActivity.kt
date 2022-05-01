@@ -13,7 +13,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import cz.movapp.android.textChanges
 import cz.movapp.app.LanguagePair.Companion.nextLanguage
-import cz.movapp.app.data.Favorites
 import cz.movapp.app.databinding.ActivityMainBinding
 import cz.movapp.app.databinding.ToolbarSearchBinding
 import cz.movapp.app.ui.dictionary.DictionaryViewModel
@@ -26,12 +25,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var searchBinding: ToolbarSearchBinding
     private lateinit var navController: NavController
 
-
-    var favorites = listOf<Favorites>()
-
     private val dictionarySharedViewModel: DictionaryViewModel by viewModels()
     private val mainSharedModel: MainViewModel by viewModels()
-    private val favoritesViewModel: FavoritesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,11 +46,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.topAppBar.setupWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        favoritesViewModel.favorites.observe(this) {
-            favorites = it
-        }
-
 
         searchBinding = setupTopAppBarSearch()
 //        setupTopAppBarWithSearchWithMenu()
