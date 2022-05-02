@@ -1,17 +1,16 @@
 package cz.movapp.app.ui.about
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.webkit.WebSettings
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import cz.movapp.android.LoadAssetsOtherwiseOpenInBrowserWebViewClient
 import cz.movapp.android.enableDarkMode
+import cz.movapp.android.hideKeyboard
 import cz.movapp.android.openUri
 import cz.movapp.app.BuildConfig
 import cz.movapp.app.LanguagePair
@@ -109,9 +108,7 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val inputMethodManager =
-            activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+        hideKeyboard(view, activity)
     }
 
     private fun setupToolbar(mainActivity: MainActivity) {
