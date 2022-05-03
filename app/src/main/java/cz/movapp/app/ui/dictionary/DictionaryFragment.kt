@@ -15,7 +15,6 @@ import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
 import cz.movapp.app.*
 import cz.movapp.app.adapter.DictionaryAdapter
-import cz.movapp.app.adapter.DictionarySearchAdapter
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.data.FavoritesDatabase
 import cz.movapp.app.databinding.FragmentDictionaryBinding
@@ -169,7 +168,6 @@ class DictionaryFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        //TODO vida
         binding.recyclerViewDictionary.adapter = null
         _binding = null
     }
