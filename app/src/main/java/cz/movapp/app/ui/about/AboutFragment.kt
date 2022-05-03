@@ -1,7 +1,6 @@
 package cz.movapp.app.ui.about
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.openUri
-import cz.movapp.app.App
 import cz.movapp.app.BuildConfig
 import cz.movapp.app.R
 import cz.movapp.app.data.Language
-import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.data.SharedPrefsRepository
 import cz.movapp.app.databinding.FragmentAboutBinding
 
@@ -51,7 +48,6 @@ class AboutFragment : Fragment() {
 
         lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onDestroy(owner: LifecycleOwner) {
-                binding.scrollView.removeAllViews()
                 _binding = null
             }
         })
