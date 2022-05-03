@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import cz.movapp.app.LanguagePair
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
 import cz.movapp.app.databinding.ChildrenItemBinding
 import cz.movapp.app.ui.children.ChildrenData

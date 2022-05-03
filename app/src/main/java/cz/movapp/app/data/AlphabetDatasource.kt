@@ -1,8 +1,6 @@
 package cz.movapp.app.data
 
 import android.content.Context
-import cz.movapp.app.Language
-import cz.movapp.app.LanguagePair
 import cz.movapp.app.ui.alphabet.AlphabetData
 import cz.movapp.app.ui.alphabet.LetterExampleData
 import org.json.JSONArray

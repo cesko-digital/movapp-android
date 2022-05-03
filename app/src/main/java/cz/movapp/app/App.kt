@@ -1,8 +1,10 @@
 package cz.movapp.app
 
 import android.app.Application
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.StrictMode
+import cz.movapp.app.data.SharedPrefsRepository
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 
@@ -13,27 +15,22 @@ fun Application.appModule() = (this as App).appModule
 class App : Application() {
 
     lateinit var appModule: AppModule
-    lateinit var preferences: SharedPreferences
+
+    companion object {
+        lateinit var ctx: Context
+        var instance: App? = null
+    }
 
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) {
             StrictMode.enableDefaults()
         }
+        instance = this
+        ctx = applicationContext
         appModule = AppModule(this.applicationContext)
-//        this?.getSharedPreferences(
-//            getString("R.string.preference_file_key"), Context.MODE_PRIVATE)
-
-    }
-
-    fun getPreferedLanguageApp() {
-
-    }
-
-    fun setPreferedLanguageApp(language: String) {
-        val editor: SharedPreferences.Editor = preferences.edit()
-        editor.putString("language", language)
-        editor.commit()
+        val pref = SharedPrefsRepository(ctx)
+        if (pref.getPreferedLanguage() == null) pref.setPreferedLanguage("cs")
     }
 
     override fun onLowMemory() {

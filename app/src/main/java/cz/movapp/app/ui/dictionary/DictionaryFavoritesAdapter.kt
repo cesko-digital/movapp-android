@@ -10,10 +10,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.LanguagePair
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
 import cz.movapp.app.databinding.DictionaryTranslationItemBinding
-import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import java.util.*
 
 class DictionaryFavoritesAdapter(
