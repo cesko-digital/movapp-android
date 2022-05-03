@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainActivity
@@ -56,9 +58,38 @@ class DictionaryFavoritesFragment : Fragment() {
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryTranslationsAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
+            (recyclerView.adapter as DictionaryTranslationsAdapter).langPair =
+                mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
         }
+
+        binding.tab.getTabAt(1)?.select()
+
+        binding.tab.addOnTabSelectedListener(
+            object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    selectTab(tab)
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+                    // Do not Implement
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+                    selectTab(tab)
+                }
+
+                private fun selectTab(tab: TabLayout.Tab?) {
+                    when (tab?.position) {
+                        0 -> {
+                            findNavController().navigate(DictionaryFragmentDirections.navigateToDictionary())
+                        }
+                        1 -> {
+                        }
+                    }
+                }
+            }
+        )
 
 
 

@@ -32,4 +32,6 @@
     <string name="content">Tvorba obsahu</string>
     <string name="ux_team">UX tým</string>
     <string name="testing">Testování</string>
+    <string name="dictionary_tab">Словник</string>
+    <string name="favorites_tab">Вибране</string>
 </resources>
