@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.*
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.adapter.DictionaryAdapter
-import cz.movapp.app.adapter.DictionarySearchAdapter
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.data.DictionaryDatasource
 
@@ -13,10 +12,6 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
     private val _sections = MutableLiveData<DictionaryAdapter>().apply {
         value = DictionaryAdapter(DictionaryDatasource().loadSections(app.applicationContext))
     }
-
-//    private val _searches = MutableLiveData<DictionarySearchAdapter>().apply {
-//        value = DictionarySearchAdapter(DictionaryDatasource().loadTranslations(app.applicationContext))
-//    }
 
     private val _searches = MutableLiveData<DictionaryTranslationsAdapter>().apply {
         value = DictionaryTranslationsAdapter(app, DictionaryDatasource().loadTranslations(app.applicationContext), favoritesViewModel)
