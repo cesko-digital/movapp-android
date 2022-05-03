@@ -28,8 +28,6 @@ class ChildrenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
-
         _binding = FragmentChildrenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 

@@ -6,14 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
+import cz.movapp.android.textChanges
 import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.MainActivity
+import cz.movapp.app.LanguagePair
 import cz.movapp.app.MainViewModel
+import cz.movapp.app.R
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.launch
 
 class DictionaryFavoritesFragment : Fragment() {
 
@@ -23,6 +29,8 @@ class DictionaryFavoritesFragment : Fragment() {
     private val mainSharedViewModel: MainViewModel by activityViewModels()
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
+    private val mainSharedModel: MainViewModel by viewModels()
+    private val viewModel by viewModels<DictionaryFavoritesViewModel>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,8 +41,6 @@ class DictionaryFavoritesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
-
         _binding = FragmentDictionaryFavoritesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -46,7 +52,7 @@ class DictionaryFavoritesFragment : Fragment() {
         (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            favoritesIds = mutableListOf<String>()
+            favoritesIds = mutableListOf()
 
             it.forEach { favoritesIds.add(it.translationId) }
 
@@ -84,14 +90,36 @@ class DictionaryFavoritesFragment : Fragment() {
                         0 -> {
                             findNavController().navigate(DictionaryFragmentDirections.navigateToDictionary())
                         }
-                        1 -> {
-                        }
                     }
                 }
             }
         )
 
+        binding.toolbar.searchView.hint = resources.getString(R.string.title_search)
 
+        lifecycleScope.launch {
+            binding.toolbar.searchView.textChanges()
+                .debounce(300)
+                .collect { text ->
+                    searchDictionary(text.toString())
+                }
+        }
+
+        binding.toolbar.flagView.setOnClickListener {
+            mainSharedModel.selectLanguage(LanguagePair.nextLanguage(mainSharedModel.selectedLanguage.value!!))
+        }
+
+        mainSharedModel.selectedLanguage.observe(viewLifecycleOwner) { fromUa ->
+            binding.toolbar.flagView.setImageResource(fromUa.from.flagResId)
+        }
+
+        viewModel.searchQuery.observe(viewLifecycleOwner) {
+            if (!viewModel.searchQuery.value.isNullOrEmpty()) {
+                (recyclerView.adapter as DictionaryTranslationsAdapter).search(
+                    viewModel.searchQuery.value!!, true
+                )
+            }
+        }
 
         return root
     }
@@ -110,5 +138,33 @@ class DictionaryFavoritesFragment : Fragment() {
         super.onDestroyView()
         binding.recyclerViewDictionaryFavorites.adapter = null
         _binding = null
+    }
+
+    fun searchDictionary(query: String?): Boolean {
+        if (query.isNullOrEmpty()) {
+            (binding.recyclerViewDictionaryFavorites.adapter as DictionaryTranslationsAdapter).search(
+                "", true
+            )
+        }
+        if (query != null) {
+            if (query.isNotEmpty()) {
+                try {
+                    /**
+                     *  if this fails then we need to change the fragment
+                     *  to fragment with search results
+                     */
+                    findNavController().getBackStackEntry(R.id.dictionary_translations_fragment)
+                } catch (ex: IllegalArgumentException) {
+                    (binding.recyclerViewDictionaryFavorites.adapter as DictionaryTranslationsAdapter).search(
+                        query, true
+                    )
+                }
+
+            }
+            viewModel.setSearchQuery(query)
+            return true
+        }
+
+        return false
     }
 }

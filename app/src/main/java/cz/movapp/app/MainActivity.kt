@@ -22,7 +22,6 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var searchBinding: ToolbarSearchBinding
     private lateinit var navController: NavController
 
     private val dictionarySharedViewModel: DictionaryViewModel by viewModels()
@@ -44,84 +43,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        binding.topAppBar.setupWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        searchBinding = setupTopAppBarSearch()
-//        setupTopAppBarWithSearchWithMenu()
     }
 
-    /**
-     * setup toolbar
-     */
-    fun setupTopAppBarWithSearchWithMenu() {
-        binding.topAppBar.menu.clear()
-        binding.topAppBar.inflateMenu(R.menu.top_menu)
-
-
-        binding.topAppBar.menu.findItem(R.id.top_menu_about).setOnMenuItemClickListener {
-            navController.navigate(R.id.navigation_about)
-            true
-        }
-
-        binding.topAppBar.menu.findItem(R.id.top_menu_switch_language).setOnMenuItemClickListener {
-            mainSharedModel.selectLanguage(nextLanguage(mainSharedModel.selectedLanguage.value!!))
-            true
-        }
-
-        mainSharedModel.selectedLanguage.observe(this, Observer { fromUa ->
-            val languageItem = binding.topAppBar.menu?.findItem(R.id.top_menu_switch_language)
-            languageItem?.setIcon(fromUa.from.flagResId)
-        })
-
-        searchBinding.root.visibility = View.VISIBLE
-        binding.topAppBar.title = ""
-    }
-
-    private fun setupTopAppBarSearch(): ToolbarSearchBinding {
-        val binding =
-            ToolbarSearchBinding.inflate(this.layoutInflater, binding.topAppBar, false)
-
-        this.binding.topAppBar.addView(binding.root)
-        binding.searchView.hint = resources.getString(R.string.title_search)
-
-        lifecycleScope.launch {
-            binding.searchView.textChanges()
-                .debounce(300)
-                .collect{ text ->
-                    searchDictionary(text.toString())
-                }
-        }
-
-        binding.flagView.setOnClickListener { view ->
-            mainSharedModel.selectLanguage(nextLanguage(mainSharedModel.selectedLanguage.value!!))
-        }
-
-        mainSharedModel.selectedLanguage.observe(this, Observer { fromUa ->
-            binding.flagView.setImageResource(fromUa.from.flagResId)
-        })
-
-        return binding
-    }
-
-    fun searchDictionary(query: String?): Boolean {
-        if (query != null) {
-            if (query.isNotEmpty()) {
-                try {
-                    /**
-                     *  if this fails then we need to change the fragment
-                     *  to fragment with search results
-                     */
-                    this@MainActivity.navController.getBackStackEntry(R.id.dictionary_translations_fragment)
-                } catch (ex: IllegalArgumentException) {
-                    this@MainActivity.navController.navigate(R.id.dictionary_translations_fragment)
-                }
-
-            }
-            dictionarySharedViewModel.setSearchQuery(query)
-            return true
-        }
-
-        return false
-    }
 }

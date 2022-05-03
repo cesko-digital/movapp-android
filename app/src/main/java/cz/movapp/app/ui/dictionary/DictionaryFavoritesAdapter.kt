@@ -1,4 +1,4 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.dictionary
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -16,11 +16,11 @@ import cz.movapp.app.databinding.DictionaryTranslationItemBinding
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import java.util.*
 
-class DictionaryTranslationsAdapter(
+class DictionaryFavoritesAdapter(
     private val context: Context,
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
-) : ListAdapter<DictionaryTranslationsData, DictionaryTranslationsAdapter.ItemViewHolder>(
+) : ListAdapter<DictionaryTranslationsData, DictionaryFavoritesAdapter.ItemViewHolder>(
     DiffCallback
 ) {
 
@@ -137,9 +137,9 @@ class DictionaryTranslationsAdapter(
         UNSET, FROM, TO
     }
 
-    fun search(constraint: String, favorites : Boolean = false) {
-        val searchString = constraint.lowercase(Locale.getDefault())
-        var result = if (searchString.isEmpty()) {
+    fun search(constraint: String) {
+        val searchString = constraint.toString().lowercase(Locale.getDefault())
+        val result = if (searchString.isEmpty()) {
             wholeDataset
         } else {
             val filtered = mutableListOf<DictionaryTranslationsData>()
@@ -239,10 +239,6 @@ class DictionaryTranslationsAdapter(
                     return dp[s1.length][s2.length]
                 }
             })
-        }
-
-        if(favorites){
-            result = result.filter { favoritesIds.contains(it.id) }
         }
 
         submitList(result)
