@@ -48,5 +48,18 @@
         android:name="cz.movapp.app.ui.about.AboutFragment"
         android:label="@string/title_about"
         tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_navigation_about_to_navigation_about_team"
+            app:destination="@id/navigation_about_team" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_about_team"
+        android:name="cz.movapp.app.ui.about.AboutTeamFragment"
+        android:label="@string/about_team"
+        tools:layout="@layout/fragment_about_team" >
+    </fragment>
+
+
+
 </navigation>
