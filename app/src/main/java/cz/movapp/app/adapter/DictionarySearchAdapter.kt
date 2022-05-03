@@ -7,12 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import cz.movapp.app.LanguagePair
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
-import cz.movapp.app.ui.dictionary.DictionaryFragmentDirections
-import cz.movapp.app.ui.dictionary.DictionarySectionsData
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import java.util.*
 

@@ -22,16 +22,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo" />
 
-<!--        <WebView-->
-<!--            android:id="@+id/webView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="24dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />-->
-
-
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -72,14 +62,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/i_want_learn"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <Spinner
                         android:id="@+id/learn_choice"
                         style="@style/AboutClickable"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="50dp"
+                        android:entries="@array/language_array"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -94,13 +86,6 @@
                 android:layout_marginBottom="32dp"
                 android:text="@string/about_version"
                 android:textColor="#7f7e84" />
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_about_build"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="@string/about_build" />-->
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -260,30 +245,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/dividerColor" />
-
-
-            <!--            <TextView-->
-            <!--                style="@style/AboutHeading"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:fontFamily="@font/source_sans_pro_semi_bold"-->
-            <!--                android:paddingBottom="4dp"-->
-            <!--                android:text="@string/about_authors"-->
-            <!--                android:textSize="20sp"-->
-            <!--                android:textStyle="bold" />-->
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:orientation="vertical">-->
-
-            <!--                <TextView-->
-            <!--                    style="@style/AboutNormal"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="Václav Chlumský, Ondřej Málek" />-->
-
-            <!--            </LinearLayout>-->
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

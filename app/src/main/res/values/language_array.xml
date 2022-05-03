@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="language_array">
-        <item>Czech</item>
-        <item>Ukrajina</item>
+        <item>Česky</item>
+        <item>Yкраїнський</item>
     </string-array>
 </resources>

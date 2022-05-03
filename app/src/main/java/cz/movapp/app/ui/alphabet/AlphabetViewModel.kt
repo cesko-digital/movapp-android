@@ -3,8 +3,8 @@ package cz.movapp.app.ui.alphabet
 import android.app.Application
 import androidx.lifecycle.*
 import cz.movapp.app.App
-import cz.movapp.app.LanguagePair
-import cz.movapp.app.LanguagePair.Companion.getDefault
+import cz.movapp.app.data.LanguagePair
+import cz.movapp.app.data.LanguagePair.Companion.getDefault
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.appModule
 import kotlinx.coroutines.Dispatchers

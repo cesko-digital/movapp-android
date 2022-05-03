@@ -1,9 +1,11 @@
 package cz.movapp.app.ui.about
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -11,10 +13,12 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.openUri
+import cz.movapp.app.App
 import cz.movapp.app.BuildConfig
-import cz.movapp.app.LanguagePair
-import cz.movapp.app.MainActivity
 import cz.movapp.app.R
+import cz.movapp.app.data.Language
+import cz.movapp.app.data.LanguagePair
+import cz.movapp.app.data.SharedPrefsRepository
 import cz.movapp.app.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
@@ -53,21 +57,41 @@ class AboutFragment : Fragment() {
         })
 
         val context = this.requireContext()
-        val langCode = LanguagePair.getDefault().from.langCode
+        val pref = SharedPrefsRepository(context);
+        val languageList = listOf(Language.Czech.stringText, Language.Ukrainian.stringText)
 
-        ArrayAdapter.createFromResource(
+        ArrayAdapter(
             context,
-            R.array.language_array,
-            android.R.layout.simple_spinner_item
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            languageList
         ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
             binding.learnChoice.adapter = adapter
+            val lang = pref.getPreferedLanguage()
+            if (lang == "cs") {
+                val spinnerPosition = adapter.getPosition(Language.Czech.stringText)
+                binding.learnChoice.setSelection(spinnerPosition)
+            } else {
+                val spinnerPosition = adapter.getPosition(Language.Ukrainian.stringText)
+                binding.learnChoice.setSelection(spinnerPosition)
+            }
         }
 
+        binding.learnChoice.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (adapterView?.getItemAtPosition(position).toString() == "Česky")
+                    pref.setPreferedLanguage("cs")
+                else
+                    pref.setPreferedLanguage("uk")
+            }
 
-//        mainSharedModel.selectLanguage(LanguagePair.nextLanguage(mainSharedModel.selectedLanguage.value!!))
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
 
         binding.textAboutVersion.text = String.format(
             resources.getString(R.string.about_version),

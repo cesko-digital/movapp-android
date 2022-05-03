@@ -17,6 +17,7 @@ import cz.movapp.app.*
 import cz.movapp.app.adapter.DictionaryAdapter
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.data.FavoritesDatabase
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.FragmentDictionaryBinding
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.launch

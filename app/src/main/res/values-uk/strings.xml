@@ -34,4 +34,6 @@
     <string name="testing">Testování</string>
     <string name="dictionary_tab">Словник</string>
     <string name="favorites_tab">Вибране</string>
+    <string name="ukrainian">Yкраїнський</string>
+    <string name="czech">Česky</string>
 </resources>

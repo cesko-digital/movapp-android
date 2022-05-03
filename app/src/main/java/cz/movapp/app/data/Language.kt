@@ -1,6 +1,8 @@
-package cz.movapp.app
+package cz.movapp.app.data
 
 import androidx.annotation.DrawableRes
+import cz.movapp.app.App
+import cz.movapp.app.R
 import java.util.*
 
 /**
@@ -10,7 +12,7 @@ enum class LanguagePair(
     val from: Language,
     val to: Language,
     val isReversed: Boolean
-    ) {
+) {
 
 
     CsToUk(Language.Czech, Language.Ukrainian, false),
@@ -20,13 +22,13 @@ enum class LanguagePair(
         fun getDefault(): LanguagePair {
             val lang = LanguagePair.values()
                 .firstOrNull { it.from.langCode == Locale.getDefault().language }
-            return lang ?: LanguagePair.UkToCs
+            return lang ?: UkToCs
         }
 
         fun nextLanguage(languagePair: LanguagePair): LanguagePair {
             val values = LanguagePair.values()
             val index = values.indexOf(languagePair)
-            return values[(index +1) % values.size]
+            return values[(index + 1) % values.size]
         }
     }
 }
@@ -34,7 +36,9 @@ enum class LanguagePair(
 enum class Language(
     val langCode: String,
     @DrawableRes val flagResId: Int,
+    val stringText: String?
 ) {
-    Ukrainian("uk", R.drawable.ua),
-    Czech("cs", R.drawable.cz)
+
+    Ukrainian("uk", R.drawable.ua, App.ctx.resources.getString(R.string.ukrainian)),
+    Czech("cs", R.drawable.cz, App.ctx.resources.getString(R.string.czech))
 }

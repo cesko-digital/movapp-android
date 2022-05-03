@@ -13,7 +13,7 @@ import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
 import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.LanguagePair
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
