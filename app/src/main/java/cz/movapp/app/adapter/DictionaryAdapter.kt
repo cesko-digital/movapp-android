@@ -11,15 +11,15 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.LanguagePair
 import cz.movapp.app.R
-import cz.movapp.app.data.Favorites
 import cz.movapp.app.ui.dictionary.DictionaryFragmentDirections
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 
-class DictionaryAdapter (
-    private val dataset: List<DictionarySectionsData>
-    ): RecyclerView.Adapter<DictionaryAdapter.ItemViewHolder>() {
+class DictionaryAdapter(
+    private var dataset: List<DictionarySectionsData>,
+) : RecyclerView.Adapter<DictionaryAdapter.ItemViewHolder>() {
 
     var langPair = LanguagePair.getDefault()
+    var favoritesIds = mutableListOf<String>()
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textFromTo: TextView = view.findViewById(R.id.text_dictionary_from_to)
@@ -27,8 +27,8 @@ class DictionaryAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.dictionary_item, parent, false)
+        val adapterLayout =  LayoutInflater.from(parent.context)
+                .inflate(R.layout.dictionary_item, parent, false)
         return ItemViewHolder(adapterLayout)
     }
 
@@ -55,7 +55,8 @@ class DictionaryAdapter (
             holder.textFromTo.text = "%s - %s".format(item.from, item.to)
 
         holder.itemView.setOnClickListener {
-            val action = DictionaryFragmentDirections.toDictionaryTranslationsFragment(translationIds = item.translation_ids.toTypedArray())
+            val action =
+                DictionaryFragmentDirections.toDictionaryTranslationsFragment(translationIds = item.translation_ids.toTypedArray())
             holder.itemView.findNavController().navigate(action)
         }
     }

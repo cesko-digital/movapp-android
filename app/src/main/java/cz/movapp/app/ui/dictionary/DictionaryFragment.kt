@@ -6,22 +6,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
-import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.FavoritesViewModelFactory
-import cz.movapp.app.MainActivity
-import cz.movapp.app.MainViewModel
+import cz.movapp.android.textChanges
+import cz.movapp.app.*
 import cz.movapp.app.adapter.DictionaryAdapter
+import cz.movapp.app.adapter.DictionarySearchAdapter
+import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.data.FavoritesDatabase
 import cz.movapp.app.databinding.FragmentDictionaryBinding
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.launch
 
 class DictionaryFragment : Fragment() {
 
     private var _binding: FragmentDictionaryBinding? = null
+
+    private val mainSharedModel: MainViewModel by viewModels()
+
+    private var favoritesIds = mutableListOf<String>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -57,7 +64,6 @@ class DictionaryFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
             recyclerView.adapter = it
-
             it.langPair = mainSharedViewModel.selectedLanguage.value!!
         }
 
@@ -65,6 +71,15 @@ class DictionaryFragment : Fragment() {
             (recyclerView.adapter as DictionaryAdapter).langPair =
                 mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
+        }
+
+
+        favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
+            favoritesIds = mutableListOf()
+
+            it.forEach { favoritesIds.add(it.translationId) }
+
+            (recyclerView.adapter as DictionaryAdapter).favoritesIds = favoritesIds
         }
 
 
@@ -88,8 +103,6 @@ class DictionaryFragment : Fragment() {
 
                 private fun selectTab(tab: TabLayout.Tab?) {
                     when (tab?.position) {
-                        0 -> {
-                        }
                         1 -> {
                             findNavController().navigate(DictionaryFragmentDirections.navigateToFavorites())
                         }
@@ -98,10 +111,54 @@ class DictionaryFragment : Fragment() {
             }
         )
 
+        binding.toolbar.searchView.hint = resources.getString(R.string.title_search)
 
-        setupTopAppBarWithSearchWithMenu()
+        lifecycleScope.launch {
+            binding.toolbar.searchView.textChanges()
+                .debounce(300)
+                .collect { text ->
+                    searchDictionary(text.toString())
+                }
+        }
+
+        binding.toolbar.flagView.setOnClickListener {
+            mainSharedModel.selectLanguage(LanguagePair.nextLanguage(mainSharedModel.selectedLanguage.value!!))
+        }
+
+        mainSharedModel.selectedLanguage.observe(viewLifecycleOwner, Observer { fromUa ->
+            binding.toolbar.flagView.setImageResource(fromUa.from.flagResId)
+        })
 
         return root
+    }
+
+    fun searchDictionary(query: String?): Boolean {
+        if (query.isNullOrEmpty()) {
+            binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.sections.value
+        }
+        if (query != null) {
+            if (query.isNotEmpty()) {
+                binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.searches.value
+                try {
+                    /**
+                     *  if this fails then we need to change the fragment
+                     *  to fragment with search results
+                     */
+                    findNavController().getBackStackEntry(R.id.dictionary_translations_fragment)
+                } catch (ex: IllegalArgumentException) {
+                    //TODO
+
+                    (binding.recyclerViewDictionary.adapter as DictionaryTranslationsAdapter).search(
+                        query, false
+                    )
+                }
+
+            }
+            dictionarySharedViewModel.setSearchQuery(query)
+            return true
+        }
+
+        return false
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -110,26 +167,9 @@ class DictionaryFragment : Fragment() {
         hideKeyboard(view, activity)
     }
 
-    /**
-     * Activity binding is not init when application starts
-     * thus postponing it to onStart when app starts/binding is null, otherwise do it right away
-     */
-    private fun setupTopAppBarWithSearchWithMenu() {
-        val mainActivity = requireActivity() as MainActivity
-        try {
-            mainActivity.setupTopAppBarWithSearchWithMenu()
-        } catch (e: UninitializedPropertyAccessException) {
-            lifecycle.addObserver(object : DefaultLifecycleObserver {
-                override fun onStart(owner: LifecycleOwner) {
-                    //must be in onStart otherwise activity binding not init yet
-                    mainActivity.setupTopAppBarWithSearchWithMenu()
-                }
-            })
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
+        //TODO vida
         binding.recyclerViewDictionary.adapter = null
         _binding = null
     }

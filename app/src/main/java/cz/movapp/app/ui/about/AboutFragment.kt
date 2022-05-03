@@ -52,9 +52,6 @@ class AboutFragment : Fragment() {
             }
         })
 
-        val mainActivity = requireActivity() as MainActivity
-        setupToolbar(mainActivity)
-
         val context = this.requireContext()
         val langCode = LanguagePair.getDefault().from.langCode
 
@@ -117,17 +114,6 @@ class AboutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         hideKeyboard(view, activity)
-    }
-
-    private fun setupToolbar(mainActivity: MainActivity) {
-        mainActivity.binding.apply {
-            topAppBar.setTitle(R.string.title_about)
-            topAppBar.menu.clear()
-            topAppBar.invalidateMenu()
-        }
-
-        mainActivity.searchBinding.root.visibility = View.GONE
-
     }
 
 }

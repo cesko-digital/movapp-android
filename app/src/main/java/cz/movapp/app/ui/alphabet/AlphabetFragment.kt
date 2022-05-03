@@ -64,9 +64,6 @@ class AlphabetFragment : Fragment() {
                 viewModel.onLanguageChanged( oldScrollPosition = binding.recyclerViewAlphabet.getSavableScrollState())
             }
         })
-
-        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
-
         return binding.root
     }
 

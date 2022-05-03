@@ -44,8 +44,6 @@ class DictionaryTranslationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
-
         _binding = FragmentDictionaryTranslationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
