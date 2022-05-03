@@ -18,6 +18,7 @@ import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.launch
 
@@ -31,6 +32,7 @@ class DictionaryFavoritesFragment : Fragment() {
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
     private val mainSharedModel: MainViewModel by viewModels()
     private val viewModel by viewModels<DictionaryFavoritesViewModel>()
+    private lateinit var searchJob : Job
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -97,7 +99,7 @@ class DictionaryFavoritesFragment : Fragment() {
 
         binding.toolbar.searchView.hint = resources.getString(R.string.title_search)
 
-        lifecycleScope.launch {
+        searchJob = lifecycleScope.launch {
             binding.toolbar.searchView.textChanges()
                 .debounce(300)
                 .collect { text ->
@@ -136,6 +138,13 @@ class DictionaryFavoritesFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+
+        /**
+         *  we need to cancel the job in order to prevent leaking bound object inside of the job
+         *  because lifecycleScope is alive between onCreate and onDestroy
+         */
+        searchJob.cancel()
+
         binding.recyclerViewDictionaryFavorites.adapter = null
         _binding = null
     }
