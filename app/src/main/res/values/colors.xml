@@ -10,6 +10,7 @@
     <color name="secondaryLightColor">#ffff52</color>
     <color name="secondaryDarkColor">#c7a400</color>
     <color name="primaryTextColor">@color/primaryColor</color>
+    <color name="linkTextColor">#303030</color>
     <color name="secondaryTextColor">#2D2D2D</color>
 
     <color name="oddItem">#F2F2F2</color>
@@ -19,7 +20,7 @@
     <color name="navColorUnselected">#2D2D2D</color>
     <color name="playColor">#E42D00</color>
 
-    <color name="dividerColor">#D2D2D2</color>
+    <color name="dividerColor">#dfdee0</color>
     <color name="searchInput">@color/white</color>
     <color name="surfaceColor">#FFFFFF</color>
 </resources>

@@ -7,13 +7,14 @@
     <string name="title_about">Про</string>
     <string name="title_favorites">Вибране</string>
     <string name="about_project">ПРО ЦЕЙ ПРОЕКТ</string>
-    <string name="about_web">Інтернет</string>
+    <string name="about_web">movapp.cz</string>
+    <string name="about_team">Team</string>
     <string name="about_twitter">твіттер</string>
     <string name="about_instagram">інстаграм</string>
     <string name="about_application">Про застосування</string>
-    <string name="about_report">Довідка або звіт про помилку</string>
+    <string name="i_want_help">Я хочу допомогт</string>
     <string name="about_license">Ліцензія</string>
-    <string name="about_version">Версія: %s</string>
+    <string name="about_version">Версія: %1$s (%2$s)</string>
     <string name="about_authors">АВТОРИ</string>
     <string name="about_build">Будувати" %s</string>
     <string name="facebook">Facebook</string>
@@ -21,4 +22,14 @@
     <string name="github">Github</string>
     <string name="country_flag">country flag</string>
     <string name="play_transcription">play transcription</string>
+    <string name="i_want_learn">I want to learn</string>
+    <string name="settings">Settings</string>
+    <string name="develop_apple">Vývoj Apple aplikace</string>
+    <string name="develop_android">Vývoj Android aplikace</string>
+    <string name="develop_web">Vývoj webu</string>
+    <string name="develop_managers">Vedení projektu</string>
+    <string name="marketing">Marketing</string>
+    <string name="content">Tvorba obsahu</string>
+    <string name="ux_team">UX tým</string>
+    <string name="testing">Testování</string>
 </resources>

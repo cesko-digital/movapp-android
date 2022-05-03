@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebSettings
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import cz.movapp.android.LoadAssetsOtherwiseOpenInBrowserWebViewClient
-import cz.movapp.android.enableDarkMode
+import androidx.navigation.fragment.findNavController
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.openUri
 import cz.movapp.app.BuildConfig
@@ -31,7 +30,8 @@ class AboutFragment : Fragment() {
         const val HTTP_MOVAPP_TWITTER = "https://twitter.com/movappcz"
         const val HTTP_MOVAPP_INSTAGRAM = "https://instagram.com/movappcz"
         const val HTTP_MOVAPP_SUGGESTION = "https://github.com/cesko-digital/movapp-android"
-        const val HTTP_MOVAPP_LICENCE = "https://github.com/cesko-digital/movapp-android/blob/main/LICENSE"
+        const val HTTP_MOVAPP_LICENCE =
+            "https://github.com/cesko-digital/movapp-android/blob/main/LICENSE"
         const val HTTP_MOVAPP_LINKEDIN = "https://www.linkedin.com/company/movapp-cz"
         const val HTTP_MOVAPP_FACEBOOK = "https://www.facebook.com/movappcz"
         const val HTTP_MOVAPP_GITHUB_ANDROID = "https://github.com/cesko-digital/movapp-android"
@@ -56,12 +56,34 @@ class AboutFragment : Fragment() {
         setupToolbar(mainActivity)
 
         val context = this.requireContext()
+        val langCode = LanguagePair.getDefault().from.langCode
 
-        binding.textAboutVersion.text = resources.getString(R.string.about_version).format(BuildConfig.VERSION_NAME)
-        binding.textAboutBuild.text = resources.getString(R.string.about_build).format(BuildConfig.VERSION_CODE)
+        ArrayAdapter.createFromResource(
+            context,
+            R.array.language_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            binding.learnChoice.adapter = adapter
+        }
+
+
+//        mainSharedModel.selectLanguage(LanguagePair.nextLanguage(mainSharedModel.selectedLanguage.value!!))
+
+        binding.textAboutVersion.text = String.format(
+            resources.getString(R.string.about_version),
+            BuildConfig.VERSION_NAME,
+            BuildConfig.VERSION_CODE
+        )
 
         binding.textAboutWeb.setOnClickListener {
             openUri(context, HTTP_MOVAPP_WEB)
+        }
+
+        binding.team.setOnClickListener {
+            findNavController().navigate(AboutFragmentDirections.actionNavigationAboutToNavigationAboutTeam())
         }
 
         binding.textAboutTwitter.setOnClickListener {
@@ -87,20 +109,6 @@ class AboutFragment : Fragment() {
         binding.textAboutFacebook.setOnClickListener {
             openUri(context, HTTP_MOVAPP_FACEBOOK)
         }
-
-        binding.textAboutGithub.setOnClickListener {
-            openUri(context, HTTP_MOVAPP_GITHUB_ANDROID)
-        }
-
-
-        val langCode = LanguagePair.getDefault().from.langCode
-        // To get html file I used Firefox plugin Save File and them remove redundant stuff manually - ie.  kept styles and <main>
-        binding.webView.loadUrl("https://appassets.androidplatform.net/assets/about/$langCode-about.html")
-        binding.webView.webViewClient = LoadAssetsOtherwiseOpenInBrowserWebViewClient(context)
-
-        //bug in WebView sometimes does not load with msg net::ERR_CACHE_MISS it still does even with this.
-        binding.webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
-        binding.webView.enableDarkMode()
 
         return binding.root
     }

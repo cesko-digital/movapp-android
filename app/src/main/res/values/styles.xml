@@ -15,7 +15,7 @@
     </style>
 
     <style name="AboutNormal">
-        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColor">@color/linkTextColor</item>
         <item name="android:paddingTop">@dimen/about_padding_item</item>
         <item name="android:paddingBottom">@dimen/about_padding_item</item>
         <item name="android:fontFamily">@font/source_sans_pro_semi_bold</item>
