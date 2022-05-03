@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.FavoritesViewModelFactory
@@ -25,17 +27,21 @@ class DictionaryFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val favoritesDatabase: FavoritesDatabase by lazy { FavoritesDatabase.getDatabase(requireContext()) }
-    private val favoritesViewModel: FavoritesViewModel by activityViewModels{
+    private val favoritesDatabase: FavoritesDatabase by lazy {
+        FavoritesDatabase.getDatabase(
+            requireContext()
+        )
+    }
+    private val favoritesViewModel: FavoritesViewModel by activityViewModels {
         FavoritesViewModelFactory(
             favoritesDatabase.favoritesDao()
         )
     }
 
     private val mainSharedViewModel: MainViewModel by activityViewModels()
-    private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels{
+    private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels {
         DictionaryViewModelFactory(
-            requireActivity().application,favoritesViewModel
+            requireActivity().application, favoritesViewModel
         )
     }
 
@@ -56,9 +62,39 @@ class DictionaryFragment : Fragment() {
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
+            (recyclerView.adapter as DictionaryAdapter).langPair =
+                mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
         }
+
+        binding.tab.getTabAt(0)?.select()
+
+        binding.tab.addOnTabSelectedListener(
+            object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    selectTab(tab)
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+                    // Do not Implement
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+                    selectTab(tab)
+                }
+
+                private fun selectTab(tab: TabLayout.Tab?) {
+                    when (tab?.position) {
+                        0 -> {
+                        }
+                        1 -> {
+                            findNavController().navigate(DictionaryFragmentDirections.navigateToFavorites())
+                        }
+                    }
+                }
+            }
+        )
+
 
         setupTopAppBarWithSearchWithMenu()
 

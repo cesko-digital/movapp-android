@@ -20,7 +20,9 @@ class DictionaryTranslationsAdapter(
     private val context: Context,
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
-) : ListAdapter<DictionaryTranslationsData, DictionaryTranslationsAdapter.ItemViewHolder>(DiffCallback) {
+) : ListAdapter<DictionaryTranslationsData, DictionaryTranslationsAdapter.ItemViewHolder>(
+    DiffCallback
+) {
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<DictionaryTranslationsData>() {
@@ -43,12 +45,19 @@ class DictionaryTranslationsAdapter(
     var langPair = LanguagePair.getDefault()
     var favoritesIds = mutableListOf<String>()
 
-    class ItemViewHolder(binding: DictionaryTranslationItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ItemViewHolder(binding: DictionaryTranslationItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         val binding = binding
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        return ItemViewHolder(DictionaryTranslationItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ItemViewHolder(
+            DictionaryTranslationItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
@@ -140,7 +149,7 @@ class DictionaryTranslationsAdapter(
                             it.stripped_to.contains(searchString)
                 }
                 .forEach { filtered.add(it) }
-            filtered.sortedWith(object : Comparator <DictionaryTranslationsData> {
+            filtered.sortedWith(object : Comparator<DictionaryTranslationsData> {
 
                 var direction: LevDirection = LevDirection.UNSET
 
@@ -190,14 +199,14 @@ class DictionaryTranslationsAdapter(
                         levT1To - levT2To
                 }
 
-                private fun isFavorites(id: String): Boolean{
+                private fun isFavorites(id: String): Boolean {
                     if (favoritesIds.contains(id))
                         return true
 
                     return false
                 }
 
-                private fun costOfSubst(a: Char, b: Char) : Int {
+                private fun costOfSubst(a: Char, b: Char): Int {
                     if (a == b)
                         return 0
                     return 1
@@ -209,15 +218,18 @@ class DictionaryTranslationsAdapter(
                 private fun levenshteinDistance(s1: String, s2: String): Int {
                     val dp = Array(s1.length + 1) { IntArray(s2.length + 1) }
 
-                    for (i in 0 .. s1.length) {
-                        for (j in 0 .. s2.length) {
+                    for (i in 0..s1.length) {
+                        for (j in 0..s2.length) {
                             if (i == 0) {
                                 dp[i][j] = j
                             } else if (j == 0)
                                 dp[i][j] = i
                             else
                                 dp[i][j] = minOf(
-                                    dp[i - 1][j - 1] + costOfSubst(s1[i - 1].toChar(), s2[j - 1].toChar()),
+                                    dp[i - 1][j - 1] + costOfSubst(
+                                        s1[i - 1].toChar(),
+                                        s2[j - 1].toChar()
+                                    ),
                                     dp[i - 1][j].toInt() + 1,
                                     dp[i][j - 1].toInt() + 1
                                 )

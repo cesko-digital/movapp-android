@@ -7,11 +7,6 @@
         android:title="@string/title_dictionary" />
 
     <item
-        android:id="@+id/navigation_favorites"
-        android:icon="@drawable/ic_baseline_star_24"
-        android:title="@string/title_favorites" />
-
-    <item
         android:id="@+id/navigation_alphabet"
         android:icon="@drawable/alphabet"
         android:title="@string/title_alphabet" />
