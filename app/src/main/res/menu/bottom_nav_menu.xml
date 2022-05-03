@@ -16,4 +16,9 @@
         android:icon="@drawable/child"
         android:title="@string/title_children" />
 
+    <item
+        android:id="@+id/navigation_about"
+        android:icon="@drawable/menu"
+        android:title="@string/title_about" />
+
 </menu>

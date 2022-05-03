@@ -36,7 +36,6 @@ class AboutTeamFragment : Fragment() {
 
         val context = this.requireContext()
         val mainActivity = requireActivity() as MainActivity
-        setupToolbar(mainActivity)
 
         return binding.root
     }
@@ -45,17 +44,6 @@ class AboutTeamFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         hideKeyboard(view, activity)
-    }
-
-    private fun setupToolbar(mainActivity: MainActivity) {
-        mainActivity.binding.apply {
-            topAppBar.setTitle(R.string.about_team)
-            topAppBar.menu.clear()
-            topAppBar.invalidateMenu()
-        }
-
-        mainActivity.searchBinding.root.visibility = View.GONE
-
     }
 
 }
