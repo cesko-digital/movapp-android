@@ -67,6 +67,9 @@ class DictionaryFragment : Fragment() {
             recyclerView.adapter?.notifyDataSetChanged()
         }
 
+
+        //TODO remove duplicity in dictionary and favorites, refactor viewmodel usage
+
         binding.tab.getTabAt(0)?.select()
 
         binding.tab.addOnTabSelectedListener(
