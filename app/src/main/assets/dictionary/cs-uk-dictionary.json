@@ -6705,20 +6705,6 @@
 			"transcription_from": "раковина",
 			"translation_to": "рак",
 			"transcription_to": "rak"
-		},
-		"2377ca02b74517eb84b0b5f605a4d098": {
-			"id": "2377ca02b74517eb84b0b5f605a4d098",
-			"translation_from": "hledat",
-			"transcription_from": "гледат",
-			"translation_to": "шукати",
-			"transcription_to": "šukaty"
-		},
-		"fcf189ab1dd804340ecf7390b9812f8c": {
-			"id": "fcf189ab1dd804340ecf7390b9812f8c",
-			"translation_from": "šukat",
-			"transcription_from": "шукат",
-			"translation_to": "трахати",
-			"transcription_to": "trachaty"
 		}
 	}
 }
