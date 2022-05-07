@@ -149,29 +149,12 @@ class DictionaryFavoritesFragment : Fragment() {
         _binding = null
     }
 
-    fun searchDictionary(query: String?): Boolean {
-        if (query.isNullOrEmpty()) {
-            (binding.recyclerViewDictionaryFavorites.adapter as DictionaryTranslationsAdapter).search(
-                "", true
-            )
-        }
+    private fun searchDictionary(query: String?): Boolean {
         if (query != null) {
             if (query.isNotEmpty()) {
-                try {
-                    /**
-                     *  if this fails then we need to change the fragment
-                     *  to fragment with search results
-                     */
-                    findNavController().getBackStackEntry(R.id.dictionary_translations_fragment)
-                } catch (ex: IllegalArgumentException) {
-                    (binding.recyclerViewDictionaryFavorites.adapter as DictionaryTranslationsAdapter).search(
-                        query, true
-                    )
-                }
-
+                viewModel.setSearchQuery(query)
+                return true
             }
-            viewModel.setSearchQuery(query)
-            return true
         }
 
         return false

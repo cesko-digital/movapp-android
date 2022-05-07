@@ -132,33 +132,27 @@ class DictionaryFragment : Fragment() {
             binding.toolbar.flagView.setImageResource(fromUa.from.flagResId)
         })
 
+        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
+            if (!dictionarySharedViewModel.searchQuery.value.isNullOrEmpty()) {
+                (recyclerView.adapter as DictionaryTranslationsAdapter).search(
+                    dictionarySharedViewModel.searchQuery.value!!, false
+                )
+            }
+        }
+
         return root
     }
 
-    fun searchDictionary(query: String?): Boolean {
+    private fun searchDictionary(query: String?): Boolean {
         if (query.isNullOrEmpty()) {
             binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.sections.value
         }
         if (query != null) {
             if (query.isNotEmpty()) {
                 binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.searches.value
-                try {
-                    /**
-                     *  if this fails then we need to change the fragment
-                     *  to fragment with search results
-                     */
-                    findNavController().getBackStackEntry(R.id.dictionary_translations_fragment)
-                } catch (ex: IllegalArgumentException) {
-                    //TODO
-
-                    (binding.recyclerViewDictionary.adapter as DictionaryTranslationsAdapter).search(
-                        query, false
-                    )
-                }
-
+                dictionarySharedViewModel.setSearchQuery(query)
+                return true
             }
-            dictionarySharedViewModel.setSearchQuery(query)
-            return true
         }
 
         return false
