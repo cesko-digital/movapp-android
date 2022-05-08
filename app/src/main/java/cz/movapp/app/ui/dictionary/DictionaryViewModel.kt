@@ -26,10 +26,17 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
         favoritesViewModel
     )
 
-    fun selectedTranslations(translationIds: List<String>):List<DictionaryTranslationsData>? {
+    private val _translationsIds = MutableLiveData<MutableList<String>>().apply {
+        value = mutableListOf()
+    }
+
+    val translationsIds: MutableLiveData<MutableList<String>> = _translationsIds
+
+    fun selectedTranslations(translationIds: List<String>) {
         if (translationIds.isEmpty())
-            return translations.getSelectedTranslations(translations.favoritesIds)
-        return translations.getSelectedTranslations(translationIds)
+            translations.selectTranslations(translations.favoritesIds)
+        else
+            translations.selectTranslations(translationIds)
     }
 
     private val _searchQuery = MutableLiveData<String>()

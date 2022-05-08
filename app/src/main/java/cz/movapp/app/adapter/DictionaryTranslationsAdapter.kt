@@ -126,14 +126,16 @@ class DictionaryTranslationsAdapter(
             )
     }
 
-    fun getSelectedTranslations(translationsIds: List<String>): List<DictionaryTranslationsData> {
-        return if (translationsIds.isEmpty()) {
+    fun selectTranslations(translationsIds: List<String>) {
+        val result = if (translationsIds.isEmpty()) {
             listOf<DictionaryTranslationsData>()
         } else {
             val filtered = mutableListOf<DictionaryTranslationsData>()
             wholeDataset.filter { it.id in translationsIds }.forEach { filtered.add(it) }
             filtered
         }
+
+        submitList(result)
     }
 
     enum class LevDirection {

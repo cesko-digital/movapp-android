@@ -60,9 +60,9 @@ class DictionaryFavoritesFragment : Fragment() {
 
             (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
 
-            (recyclerView.adapter as DictionaryTranslationsAdapter).submitList(
+         /*   (recyclerView.adapter as DictionaryTranslationsAdapter).submitList(
                 dictionarySharedViewModel.selectedTranslations(favoritesIds)
-            )
+            )*/
         }
 /*
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
@@ -130,10 +130,10 @@ class DictionaryFavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         hideKeyboard(view, activity)
-
+        /*
         (binding.recyclerViewDictionaryFavorites.adapter as DictionaryTranslationsAdapter).submitList(
             dictionarySharedViewModel.selectedTranslations(favoritesIds)
-        )
+        )*/
     }
 
     override fun onDestroyView() {

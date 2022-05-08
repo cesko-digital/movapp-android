@@ -116,21 +116,21 @@ class DictionaryTranslationsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView = binding.recyclerViewDictionaryTranslations
-
+/*
         if (translationIds.isNotEmpty()) {
             (recyclerView.adapter as DictionaryTranslationsAdapter).submitList(
                 dictionarySharedViewModel.selectedTranslations(translationIds)
             )
             return
         }
-
+*/
         setEmptyTranslations()
     }
 
     private fun setEmptyTranslations() {
-        (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).submitList(
+  /*      (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).submitList(
             dictionarySharedViewModel.selectedTranslations(listOf())
-        )
+        )*/
     }
 
     override fun onDestroyView() {

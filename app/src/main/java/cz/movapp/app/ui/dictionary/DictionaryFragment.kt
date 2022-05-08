@@ -93,9 +93,6 @@ class DictionaryFragment : Fragment() {
 
         favoritesViewModel.favoritesIds.observe(viewLifecycleOwner) { it ->
             dictionarySharedViewModel.searches.value?.favoritesIds = it
-        }
-
-        favoritesViewModel.favoritesIds.observe(viewLifecycleOwner) { it ->
             dictionarySharedViewModel.translations.favoritesIds = it
         }
 
@@ -162,10 +159,11 @@ class DictionaryFragment : Fragment() {
                             if (translationIds.isEmpty())
                                 selectSections()
                             else
-                                selectTranslations(translationIds)
+                                dictionarySharedViewModel.translationsIds.value = translationIds.toMutableList()
                         }
                         1 -> {
-                            selectTranslations(listOf())
+                            // empty for favorites
+                            dictionarySharedViewModel.translationsIds.value = mutableListOf()
                         }
                     }
                 }
@@ -194,10 +192,15 @@ class DictionaryFragment : Fragment() {
             }
         }
 
+        dictionarySharedViewModel.translationsIds.observe(viewLifecycleOwner) {
+            binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.translations
+            dictionarySharedViewModel.selectedTranslations(it)
+        }
+
         if (translationIds.isEmpty())
             selectSections()
         else
-            selectTranslations(translationIds)
+            dictionarySharedViewModel.translationsIds.value = translationIds.toMutableList()
 
         return root
     }
@@ -206,13 +209,6 @@ class DictionaryFragment : Fragment() {
         dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
             binding.recyclerViewDictionary.adapter = it
         }
-    }
-
-    private fun selectTranslations(ids: List<String>) {
-        binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.translations
-        (binding.recyclerViewDictionary.adapter as DictionaryTranslationsAdapter).submitList(
-            dictionarySharedViewModel.selectedTranslations(ids)
-        )
     }
 
     private fun searchDictionary(query: String?): Boolean {
