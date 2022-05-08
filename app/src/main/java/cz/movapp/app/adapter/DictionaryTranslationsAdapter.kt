@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
+import cz.movapp.app.data.Language
+import cz.movapp.app.data.SharedPrefsRepository
 import cz.movapp.app.databinding.DictionaryTranslationItemBinding
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import java.util.*
@@ -42,7 +44,8 @@ class DictionaryTranslationsAdapter(
         }
     }
 
-    var langPair = LanguagePair.getDefault()
+    var preferedLanguage = Language.Ukrainian.langCode
+
     var favoritesIds = mutableListOf<String>()
 
     class ItemViewHolder(binding: DictionaryTranslationItemBinding) :
@@ -64,7 +67,7 @@ class DictionaryTranslationsAdapter(
         val item = getItem(position)
 
         holder.binding.apply {
-            if (langPair.isReversed) {
+            if (preferedLanguage != Language.Ukrainian.langCode) {
                 textFrom.text = item.translation_to
                 textFromTrans.text = brackets(item.transcription_to)
                 textTo.text = item.translation_from

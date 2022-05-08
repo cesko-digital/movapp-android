@@ -63,15 +63,15 @@ class AlphabetDatasource(private val context: Context) {
         return alphabet
     }
 
-    fun load(fromUa: LanguagePair): List<AlphabetData> {
-        return lazyCacheLoad(fromUa.from)
+    fun load(lang: String): List<AlphabetData> {
+        return lazyCacheLoad(lang)
     }
 
-    private fun lazyCacheLoad(language: Language): List<AlphabetData> {
-        var selected = cache[language.langCode]
+    private fun lazyCacheLoad(language: String): List<AlphabetData> {
+        var selected = cache[language]
         return if (selected == null) {
-            selected = loadByLanguage(language.langCode)
-            cache[language.langCode] = selected
+            selected = loadByLanguage(language)
+            cache[language] = selected
             selected
         } else {
             selected

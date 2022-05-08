@@ -53,7 +53,7 @@ class AboutFragment : Fragment() {
         })
 
         val context = this.requireContext()
-        val pref = SharedPrefsRepository(context);
+        val pref = SharedPrefsRepository(context)
         val languageList = listOf(Language.Czech.stringText, Language.Ukrainian.stringText)
 
         ArrayAdapter(

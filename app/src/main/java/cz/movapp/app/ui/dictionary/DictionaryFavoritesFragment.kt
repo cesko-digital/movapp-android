@@ -64,13 +64,13 @@ class DictionaryFavoritesFragment : Fragment() {
                 dictionarySharedViewModel.selectedTranslations(favoritesIds)
             )
         }
-
+/*
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
             (recyclerView.adapter as DictionaryTranslationsAdapter).langPair =
                 mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter?.notifyDataSetChanged()
         }
-
+*/
         binding.tab.getTabAt(1)?.select()
 
         binding.tab.addOnTabSelectedListener(

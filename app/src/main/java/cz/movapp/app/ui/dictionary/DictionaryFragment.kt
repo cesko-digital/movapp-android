@@ -9,16 +9,15 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
 import cz.movapp.app.*
-import cz.movapp.app.adapter.DictionaryAdapter
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.data.FavoritesDatabase
 import cz.movapp.app.data.LanguagePair
+import cz.movapp.app.data.SharedPrefsRepository
 import cz.movapp.app.databinding.FragmentDictionaryBinding
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.debounce
@@ -76,6 +75,11 @@ class DictionaryFragment : Fragment() {
 
         val recyclerView = binding.recyclerViewDictionary
         recyclerView.setHasFixedSize(true)
+
+        val pref = SharedPrefsRepository(requireContext())
+        dictionarySharedViewModel.sections.value?.preferedLanguage = pref.getPreferedLanguage()!!
+        dictionarySharedViewModel.translations.preferedLanguage = pref.getPreferedLanguage()!!
+        dictionarySharedViewModel.searches.value?.preferedLanguage = pref.getPreferedLanguage()!!
 
         dictionarySharedViewModel.setSearchQuery("")
 
@@ -178,14 +182,6 @@ class DictionaryFragment : Fragment() {
                 }
         }
 
-        binding.flagView.setOnClickListener {
-            mainSharedModel.selectLanguage(LanguagePair.nextLanguage(mainSharedModel.selectedLanguage.value!!))
-        }
-
-        mainSharedModel.selectedLanguage.observe(viewLifecycleOwner, Observer { fromUa ->
-            binding.flagView.setImageResource(fromUa.from.flagResId)
-        })
-
         dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
             if (!dictionarySharedViewModel.searchQuery.value.isNullOrEmpty()) {
                 var favorites = false
@@ -209,13 +205,6 @@ class DictionaryFragment : Fragment() {
     private fun selectSections() {
         dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
             binding.recyclerViewDictionary.adapter = it
-            it.langPair = mainSharedViewModel.selectedLanguage.value!!
-        }
-
-        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            (binding.recyclerViewDictionary.adapter as DictionaryAdapter).langPair =
-                mainSharedViewModel.selectedLanguage.value!!
-            binding.recyclerViewDictionary.adapter?.notifyDataSetChanged()
         }
     }
 

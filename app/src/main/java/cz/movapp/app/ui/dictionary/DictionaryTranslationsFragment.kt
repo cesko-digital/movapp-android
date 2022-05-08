@@ -62,11 +62,6 @@ class DictionaryTranslationsFragment : Fragment() {
             (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
         }
 
-        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryTranslationsAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
-            recyclerView.adapter?.notifyDataSetChanged()
-        }
-
         dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
             if (dictionarySharedViewModel.searchQuery.value!!.isNotEmpty()) {
                 (recyclerView.adapter as DictionaryTranslationsAdapter).search(

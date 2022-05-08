@@ -11,6 +11,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
+import cz.movapp.app.data.Language
+import cz.movapp.app.data.SharedPrefsRepository
 import cz.movapp.app.ui.dictionary.DictionaryFragmentDirections
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 
@@ -18,7 +20,7 @@ class DictionaryAdapter(
     private var dataset: List<DictionarySectionsData>,
 ) : RecyclerView.Adapter<DictionaryAdapter.ItemViewHolder>() {
 
-    var langPair = LanguagePair.getDefault()
+    var preferedLanguage = Language.Ukrainian.langCode
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textFromTo: TextView = view.findViewById(R.id.text_dictionary_from_to)
@@ -48,7 +50,7 @@ class DictionaryAdapter(
             holder.layout.setBackgroundColor(typedValue.data)
         }
 
-        if (langPair.isReversed)
+        if (preferedLanguage != Language.Ukrainian.langCode)
             holder.textFromTo.text = "%s - %s".format(item.to, item.from)
         else
             holder.textFromTo.text = "%s - %s".format(item.from, item.to)

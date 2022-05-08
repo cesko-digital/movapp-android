@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
+import cz.movapp.app.data.Language
 import cz.movapp.app.databinding.ChildrenItemBinding
 import cz.movapp.app.ui.children.ChildrenData
 import java.io.IOException
@@ -18,7 +19,7 @@ class ChildrenAdapter (
     private val dataset: List<ChildrenData>
 ): RecyclerView.Adapter<ChildrenAdapter.ItemViewHolder>() {
 
-    var langPair = LanguagePair.getDefault()
+    var preferedLanguage = Language.Ukrainian.langCode
 
     class ItemViewHolder(binding: ChildrenItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val binding = binding
@@ -55,7 +56,7 @@ class ChildrenAdapter (
                 imageChildrenMain.setImageDrawable(null)
             }
 
-            if (!langPair.isReversed) {
+            if (preferedLanguage == Language.Ukrainian.langCode) {
                 textChildrenFrom.text = formatTrans(item.translation_from, item.transcription_from)
                 textChildrenTo.text = formatTrans(item.translation_to, item.transcription_to)
 
