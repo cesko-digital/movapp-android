@@ -22,5 +22,7 @@
 
     <color name="dividerColor">#dfdee0</color>
     <color name="searchInput">@color/white</color>
+
     <color name="surfaceColor">#FFFFFF</color>
+    <color name="secondarySurfaceColor">#F2F2F2</color>
 </resources>
