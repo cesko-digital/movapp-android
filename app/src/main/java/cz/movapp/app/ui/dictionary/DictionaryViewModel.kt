@@ -27,6 +27,8 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
     )
 
     fun selectedTranslations(translationIds: List<String>):List<DictionaryTranslationsData>? {
+        if (translationIds.isEmpty())
+            return translations.getSelectedTranslations(translations.favoritesIds)
         return translations.getSelectedTranslations(translationIds)
     }
 

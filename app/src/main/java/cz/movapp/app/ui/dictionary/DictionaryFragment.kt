@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
@@ -29,7 +30,9 @@ class DictionaryFragment : Fragment() {
 
     private val mainSharedModel: MainViewModel by viewModels()
 
-    private var favoritesIds = mutableListOf<String>()
+    private var searchesAdapterDataObservers = mutableListOf<RecyclerView.AdapterDataObserver>()
+
+    private lateinit var translationIds: List<String>
 
     private lateinit var searchJob : Job
 
@@ -55,6 +58,14 @@ class DictionaryFragment : Fragment() {
         )
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            translationIds = it.getStringArray("translation_ids")?.toList() ?: listOf<String>()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,26 +76,63 @@ class DictionaryFragment : Fragment() {
 
         val recyclerView = binding.recyclerViewDictionary
         recyclerView.setHasFixedSize(true)
-        dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
-            recyclerView.adapter = it
-            it.langPair = mainSharedViewModel.selectedLanguage.value!!
-        }
 
-        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as DictionaryAdapter).langPair =
-                mainSharedViewModel.selectedLanguage.value!!
-            recyclerView.adapter?.notifyDataSetChanged()
-        }
-
+        dictionarySharedViewModel.setSearchQuery("")
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            favoritesIds = mutableListOf()
+            var favoritesIds = mutableListOf<String>()
 
             it.forEach { favoritesIds.add(it.translationId) }
 
-            (recyclerView.adapter as DictionaryAdapter).favoritesIds = favoritesIds
+            favoritesViewModel.favoritesIds.value = favoritesIds
         }
 
+        favoritesViewModel.favoritesIds.observe(viewLifecycleOwner) { it ->
+            dictionarySharedViewModel.searches.value?.favoritesIds = it
+        }
+
+        favoritesViewModel.favoritesIds.observe(viewLifecycleOwner) { it ->
+            dictionarySharedViewModel.translations.favoritesIds = it
+        }
+
+        /**
+         * This data observer is used to scroll up in case of data change.
+         * It is necessary in searching. As the user writes, the recyclerview
+         * would remain on previously found result but the more accurate result
+         * is on top.
+         */
+        dictionarySharedViewModel.searches.value!!.registerAdapterDataObserver(
+            object: RecyclerView.AdapterDataObserver() {
+                init {
+                    searchesAdapterDataObservers.add(this)
+                }
+
+                override fun onChanged() {
+                    if (_binding != null)
+                        binding.recyclerViewDictionary.scrollToPosition(0)
+                }
+                override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
+                    if (_binding != null)
+                        binding.recyclerViewDictionary.scrollToPosition(0)
+                }
+                override fun onItemRangeMoved(fromPosition: Int, toPosition: Int, itemCount: Int) {
+                    if (_binding != null)
+                        binding.recyclerViewDictionary.scrollToPosition(0)
+                }
+                override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                    if (_binding != null)
+                        binding.recyclerViewDictionary.scrollToPosition(0)
+                }
+                override fun onItemRangeChanged(positionStart: Int, itemCount: Int) {
+                    if (_binding != null)
+                        binding.recyclerViewDictionary.scrollToPosition(0)
+                }
+                override fun onItemRangeChanged(positionStart: Int, itemCount: Int, payload: Any?) {
+                    if (_binding != null)
+                        binding.recyclerViewDictionary.scrollToPosition(0)
+                }
+            }
+        )
 
         //TODO remove duplicity in dictionary and favorites, refactor viewmodel usage
 
@@ -106,47 +154,79 @@ class DictionaryFragment : Fragment() {
 
                 private fun selectTab(tab: TabLayout.Tab?) {
                     when (tab?.position) {
+                        0 -> {
+                            if (translationIds.isEmpty())
+                                selectSections()
+                            else
+                                selectTranslations(translationIds)
+                        }
                         1 -> {
-                            findNavController().navigate(DictionaryFragmentDirections.navigateToFavorites())
+                            selectTranslations(listOf())
                         }
                     }
                 }
             }
         )
 
-        binding.toolbar.searchView.hint = resources.getString(R.string.title_search)
+        binding.searchView.hint = resources.getString(R.string.title_search)
 
         searchJob = lifecycleScope.launch {
-            binding.toolbar.searchView.textChanges()
+            binding.searchView.textChanges()
                 .debounce(300)
                 .collect { text ->
                     searchDictionary(text.toString())
                 }
         }
 
-        binding.toolbar.flagView.setOnClickListener {
+        binding.flagView.setOnClickListener {
             mainSharedModel.selectLanguage(LanguagePair.nextLanguage(mainSharedModel.selectedLanguage.value!!))
         }
 
         mainSharedModel.selectedLanguage.observe(viewLifecycleOwner, Observer { fromUa ->
-            binding.toolbar.flagView.setImageResource(fromUa.from.flagResId)
+            binding.flagView.setImageResource(fromUa.from.flagResId)
         })
 
         dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
             if (!dictionarySharedViewModel.searchQuery.value.isNullOrEmpty()) {
+                var favorites = false
+                if (binding.tab.selectedTabPosition == 1)
+                        favorites = true
+
                 (recyclerView.adapter as DictionaryTranslationsAdapter).search(
-                    dictionarySharedViewModel.searchQuery.value!!, false
+                    dictionarySharedViewModel.searchQuery.value!!, favorites
                 )
             }
         }
 
+        if (translationIds.isEmpty())
+            selectSections()
+        else
+            selectTranslations(translationIds)
+
         return root
     }
 
-    private fun searchDictionary(query: String?): Boolean {
-        if (query.isNullOrEmpty()) {
-            binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.sections.value
+    private fun selectSections() {
+        dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
+            binding.recyclerViewDictionary.adapter = it
+            it.langPair = mainSharedViewModel.selectedLanguage.value!!
         }
+
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
+            (binding.recyclerViewDictionary.adapter as DictionaryAdapter).langPair =
+                mainSharedViewModel.selectedLanguage.value!!
+            binding.recyclerViewDictionary.adapter?.notifyDataSetChanged()
+        }
+    }
+
+    private fun selectTranslations(ids: List<String>) {
+        binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.translations
+        (binding.recyclerViewDictionary.adapter as DictionaryTranslationsAdapter).submitList(
+            dictionarySharedViewModel.selectedTranslations(ids)
+        )
+    }
+
+    private fun searchDictionary(query: String?): Boolean {
         if (query != null) {
             if (query.isNotEmpty()) {
                 binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.searches.value
@@ -166,6 +246,10 @@ class DictionaryFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+
+        for (observer in searchesAdapterDataObservers)
+            dictionarySharedViewModel.searches.value?.unregisterAdapterDataObserver(observer)
+        searchesAdapterDataObservers.clear()
 
         /**
          *  we need to cancel the job in order to prevent leaking bound object inside of the job

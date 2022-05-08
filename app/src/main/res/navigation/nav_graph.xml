@@ -6,10 +6,6 @@
     app:startDestination="@+id/navigation_dictionary">
 
     <action
-        android:id="@+id/navigateToFavorites"
-        app:destination="@id/navigation_favorites" />
-
-    <action
         android:id="@+id/navigateToDictionary"
         app:destination="@id/navigation_dictionary" />
 
@@ -19,13 +15,14 @@
         tools:layout="@layout/fragment_dictionary">
         <action
             android:id="@+id/to_dictionaryTranslationsFragment"
-            app:destination="@id/dictionary_translations_fragment" />
-    </fragment>
+            app:destination="@id/navigation_dictionary" />
 
-    <fragment
-        android:id="@+id/navigation_favorites"
-        android:name="cz.movapp.app.ui.dictionary.DictionaryFavoritesFragment"
-        tools:layout="@layout/fragment_dictionary_favorites"></fragment>
+        <argument
+            android:name="translation_ids"
+            android:defaultValue="@null"
+            app:argType="string[]"
+            app:nullable="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_alphabet"
@@ -36,17 +33,6 @@
         android:id="@+id/navigation_children"
         android:name="cz.movapp.app.ui.children.ChildrenFragment"
         tools:layout="@layout/fragment_children"></fragment>
-
-    <fragment
-        android:id="@+id/dictionary_translations_fragment"
-        android:name="cz.movapp.app.ui.dictionary.DictionaryTranslationsFragment"
-        tools:layout="@layout/fragment_dictionary_translations">
-        <argument
-            android:name="translation_ids"
-            android:defaultValue="@null"
-            app:argType="string[]"
-            app:nullable="true" />
-    </fragment>
 
     <fragment
         android:id="@+id/navigation_about"

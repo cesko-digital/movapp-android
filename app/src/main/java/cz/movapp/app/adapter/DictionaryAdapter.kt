@@ -19,7 +19,6 @@ class DictionaryAdapter(
 ) : RecyclerView.Adapter<DictionaryAdapter.ItemViewHolder>() {
 
     var langPair = LanguagePair.getDefault()
-    var favoritesIds = mutableListOf<String>()
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textFromTo: TextView = view.findViewById(R.id.text_dictionary_from_to)
