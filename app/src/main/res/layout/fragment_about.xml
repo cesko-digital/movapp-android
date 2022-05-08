@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f2f1f7"
+        android:background="@color/surfaceColor"
         android:padding="8dp">
 
         <ImageView
@@ -188,6 +188,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:textColor="#7f7e84"
                 android:text="@string/about_application" />
 
             <androidx.cardview.widget.CardView
