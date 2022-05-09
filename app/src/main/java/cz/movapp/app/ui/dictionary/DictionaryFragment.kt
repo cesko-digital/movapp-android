@@ -6,17 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
 import cz.movapp.app.*
-import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.data.FavoritesDatabase
-import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.data.SharedPrefsRepository
 import cz.movapp.app.databinding.FragmentDictionaryBinding
 import kotlinx.coroutines.Job
@@ -27,13 +23,11 @@ class DictionaryFragment : Fragment() {
 
     private var _binding: FragmentDictionaryBinding? = null
 
-    private val mainSharedModel: MainViewModel by viewModels()
-
     private var searchesAdapterDataObservers = mutableListOf<RecyclerView.AdapterDataObserver>()
 
-    private lateinit var translationIds: List<String>
-
     private lateinit var searchJob : Job
+
+    private lateinit var translationsIdsArgs: MutableList<String>
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -50,7 +44,6 @@ class DictionaryFragment : Fragment() {
         )
     }
 
-    private val mainSharedViewModel: MainViewModel by activityViewModels()
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels {
         DictionaryViewModelFactory(
             requireActivity().application, favoritesViewModel
@@ -61,7 +54,8 @@ class DictionaryFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            translationIds = it.getStringArray("translation_ids")?.toList() ?: listOf<String>()
+            translationsIdsArgs =
+                it.getStringArray("translation_ids")?.toMutableList() ?: mutableListOf()
         }
     }
 
@@ -73,69 +67,24 @@ class DictionaryFragment : Fragment() {
         _binding = FragmentDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView = binding.recyclerViewDictionary
-        recyclerView.setHasFixedSize(true)
+        if (translationsIdsArgs.isEmpty())
+            dictionarySharedViewModel.translationsIds.value = mutableListOf()
+        else
+            dictionarySharedViewModel.translationsIds.value = translationsIdsArgs
 
         val pref = SharedPrefsRepository(requireContext())
         dictionarySharedViewModel.sections.value?.preferedLanguage = pref.getPreferedLanguage()!!
         dictionarySharedViewModel.translations.preferedLanguage = pref.getPreferedLanguage()!!
         dictionarySharedViewModel.searches.value?.preferedLanguage = pref.getPreferedLanguage()!!
 
-        dictionarySharedViewModel.setSearchQuery("")
-
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
             var favoritesIds = mutableListOf<String>()
 
             it.forEach { favoritesIds.add(it.translationId) }
 
-            favoritesViewModel.favoritesIds.value = favoritesIds
+            dictionarySharedViewModel.searches.value?.favoritesIds = favoritesIds
+            dictionarySharedViewModel.translations.favoritesIds = favoritesIds
         }
-
-        favoritesViewModel.favoritesIds.observe(viewLifecycleOwner) { it ->
-            dictionarySharedViewModel.searches.value?.favoritesIds = it
-            dictionarySharedViewModel.translations.favoritesIds = it
-        }
-
-        /**
-         * This data observer is used to scroll up in case of data change.
-         * It is necessary in searching. As the user writes, the recyclerview
-         * would remain on previously found result but the more accurate result
-         * is on top.
-         */
-        dictionarySharedViewModel.searches.value!!.registerAdapterDataObserver(
-            object: RecyclerView.AdapterDataObserver() {
-                init {
-                    searchesAdapterDataObservers.add(this)
-                }
-
-                override fun onChanged() {
-                    if (_binding != null)
-                        binding.recyclerViewDictionary.scrollToPosition(0)
-                }
-                override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
-                    if (_binding != null)
-                        binding.recyclerViewDictionary.scrollToPosition(0)
-                }
-                override fun onItemRangeMoved(fromPosition: Int, toPosition: Int, itemCount: Int) {
-                    if (_binding != null)
-                        binding.recyclerViewDictionary.scrollToPosition(0)
-                }
-                override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-                    if (_binding != null)
-                        binding.recyclerViewDictionary.scrollToPosition(0)
-                }
-                override fun onItemRangeChanged(positionStart: Int, itemCount: Int) {
-                    if (_binding != null)
-                        binding.recyclerViewDictionary.scrollToPosition(0)
-                }
-                override fun onItemRangeChanged(positionStart: Int, itemCount: Int, payload: Any?) {
-                    if (_binding != null)
-                        binding.recyclerViewDictionary.scrollToPosition(0)
-                }
-            }
-        )
-
-        //TODO remove duplicity in dictionary and favorites, refactor viewmodel usage
 
         binding.tab.getTabAt(0)?.select()
 
@@ -156,14 +105,12 @@ class DictionaryFragment : Fragment() {
                 private fun selectTab(tab: TabLayout.Tab?) {
                     when (tab?.position) {
                         0 -> {
-                            if (translationIds.isEmpty())
-                                selectSections()
-                            else
-                                dictionarySharedViewModel.translationsIds.value = translationIds.toMutableList()
+                            setSectionsOrTranslations()
                         }
                         1 -> {
-                            // empty for favorites
-                            dictionarySharedViewModel.translationsIds.value = mutableListOf()
+                            childFragmentManager.beginTransaction()
+                                .replace(R.id.fragment_container_view, DictionaryFavoritesFragment())
+                                    .commit()
                         }
                     }
                 }
@@ -186,35 +133,50 @@ class DictionaryFragment : Fragment() {
                 if (binding.tab.selectedTabPosition == 1)
                         favorites = true
 
-                (recyclerView.adapter as DictionaryTranslationsAdapter).search(
+                dictionarySharedViewModel.translations.search(
                     dictionarySharedViewModel.searchQuery.value!!, favorites
                 )
             }
         }
 
         dictionarySharedViewModel.translationsIds.observe(viewLifecycleOwner) {
-            binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.translations
-            dictionarySharedViewModel.selectedTranslations(it)
+            if (it.isNotEmpty())
+                setTranslations(it)
         }
 
-        if (translationIds.isEmpty())
-            selectSections()
-        else
-            dictionarySharedViewModel.translationsIds.value = translationIds.toMutableList()
+        setSectionsOrTranslations()
 
         return root
     }
 
-    private fun selectSections() {
-        dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
-            binding.recyclerViewDictionary.adapter = it
+    private fun setTranslations(translationIds: MutableList<String>) {
+        if (childFragmentManager.findFragmentByTag("TRANSLATIONS") == null) {
+            val translationsFragment = DictionaryTranslationsFragment()
+            val args = Bundle()
+            args.putStringArray("translation_ids", translationIds.toTypedArray())
+            translationsFragment.arguments = args
+            childFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_view, translationsFragment, "TRANSLATIONS")
+                .commit()
         }
+    }
+
+    private fun setSectionsOrTranslations() {
+        if (dictionarySharedViewModel.translationsIds.value!!.isEmpty())
+            childFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_view, DictionarySectionsFragment()).commit()
+        else
+            setTranslations(dictionarySharedViewModel.translationsIds.value!!)
     }
 
     private fun searchDictionary(query: String?): Boolean {
         if (query != null) {
             if (query.isNotEmpty()) {
-                binding.recyclerViewDictionary.adapter = dictionarySharedViewModel.searches.value
+                if (childFragmentManager.findFragmentByTag("SEARCH") == null)
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container_view, DictionaryTranslationsFragment(),"SEARCH")
+                            .commit()
+
                 dictionarySharedViewModel.setSearchQuery(query)
                 return true
             }
@@ -242,7 +204,6 @@ class DictionaryFragment : Fragment() {
          */
         searchJob.cancel()
 
-        binding.recyclerViewDictionary.adapter = null
         _binding = null
     }
 }

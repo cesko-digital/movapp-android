@@ -26,6 +26,12 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
         favoritesViewModel
     )
 
+    val favorites = DictionaryTranslationsAdapter(
+        app.applicationContext,
+        DictionaryDatasource().loadTranslations(app.applicationContext),
+        favoritesViewModel
+    )
+
     private val _translationsIds = MutableLiveData<MutableList<String>>().apply {
         value = mutableListOf()
     }
@@ -33,9 +39,7 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
     val translationsIds: MutableLiveData<MutableList<String>> = _translationsIds
 
     fun selectedTranslations(translationIds: List<String>) {
-        if (translationIds.isEmpty())
-            translations.selectTranslations(translations.favoritesIds)
-        else
+        if (translationIds.isNotEmpty())
             translations.selectTranslations(translationIds)
     }
 

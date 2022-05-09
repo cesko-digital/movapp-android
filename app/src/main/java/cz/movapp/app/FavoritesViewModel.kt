@@ -10,13 +10,6 @@ class FavoritesViewModel(private val favoritesDao: FavoritesDAO): ViewModel() {
 
     val favorites: LiveData<List<Favorites>> = favoritesDao.getAllFavorites()
 
-    private val _favoritesIds = MutableLiveData<MutableList<String>>().apply {
-        value = mutableListOf<String>()
-    }
-
-    val favoritesIds: MutableLiveData<MutableList<String>>
-        get() = _favoritesIds
-
     private fun insertItem(item: Favorites) {
         viewModelScope.launch(Dispatchers.IO) {
             favoritesDao.insert(item)

@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.MainActivity
-import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.databinding.FragmentDictionaryTranslationsBinding
 
@@ -19,7 +17,6 @@ class DictionaryTranslationsFragment : Fragment() {
     private lateinit var translationIds: List<String>
     private var favoritesIds = mutableListOf<String>()
 
-    private val mainSharedViewModel: MainViewModel by activityViewModels()
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
     private var adapterDataObservers = mutableListOf<RecyclerView.AdapterDataObserver>()
@@ -31,12 +28,15 @@ class DictionaryTranslationsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        translationIds = listOf()
+
         arguments?.let {
             translationIds = it.getStringArray("translation_ids")?.toList() ?: listOf<String>()
         }
 
         if (translationIds.isNotEmpty())
             dictionarySharedViewModel.setSearchQuery("")
+
     }
 
     override fun onCreateView(
@@ -51,7 +51,6 @@ class DictionaryTranslationsFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
 
         recyclerView.adapter = dictionarySharedViewModel.translations
-
         (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
@@ -60,14 +59,6 @@ class DictionaryTranslationsFragment : Fragment() {
             it.forEach { favoritesIds.add(it.translationId) }
 
             (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
-        }
-
-        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
-            if (dictionarySharedViewModel.searchQuery.value!!.isNotEmpty()) {
-                (recyclerView.adapter as DictionaryTranslationsAdapter).search(
-                    dictionarySharedViewModel.searchQuery.value!!
-                )
-            }
         }
 
         /**
@@ -115,26 +106,16 @@ class DictionaryTranslationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerView = binding.recyclerViewDictionaryTranslations
-/*
-        if (translationIds.isNotEmpty()) {
-            (recyclerView.adapter as DictionaryTranslationsAdapter).submitList(
-                dictionarySharedViewModel.selectedTranslations(translationIds)
-            )
-            return
-        }
-*/
-        setEmptyTranslations()
-    }
-
-    private fun setEmptyTranslations() {
-  /*      (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).submitList(
-            dictionarySharedViewModel.selectedTranslations(listOf())
-        )*/
+        if (translationIds.isNotEmpty())
+            dictionarySharedViewModel.selectedTranslations(translationIds)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+
+        (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).submitList(
+            listOf()
+        )
 
         for (observer in adapterDataObservers)
             (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).
