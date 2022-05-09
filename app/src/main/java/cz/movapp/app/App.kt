@@ -2,9 +2,7 @@ package cz.movapp.app
 
 import android.app.Application
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.StrictMode
-import cz.movapp.app.data.SharedPrefsRepository
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 
@@ -29,8 +27,6 @@ class App : Application() {
         instance = this
         ctx = applicationContext
         appModule = AppModule(this.applicationContext)
-        val pref = SharedPrefsRepository(ctx)
-        if (pref.getPreferedLanguage() == null) pref.setPreferedLanguage("cs")
     }
 
     override fun onLowMemory() {
