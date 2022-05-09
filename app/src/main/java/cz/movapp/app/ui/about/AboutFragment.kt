@@ -7,20 +7,24 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.openUri
 import cz.movapp.app.BuildConfig
+import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
 import cz.movapp.app.data.Language
-import cz.movapp.app.data.SharedPrefsRepository
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
 
     private var _binding: FragmentAboutBinding? = null
+
+    private val mainSharedViewModel: MainViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -53,7 +57,6 @@ class AboutFragment : Fragment() {
         })
 
         val context = this.requireContext()
-        val pref = SharedPrefsRepository(context)
         val languageList = listOf(Language.Czech.stringText, Language.Ukrainian.stringText)
 
         ArrayAdapter(
@@ -62,8 +65,8 @@ class AboutFragment : Fragment() {
             languageList
         ).also { adapter ->
             binding.learnChoice.adapter = adapter
-            val lang = pref.getPreferedLanguage()
-            if (lang == "cs") {
+
+            if (mainSharedViewModel.selectedLanguage.value!! == LanguagePair.UkToCs) {
                 val spinnerPosition = adapter.getPosition(Language.Czech.stringText)
                 binding.learnChoice.setSelection(spinnerPosition)
             } else {
@@ -80,9 +83,11 @@ class AboutFragment : Fragment() {
                 id: Long
             ) {
                 if (adapterView?.getItemAtPosition(position).toString() == "Česky")
-                    pref.setPreferedLanguage("cs")
+                    mainSharedViewModel.selectLanguage(LanguagePair.UkToCs)
                 else
-                    pref.setPreferedLanguage("uk")
+                    mainSharedViewModel.selectLanguage(LanguagePair.CsToUk)
+
+                mainSharedViewModel.storeLanguage()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {

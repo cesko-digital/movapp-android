@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
+import cz.movapp.app.MainViewModel
+import cz.movapp.app.adapter.DictionaryAdapter
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
 
@@ -17,6 +20,7 @@ class DictionaryFavoritesFragment : Fragment() {
     private var favoritesIds = mutableListOf<String>()
 
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
+    private val mainSharedViewModel: MainViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
@@ -47,6 +51,10 @@ class DictionaryFavoritesFragment : Fragment() {
 
             dictionarySharedViewModel.favorites.selectTranslations(favoritesIds)
         }
+
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            (binding.recyclerViewDictionaryFavorites.adapter as DictionaryTranslationsAdapter).langPair = lang
+        })
 
         return root
     }

@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
+import cz.movapp.app.MainViewModel
+import cz.movapp.app.adapter.DictionaryAdapter
 import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.databinding.FragmentDictionaryTranslationsBinding
 
@@ -19,6 +22,7 @@ class DictionaryTranslationsFragment : Fragment() {
 
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
+    private val mainSharedViewModel: MainViewModel by activityViewModels()
     private var adapterDataObservers = mutableListOf<RecyclerView.AdapterDataObserver>()
 
     // This property is only valid between onCreateView and
@@ -99,6 +103,10 @@ class DictionaryTranslationsFragment : Fragment() {
                 }
             }
         )
+
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).langPair = lang
+        })
 
         return root
     }

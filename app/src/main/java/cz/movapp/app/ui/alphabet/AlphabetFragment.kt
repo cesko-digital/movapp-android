@@ -15,10 +15,8 @@ import cz.movapp.android.getSavableScrollState
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
-import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.AlphabetAdapter
-import cz.movapp.app.data.SharedPrefsRepository
 import cz.movapp.app.databinding.FragmentAlphabetBinding
 
 
@@ -37,12 +35,9 @@ class AlphabetFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        val pref = SharedPrefsRepository(requireContext())
-
         val app = this.requireActivity().application as App
         val viewModel =
-            ViewModelProvider(this, AlphabetViewModel.Factory(app, mainSharedViewModel, pref.getPreferedLanguage()!!))
+            ViewModelProvider(this, AlphabetViewModel.Factory(app, mainSharedViewModel))
                 .get(AlphabetViewModel::class.java)
         _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
 
@@ -51,12 +46,16 @@ class AlphabetFragment : Fragment() {
         viewModel.alphabetsState.observe(viewLifecycleOwner) {
             if(it.isLoaded){
                 binding.recyclerViewAlphabet.adapter = AlphabetAdapter(it.alphabetData)
-                it.scrollPositions[it.lang]?.let { scrollPos ->
+                it.scrollPositions[it.lang.from.langCode]?.let { scrollPos ->
                     binding.recyclerViewAlphabet.restoreSavableScrollState(scrollPos)
                 }
                 binding.recyclerViewAlphabet.setHasFixedSize(true)
             }
         }
+
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            viewModel.onLanguageChanged(lang, binding.recyclerViewAlphabet.getSavableScrollState())
+        })
 
         this.lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onPause(owner: LifecycleOwner) {

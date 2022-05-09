@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import cz.movapp.android.hideKeyboard
+import cz.movapp.app.MainViewModel
+import cz.movapp.app.adapter.DictionaryAdapter
 import cz.movapp.app.databinding.FragmentDictionarySectionsBinding
 
 class DictionarySectionsFragment : Fragment() {
@@ -15,6 +18,7 @@ class DictionarySectionsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
+    private val mainSharedViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +32,10 @@ class DictionarySectionsFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
 
         recyclerView.adapter = dictionarySharedViewModel.sections.value
+
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            (binding.recyclerViewDictionarySections.adapter as DictionaryAdapter).langPair = lang
+        })
 
         return root
     }

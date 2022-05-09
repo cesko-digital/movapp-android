@@ -5,15 +5,15 @@ import androidx.lifecycle.*
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.appModule
-import cz.movapp.app.data.Language
-import cz.movapp.app.data.SharedPrefsRepository
+import cz.movapp.app.data.LanguagePair
+import cz.movapp.app.data.LanguagePair.Companion.getDefault
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class AlphabetViewModel(application: Application, mainViewModel: MainViewModel, language: String) :
+class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) :
     AndroidViewModel(application) {
 
     val alphabetsState = MutableLiveData<AlphabetState>(AlphabetState( isLoaded = false))
@@ -21,34 +21,35 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel, 
     data class AlphabetState(
         val alphabetData: List<AlphabetData> = listOf(),
         val scrollPositions: Map<String, Int> = mapOf(),
-        val lang: String = Language.Ukrainian.langCode,
+        val lang: LanguagePair = getDefault(),
         val isLoaded: Boolean = false
     ) {
     }
 
     init {
-
+        mainViewModel.selectedLanguage.value?.let { lang: LanguagePair ->
             viewModelScope.launch(Dispatchers.IO) {
                 val storedScrollPositions =
                     appModule().stateStore.restoreState(AlphabetStateKeys.SCROLL_POSITIONS)
 
                 val scrollPositions = storedScrollPositions.first()
-                val alphabetData = appModule().alphabetDataSource.load(language)
+                val alphabetData = appModule().alphabetDataSource.load(lang)
 
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     val newValue = alphabetsState.value!!.copy(
                         alphabetData = alphabetData,
-                        lang = language,
+                        lang = lang,
                         scrollPositions = scrollPositions ?: AlphabetState().scrollPositions,
                         isLoaded = true
                     )
                     alphabetsState.setValue(newValue)
                 }
             }
+        }
     }
 
     fun onLanguageChanged(
-        lang: String = alphabetsState.value!!.lang,
+        lang: LanguagePair = alphabetsState.value!!.lang,
         oldScrollPosition: Int
     ) {
         if (alphabetsState.value!!.isLoaded){
@@ -77,11 +78,11 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel, 
 
     private fun ifIsLoadedUpdateScrollPosition(
         alphaState: AlphabetState,
-        lang: String,
+        langPair: LanguagePair,
         oldScrollPosition: Int
     ) =
         if (alphaState.isLoaded) {
-            alphaState.scrollPositions.toMutableMap() + mapOf(lang to oldScrollPosition)
+            alphaState.scrollPositions.toMutableMap() + mapOf(langPair.from.langCode to oldScrollPosition)
         } else {
             alphaState.scrollPositions
         }
@@ -97,10 +98,10 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel, 
     }
 
     @Suppress("UNCHECKED_CAST")
-    class Factory(private val application: Application, private val mainViewModel: MainViewModel, private val language: String) :
+    class Factory(private val application: Application, private val mainViewModel: MainViewModel) :
         ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return AlphabetViewModel(application, mainViewModel, language) as T
+            return AlphabetViewModel(application, mainViewModel) as T
         }
     }
 

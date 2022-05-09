@@ -45,15 +45,15 @@ class AlphabetDatasource(private val context: Context) {
                 ))
             }
 
-            val file_name = jsonLetterObj.getNullString("file_name")
+            val fileName = jsonLetterObj.getNullString("file_name")
             alphabet.add(
                 AlphabetData(
                     id = jsonLetterObj.getString("id"),
                     language = langCode,
                     letter_capital = jsonLetterObj.getJSONArray("letter").getNullString(0),
                     letter = jsonLetterObj.getJSONArray("letter").getNullString(1),
-                    file_name = file_name,
-                    letterSoundAssetFile = (if (file_name == null) null else "alphabet/$langCode-alphabet/${jsonLetterObj.getString("id") + ".mp3"}"),
+                    file_name = fileName,
+                    letterSoundAssetFile = (if (fileName == null) null else "alphabet/$langCode-alphabet/${jsonLetterObj.getString("id") + ".mp3"}"),
                     transcription = jsonLetterObj.getString("transcription"),
                     examples = examples
                 )
@@ -63,15 +63,15 @@ class AlphabetDatasource(private val context: Context) {
         return alphabet
     }
 
-    fun load(lang: String): List<AlphabetData> {
-        return lazyCacheLoad(lang)
+    fun load(langPair: LanguagePair): List<AlphabetData> {
+        return lazyCacheLoad(langPair.to)
     }
 
-    private fun lazyCacheLoad(language: String): List<AlphabetData> {
-        var selected = cache[language]
+    private fun lazyCacheLoad(language: Language): List<AlphabetData> {
+        var selected = cache[language.langCode]
         return if (selected == null) {
-            selected = loadByLanguage(language)
-            cache[language] = selected
+            selected = loadByLanguage(language.langCode)
+            cache[language.langCode] = selected
             selected
         } else {
             selected

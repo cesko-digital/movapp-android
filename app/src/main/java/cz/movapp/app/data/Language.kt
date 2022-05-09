@@ -28,6 +28,7 @@ enum class LanguagePair(
         fun nextLanguage(languagePair: LanguagePair): LanguagePair {
             val values = LanguagePair.values()
             val index = values.indexOf(languagePair)
+            println(values[(index + 1) % values.size])
             return values[(index + 1) % values.size]
         }
     }

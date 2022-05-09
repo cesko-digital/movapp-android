@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import cz.movapp.android.hideKeyboard
-import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.ChildrenAdapter
-import cz.movapp.app.data.SharedPrefsRepository
 import cz.movapp.app.databinding.FragmentChildrenBinding
 
 class ChildrenFragment : Fragment() {
@@ -32,14 +30,17 @@ class ChildrenFragment : Fragment() {
         _binding = FragmentChildrenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val pref = SharedPrefsRepository(requireContext())
-
         val recyclerView = binding.recyclerViewChildren
         childrenViewModel.children.observe(viewLifecycleOwner) {
-            it.preferedLanguage = pref.getPreferedLanguage()!!
+            it.langPair = mainSharedViewModel.selectedLanguage.value!!
             recyclerView.adapter = it
             recyclerView.setHasFixedSize(true)
 
+        }
+
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
+            (recyclerView.adapter as ChildrenAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
+            recyclerView.adapter?.notifyDataSetChanged()
         }
 
         return root
