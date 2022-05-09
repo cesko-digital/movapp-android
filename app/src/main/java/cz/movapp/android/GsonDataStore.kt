@@ -37,7 +37,7 @@ class GsonDataStore(val appScope: CoroutineScope, dataStore: DataStore<Preferenc
         key: DataStoreKey<T>,
     ): Flow<T?> {
         if (key.type == null && T::class.java.typeParameters?.isNotEmpty() == true) {
-            throw UnsupportedOperationException("Top level generic types like Map<Boolean, Int> not support add type parameter")
+            throw UnsupportedOperationException("Top level generic types like Map<Boolean, Int> are not supported. Add type parameter.")
         }
 
         return data

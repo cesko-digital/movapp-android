@@ -1,7 +1,7 @@
 package cz.movapp.app.data
 
 import androidx.annotation.DrawableRes
-import cz.movapp.app.App
+import androidx.annotation.StringRes
 import cz.movapp.app.R
 import java.util.*
 
@@ -36,9 +36,9 @@ enum class LanguagePair(
 enum class Language(
     val langCode: String,
     @DrawableRes val flagResId: Int,
-    val stringText: String?
+    @StringRes val adjectiveStringId: Int
 ) {
 
-    Ukrainian("uk", R.drawable.ua, App.ctx.resources.getString(R.string.ukrainian)),
-    Czech("cs", R.drawable.cz, App.ctx.resources.getString(R.string.czech))
+    Ukrainian("uk", R.drawable.ua, R.string.ukrainian),
+    Czech("cs", R.drawable.cz, R.string.czech)
 }
