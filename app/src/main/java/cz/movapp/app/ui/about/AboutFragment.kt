@@ -82,7 +82,7 @@ class AboutFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                if (adapterView?.getItemAtPosition(position).toString() == "Česky")
+                if (adapterView?.getItemAtPosition(position).toString() == resources.getString(R.string.czech))
                     mainSharedViewModel.selectLanguage(LanguagePair.UkToCs)
                 else
                     mainSharedViewModel.selectLanguage(LanguagePair.CsToUk)
