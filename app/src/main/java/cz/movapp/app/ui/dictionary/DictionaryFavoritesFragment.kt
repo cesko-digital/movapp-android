@@ -10,8 +10,8 @@ import androidx.lifecycle.Observer
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionaryAdapter
-import cz.movapp.app.adapter.DictionaryTranslationsAdapter
+import cz.movapp.app.adapter.DictionaryFavoritesAdapter
+import cz.movapp.app.adapter.DictionarySearchAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
 
 class DictionaryFavoritesFragment : Fragment() {
@@ -38,22 +38,22 @@ class DictionaryFavoritesFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionaryFavorites
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.favorites
+        recyclerView.adapter = dictionarySharedViewModel.favorites.value
 
-        (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
+        (recyclerView.adapter as DictionaryFavoritesAdapter).favoritesIds = favoritesIds
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
             favoritesIds = mutableListOf()
 
             it.forEach { favoritesIds.add(it.translationId) }
 
-            (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
+            (recyclerView.adapter as DictionaryFavoritesAdapter).favoritesIds = favoritesIds
 
-            dictionarySharedViewModel.favorites.selectTranslations(favoritesIds)
+            dictionarySharedViewModel.favorites.value?.selectTranslations(favoritesIds)
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            (binding.recyclerViewDictionaryFavorites.adapter as DictionaryTranslationsAdapter).langPair = lang
+            (binding.recyclerViewDictionaryFavorites.adapter as DictionaryFavoritesAdapter).langPair = lang
         })
 
         return root

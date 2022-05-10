@@ -4,11 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
@@ -80,7 +77,7 @@ class DictionaryFragment : Fragment() {
             it.forEach { favoritesIds.add(it.translationId) }
 
             dictionarySharedViewModel.searches.value?.favoritesIds = favoritesIds
-            dictionarySharedViewModel.translations.favoritesIds = favoritesIds
+            dictionarySharedViewModel.translations.value?.favoritesIds = favoritesIds
         }
 
         binding.tab.getTabAt(0)?.select()
@@ -105,9 +102,7 @@ class DictionaryFragment : Fragment() {
                             setSectionsOrTranslations()
                         }
                         1 -> {
-                            childFragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container_view, DictionaryFavoritesFragment())
-                                    .commit()
+                            setFavorites()
                         }
                     }
                 }
@@ -130,7 +125,7 @@ class DictionaryFragment : Fragment() {
                 if (binding.tab.selectedTabPosition == 1)
                         favorites = true
 
-                dictionarySharedViewModel.translations.search(
+                dictionarySharedViewModel.searches.value?.search(
                     dictionarySharedViewModel.searchQuery.value!!, favorites
                 )
             }
@@ -138,7 +133,7 @@ class DictionaryFragment : Fragment() {
 
         dictionarySharedViewModel.translationsIds.observe(viewLifecycleOwner) {
             if (it.isNotEmpty())
-                setTranslations(it)
+                setTranslations()
         }
 
         setSectionsOrTranslations()
@@ -146,24 +141,29 @@ class DictionaryFragment : Fragment() {
         return root
     }
 
-    private fun setTranslations(translationIds: MutableList<String>) {
-        if (childFragmentManager.findFragmentByTag("TRANSLATIONS") == null) {
-            val translationsFragment = DictionaryTranslationsFragment()
-            val args = Bundle()
-            args.putStringArray("translation_ids", translationIds.toTypedArray())
-            translationsFragment.arguments = args
+    private fun setTranslations() {
+        if (childFragmentManager.findFragmentByTag("TRANSLATIONS") == null)
             childFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_view, translationsFragment, "TRANSLATIONS")
+                .replace(R.id.fragment_container_view,  DictionaryTranslationsFragment(), "TRANSLATIONS")
                 .commit()
-        }
+    }
+
+    private fun setFavorites() {
+        if (childFragmentManager.findFragmentByTag("FAVORITES") == null)
+            childFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_view,  DictionaryFavoritesFragment(), "FAVORITES")
+                .commit()
     }
 
     private fun setSectionsOrTranslations() {
-        if (dictionarySharedViewModel.translationsIds.value!!.isEmpty())
-            childFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_view, DictionarySectionsFragment()).commit()
-        else
-            setTranslations(dictionarySharedViewModel.translationsIds.value!!)
+        if (dictionarySharedViewModel.translationsIds.value!!.isEmpty()) {
+            if (childFragmentManager.findFragmentByTag("SECTIONS") == null)
+                childFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_view, DictionarySectionsFragment(), "SECTIONS")
+                    .commit()
+        } else {
+            setTranslations()
+        }
     }
 
     private fun searchDictionary(query: String?): Boolean {
@@ -171,7 +171,7 @@ class DictionaryFragment : Fragment() {
             if (query.isNotEmpty()) {
                 if (childFragmentManager.findFragmentByTag("SEARCH") == null)
                     childFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_view, DictionaryTranslationsFragment(),"SEARCH")
+                        .replace(R.id.fragment_container_view, DictionarySearchFragment(),"SEARCH")
                             .commit()
 
                 dictionarySharedViewModel.setSearchQuery(query)

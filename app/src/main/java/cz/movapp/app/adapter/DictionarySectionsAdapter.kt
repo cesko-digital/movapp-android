@@ -11,13 +11,12 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
-import cz.movapp.app.data.Language
 import cz.movapp.app.ui.dictionary.DictionaryFragmentDirections
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 
-class DictionaryAdapter(
+class DictionarySectionsAdapter(
     private var dataset: List<DictionarySectionsData>,
-) : RecyclerView.Adapter<DictionaryAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<DictionarySectionsAdapter.ItemViewHolder>() {
 
     var langPair = LanguagePair.getDefault()
 

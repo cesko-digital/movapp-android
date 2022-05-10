@@ -9,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionaryAdapter
+import cz.movapp.app.adapter.DictionarySectionsAdapter
 import cz.movapp.app.databinding.FragmentDictionarySectionsBinding
 
 class DictionarySectionsFragment : Fragment() {
@@ -34,7 +34,7 @@ class DictionarySectionsFragment : Fragment() {
         recyclerView.adapter = dictionarySharedViewModel.sections.value
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            (binding.recyclerViewDictionarySections.adapter as DictionaryAdapter).langPair = lang
+            (binding.recyclerViewDictionarySections.adapter as DictionarySectionsAdapter).langPair = lang
         })
 
         return root

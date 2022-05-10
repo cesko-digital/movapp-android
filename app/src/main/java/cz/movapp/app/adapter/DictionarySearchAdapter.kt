@@ -1,60 +1,134 @@
 package cz.movapp.app.adapter
 
-import android.util.TypedValue
+import android.content.Context
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
+import cz.movapp.app.databinding.DictionaryTranslationItemBinding
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import java.util.*
 
 class DictionarySearchAdapter(
-    private var wholeDataset: List<DictionaryTranslationsData>
-) : RecyclerView.Adapter<DictionarySearchAdapter.ItemViewHolder>() {
+    private val context: Context,
+    private val wholeDataset: List<DictionaryTranslationsData>,
+    private val favoritesViewModel: FavoritesViewModel,
+) : ListAdapter<DictionaryTranslationsData, DictionarySearchAdapter.ItemViewHolder>(
+    DiffCallback
+) {
+
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<DictionaryTranslationsData>() {
+            override fun areItemsTheSame(
+                oldItem: DictionaryTranslationsData,
+                newItem: DictionaryTranslationsData
+            ): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(
+                oldItem: DictionaryTranslationsData,
+                newItem: DictionaryTranslationsData
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 
     var langPair = LanguagePair.getDefault()
+
     var favoritesIds = mutableListOf<String>()
 
-    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textFromTo: TextView = view.findViewById(R.id.text_dictionary_from_to)
-        val layout: ConstraintLayout = view.findViewById(R.id.layoutDictionaryItem)
+    class ItemViewHolder(binding: DictionaryTranslationItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        val binding = binding
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val adapterLayout = LayoutInflater.from(parent.context)
-                .inflate(R.layout.dictionary_translation_item, parent, false)
-        return ItemViewHolder(adapterLayout)
-    }
-
-    override fun getItemCount(): Int {
-        return wholeDataset.size
+        return ItemViewHolder(
+            DictionaryTranslationItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = wholeDataset[position]
+        val item = getItem(position)
 
-        val context = holder.layout.context
-
-        if (position % 2 == 1) {
-            holder.layout.background = ContextCompat.getDrawable(context, R.drawable.odd_outline)
-        } else {
-            val typedValue = TypedValue()
-            context.theme.resolveAttribute(R.color.surfaceColor, typedValue, true)
-            holder.layout.setBackgroundColor(typedValue.data)
+        holder.binding.apply {
+            if (langPair.isReversed) {
+                textFrom.text = item.translation_to
+                textFromTrans.text = brackets(item.transcription_to)
+                textTo.text = item.translation_from
+                textToTrans.text = brackets(item.transcription_from)
+            } else {
+                textFrom.text = item.translation_from
+                textFromTrans.text = brackets(item.transcription_from)
+                textTo.text = item.translation_to
+                textToTrans.text = brackets(item.transcription_to)
+            }
         }
 
-        if (langPair.isReversed)
-            holder.textFromTo.text = "%s - %s".format(item.stripped_to, item.stripped_from)
-        else
-            holder.textFromTo.text = "%s - %s".format(item.stripped_from, item.stripped_to)
+        setFavoriteStar(holder, favoritesIds.contains(item.id))
+
+        holder.binding.imageFavorites.setOnClickListener {
+            if (favoritesIds.contains(item.id)) {
+                favoritesIds.remove(item.id)
+                favoritesViewModel.removeFavorite(item.id)
+                setFavoriteStar(holder, false)
+            } else {
+                favoritesIds.add(item.id)
+                favoritesViewModel.addFavorites(item.id)
+                setFavoriteStar(holder, true)
+            }
+        }
+
+        holder.binding.imagePlaySoundFrom.visibility = View.GONE
+        holder.binding.imagePlaySoundFrom.setOnClickListener {
+            // TODO: import sounds to assets and use it here
+            //playSound(holder.itemView.context, item.soundAssetFile)
+        }
+
+        holder.binding.imagePlaySoundTo.visibility = View.GONE
+        holder.binding.imagePlaySoundTo.setOnClickListener {
+            // TODO: import sounds to assets and use it here
+            //playSound(holder.itemView.context, item.soundAssetFile)
+        }
     }
 
-    fun search(constraint: String, favorites: Boolean = false) {
+    private fun brackets(s: String): CharSequence? {
+        return "[${s}]"
+    }
+
+    private fun setFavoriteStar(holder: ItemViewHolder, isSet: Boolean) {
+        if (isSet)
+            holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
+                ContextCompat.getColor(
+                    context, R.color.secondaryColor
+                )
+            )
+        else
+            holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
+                ContextCompat.getColor(
+                    context, R.color.primaryColor
+                )
+            )
+    }
+
+    enum class LevDirection {
+        UNSET, FROM, TO
+    }
+
+    fun search(constraint: String, favorites : Boolean = false) {
         val searchString = constraint.lowercase(Locale.getDefault())
         var result = if (searchString.isEmpty()) {
             wholeDataset
@@ -68,8 +142,7 @@ class DictionarySearchAdapter(
                 .forEach { filtered.add(it) }
             filtered.sortedWith(object : Comparator<DictionaryTranslationsData> {
 
-                var direction: DictionaryTranslationsAdapter.LevDirection =
-                    DictionaryTranslationsAdapter.LevDirection.UNSET
+                var direction: LevDirection = LevDirection.UNSET
 
                 override fun compare(
                     t1: DictionaryTranslationsData,
@@ -90,11 +163,11 @@ class DictionarySearchAdapter(
                      * in order to detect direction we simply look at sum of lev. dist.
                      * of both strings and we select the smaller sum
                      */
-                    if (direction == DictionaryTranslationsAdapter.LevDirection.UNSET) {
+                    if (direction == LevDirection.UNSET) {
                         direction = if (levT1To + levT2To < levT1From + levT2From)
-                            DictionaryTranslationsAdapter.LevDirection.TO
+                            LevDirection.TO
                         else
-                            DictionaryTranslationsAdapter.LevDirection.FROM
+                            LevDirection.FROM
                     }
 
                     /**
@@ -111,7 +184,7 @@ class DictionarySearchAdapter(
                         levT2To -= 10000
                     }
 
-                    return if (direction == DictionaryTranslationsAdapter.LevDirection.FROM)
+                    return if (direction == LevDirection.FROM)
                         levT1From - levT2From
                     else
                         levT1To - levT2To
@@ -159,7 +232,10 @@ class DictionarySearchAdapter(
             })
         }
 
-        wholeDataset = result
-        notifyDataSetChanged()
+        if(favorites){
+            result = result.filter { favoritesIds.contains(it.id) }
+        }
+
+        submitList(result)
     }
 }
