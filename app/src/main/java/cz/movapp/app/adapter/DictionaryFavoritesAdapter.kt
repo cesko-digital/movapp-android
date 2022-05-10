@@ -15,11 +15,11 @@ import cz.movapp.app.R
 import cz.movapp.app.databinding.DictionaryTranslationItemBinding
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 
-class DictionaryTranslationsAdapter(
+class DictionaryFavoritesAdapter(
     private val context: Context,
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
-) : ListAdapter<DictionaryTranslationsData, DictionaryTranslationsAdapter.ItemViewHolder>(
+) : ListAdapter<DictionaryTranslationsData, DictionaryFavoritesAdapter.ItemViewHolder>(
     DiffCallback
 ) {
 

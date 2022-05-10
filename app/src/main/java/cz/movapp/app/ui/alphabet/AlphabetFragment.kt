@@ -1,11 +1,9 @@
 package cz.movapp.app.ui.alphabet
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -14,9 +12,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import cz.movapp.android.getSavableScrollState
+import cz.movapp.android.hideKeyboard
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
-import cz.movapp.app.MainActivity
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.AlphabetAdapter
 import cz.movapp.app.databinding.FragmentAlphabetBinding
@@ -32,19 +30,11 @@ class AlphabetFragment : Fragment() {
 
     private val mainSharedViewModel: MainViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, 0)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         val app = this.requireActivity().application as App
         val viewModel =
             ViewModelProvider(this, AlphabetViewModel.Factory(app, mainSharedViewModel))
@@ -63,8 +53,8 @@ class AlphabetFragment : Fragment() {
             }
         }
 
-        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { fromUa ->
-            viewModel.onLanguageChanged(fromUa, binding.recyclerViewAlphabet.getSavableScrollState())
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            viewModel.onLanguageChanged(lang, binding.recyclerViewAlphabet.getSavableScrollState())
         })
 
         this.lifecycle.addObserver(object : DefaultLifecycleObserver {
@@ -72,12 +62,14 @@ class AlphabetFragment : Fragment() {
                 viewModel.onLanguageChanged( oldScrollPosition = binding.recyclerViewAlphabet.getSavableScrollState())
             }
         })
-
-        (requireActivity() as MainActivity).setupTopAppBarWithSearchWithMenu()
-
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        hideKeyboard(view, activity)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

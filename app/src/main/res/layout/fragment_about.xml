@@ -8,28 +8,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        >
+        android:background="@color/surfaceColor"
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/image_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-12dp"
+            android:layout_margin="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo" />
-
-        <WebView
-            android:id="@+id/webView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -42,172 +32,204 @@
             app:layout_constraintTop_toBottomOf="@+id/image_logo"
             tools:layout_editor_absoluteX="8dp">
 
-            <TextView
-                style="@style/AboutHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/about_project" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/text_about_web"
-                    style="@style/AboutClickable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about_web" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/dividerColor" />
-
-
-                <TextView
-                    android:id="@+id/text_about_twitter"
-                    style="@style/AboutClickable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about_twitter" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/dividerColor" />
-
-                <TextView
-                    android:id="@+id/text_about_facebook"
-                    style="@style/AboutClickable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/facebook" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/dividerColor" />
-
-                <TextView
-                    android:id="@+id/text_about_instagram"
-                    style="@style/AboutClickable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about_instagram" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/dividerColor" />
-
-                <TextView
-                    android:id="@+id/text_about_linkedin"
-                    style="@style/AboutClickable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/linkedin" />
-
-            </LinearLayout>
 
             <TextView
-                style="@style/AboutHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/about_application" />
+                android:text="@string/settings"
+                android:textColor="#7f7e84" />
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:cardBackgroundColor="@color/secondarySurfaceColor"
+                app:cardCornerRadius="8dp">
 
-                <TextView
-                    android:id="@+id/text_about_suggestion"
-                    style="@style/AboutClickable"
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about_report" />
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="horizontal">
 
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/dividerColor" />
+                    <TextView
+                        android:id="@+id/settings_language"
+                        style="@style/AboutClickable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/i_want_learn"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/text_about_github"
-                    style="@style/AboutClickable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/github" />
+                    <Spinner
+                        android:id="@+id/learn_choice"
+                        style="@style/AboutClickable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:entries="@array/language_array"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/dividerColor" />
-
-
-                <TextView
-                    android:id="@+id/text_about_license"
-                    style="@style/AboutClickable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about_license" />
-
-            </LinearLayout>
-
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/dividerColor" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/text_about_version"
-                style="@style/AboutNormal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/about_version" />
-
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/dividerColor" />
+                android:layout_marginBottom="32dp"
+                android:text="@string/about_version"
+                android:textColor="#7f7e84" />
 
             <TextView
-                android:id="@+id/text_about_build"
-                style="@style/AboutNormal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/about_build" />
+                android:text="@string/about_project"
+                android:textColor="#7f7e84" />
 
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/dividerColor" />
-
-
-            <TextView
-                style="@style/AboutHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/source_sans_pro_semi_bold"
-                android:paddingBottom="4dp"
-                android:text="@string/about_authors"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/secondarySurfaceColor"
+                app:cardCornerRadius="8dp">
 
-                <TextView
-                    style="@style/AboutNormal"
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Václav Chlumský, Ondřej Málek" />
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/text_about_web"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:text="@string/about_web" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dividerColor" />
+
+                    <TextView
+                        android:id="@+id/team"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:text="@string/about_team" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dividerColor" />
+
+
+                    <TextView
+                        android:id="@+id/text_about_twitter"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:text="@string/about_twitter" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dividerColor" />
+
+                    <TextView
+                        android:id="@+id/text_about_facebook"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:text="@string/facebook" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dividerColor" />
+
+                    <TextView
+                        android:id="@+id/text_about_instagram"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:text="@string/about_instagram" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dividerColor" />
+
+                    <TextView
+                        android:id="@+id/text_about_linkedin"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:text="@string/linkedin" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textColor="#7f7e84"
+                android:text="@string/about_application" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/secondarySurfaceColor"
+                app:cardCornerRadius="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_about_suggestion"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:text="@string/i_want_help" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dividerColor" />
+
+                    <TextView
+                        android:id="@+id/text_about_license"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:text="@string/about_license" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

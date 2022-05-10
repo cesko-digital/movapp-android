@@ -3,10 +3,10 @@ package cz.movapp.app.ui.alphabet
 import android.app.Application
 import androidx.lifecycle.*
 import cz.movapp.app.App
-import cz.movapp.app.LanguagePair
-import cz.movapp.app.LanguagePair.Companion.getDefault
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.appModule
+import cz.movapp.app.data.LanguagePair
+import cz.movapp.app.data.LanguagePair.Companion.getDefault
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -28,7 +28,6 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
 
     init {
         mainViewModel.selectedLanguage.value?.let { lang: LanguagePair ->
-
             viewModelScope.launch(Dispatchers.IO) {
                 val storedScrollPositions =
                     appModule().stateStore.restoreState(AlphabetStateKeys.SCROLL_POSITIONS)
@@ -36,7 +35,7 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
                 val scrollPositions = storedScrollPositions.first()
                 val alphabetData = appModule().alphabetDataSource.load(lang)
 
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     val newValue = alphabetsState.value!!.copy(
                         alphabetData = alphabetData,
                         lang = lang,
@@ -46,7 +45,6 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
                     alphabetsState.setValue(newValue)
                 }
             }
-
         }
     }
 

@@ -4,22 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebSettings
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import cz.movapp.android.LoadAssetsOtherwiseOpenInBrowserWebViewClient
-import cz.movapp.android.enableDarkMode
+import androidx.navigation.fragment.findNavController
+import cz.movapp.android.hideKeyboard
 import cz.movapp.android.openUri
 import cz.movapp.app.BuildConfig
-import cz.movapp.app.LanguagePair
-import cz.movapp.app.MainActivity
+import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
+import cz.movapp.app.data.Language
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
 
     private var _binding: FragmentAboutBinding? = null
+
+    private val mainSharedViewModel: MainViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -30,7 +35,8 @@ class AboutFragment : Fragment() {
         const val HTTP_MOVAPP_TWITTER = "https://twitter.com/movappcz"
         const val HTTP_MOVAPP_INSTAGRAM = "https://instagram.com/movappcz"
         const val HTTP_MOVAPP_SUGGESTION = "https://github.com/cesko-digital/movapp-android"
-        const val HTTP_MOVAPP_LICENCE = "https://github.com/cesko-digital/movapp-android/blob/main/LICENSE"
+        const val HTTP_MOVAPP_LICENCE =
+            "https://github.com/cesko-digital/movapp-android/blob/main/LICENSE"
         const val HTTP_MOVAPP_LINKEDIN = "https://www.linkedin.com/company/movapp-cz"
         const val HTTP_MOVAPP_FACEBOOK = "https://www.facebook.com/movappcz"
         const val HTTP_MOVAPP_GITHUB_ANDROID = "https://github.com/cesko-digital/movapp-android"
@@ -50,16 +56,56 @@ class AboutFragment : Fragment() {
             }
         })
 
-        val mainActivity = requireActivity() as MainActivity
-        setupToolbar(mainActivity)
-
         val context = this.requireContext()
+        val languageList = listOf(Language.Czech.stringText, Language.Ukrainian.stringText)
 
-        binding.textAboutVersion.text = resources.getString(R.string.about_version).format(BuildConfig.VERSION_NAME)
-        binding.textAboutBuild.text = resources.getString(R.string.about_build).format(BuildConfig.VERSION_CODE)
+        ArrayAdapter(
+            context,
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            languageList
+        ).also { adapter ->
+            binding.learnChoice.adapter = adapter
+
+            if (mainSharedViewModel.selectedLanguage.value!! == LanguagePair.UkToCs) {
+                val spinnerPosition = adapter.getPosition(Language.Czech.stringText)
+                binding.learnChoice.setSelection(spinnerPosition)
+            } else {
+                val spinnerPosition = adapter.getPosition(Language.Ukrainian.stringText)
+                binding.learnChoice.setSelection(spinnerPosition)
+            }
+        }
+
+        binding.learnChoice.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (adapterView?.getItemAtPosition(position).toString() == "Česky")
+                    mainSharedViewModel.selectLanguage(LanguagePair.UkToCs)
+                else
+                    mainSharedViewModel.selectLanguage(LanguagePair.CsToUk)
+
+                mainSharedViewModel.storeLanguage()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+
+        binding.textAboutVersion.text = String.format(
+            resources.getString(R.string.about_version),
+            BuildConfig.VERSION_NAME,
+            BuildConfig.VERSION_CODE
+        )
 
         binding.textAboutWeb.setOnClickListener {
             openUri(context, HTTP_MOVAPP_WEB)
+        }
+
+        binding.team.setOnClickListener {
+            findNavController().navigate(AboutFragmentDirections.actionNavigationAboutToNavigationAboutTeam())
         }
 
         binding.textAboutTwitter.setOnClickListener {
@@ -86,32 +132,13 @@ class AboutFragment : Fragment() {
             openUri(context, HTTP_MOVAPP_FACEBOOK)
         }
 
-        binding.textAboutGithub.setOnClickListener {
-            openUri(context, HTTP_MOVAPP_GITHUB_ANDROID)
-        }
-
-
-        val langCode = LanguagePair.getDefault().from.langCode
-        // To get html file I used Firefox plugin Save File and them remove redundant stuff manually - ie.  kept styles and <main>
-        binding.webView.loadUrl("https://appassets.androidplatform.net/assets/about/$langCode-about.html")
-        binding.webView.webViewClient = LoadAssetsOtherwiseOpenInBrowserWebViewClient(context)
-
-        //bug in WebView sometimes does not load with msg net::ERR_CACHE_MISS it still does even with this.
-        binding.webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
-        binding.webView.enableDarkMode()
-
         return binding.root
     }
 
-    private fun setupToolbar(mainActivity: MainActivity) {
-        mainActivity.binding.apply {
-            topAppBar.setTitle(R.string.title_about)
-            topAppBar.menu.clear()
-            topAppBar.invalidateMenu()
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        mainActivity.searchBinding.root.visibility = View.GONE
-
+        hideKeyboard(view, activity)
     }
 
 }

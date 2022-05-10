@@ -20,12 +20,14 @@ platform :android do
   desc "Deploy to Google Play internal track"
   lane :release do
     gradle(task: "clean bundleRelease")
+    android_set_version_code(version_code: number_of_commits())
     upload_to_play_store(track: 'internal')
   end
 
   desc "Check build"
   lane :build do
     gradle(task: "clean bundleRelease")
+    android_set_version_code(version_code: number_of_commits())
     gradle(tasks: ["assembleRelease", "bundleRelease"])
 end
   
