@@ -35,4 +35,6 @@
     <string name="favorites_tab">Favorites</string>
     <string name="ukrainian">Yкраїнський</string>
     <string name="czech">Česky</string>
+    <string name="alphabet_ukrainian">Ukrainian Alphabet</string>
+    <string name="alphabet_czech">Czech Alphabet</string>
 </resources>

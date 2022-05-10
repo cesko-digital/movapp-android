@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.appModule
+import cz.movapp.app.data.Language
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.data.LanguagePair.Companion.getDefault
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) :
+class AlphabetViewModel(application: Application, language: Language) :
     AndroidViewModel(application) {
 
     val alphabetsState = MutableLiveData<AlphabetState>(AlphabetState( isLoaded = false))
@@ -21,35 +22,33 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
     data class AlphabetState(
         val alphabetData: List<AlphabetData> = listOf(),
         val scrollPositions: Map<String, Int> = mapOf(),
-        val lang: LanguagePair = getDefault(),
+        val lang: Language = getDefault().from,
         val isLoaded: Boolean = false
     ) {
     }
 
     init {
-        mainViewModel.selectedLanguage.value?.let { lang: LanguagePair ->
-            viewModelScope.launch(Dispatchers.IO) {
-                val storedScrollPositions =
-                    appModule().stateStore.restoreState(AlphabetStateKeys.SCROLL_POSITIONS)
+        viewModelScope.launch(Dispatchers.IO) {
+            val storedScrollPositions =
+                appModule().stateStore.restoreState(AlphabetStateKeys.SCROLL_POSITIONS)
 
-                val scrollPositions = storedScrollPositions.first()
-                val alphabetData = appModule().alphabetDataSource.load(lang)
+            val scrollPositions = storedScrollPositions.first()
+            val alphabetData = appModule().alphabetDataSource.load(language)
 
-                withContext(Dispatchers.Main) {
-                    val newValue = alphabetsState.value!!.copy(
-                        alphabetData = alphabetData,
-                        lang = lang,
-                        scrollPositions = scrollPositions ?: AlphabetState().scrollPositions,
-                        isLoaded = true
-                    )
-                    alphabetsState.setValue(newValue)
-                }
+            withContext(Dispatchers.Main) {
+                val newValue = alphabetsState.value!!.copy(
+                    alphabetData = alphabetData,
+                    lang = language,
+                    scrollPositions = scrollPositions ?: AlphabetState().scrollPositions,
+                    isLoaded = true
+                )
+                alphabetsState.setValue(newValue)
             }
         }
     }
 
     fun onLanguageChanged(
-        lang: LanguagePair = alphabetsState.value!!.lang,
+        lang: Language = alphabetsState.value!!.lang,
         oldScrollPosition: Int
     ) {
         if (alphabetsState.value!!.isLoaded){
@@ -78,30 +77,33 @@ class AlphabetViewModel(application: Application, mainViewModel: MainViewModel) 
 
     private fun ifIsLoadedUpdateScrollPosition(
         alphaState: AlphabetState,
-        langPair: LanguagePair,
+        lang: Language,
         oldScrollPosition: Int
     ) =
         if (alphaState.isLoaded) {
-            alphaState.scrollPositions.toMutableMap() + mapOf(langPair.from.langCode to oldScrollPosition)
+            alphaState.scrollPositions.toMutableMap() + mapOf(lang.langCode to oldScrollPosition)
         } else {
             alphaState.scrollPositions
         }
 
     private fun appModule() = getApplication<App>().appModule()
 
-
-    override fun onCleared() {
+    fun storeState() {
         appModule().stateStore.saveState(
             AlphabetStateKeys.SCROLL_POSITIONS,
             alphabetsState.value!!.scrollPositions
         )
     }
 
+    override fun onCleared() {
+        storeState()
+    }
+
     @Suppress("UNCHECKED_CAST")
-    class Factory(private val application: Application, private val mainViewModel: MainViewModel) :
+    class Factory(private val application: Application, private val language: Language) :
         ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return AlphabetViewModel(application, mainViewModel) as T
+            return AlphabetViewModel(application, language) as T
         }
     }
 
