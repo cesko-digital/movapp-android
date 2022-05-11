@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
+import cz.movapp.app.adapter.AlphabetFragmentAdapter
 import cz.movapp.app.adapter.ChildrenAdapter
 import cz.movapp.app.databinding.FragmentAlphabetBinding
 
@@ -31,50 +33,21 @@ class AlphabetFragment : Fragment() {
         _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
+        binding.pager.adapter = AlphabetFragmentAdapter(this)
+
+        TabLayoutMediator(binding.tab, binding.pager) { tab, position ->
             if (mainSharedViewModel.selectedLanguage.value!!.isReversed) {
-                binding.tab.getTabAt(0)?.setText(R.string.alphabet_ukrainian)
-                binding.tab.getTabAt(1)?.setText(R.string.alphabet_czech)
+                when (position) {
+                    0 -> tab.setText(R.string.alphabet_ukrainian)
+                    1 -> tab.setText(R.string.alphabet_czech)
+                }
             } else {
-                binding.tab.getTabAt(0)?.setText(R.string.alphabet_czech)
-                binding.tab.getTabAt(1)?.setText(R.string.alphabet_ukrainian)
-            }
-        }
-
-        binding.tab.addOnTabSelectedListener(
-            object : TabLayout.OnTabSelectedListener {
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    selectTab(tab)
-                }
-
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
-                    // Do not Implement
-                }
-
-                override fun onTabReselected(tab: TabLayout.Tab?) {
-                    selectTab(tab)
-                }
-
-                private fun selectTab(tab: TabLayout.Tab?) {
-                    when (tab?.position) {
-                        0 -> {
-                            if (childFragmentManager.findFragmentByTag("FROM") == null)
-                                childFragmentManager.beginTransaction()
-                                    .replace(R.id.fragment_container_view, AlphabetFromTabFragment(), "FROM")
-                                        .commit()
-                        }
-                        1 -> {
-                            if (childFragmentManager.findFragmentByTag("TO") == null)
-                                childFragmentManager.beginTransaction()
-                                    .replace(R.id.fragment_container_view, AlphabetToTabFragment(), "TO")
-                                        .commit()
-                        }
-                    }
+                when (position) {
+                    0 -> tab.setText(R.string.alphabet_czech)
+                    1 -> tab.setText(R.string.alphabet_ukrainian)
                 }
             }
-        )
-
-        binding.tab.getTabAt(0)?.select()
+        }.attach()
 
         return root
     }

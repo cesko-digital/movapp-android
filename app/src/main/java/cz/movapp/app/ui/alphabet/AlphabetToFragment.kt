@@ -15,13 +15,13 @@ import cz.movapp.android.hideKeyboard
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.AlphabetAdapterFrom
-import cz.movapp.app.databinding.FragmentAlphabetFromTabBinding
+import cz.movapp.app.adapter.AlphabetToAdapter
+import cz.movapp.app.databinding.FragmentAlphabetToBinding
 
 
-class AlphabetFromTabFragment : Fragment() {
+class AlphabetToFragment : Fragment() {
 
-    private var _binding: FragmentAlphabetFromTabBinding? = null
+    private var _binding: FragmentAlphabetToBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -37,17 +37,19 @@ class AlphabetFromTabFragment : Fragment() {
         val lang = mainSharedViewModel.selectedLanguage.value!!
         val app = this.requireActivity().application as App
         val viewModel =
-            ViewModelProvider(this, AlphabetViewModel.Factory(app, lang.from))
+            ViewModelProvider(this, AlphabetViewModel.Factory(app, lang, AlphabetViewModel.AlphabetDirection.TO))
                 .get(AlphabetViewModel::class.java)
-        _binding = FragmentAlphabetFromTabBinding.inflate(inflater, container, false)
+        _binding = FragmentAlphabetToBinding.inflate(inflater, container, false)
 
         binding.recyclerViewAlphabet.layoutManager = GridLayoutManager(requireContext(), 2)
 
         viewModel.alphabetsState.observe(viewLifecycleOwner) {
             if(it.isLoaded){
-                binding.recyclerViewAlphabet.adapter = AlphabetAdapterFrom(it.alphabetData)
+                binding.recyclerViewAlphabet.adapter = AlphabetToAdapter(it.alphabetData)
                 it.scrollPositions[it.lang.langCode]?.let { scrollPos ->
                     binding.recyclerViewAlphabet.restoreSavableScrollState(scrollPos)
+                    (binding.recyclerViewAlphabet.layoutManager as GridLayoutManager)
+                        .scrollToPositionWithOffset(scrollPos, 1)
                 }
                 binding.recyclerViewAlphabet.setHasFixedSize(true)
             }

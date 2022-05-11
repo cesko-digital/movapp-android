@@ -16,14 +16,14 @@ import cz.movapp.app.ui.alphabet.AlphabetData
 import cz.movapp.app.ui.alphabet.LetterExampleData
 
 
-class AlphabetAdapterTo(
+class AlphabetFromAdapter(
         private val dataset: List<AlphabetData>
-) : RecyclerView.Adapter<AlphabetAdapterTo.ItemViewHolder>() {
+) : RecyclerView.Adapter<AlphabetFromAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(val binding: AlphabetItemBinding) : RecyclerView.ViewHolder(binding.root) {
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlphabetAdapterTo.ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlphabetFromAdapter.ItemViewHolder {
         val binding = AlphabetItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
@@ -32,7 +32,7 @@ class AlphabetAdapterTo(
         return dataset.size
     }
 
-    override fun onBindViewHolder(holder: AlphabetAdapterTo.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AlphabetFromAdapter.ItemViewHolder, position: Int) {
         val item = dataset[position]
 
         holder.apply {
@@ -59,7 +59,7 @@ class AlphabetAdapterTo(
         }
     }
 
-    private fun createDynamicExample(holder: AlphabetAdapterTo.ItemViewHolder, exampleData: LetterExampleData): RelativeLayout {
+    private fun createDynamicExample(holder: AlphabetFromAdapter.ItemViewHolder, exampleData: LetterExampleData): RelativeLayout {
         lateinit var paramsExample: RelativeLayout.LayoutParams
 
         /* create relative layout for one example */
