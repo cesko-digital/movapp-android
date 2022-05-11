@@ -25,4 +25,6 @@
 
     <color name="surfaceColor">#FFFFFF</color>
     <color name="secondarySurfaceColor">#F2F2F2</color>
+
+    <color name="greyTextColor">#676767</color>
 </resources>

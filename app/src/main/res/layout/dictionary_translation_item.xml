@@ -4,10 +4,6 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="@dimen/general_padding"
-    android:paddingEnd="@dimen/general_padding"
-    android:paddingTop="@dimen/general_padding"
-    android:paddingBottom="@dimen/general_padding"
     >
 
     <LinearLayout
@@ -16,7 +12,12 @@
         android:layout_height="wrap_content"
         android:background="@drawable/odd_outline"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/list_items_inline_with_searchbar_half_padding_sides"
+        android:layout_marginBottom="@dimen/list_items_inline_with_searchbar_half_padding_sides"
+        android:layout_marginStart="@dimen/list_items_inline_with_searchbar_padding_sides"
+        android:layout_marginEnd="@dimen/list_items_inline_with_searchbar_padding_sides"
+        >
 
 
         <ImageView
@@ -29,7 +30,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingEnd="14dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -41,23 +43,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginStart="10dp"
                     android:layout_toLeftOf="@+id/image_play_sound_from"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/dictionary_translation_padding_bottom"
+                    android:paddingBottom="@dimen/dictionary_translation_padding_bottom">
 
                     <TextView
                         android:id="@+id/text_from"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/source_sans_pro_semi_bold"
+                        android:paddingBottom="@dimen/dictionary_translation_padding_bottom"
                         android:text="From"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/text_from_trans"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="[Trans]"
+                        android:textColor="@color/greyTextColor"
                         android:textSize="20sp" />
 
                 </LinearLayout>
@@ -68,7 +73,7 @@
                     android:layout_height="@dimen/playSize"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
+
                     android:contentDescription="play transcription"
                     app:srcCompat="@drawable/ic_play" />
 
@@ -90,23 +95,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginStart="10dp"
                     android:layout_toLeftOf="@+id/image_play_sound_to"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/dictionary_translation_padding_bottom"
+                    android:paddingBottom="@dimen/dictionary_translation_padding_bottom">
 
                     <TextView
                         android:id="@+id/text_to"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/source_sans_pro_semi_bold"
+                        android:paddingBottom="@dimen/dictionary_translation_padding_bottom"
                         android:text="To"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/text_to_trans"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="[Trans]"
+                        android:textColor="@color/greyTextColor"
                         android:textSize="20sp" />
 
                 </LinearLayout>
@@ -117,7 +125,7 @@
                     android:layout_height="@dimen/playSize"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
+
                     android:contentDescription="play transcription"
                     app:srcCompat="@drawable/ic_play" />
 
