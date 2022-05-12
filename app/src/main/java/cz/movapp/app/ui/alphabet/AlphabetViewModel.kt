@@ -2,7 +2,7 @@ package cz.movapp.app.ui.alphabet
 
 import android.app.Application
 import androidx.lifecycle.*
-import cz.movapp.android.StateStore
+import cz.movapp.android.DataStoreKey
 import cz.movapp.app.App
 import cz.movapp.app.appModule
 import cz.movapp.app.data.Language
@@ -31,21 +31,21 @@ class AlphabetViewModel(application: Application, langPair: LanguagePair, direct
         FROM, TO
     }
 
-    private lateinit var stateKey: StateStore.Key<Map<String, Int>>
+    private lateinit var key: DataStoreKey<Map<String, Int>>
     private lateinit var language: Language
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
              if (direction == AlphabetDirection.FROM) {
-                 stateKey = AlphabetStateKeys.SCROLL_POSITIONS_FROM
+                 key = AlphabetStateKeys.SCROLL_POSITIONS_FROM
                  language = langPair.from
              } else {
-                 stateKey = AlphabetStateKeys.SCROLL_POSITIONS_TO
+                 key = AlphabetStateKeys.SCROLL_POSITIONS_TO
                  language = langPair.to
              }
 
             val storedScrollPositions =
-                appModule().stateStore.restoreState(stateKey)
+                appModule().dataStore.restoreState(key)
 
             val scrollPositions = storedScrollPositions.first()
             val alphabetData = appModule().alphabetDataSource.load(language)
@@ -104,8 +104,8 @@ class AlphabetViewModel(application: Application, langPair: LanguagePair, direct
     private fun appModule() = getApplication<App>().appModule()
 
     override fun onCleared() {
-        appModule().stateStore.saveState(
-            stateKey,
+        appModule().dataStore.saveState(
+            key,
             alphabetsState.value!!.scrollPositions
         )
     }

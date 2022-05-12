@@ -26,8 +26,6 @@ class DictionaryFragment : Fragment() {
 
     private var searchesAdapterDataObservers = mutableListOf<RecyclerView.AdapterDataObserver>()
 
-    private lateinit var searchJob : Job
-
     private lateinit var translationsIdsArgs: MutableList<String>
 
     // This property is only valid between onCreateView and
@@ -113,7 +111,7 @@ class DictionaryFragment : Fragment() {
 
         binding.searchView.hint = resources.getString(R.string.search_word)
 
-        searchJob = lifecycleScope.launch {
+        this.viewLifecycleOwner.lifecycleScope.launch {
             binding.searchView.textChanges()
                 .debounce(300)
                 .collect { text ->
@@ -196,12 +194,6 @@ class DictionaryFragment : Fragment() {
         for (observer in searchesAdapterDataObservers)
             dictionarySharedViewModel.searches.value?.unregisterAdapterDataObserver(observer)
         searchesAdapterDataObservers.clear()
-
-        /**
-         *  we need to cancel the job in order to prevent leaking bound object inside of the job
-         *  because lifecycleScope is alive between onCreate and onDestroy
-         */
-        searchJob.cancel()
 
         _binding = null
     }

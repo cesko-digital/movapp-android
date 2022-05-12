@@ -12,16 +12,17 @@ import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
 
 /**
- * Mock of [StateStore] backed by map
+ * Mock of [DataStore] backed by map
  */
 fun stateStoreMock(
     dataMap: MutableMap<Preferences.Key<String>, String?> = mutableMapOf(),
     appScope: CoroutineScope,
     dispacher: CoroutineDispatcher = Dispatchers.Unconfined
-): StateStore {
+): cz.movapp.android.DataStore {
     val prefMock: Preferences = preferencesMock(dataMap)
 
-    val stateStoreMock = StateStore(appScope, object : DataStore<Preferences> {
+    val stateStoreMock = DataStore(appScope, object :
+        DataStore<Preferences> {
         override val data: Flow<Preferences>
             get() = flowOf(prefMock)
 

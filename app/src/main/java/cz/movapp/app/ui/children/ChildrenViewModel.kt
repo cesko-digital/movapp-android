@@ -29,7 +29,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
         viewModelScope.launch(Dispatchers.IO) {
 
             val storedScrollPositions =
-                appModule().stateStore.restoreState(ChildrenStateKeys.SCROLL_POSITIONS)
+                appModule().dataStore.restoreState(ChildrenStateKeys.SCROLL_POSITIONS)
 
             val scrollPositions = storedScrollPositions.first()
 
@@ -48,7 +48,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
     private fun appModule() = getApplication<App>().appModule()
 
     override fun onCleared() {
-        appModule().stateStore.saveState(
+        appModule().dataStore.saveState(
             ChildrenStateKeys.SCROLL_POSITIONS,
             childrenState.value!!
         )
