@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingStart="@dimen/general_padding"
     android:paddingEnd="@dimen/general_padding"
-    tools:context=".ui.alphabet.AlphabetFromTabFragment">
+    tools:context=".ui.alphabet.AlphabetFromFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_alphabet"

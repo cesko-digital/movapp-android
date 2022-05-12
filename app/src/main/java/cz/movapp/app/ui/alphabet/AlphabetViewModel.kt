@@ -2,8 +2,8 @@ package cz.movapp.app.ui.alphabet
 
 import android.app.Application
 import androidx.lifecycle.*
+import cz.movapp.android.StateStore
 import cz.movapp.app.App
-import cz.movapp.app.MainViewModel
 import cz.movapp.app.appModule
 import cz.movapp.app.data.Language
 import cz.movapp.app.data.LanguagePair
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class AlphabetViewModel(application: Application, language: Language) :
+class AlphabetViewModel(application: Application, langPair: LanguagePair, direction: AlphabetDirection) :
     AndroidViewModel(application) {
 
     val alphabetsState = MutableLiveData<AlphabetState>(AlphabetState( isLoaded = false))
@@ -27,10 +27,25 @@ class AlphabetViewModel(application: Application, language: Language) :
     ) {
     }
 
+    enum class AlphabetDirection {
+        FROM, TO
+    }
+
+    private lateinit var stateKey: StateStore.Key<Map<String, Int>>
+    private lateinit var language: Language
+
     init {
         viewModelScope.launch(Dispatchers.IO) {
+             if (direction == AlphabetDirection.FROM) {
+                 stateKey = AlphabetStateKeys.SCROLL_POSITIONS_FROM
+                 language = langPair.from
+             } else {
+                 stateKey = AlphabetStateKeys.SCROLL_POSITIONS_TO
+                 language = langPair.to
+             }
+
             val storedScrollPositions =
-                appModule().stateStore.restoreState(AlphabetStateKeys.SCROLL_POSITIONS)
+                appModule().stateStore.restoreState(stateKey)
 
             val scrollPositions = storedScrollPositions.first()
             val alphabetData = appModule().alphabetDataSource.load(language)
@@ -88,22 +103,18 @@ class AlphabetViewModel(application: Application, language: Language) :
 
     private fun appModule() = getApplication<App>().appModule()
 
-    fun storeState() {
+    override fun onCleared() {
         appModule().stateStore.saveState(
-            AlphabetStateKeys.SCROLL_POSITIONS,
+            stateKey,
             alphabetsState.value!!.scrollPositions
         )
     }
 
-    override fun onCleared() {
-        storeState()
-    }
-
     @Suppress("UNCHECKED_CAST")
-    class Factory(private val application: Application, private val language: Language) :
+    class Factory(private val application: Application, private val langPair: LanguagePair, private val direction: AlphabetDirection) :
         ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return AlphabetViewModel(application, language) as T
+            return AlphabetViewModel(application, langPair, direction) as T
         }
     }
 
