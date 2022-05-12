@@ -36,4 +36,6 @@
     <string name="czech">Czech</string>
     <string name="alphabet_ukrainian">Ukrainian alphabet</string>
     <string name="alphabet_czech">Czech alphabet</string>
+    <string name="search_word">Search word</string>
+    <string name="title_menu">Menu</string>
 </resources>

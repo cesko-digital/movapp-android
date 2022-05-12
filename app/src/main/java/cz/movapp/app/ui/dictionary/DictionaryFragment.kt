@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
-import cz.movapp.app.*
+import cz.movapp.app.FavoritesViewModel
+import cz.movapp.app.FavoritesViewModelFactory
+import cz.movapp.app.R
 import cz.movapp.app.data.FavoritesDatabase
 import cz.movapp.app.databinding.FragmentDictionaryBinding
 import kotlinx.coroutines.Job
@@ -109,7 +111,7 @@ class DictionaryFragment : Fragment() {
             }
         )
 
-        binding.searchView.hint = resources.getString(R.string.title_search)
+        binding.searchView.hint = resources.getString(R.string.search_word)
 
         searchJob = lifecycleScope.launch {
             binding.searchView.textChanges()

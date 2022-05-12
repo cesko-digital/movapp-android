@@ -37,4 +37,6 @@
     <string name="czech">Čeština</string>
     <string name="alphabet_ukrainian">Ukrajinská abeceda</string>
     <string name="alphabet_czech">Česká abeceda</string>
+    <string name="search_word">Hledat slovo</string>
+    <string name="title_menu">Menu</string>
 </resources>

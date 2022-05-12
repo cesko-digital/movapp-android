@@ -17,5 +17,29 @@
 
         <item name="android:fontFamily">@font/font_source_sans_pro</item>
 
+        <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
+
+        <item name="tabStyle">@style/Widget.App.TabLayout</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="fontFamily">@font/source_sans_pro_semi_bold</item>
+        <item name="android:fontFamily">@font/source_sans_pro_semi_bold</item>
+    </style>
+
+    <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+<!--        fot tab layout -->
+        <item name="fontFamily">@font/source_sans_pro_semi_bold</item>
+        <item name="android:fontFamily">@font/source_sans_pro_semi_bold</item>
+
     </style>
 </resources>

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dictionary.DictionaryTranslationsFragment"
-    android:paddingStart="@dimen/general_padding"
-    android:paddingEnd="@dimen/general_padding">
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_dictionary_translations"
