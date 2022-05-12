@@ -1,9 +1,19 @@
-# Verzování
+# App Architecture
+ Techstack: Kotlin, XML, Jetpack (navigation,DataStore, Room, Material.io), Kotlin coroutines, Mockito
+ MVVM, Repo
 
-Používáme schéma `x.y.z`, kde změny `z` znamenají pouze interní releasy, například nové testovací verze pro interní tým, `y` se zvedá při posílání nové verze do Google Play a `x` si necháváme v záloze pro zásadnější změny.
+# Git Branching
+'main' - development branch
+'release' - pushed by CI to Gplay for internal testing.
+use 'feat/featureName' or 'dev/developerName'
 
-# Releasing
+# CI / Release
+[Fastlane](https://fastlane.tools) - commit to 'release' branch goes to Gplay internal testing, when tested they are pushed to production.
 
-Pro automatizaci releasů používáme [Fastlane](https://fastlane.tools).
+# Versioning
+as [Node](https://nodejs.dev/learn/semantic-versioning-using-npm)
 
- - Release se provede na větvi `release`. Tato větev vede do `internal` kanálu na Google Play. Pro vydání produkční verze se v Google Play Console přesune vydání do produkčního kanálu.
+# Links
+We comunicate thru trello and slack but so far in czech language.
+https://trello.com/b/XumGa4K8/movapp-backlog
+https://cesko-digital.slack.com/archives/C036GLKL7ME search for channels 'movapp'
