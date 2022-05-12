@@ -5,7 +5,8 @@
 
     <color name="primaryColor">#013abd</color>
     <color name="primaryLightColor">#5b64f1</color>
-    <color name="primaryDarkColor">#00158c</color>
+    <color name="primaryDarkColor">@color/primaryColor</color>
+    <color name="darkBlue">#00158c</color>
     <color name="secondaryColor">#ffd500</color>
     <color name="secondaryLightColor">#ffff52</color>
     <color name="secondaryDarkColor">#c7a400</color>
@@ -25,4 +26,6 @@
 
     <color name="surfaceColor">#FFFFFF</color>
     <color name="secondarySurfaceColor">#F2F2F2</color>
+
+    <color name="greyTextColor">#676767</color>
 </resources>

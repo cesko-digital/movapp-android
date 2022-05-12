@@ -17,4 +17,7 @@
     <dimen name="playSize">36dp</dimen>
     <dimen name="alphabetPlaySize">64dp</dimen>
     <dimen name="search_corner_radius">18dp</dimen>
+    <dimen name="dictionary_translation_padding_bottom">8dp</dimen>
+    <dimen name="list_items_inline_with_searchbar_padding_sides">16dp</dimen>
+    <dimen name="list_items_inline_with_searchbar_half_padding_sides">8dp</dimen>
 </resources>

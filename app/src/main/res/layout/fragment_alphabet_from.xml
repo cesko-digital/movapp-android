@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dictionary.DictionaryTranslationsFragment"
-    >
+    android:paddingStart="@dimen/general_padding"
+    android:paddingEnd="@dimen/general_padding"
+    tools:context=".ui.alphabet.AlphabetFromFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_dictionary_sections"
+        android:id="@+id/recycler_view_alphabet"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"
-        tools:listitem="@layout/dictionary_item"
         app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/alphabet_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
