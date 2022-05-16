@@ -1,5 +1,17 @@
 package cz.movapp.app.ui.dictionary
 
-data class DictionarySectionsData(val id: String, val from: String, val to: String, val translation_ids: List<String>)
+data class DictionarySectionsData(val id: String, val main: String, val source: String, val phrases_ids: List<String>)
 
-data class DictionaryTranslationsData(val id: String, val translation_from: String, val transcription_from: String, val translation_to: String, val transcription_to: String, val stripped_from: String, val stripped_to: String)
+data class DictionaryTranslationsData(
+    val id: String,
+
+    val main_translation: String,
+    val main_transcription: String,
+    val main_stripped: String,
+    val main_sound_url: String,
+
+    val source_translation: String,
+    val source_transcription: String,
+    val source_stripped: String,
+    val source_sound_url: String
+)

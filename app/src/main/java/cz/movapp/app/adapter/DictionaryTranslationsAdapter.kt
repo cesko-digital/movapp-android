@@ -65,15 +65,15 @@ class DictionaryTranslationsAdapter(
 
         holder.binding.apply {
             if (langPair.isReversed) {
-                textFrom.text = item.translation_to
-                textFromTrans.text = brackets(item.transcription_to)
-                textTo.text = item.translation_from
-                textToTrans.text = brackets(item.transcription_from)
+                textFrom.text = item.source_translation
+                textFromTrans.text = brackets(item.source_transcription)
+                textTo.text = item.main_translation
+                textToTrans.text = brackets(item.main_transcription)
             } else {
-                textFrom.text = item.translation_from
-                textFromTrans.text = brackets(item.transcription_from)
-                textTo.text = item.translation_to
-                textToTrans.text = brackets(item.transcription_to)
+                textFrom.text = item.main_translation
+                textFromTrans.text = brackets(item.main_transcription)
+                textTo.text = item.source_translation
+                textToTrans.text = brackets(item.source_transcription)
             }
         }
 

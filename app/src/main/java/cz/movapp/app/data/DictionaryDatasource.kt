@@ -15,29 +15,31 @@ class DictionaryDatasource {
         var dict = mutableListOf<DictionarySectionsData>()
 
         try {
-            jsonString = context.assets.open("dictionary/cs-uk-dictionary.json").bufferedReader().use { it.readText() }
+            jsonString = context.assets.open("dictionary/uk-cs-dictionary.json").bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             ioException.printStackTrace()
         }
 
-        val jsonArr = JSONObject(jsonString).getJSONArray("sections")
+        val jsonArr = JSONObject(jsonString).getJSONArray("categories")
 
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
 
-            var translations = mutableListOf<String>()
+            var phrases = mutableListOf<String>()
 
-            val jsonTranslatesArr = jsonObj.getJSONArray("translations")
+            val jsonPhrasesArr = jsonObj.getJSONArray("phrases")
 
-            for (j in 0 until jsonTranslatesArr.length()) {
-                translations.add(jsonTranslatesArr.getString(j))
+            for (j in 0 until jsonPhrasesArr.length()) {
+                phrases.add(jsonPhrasesArr.getString(j))
             }
+
+            val jsonNameObj = jsonObj.getJSONObject("name")
 
             dict.add(DictionarySectionsData(
                 jsonObj.getString("id"),
-                jsonObj.getString("name_from"),
-                jsonObj.getString("name_to"),
-                translations)
+                jsonNameObj.getString("main"),
+                jsonNameObj.getString("source"),
+                phrases)
             )
          }
 
@@ -49,25 +51,31 @@ class DictionaryDatasource {
         var translations = mutableListOf<DictionaryTranslationsData>()
 
         try {
-            jsonString = context.assets.open("dictionary/cs-uk-dictionary.json").bufferedReader().use { it.readText() }
+            jsonString = context.assets.open("dictionary/uk-cs-dictionary.json").bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             ioException.printStackTrace()
         }
 
-        val jsonObj = JSONObject(jsonString).getJSONObject("translations")
+        val jsonObj = JSONObject(jsonString).getJSONObject("phrases")
 
         for (i in jsonObj.keys()) {
-            val jsonObjItem = jsonObj.getJSONObject(i)
+            val jsonItemObj = jsonObj.getJSONObject(i)
+            val jsonObjMainItem = jsonItemObj.getJSONObject("main")
+            val jsonObjSourceItem = jsonItemObj.getJSONObject("source")
 
             translations.add(
                 DictionaryTranslationsData(
-                    jsonObjItem.getString("id"),
-                    jsonObjItem.getString("translation_from"),
-                    jsonObjItem.getString("transcription_from"),
-                    jsonObjItem.getString("translation_to"),
-                    jsonObjItem.getString("transcription_to"),
-                    stripAccents(jsonObjItem.getString("translation_from").toString().lowercase(Locale.getDefault())),
-                    jsonObjItem.getString("translation_to").lowercase(Locale.getDefault())
+                    jsonItemObj.getString("id"),
+
+                    jsonObjMainItem.getString("translation"),
+                    jsonObjMainItem.getString("transcription"),
+                    stripAccents(jsonObjMainItem.getString("translation").toString().lowercase(Locale.getDefault())),
+                    jsonObjMainItem.getString("sound_url"),
+
+                    jsonObjSourceItem.getString("translation"),
+                    jsonObjSourceItem.getString("transcription"),
+                    jsonObjSourceItem.getString("translation").lowercase(Locale.getDefault()),
+                    jsonObjSourceItem.getString("sound_url"),
                 )
             )
         }

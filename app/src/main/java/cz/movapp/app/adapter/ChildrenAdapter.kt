@@ -56,8 +56,8 @@ class ChildrenAdapter (
             }
 
             if (!langPair.isReversed) {
-                textChildrenFrom.text = formatTrans(item.translation_from, item.transcription_from)
-                textChildrenTo.text = formatTrans(item.translation_to, item.transcription_to)
+                textChildrenFrom.text = formatTrans(item.main_translation, item.main_transcription)
+                textChildrenTo.text = formatTrans(item.source_translation, item.source_transcription)
 
                 imageChildrenFlagFrom.setImageResource(R.drawable.cz)
                 imageChildrenFlagTo.setImageResource(R.drawable.ua)
@@ -72,8 +72,8 @@ class ChildrenAdapter (
                     //playSound(holder.itemView.context, item.soundAssetFileTo)
                 }
             } else {
-                textChildrenFrom.text = formatTrans(item.translation_to, item.transcription_to)
-                textChildrenTo.text = formatTrans(item.translation_from, item.transcription_from)
+                textChildrenFrom.text = formatTrans(item.source_translation, item.source_transcription)
+                textChildrenTo.text = formatTrans(item.main_translation, item.main_transcription)
 
                 imageChildrenFlagFrom.setImageResource(R.drawable.ua)
                 imageChildrenFlagTo.setImageResource(R.drawable.cz)
