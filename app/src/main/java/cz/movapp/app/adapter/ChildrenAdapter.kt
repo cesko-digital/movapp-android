@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.android.playSound
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
 import cz.movapp.app.databinding.ChildrenItemBinding
@@ -62,14 +63,17 @@ class ChildrenAdapter (
                 imageChildrenFlagFrom.setImageResource(R.drawable.cz)
                 imageChildrenFlagTo.setImageResource(R.drawable.ua)
 
-                // TODO: import sounds to assets and use it here
-                imagePlaySoundFrom.visibility = View.GONE
-                imagePlaySoundTo.visibility = View.GONE
                 imagePlaySoundFrom.setOnClickListener {
-                    //playSound(holder.itemView.context, item.soundAssetFileFrom)
+                    if (langPair.isReversed)
+                        playSound(holder.itemView.context, item.source_sound_local)
+                    else
+                        playSound(holder.itemView.context, item.main_sound_local)
                 }
                 imagePlaySoundTo.setOnClickListener {
-                    //playSound(holder.itemView.context, item.soundAssetFileTo)
+                    if (langPair.isReversed)
+                        playSound(holder.itemView.context, item.main_sound_local)
+                    else
+                        playSound(holder.itemView.context, item.source_sound_local)
                 }
             } else {
                 textChildrenFrom.text = formatTrans(item.source_translation, item.source_transcription)

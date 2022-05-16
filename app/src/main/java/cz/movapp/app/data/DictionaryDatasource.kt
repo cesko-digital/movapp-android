@@ -71,11 +71,13 @@ class DictionaryDatasource {
                     jsonObjMainItem.getString("transcription"),
                     stripAccents(jsonObjMainItem.getString("translation").toString().lowercase(Locale.getDefault())),
                     jsonObjMainItem.getString("sound_url"),
+                    jsonObjMainItem.getString("sound_url").replace("https://data.movapp.eu/data", "dictionary"),
 
                     jsonObjSourceItem.getString("translation"),
                     jsonObjSourceItem.getString("transcription"),
                     jsonObjSourceItem.getString("translation").lowercase(Locale.getDefault()),
                     jsonObjSourceItem.getString("sound_url"),
+                    jsonObjSourceItem.getString("sound_url").replace("https://data.movapp.eu/data", "dictionary")
                 )
             )
         }

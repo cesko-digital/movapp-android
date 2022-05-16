@@ -9,9 +9,11 @@ data class DictionaryTranslationsData(
     val main_transcription: String,
     val main_stripped: String,
     val main_sound_url: String,
+    val main_sound_local: String,
 
     val source_translation: String,
     val source_transcription: String,
     val source_stripped: String,
-    val source_sound_url: String
+    val source_sound_url: String,
+    val source_sound_local: String
 )

@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.android.playSound
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
@@ -91,16 +92,18 @@ class DictionaryFavoritesAdapter(
             }
         }
 
-        holder.binding.imagePlaySoundFrom.visibility = View.GONE
         holder.binding.imagePlaySoundFrom.setOnClickListener {
-            // TODO: import sounds to assets and use it here
-            //playSound(holder.itemView.context, item.soundAssetFile)
+            if (langPair.isReversed)
+                playSound(holder.itemView.context, item.source_sound_local)
+            else
+                playSound(holder.itemView.context, item.main_sound_local)
         }
 
-        holder.binding.imagePlaySoundTo.visibility = View.GONE
         holder.binding.imagePlaySoundTo.setOnClickListener {
-            // TODO: import sounds to assets and use it here
-            //playSound(holder.itemView.context, item.soundAssetFile)
+            if (langPair.isReversed)
+                playSound(holder.itemView.context, item.main_sound_local)
+            else
+                playSound(holder.itemView.context, item.source_sound_local)
         }
     }
 
