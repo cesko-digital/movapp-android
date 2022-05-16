@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
 import cz.movapp.app.adapter.AlphabetFragmentAdapter
-import cz.movapp.app.adapter.ChildrenAdapter
 import cz.movapp.app.databinding.FragmentAlphabetBinding
 
 class AlphabetFragment : Fragment() {

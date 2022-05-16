@@ -11,7 +11,6 @@ import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.DictionaryFavoritesAdapter
-import cz.movapp.app.adapter.DictionarySearchAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
 
 class DictionaryFavoritesFragment : Fragment() {
@@ -54,6 +53,7 @@ class DictionaryFavoritesFragment : Fragment() {
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
             (binding.recyclerViewDictionaryFavorites.adapter as DictionaryFavoritesAdapter).langPair = lang
+            (binding.recyclerViewDictionaryFavorites.adapter as DictionaryFavoritesAdapter).notifyDataSetChanged()
         })
 
         return root

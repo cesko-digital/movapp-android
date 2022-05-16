@@ -40,9 +40,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun storeState(scrollPosition: Int) {
-        viewModelScope.launch(Dispatchers.Main) {
-            childrenState.value = scrollPosition
-        }
+        childrenState.value = scrollPosition
     }
 
     private fun appModule() = getApplication<App>().appModule()

@@ -49,6 +49,7 @@ class DictionaryTranslationsFragment : Fragment() {
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
             (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).langPair = lang
+            (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).notifyDataSetChanged()
         })
 
         dictionarySharedViewModel.translationsIds.observe(viewLifecycleOwner) {

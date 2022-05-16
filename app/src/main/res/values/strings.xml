@@ -38,4 +38,14 @@
     <string name="alphabet_czech">Czech alphabet</string>
     <string name="search_word">Search word</string>
     <string name="title_menu">Menu</string>
+    <string name="on_boarding_welcome">Welcome to MOVAPP!</string>
+    <string name="on_boarding_choice">Choose the language you want to learn</string>
+    <string name="on_boarding_info_1_title">Dictionary</string>
+    <string name="on_boarding_info_1_description">Learn hundreds of basic words and phrases by reading and listening. We sort words according to life situations.</string>
+    <string name="on_boarding_info_2_title">For Kids</string>
+    <string name="on_boarding_info_2_description">Illustrated Ukrainian-Czech dictionary with dozens of printable cards.</string>
+    <string name="on_boarding_info_3_title">Ukrainian alphabet</string>
+    <string name="on_boarding_info_3_description">Learn all the characters of the Ukrainian Cyrillic. Sample words will help you.</string>
+    <string name="on_boarding_exit">Start learning</string>
+
 </resources>
