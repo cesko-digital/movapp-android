@@ -40,6 +40,8 @@
     <string name="title_menu">Menu</string>
     <string name="on_boarding_welcome">Welcome to MOVAPP!</string>
     <string name="on_boarding_choice">Choose the language you want to learn</string>
+    <string name="on_boarding_choice_czech" translatable="false">Я хочу вивчити Чеський</string>
+    <string name="on_boarding_choice_ukrainian" translatable="false">Chci se naučit ukrajinsky</string>
     <string name="on_boarding_info_1_title">Dictionary</string>
     <string name="on_boarding_info_1_description">Learn hundreds of basic words and phrases by reading and listening. We sort words according to life situations.</string>
     <string name="on_boarding_info_2_title">For Kids</string>
