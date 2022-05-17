@@ -49,13 +49,13 @@ class DictionarySectionsAdapter(
         }
 
         if (langPair.isReversed)
-            holder.textFromTo.text = "%s - %s".format(item.to, item.from)
+            holder.textFromTo.text = "%s - %s".format(item.source, item.main)
         else
-            holder.textFromTo.text = "%s - %s".format(item.from, item.to)
+            holder.textFromTo.text = "%s - %s".format(item.main, item.source)
 
         holder.itemView.setOnClickListener {
             val action =
-                DictionaryFragmentDirections.toDictionaryTranslationsFragment(translationIds = item.translation_ids.toTypedArray())
+                DictionaryFragmentDirections.toDictionaryTranslationsFragment(translationIds = item.phrases_ids.toTypedArray())
             holder.itemView.findNavController().navigate(action)
         }
     }

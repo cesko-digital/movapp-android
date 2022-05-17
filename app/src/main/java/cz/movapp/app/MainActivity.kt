@@ -1,28 +1,40 @@
 package cz.movapp.app
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import cz.movapp.app.databinding.ActivityMainBinding
-import cz.movapp.app.ui.dictionary.DictionaryViewModel
+import cz.movapp.app.ui.onboarding.OnBoardingStateKeys
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
-    private val dictionarySharedViewModel: DictionaryViewModel by viewModels()
+    private fun appModule() = application.appModule()
+
     private val mainSharedModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val onBoardingDone = appModule().stateStore.restoreState(OnBoardingStateKeys.ON_BOARDING_DONE).first()
+            if (onBoardingDone == null || onBoardingDone == false)
+                startActivity(Intent(applicationContext, OnBoardingActivity::class.java))
+        }
 
         val navView: BottomNavigationView = binding.bottomNavigation
 
@@ -38,4 +50,10 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        /* get language after onboarding */
+        mainSharedModel.restoreLanguage()
+    }
 }

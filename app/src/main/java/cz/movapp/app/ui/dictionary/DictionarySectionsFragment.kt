@@ -35,6 +35,7 @@ class DictionarySectionsFragment : Fragment() {
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
             (binding.recyclerViewDictionarySections.adapter as DictionarySectionsAdapter).langPair = lang
+            (binding.recyclerViewDictionarySections.adapter as DictionarySectionsAdapter).notifyDataSetChanged()
         })
 
         return root

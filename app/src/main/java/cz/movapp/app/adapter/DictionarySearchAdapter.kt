@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.android.playSound
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
@@ -66,15 +67,15 @@ class DictionarySearchAdapter(
 
         holder.binding.apply {
             if (langPair.isReversed) {
-                textFrom.text = item.translation_to
-                textFromTrans.text = brackets(item.transcription_to)
-                textTo.text = item.translation_from
-                textToTrans.text = brackets(item.transcription_from)
+                textFrom.text = item.source_translation
+                textFromTrans.text = brackets(item.source_transcription)
+                textTo.text = item.main_translation
+                textToTrans.text = brackets(item.main_transcription)
             } else {
-                textFrom.text = item.translation_from
-                textFromTrans.text = brackets(item.transcription_from)
-                textTo.text = item.translation_to
-                textToTrans.text = brackets(item.transcription_to)
+                textFrom.text = item.main_translation
+                textFromTrans.text = brackets(item.main_transcription)
+                textTo.text = item.source_translation
+                textToTrans.text = brackets(item.source_transcription)
             }
         }
 
@@ -92,16 +93,18 @@ class DictionarySearchAdapter(
             }
         }
 
-        holder.binding.imagePlaySoundFrom.visibility = View.GONE
         holder.binding.imagePlaySoundFrom.setOnClickListener {
-            // TODO: import sounds to assets and use it here
-            //playSound(holder.itemView.context, item.soundAssetFile)
+            if (langPair.isReversed)
+                playSound(holder.itemView.context, item.source_sound_local)
+            else
+                playSound(holder.itemView.context, item.main_sound_local)
         }
 
-        holder.binding.imagePlaySoundTo.visibility = View.GONE
         holder.binding.imagePlaySoundTo.setOnClickListener {
-            // TODO: import sounds to assets and use it here
-            //playSound(holder.itemView.context, item.soundAssetFile)
+            if (langPair.isReversed)
+                playSound(holder.itemView.context, item.main_sound_local)
+            else
+                playSound(holder.itemView.context, item.source_sound_local)
         }
     }
 
@@ -136,8 +139,8 @@ class DictionarySearchAdapter(
             val filtered = mutableListOf<DictionaryTranslationsData>()
             wholeDataset
                 .filter {
-                    it.stripped_from.contains(searchString) or
-                            it.stripped_to.contains(searchString)
+                    it.main_stripped.contains(searchString) or
+                            it.source_stripped.contains(searchString)
                 }
                 .forEach { filtered.add(it) }
             filtered.sortedWith(object : Comparator<DictionaryTranslationsData> {
@@ -149,11 +152,11 @@ class DictionarySearchAdapter(
                     t2: DictionaryTranslationsData
                 ): Int {
 
-                    var levT1From = levenshteinDistance(constraint, t1.stripped_from)
-                    var levT2From = levenshteinDistance(constraint, t2.stripped_from)
+                    var levT1From = levenshteinDistance(constraint, t1.main_stripped)
+                    var levT2From = levenshteinDistance(constraint, t2.main_stripped)
 
-                    var levT1To = levenshteinDistance(constraint, t1.stripped_to)
-                    var levT2To = levenshteinDistance(constraint, t2.stripped_to)
+                    var levT1To = levenshteinDistance(constraint, t1.source_stripped)
+                    var levT2To = levenshteinDistance(constraint, t2.source_stripped)
 
                     /**
                      * detect Levenshtein direction

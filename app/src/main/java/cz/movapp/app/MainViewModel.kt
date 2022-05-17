@@ -26,6 +26,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     init {
+        restoreLanguage()
+    }
+
+    fun restoreLanguage() {
         viewModelScope.launch(Dispatchers.IO) {
             val selectedLanguage = appModule().stateStore.restoreState(LanguageStateKeys.SELECTED_PAIR)
             val lang = selectedLanguage.first()
@@ -44,4 +48,5 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     override fun onCleared() {
         storeLanguage()
     }
+
 }

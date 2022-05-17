@@ -14,6 +14,9 @@
     <color name="linkTextColor">#303030</color>
     <color name="secondaryTextColor">#2D2D2D</color>
 
+    <color name="ukFlagTopColor">#013abd</color>
+    <color name="ukFlagBottomColor">#ffd500</color>
+
     <color name="oddItem">#F2F2F2</color>
     <color name="alphabetSurfaceColor">#ffd500</color>
 
