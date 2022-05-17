@@ -31,4 +31,6 @@
     <color name="secondarySurfaceColor">#F2F2F2</color>
 
     <color name="greyTextColor">#676767</color>
+
+    <color name="linkColor">#013abd</color>
 </resources>

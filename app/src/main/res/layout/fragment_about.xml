@@ -112,7 +112,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/about_web" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -125,7 +125,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_local"
                         android:text="@string/about_team" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -139,7 +139,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/about_twitter" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -152,7 +152,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/facebook" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -165,7 +165,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/about_instagram" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -178,7 +178,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/linkedin" />
 
                 </LinearLayout>
@@ -211,7 +211,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/i_want_help" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -224,7 +224,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/about_license" />
 
                 </LinearLayout>
