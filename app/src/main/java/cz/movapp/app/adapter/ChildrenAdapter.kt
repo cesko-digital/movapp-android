@@ -64,16 +64,10 @@ class ChildrenAdapter (
                 imageChildrenFlagTo.setImageResource(R.drawable.ua)
 
                 imagePlaySoundFrom.setOnClickListener {
-                    if (langPair.isReversed)
-                        playSound(holder.itemView.context, item.source_sound_local)
-                    else
-                        playSound(holder.itemView.context, item.main_sound_local)
+                    playSound(holder.itemView.context, item.main_sound_local)
                 }
                 imagePlaySoundTo.setOnClickListener {
-                    if (langPair.isReversed)
-                        playSound(holder.itemView.context, item.main_sound_local)
-                    else
-                        playSound(holder.itemView.context, item.source_sound_local)
+                    playSound(holder.itemView.context, item.source_sound_local)
                 }
             } else {
                 textChildrenFrom.text = formatTrans(item.source_translation, item.source_transcription)
@@ -82,14 +76,11 @@ class ChildrenAdapter (
                 imageChildrenFlagFrom.setImageResource(R.drawable.ua)
                 imageChildrenFlagTo.setImageResource(R.drawable.cz)
 
-                // TODO: import sounds to assets and use it here
-                imagePlaySoundFrom.visibility = View.GONE
-                imagePlaySoundTo.visibility = View.GONE
                 imagePlaySoundFrom.setOnClickListener {
-                    //playSound(holder.itemView.context, item.soundAssetFileTo)
+                    playSound(holder.itemView.context, item.source_sound_local)
                 }
                 imagePlaySoundTo.setOnClickListener {
-                    //playSound(holder.itemView.context, item.soundAssetFileFrom)
+                    playSound(holder.itemView.context, item.main_sound_local)
                 }
             }
         }

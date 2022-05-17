@@ -17,7 +17,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
 
     private val context = application.applicationContext
 
-    val childrenState = MutableLiveData<Int?>()
+    val childrenState = MutableLiveData<Int>(0)
 
     private val _children = MutableLiveData<ChildrenAdapter>().apply {
         value = ChildrenAdapter(ChildrenDatasource().loadChildren(context))
@@ -34,7 +34,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
             val scrollPositions = storedScrollPositions.first()
 
             withContext(Dispatchers.Main) {
-                childrenState.setValue(scrollPositions)
+                childrenState.setValue(scrollPositions ?: 0)
             }
         }
     }
