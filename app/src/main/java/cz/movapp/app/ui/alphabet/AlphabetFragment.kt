@@ -36,13 +36,13 @@ class AlphabetFragment : Fragment() {
         TabLayoutMediator(binding.tab, binding.pager) { tab, position ->
             if (mainSharedViewModel.selectedLanguage.value!!.isReversed) {
                 when (position) {
-                    0 -> tab.setText(R.string.alphabet_ukrainian)
-                    1 -> tab.setText(R.string.alphabet_czech)
+                    0 -> tab.setText(R.string.alphabet_czech)
+                    1 -> tab.setText(R.string.alphabet_ukrainian)
                 }
             } else {
                 when (position) {
-                    0 -> tab.setText(R.string.alphabet_czech)
-                    1 -> tab.setText(R.string.alphabet_ukrainian)
+                    0 -> tab.setText(R.string.alphabet_ukrainian)
+                    1 -> tab.setText(R.string.alphabet_czech)
                 }
             }
         }.attach()

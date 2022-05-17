@@ -10,9 +10,9 @@ class AlphabetFragmentAdapter(fragment: Fragment) : FragmentStateAdapter(fragmen
 
     override fun createFragment(position: Int): Fragment {
         val fragment = when(position) {
-            0 -> AlphabetFromFragment()
-            1 -> AlphabetToFragment()
-            else -> AlphabetFromFragment()
+            0 -> AlphabetToFragment()
+            1 -> AlphabetFromFragment()
+            else -> AlphabetToFragment()
         }
 
         return fragment
