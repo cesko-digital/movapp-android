@@ -40,7 +40,7 @@
     <string name="alphabet_ukrainian">Ukrainian alphabet</string>
     <string name="alphabet_czech">Czech alphabet</string>
     <string name="search_word">Search word</string>
-    <string name="title_menu">Menu</string>
+    <string name="title_settings">Settings</string>
     <string name="on_boarding_welcome">Welcome to MOVAPP!</string>
     <string name="on_boarding_choice">Choose the language you want to learn</string>
     <string name="on_boarding_choice_czech" translatable="false">Я хочу вивчити Чеський</string>
