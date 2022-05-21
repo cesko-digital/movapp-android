@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/navigation_about"
         android:name="cz.movapp.app.ui.about.AboutFragment"
-        android:label="@string/title_about"
+        android:label="@string/about_application"
         tools:layout="@layout/fragment_about">
         <action
             android:id="@+id/action_navigation_about_to_navigation_about_team"

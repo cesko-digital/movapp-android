@@ -78,12 +78,12 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dictionary_tab" />
+            android:text="@string/title_dictionary" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/favorites_tab" />
+            android:text="@string/title_favorites" />
 
     </com.google.android.material.tabs.TabLayout>
 

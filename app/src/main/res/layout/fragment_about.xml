@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/settings"
+                android:textAllCaps="true"
                 android:textColor="#7f7e84" />
 
             <androidx.cardview.widget.CardView
@@ -90,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_project"
+                android:textAllCaps="true"
                 android:textColor="#7f7e84" />
 
             <androidx.cardview.widget.CardView
@@ -189,6 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:textColor="#7f7e84"
+                android:textAllCaps="true"
                 android:text="@string/about_application" />
 
             <androidx.cardview.widget.CardView
@@ -235,6 +238,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:textColor="#7f7e84"
+                android:textAllCaps="true"
                 android:text="@string/about_partners" />
 
             <androidx.cardview.widget.CardView
