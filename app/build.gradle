@@ -15,7 +15,7 @@ android {
         minSdk 21
         targetSdk 32
         versionCode getGitVersionCode()
-        versionName "1.1.4"
+        versionName "1.1.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
