@@ -24,6 +24,12 @@ class OnBoardingActivity  : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        if (binding.pagerOnBoarding.currentItem != 0) {
+            binding.pagerOnBoarding.setCurrentItem(
+                binding.pagerOnBoarding.currentItem - 1,
+                true
+            )
+        }
         return
     }
 }
