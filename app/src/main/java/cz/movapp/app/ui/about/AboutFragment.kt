@@ -8,8 +8,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.openUri
@@ -39,7 +37,9 @@ class AboutFragment : Fragment() {
             "https://github.com/cesko-digital/movapp-android/blob/main/LICENSE"
         const val HTTP_MOVAPP_LINKEDIN = "https://www.linkedin.com/company/movapp-cz"
         const val HTTP_MOVAPP_FACEBOOK = "https://www.facebook.com/movappcz"
-        const val HTTP_MOVAPP_GITHUB_ANDROID = "https://github.com/cesko-digital/movapp-android"
+        const val HTTP_MOVAPP_STAND_BY_UKRAINE =
+            "https://www.stojimezaukrajinou.cz"
+        const val HTTP_MOVAPP_UMAPA = "https://www.umapa.eu"
     }
 
 
@@ -49,12 +49,6 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
-
-        lifecycle.addObserver(object : DefaultLifecycleObserver {
-            override fun onDestroy(owner: LifecycleOwner) {
-                _binding = null
-            }
-        })
 
         val context = this.requireContext()
         val languageList = listOf(Language.Czech.stringText, Language.Ukrainian.stringText)
@@ -132,6 +126,13 @@ class AboutFragment : Fragment() {
             openUri(context, HTTP_MOVAPP_FACEBOOK)
         }
 
+        binding.textAboutStandByUkraine.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_STAND_BY_UKRAINE)
+        }
+
+        binding.textAboutUmapa.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_UMAPA)
+        }
         return binding.root
     }
 
@@ -141,4 +142,9 @@ class AboutFragment : Fragment() {
         hideKeyboard(view, activity)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
+    }
 }

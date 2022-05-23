@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/settings"
+                android:textAllCaps="true"
                 android:textColor="#7f7e84" />
 
             <androidx.cardview.widget.CardView
@@ -90,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_project"
+                android:textAllCaps="true"
                 android:textColor="#7f7e84" />
 
             <androidx.cardview.widget.CardView
@@ -112,7 +114,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/about_web" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -125,7 +127,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_local"
                         android:text="@string/about_team" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -139,7 +141,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/about_twitter" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -152,7 +154,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/facebook" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -165,7 +167,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/about_instagram" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -178,7 +180,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/linkedin" />
 
                 </LinearLayout>
@@ -189,6 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:textColor="#7f7e84"
+                android:textAllCaps="true"
                 android:text="@string/about_application" />
 
             <androidx.cardview.widget.CardView
@@ -211,7 +214,7 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/i_want_help" />
 
                     <com.google.android.material.divider.MaterialDivider
@@ -224,8 +227,55 @@
                         style="@style/AboutClickable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_chevron_right"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/about_license" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textColor="#7f7e84"
+                android:textAllCaps="true"
+                android:text="@string/about_partners" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/secondarySurfaceColor"
+                app:cardCornerRadius="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_about_stand_by_ukraine"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
+                        android:text="@string/about_stand_by_ukraine" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dividerColor" />
+
+                    <TextView
+                        android:id="@+id/text_about_umapa"
+                        style="@style/AboutClickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_chevron_right_remote"
+                        android:text="@string/about_umapa" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

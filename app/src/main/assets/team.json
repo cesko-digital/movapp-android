@@ -1,0 +1,163 @@
+{
+  "sections": [
+    {
+      "name": "Vývoj Apple aplikace",
+      "members": [
+        {
+          "name": "Martin Kluska"
+        },
+        {
+          "name": "Daryna Polevyk"
+        },
+        {
+          "name": "Radek Pištělák"
+        }
+      ]
+    },
+    {
+      "name": "Vývoj Android aplikace",
+      "members": [
+        {
+          "name": "Václav Chlumský"
+        },
+        {
+          "name": "Ondřej Málek"
+        }
+      ]
+    },
+    {
+      "name": "Vývoj webu",
+      "members": [
+        {
+          "name": "Oleg Antonyak"
+        },
+        {
+          "name": "Juraj Uhlár"
+        },
+        {
+          "name": "Bára Skálová"
+        },
+        {
+          "name": "Marek Mego"
+        }
+      ]
+    },
+    {
+      "name": "Vedení projektu",
+      "members": [
+        {
+          "name": "Martin Hassman"
+        },
+        {
+          "name": "Martina Krejčí"
+        },
+        {
+          "name": "Tatiana Chytilová"
+        }
+      ]
+    },
+    {
+      "name": "Marketing",
+      "members": [
+        {
+          "name": "Kateřina Strakošová"
+        },
+        {
+          "name": "Eva Došková"
+        }
+      ]
+    },
+    {
+      "name": "Tvorba obsahu",
+      "members": [
+        {
+          "name": "Tereza Javornická"
+        },
+        {
+          "name": "Petr Illek"
+        },
+        {
+          "name": "Alena Burneleit"
+        },
+        {
+          "name": "Anna Lamberová"
+        },
+        {
+          "name": "Silvia Potočná"
+        },
+        {
+          "name": "Nikola Glatz"
+        },
+        {
+          "name": "Roman Žydyk"
+        },
+        {
+          "name": "Yevheniia Valova"
+        }
+      ]
+    },
+    {
+      "name": "UX tým",
+      "members": [
+        {
+          "name": "Valeriia Kuna"
+        },
+        {
+          "name": "Martin Baránek"
+        }
+      ]
+    },
+    {
+      "name": "Testování",
+      "members": [
+        {
+          "name": "Anna Popelková"
+        },
+        {
+          "name": "Nina Belyavskaya"
+        },
+        {
+          "name": "Magdaléna Morong"
+        },
+        {
+          "name": "Milan Vachovec"
+        }
+      ]
+    },
+    {
+      "name": "Děkujeme týmu z České spořitelny",
+      "members": [
+        {
+          "name": "Ema Dolejšková"
+        },
+        {
+          "name": "Rebeka Donné"
+        },
+        {
+          "name": "Jan Jaroš"
+        },
+        {
+          "name": "Filip Novák"
+        },
+        {
+          "name": "Tomáš Selmeci"
+        },
+        {
+          "name": "Anna Smékalová"
+        },
+        {
+          "name": "Vlastimil Snopek"
+        },
+        {
+          "name": "Vítězslav Studnička"
+        },
+        {
+          "name": "Luboš Sytenský"
+        },
+        {
+          "name": "Petr Tomášek"
+        }
+      ]
+    }
+  ]
+}
