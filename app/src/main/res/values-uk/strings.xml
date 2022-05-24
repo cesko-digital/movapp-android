@@ -10,12 +10,12 @@
     <string name="i_want_help">Я хочу допомогти</string>
     <string name="about_license">Ліцензія</string>
     <string name="about_version">Версія: %1$s (%2$s)</string>
-    <string name="country_flag">country flag</string>
-    <string name="play_transcription">play transcription</string>
-    <string name="i_want_learn">Хочу вчити</string>
+    <string name="country_flag">прапор країни</string>
+    <string name="play_transcription">звук</string>
     <string name="settings">Налаштування</string>
-    <string name="ukrainian">Український</string>
-    <string name="czech">еський</string>
+    <string name="i_want_learn">Хочу вчити</string>
+    <string name="ukrainian">українську</string>
+    <string name="czech">чеську</string>
     <string name="alphabet_ukrainian">Український алфавіт</string>
     <string name="alphabet_czech">Чеський алфавіт</string>
     <string name="search_word">Знайти слово</string>
@@ -25,7 +25,7 @@
     <string name="on_boarding_choice">Виберіть мову, яку хочете вивчити</string>
     <string name="on_boarding_info_1_title">Словник</string>
     <string name="on_boarding_info_1_description">Вивчіть сотні базових слів та фраз, читаючи й слухаючи. Слова та фрази розділені на категорії відповідно до життєвих ситуацій.</string>
-    <string name="on_boarding_info_2_title">для дітей</string>
+    <string name="on_boarding_info_2_title">Для дітей</string>
     <string name="on_boarding_info_2_description">Ілюстрований чесько-український словник із десятками карток для друку.</string>
     <string name="on_boarding_info_3_title">Чеський алфавіт</string>
     <string name="on_boarding_info_3_description">Вивчіть всі літери чеського алфавіту. Вам допоможуть приклади слів.</string>
