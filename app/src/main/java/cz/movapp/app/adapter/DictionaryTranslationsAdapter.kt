@@ -3,20 +3,20 @@ package cz.movapp.app.adapter
 import android.content.Context
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.android.playSound
 import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.DictionaryTranslationItemBinding
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 
-class DictionaryTranslationsAdapter(
+open class DictionaryTranslationsAdapter(
     private val context: Context,
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
@@ -111,19 +111,25 @@ class DictionaryTranslationsAdapter(
         return "[${s}]"
     }
 
+    private val favouritesIconSet by lazy { AppCompatResources.getDrawable(context, R.drawable.ic_baseline_star_24) }
+    private val favouritesIconNotSet by lazy { AppCompatResources.getDrawable(context, R.drawable.ic_baseline_star_outline_24) }
+
     private fun setFavoriteStar(holder: ItemViewHolder, isSet: Boolean) {
-        if (isSet)
+        if (isSet) {
+            holder.binding.imageFavorites.setImageDrawable(favouritesIconSet)
             holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
                     context, R.color.secondaryColor
                 )
             )
-        else
+        } else {
+            holder.binding.imageFavorites.setImageDrawable(favouritesIconNotSet)
             holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
-                    context, R.color.primaryColor
+                    context, R.color.primaryTextColor
                 )
             )
+        }
     }
 
     fun selectTranslations(translationsIds: List<String>) {
