@@ -1,15 +1,38 @@
 package cz.movapp.app
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
+import androidx.activity.ComponentActivity
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.tabs.TabLayoutMediator
 import cz.movapp.app.adapter.OnBoardingFragmentAdapter
 import cz.movapp.app.databinding.ActivityOnBoardingBinding
-import com.google.android.material.tabs.TabLayoutMediator
+
+val ONBOARDING_PASSED_RESULT_CODE = 1
+val ONBOARDING_LEFT_RESULT_CODE = 2
 
 class OnBoardingActivity  : AppCompatActivity() {
 
     lateinit var binding: ActivityOnBoardingBinding
+
+    companion object{
+        fun registerOnBoardingResult(activity: ComponentActivity, onOnBoardingLeft: () -> Unit = {}, onOnBoardingPassed: () -> Unit = {}): ActivityResultLauncher<Intent> {
+            return activity.registerForActivityResult(
+                ActivityResultContracts.StartActivityForResult(),
+                ActivityResultCallback { result ->
+                    when (result.resultCode) {
+                        ONBOARDING_LEFT_RESULT_CODE -> onOnBoardingLeft()
+                        ONBOARDING_PASSED_RESULT_CODE -> onOnBoardingPassed()
+                        else -> {}
+                    }
+                }
+            )
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +52,9 @@ class OnBoardingActivity  : AppCompatActivity() {
                 binding.pagerOnBoarding.currentItem - 1,
                 true
             )
+        } else {
+            this.setResult(ONBOARDING_LEFT_RESULT_CODE)
+            super.onBackPressed()
         }
         return
     }
