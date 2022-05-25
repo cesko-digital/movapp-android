@@ -99,7 +99,7 @@ class AboutFragment : Fragment() {
         }
 
         binding.team.setOnClickListener {
-            findNavController().navigate(AboutFragmentDirections.actionNavigationAboutToNavigationAboutTeam())
+            findNavController().navigate(AboutFragmentDirections.actionNavAboutToNavAboutTeam())
         }
 
         binding.textAboutTwitter.setOnClickListener {

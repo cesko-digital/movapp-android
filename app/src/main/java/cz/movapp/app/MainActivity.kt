@@ -7,9 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import cz.movapp.app.OnBoardingActivity.Companion.registerOnBoardingResult
 import cz.movapp.app.databinding.ActivityMainBinding
 import cz.movapp.app.ui.onboarding.OnBoardingStateKeys
@@ -48,18 +46,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val navView: BottomNavigationView = binding.bottomNavigation
-
         navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_dictionary, R.id.navigation_alphabet, R.id.navigation_children, R.id.navigation_about
-            )
-        )
 
-        navView.setupWithNavController(navController)
+        binding.bottomNavigation.setupWithNavController(navController)
     }
 
 

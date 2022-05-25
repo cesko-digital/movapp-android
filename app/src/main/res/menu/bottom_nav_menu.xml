@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+<!-- those ids must be same as ids in res/navigation graphs -->
     <item
-        android:id="@+id/navigation_dictionary"
+        android:id="@+id/nav_dictionary"
         android:icon="@drawable/dictionary"
         android:title="@string/title_dictionary" />
 
     <item
-        android:id="@+id/navigation_alphabet"
+        android:id="@+id/nav_alphabet"
         android:icon="@drawable/alphabet"
         android:title="@string/title_alphabet" />
 
     <item
-        android:id="@+id/navigation_children"
+        android:id="@+id/nav_children"
         android:icon="@drawable/child"
         android:title="@string/title_children" />
 
     <item
-        android:id="@+id/navigation_about"
+        android:id="@+id/nav_about"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/title_settings" />
 

@@ -133,14 +133,10 @@ open class DictionaryTranslationsAdapter(
     }
 
     fun selectTranslations(translationsIds: List<String>) {
-        val result = if (translationsIds.isEmpty()) {
-            listOf<DictionaryTranslationsData>()
+        submitList(if (translationsIds.isEmpty()) {
+            listOf()
         } else {
-            val filtered = mutableListOf<DictionaryTranslationsData>()
-            wholeDataset.filter { it.id in translationsIds }.forEach { filtered.add(it) }
-            filtered
-        }
-
-        submitList(result)
+            wholeDataset.filter { it.id in translationsIds }
+        })
     }
 }

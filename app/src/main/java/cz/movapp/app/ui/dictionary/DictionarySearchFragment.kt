@@ -16,7 +16,6 @@ import cz.movapp.app.databinding.FragmentDictionarySearchBinding
 class DictionarySearchFragment : Fragment() {
 
     private var _binding: FragmentDictionarySearchBinding? = null
-    private var favoritesIds = mutableListOf<String>()
 
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
@@ -38,15 +37,17 @@ class DictionarySearchFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionarySearch
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.searches.value
-        (recyclerView.adapter as DictionarySearchAdapter).favoritesIds = favoritesIds
+        recyclerView.adapter = dictionarySharedViewModel.translationsSearches.value
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            favoritesIds = mutableListOf<String>()
-
+            val favoritesIds = mutableListOf<String>()
             it.forEach { favoritesIds.add(it.translationId) }
 
-            (recyclerView.adapter as DictionarySearchAdapter).favoritesIds = favoritesIds
+            val adapter = recyclerView.adapter as DictionarySearchAdapter
+            if(adapter.favoritesIds != favoritesIds){
+                adapter.favoritesIds = favoritesIds
+                adapter.notifyDataSetChanged()
+            }
         }
 
         /**
@@ -89,17 +90,28 @@ class DictionarySearchFragment : Fragment() {
         )
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            (binding.recyclerViewDictionarySearch.adapter as DictionarySearchAdapter).langPair = lang
-            (binding.recyclerViewDictionarySearch.adapter as DictionarySearchAdapter).notifyDataSetChanged()
+            val adapter =
+                binding.recyclerViewDictionarySearch.adapter as DictionarySearchAdapter
+            if(adapter.langPair != lang){
+                adapter.langPair = lang
+                adapter.notifyDataSetChanged()
+            }
         })
 
-        dictionarySharedViewModel.translationsIds.observe(viewLifecycleOwner) {
-            if (it.isNotEmpty())
-                dictionarySharedViewModel.translations.value?.selectTranslations(it)
+        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
+            if (it != null) {
+                dictionarySharedViewModel.translationsSearches.value?.search(
+                    it, false
+                )
+            }
         }
+
 
         return root
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

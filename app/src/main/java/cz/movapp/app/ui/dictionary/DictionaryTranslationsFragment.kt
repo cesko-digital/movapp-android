@@ -15,7 +15,6 @@ import cz.movapp.app.databinding.FragmentDictionaryTranslationsBinding
 class DictionaryTranslationsFragment : Fragment() {
 
     private var _binding: FragmentDictionaryTranslationsBinding? = null
-    private var favoritesIds = mutableListOf<String>()
 
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
@@ -37,24 +36,29 @@ class DictionaryTranslationsFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
 
         recyclerView.adapter = dictionarySharedViewModel.translations.value
-        (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            favoritesIds = mutableListOf<String>()
-
+            val favoritesIds = mutableListOf<String>()
             it.forEach { favoritesIds.add(it.translationId) }
 
-            (recyclerView.adapter as DictionaryTranslationsAdapter).favoritesIds = favoritesIds
+            dictionarySharedViewModel.translations.value?.favoritesIds = favoritesIds
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).langPair = lang
-            (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).notifyDataSetChanged()
+            val adapter =
+                binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter
+
+            if(adapter.langPair != lang){
+                adapter.langPair = lang
+                adapter.notifyDataSetChanged()
+            }
         })
 
         dictionarySharedViewModel.translationsIds.observe(viewLifecycleOwner) {
-            if (it.isNotEmpty())
+            if (it.isNotEmpty()) {
+                //FIXME use adapter without diff - it blinks when going to different section
                 dictionarySharedViewModel.translations.value?.selectTranslations(it)
+            }
         }
 
         return root
@@ -62,10 +66,6 @@ class DictionaryTranslationsFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
-        (binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter).submitList(
-            listOf()
-        )
 
         binding.recyclerViewDictionaryTranslations.adapter = null
         _binding = null

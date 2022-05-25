@@ -2,52 +2,52 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_dictionary">
+    android:id="@+id/nav_graph"
+    android:label="nav_graph"
+    app:startDestination="@id/nav_dictionary"
+    >
 
-    <action
-        android:id="@+id/navigateToDictionary"
-        app:destination="@id/navigation_dictionary" />
-
+    <include
+        app:graph="@navigation/nav_graph_dictonary"
+        />
+<!-- ids must be same as in bottom navigation mnu - bottom_nav_menu.xml-->
     <fragment
-        android:id="@+id/navigation_dictionary"
+        android:id="@+id/nav_dictionary"
         android:name="cz.movapp.app.ui.dictionary.DictionaryFragment"
-        tools:layout="@layout/fragment_dictionary">
-        <action
-            android:id="@+id/to_dictionaryTranslationsFragment"
-            app:destination="@id/navigation_dictionary" />
+        tools:layout="@layout/fragment_dictionary"
+        >
 
-        <argument
-            android:name="translation_ids"
-            android:defaultValue="@null"
-            app:argType="string[]"
-            app:nullable="true" />
+        <action
+            android:id="@+id/to_nav_graph_dictionary"
+            app:destination="@id/nav_graph_dictionary" />
     </fragment>
 
+
+
     <fragment
-        android:id="@+id/navigation_alphabet"
+        android:id="@+id/nav_alphabet"
         android:name="cz.movapp.app.ui.alphabet.AlphabetFragment"
-        tools:layout="@layout/fragment_alphabet"></fragment>
+        tools:layout="@layout/fragment_alphabet" />
 
     <fragment
-        android:id="@+id/navigation_children"
+        android:id="@+id/nav_children"
         android:name="cz.movapp.app.ui.children.ChildrenFragment"
-        tools:layout="@layout/fragment_children"></fragment>
+        tools:layout="@layout/fragment_children" />
 
     <fragment
-        android:id="@+id/navigation_about"
+        android:id="@+id/nav_about"
         android:name="cz.movapp.app.ui.about.AboutFragment"
         android:label="@string/about_application"
         tools:layout="@layout/fragment_about">
         <action
-            android:id="@+id/action_navigation_about_to_navigation_about_team"
-            app:destination="@id/navigation_about_team" />
+            android:id="@+id/action_nav_about_to_nav_about_team"
+            app:destination="@id/nav_about_team" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_about_team"
+        android:id="@+id/nav_about_team"
         android:name="cz.movapp.app.ui.about.AboutTeamFragment"
         android:label="@string/about_team"
-        tools:layout="@layout/fragment_about_team"></fragment>
+        tools:layout="@layout/fragment_about_team" />
 
 </navigation>

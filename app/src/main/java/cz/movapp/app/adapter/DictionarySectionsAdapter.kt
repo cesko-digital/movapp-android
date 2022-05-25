@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
-import cz.movapp.app.ui.dictionary.DictionaryFragmentDirections
+import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 
 class DictionarySectionsAdapter(
     private var dataset: List<DictionarySectionsData>,
+    var onItemClicked: (DictionarySectionsData) -> Unit = {},
 ) : RecyclerView.Adapter<DictionarySectionsAdapter.ItemViewHolder>() {
 
     var langPair = LanguagePair.getDefault()
@@ -54,9 +53,8 @@ class DictionarySectionsAdapter(
             holder.textFromTo.text = "%s - %s".format(item.main, item.source)
 
         holder.itemView.setOnClickListener {
-            val action =
-                DictionaryFragmentDirections.toDictionaryTranslationsFragment(translationIds = item.phrases_ids.toTypedArray())
-            holder.itemView.findNavController().navigate(action)
+            onItemClicked(item)
+
         }
     }
 }
