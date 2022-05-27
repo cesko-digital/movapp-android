@@ -10,20 +10,17 @@ import androidx.lifecycle.Observer
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionaryFavoritesAdapter
+import cz.movapp.app.adapter.DictionarySearchAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
 
 class DictionaryFavoritesFragment : Fragment() {
 
     private var _binding: FragmentDictionaryFavoritesBinding? = null
-    private var favoritesIds = mutableListOf<String>()
 
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val mainSharedViewModel: MainViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -37,27 +34,42 @@ class DictionaryFavoritesFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionaryFavorites
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.favorites.value
-
-        (recyclerView.adapter as DictionaryFavoritesAdapter).favoritesIds = favoritesIds
+        recyclerView.adapter = dictionarySharedViewModel.favoritesSearches.value!!
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            favoritesIds = mutableListOf()
+            val adapter = getRVAdapter()
 
-            it.forEach { favoritesIds.add(it.translationId) }
+            adapter?.favoritesIds = it.map { it.translationId } as MutableList
 
-            (recyclerView.adapter as DictionaryFavoritesAdapter).favoritesIds = favoritesIds
-
-            dictionarySharedViewModel.favorites.value?.selectTranslations(favoritesIds)
+            recyclerView.adapter = adapter
+            adapter?.search("",true)
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            (binding.recyclerViewDictionaryFavorites.adapter as DictionaryFavoritesAdapter).langPair = lang
-            (binding.recyclerViewDictionaryFavorites.adapter as DictionaryFavoritesAdapter).notifyDataSetChanged()
+            val adapter = getRVAdapter()
+
+            if(adapter.langPair != lang){
+                adapter.langPair = lang
+                adapter.notifyDataSetChanged()
+            }
         })
+
+        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
+            if (dictionarySharedViewModel.searchQuery.value != null) {
+
+                dictionarySharedViewModel.favoritesSearches.value?.search(
+                    dictionarySharedViewModel.searchQuery.value!!, true
+                )
+            }
+        }
 
         return root
     }
+
+    private fun getRVAdapter(): DictionarySearchAdapter {
+        return binding.recyclerViewDictionaryFavorites.adapter as DictionarySearchAdapter
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

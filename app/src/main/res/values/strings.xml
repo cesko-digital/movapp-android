@@ -21,15 +21,15 @@
     <string name="play_transcription">play transcription</string>
     <string name="i_want_learn">Want to learn</string>
     <string name="settings">Settings</string>
-    <string name="ukrainian">Ukraine</string>
+    <string name="ukrainian">Ukrainian</string>
     <string name="czech">Czech</string>
-    <string name="alphabet_ukrainian">Ukraine alphabet</string>
+    <string name="alphabet_ukrainian">Ukrainian alphabet</string>
     <string name="alphabet_czech">Czech alphabet</string>
     <string name="search_word">Search for a word</string>
     <string name="title_settings">Settings</string>
     <string name="on_boarding_welcome">Welcome to MOVAPP!</string>
     <string name="on_boarding_choice">Choose the language you want to learn</string>
-    <string name="on_boarding_choice_czech" translatable="false">Я хочу вивчити Чеський</string>
+    <string name="on_boarding_choice_czech" translatable="false">Я хочу вивчити чеську</string>
     <string name="on_boarding_choice_ukrainian" translatable="false">Chci se naučit ukrajinsky</string>
     <string name="on_boarding_info_1_title">Dictionary</string>
     <string name="on_boarding_info_1_description">Learn hundreds of basic words and phrases by reading and listening. We sort words according to life situations.</string>

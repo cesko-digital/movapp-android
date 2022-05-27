@@ -6,8 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.Navigation
 import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
@@ -16,19 +21,13 @@ import cz.movapp.app.FavoritesViewModelFactory
 import cz.movapp.app.R
 import cz.movapp.app.data.FavoritesDatabase
 import cz.movapp.app.databinding.FragmentDictionaryBinding
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
 
 class DictionaryFragment : Fragment() {
 
     private var _binding: FragmentDictionaryBinding? = null
-
-    private var searchesAdapterDataObservers = mutableListOf<RecyclerView.AdapterDataObserver>()
-
-    private lateinit var searchJob : Job
-
-    private lateinit var translationsIdsArgs: MutableList<String>
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -51,14 +50,9 @@ class DictionaryFragment : Fragment() {
         )
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private val TAB_POSITION_SECTIONS_OR_TRANSLATIONS = 0
+    private val TAB_POSITION_FAVORITES = 1
 
-        arguments?.let {
-            translationsIdsArgs =
-                it.getStringArray("translation_ids")?.toMutableList() ?: mutableListOf()
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -68,20 +62,37 @@ class DictionaryFragment : Fragment() {
         _binding = FragmentDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        if (translationsIdsArgs.isEmpty())
-            dictionarySharedViewModel.translationsIds.value = mutableListOf()
-        else
-            dictionarySharedViewModel.translationsIds.value = translationsIdsArgs
+        setupTabLayout()
 
-        favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            var favoritesIds = mutableListOf<String>()
+        binding.searchView.hint = resources.getString(R.string.search_word)
 
-            it.forEach { favoritesIds.add(it.translationId) }
-
-            dictionarySharedViewModel.searches.value?.favoritesIds = favoritesIds
-            dictionarySharedViewModel.translations.value?.favoritesIds = favoritesIds
+        viewLifecycleOwner.lifecycleScope.launch {
+            binding.searchView.textChanges()
+                .debounce(300)
+                .drop(1)
+                .collect { text ->
+                    dictionarySharedViewModel.setSearchQuery(text.toString())
+                }
         }
 
+        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
+            if (it != null) {
+                if (binding.tab.selectedTabPosition == TAB_POSITION_SECTIONS_OR_TRANSLATIONS) {
+                    if (it.isEmpty()) {
+                        navigateToSectionsStack(false)
+                    } else {
+                        if(findNavController().currentDestination?.id != R.id.nav_search){
+                            findNavController().navigate(R.id.nav_search)
+                        }
+                    }
+                }
+            }
+        }
+
+        return root
+    }
+
+    private fun setupTabLayout() {
         binding.tab.getTabAt(0)?.select()
 
         binding.tab.addOnTabSelectedListener(
@@ -91,98 +102,90 @@ class DictionaryFragment : Fragment() {
                 }
 
                 override fun onTabUnselected(tab: TabLayout.Tab?) {
-                    // Do not Implement
+
                 }
 
                 override fun onTabReselected(tab: TabLayout.Tab?) {
-                    selectTab(tab)
+
                 }
 
                 private fun selectTab(tab: TabLayout.Tab?) {
                     when (tab?.position) {
-                        0 -> {
-                            setSectionsOrTranslations()
+                        TAB_POSITION_FAVORITES -> {
+                            navigateToFavoritesStack()
                         }
-                        1 -> {
-                            setFavorites()
+                        TAB_POSITION_SECTIONS_OR_TRANSLATIONS -> {
+                            navigateToSectionsStack(true)
                         }
                     }
                 }
             }
         )
 
-        binding.searchView.hint = resources.getString(R.string.search_word)
-
-        searchJob = lifecycleScope.launch {
-            binding.searchView.textChanges()
-                .debounce(300)
-                .collect { text ->
-                    searchDictionary(text.toString())
+        viewLifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
+            val listener = object : NavController.OnDestinationChangedListener {
+                override fun onDestinationChanged(
+                    controller: NavController,
+                    destination: NavDestination,
+                    arguments: Bundle?
+                ) {
+                    when (destination.route) {
+                        "favorites" -> {
+                            binding.tab.selectTab(binding.tab.getTabAt(TAB_POSITION_FAVORITES))
+                        }
+                        else -> {
+                            binding.tab.selectTab(
+                                binding.tab.getTabAt(
+                                    TAB_POSITION_SECTIONS_OR_TRANSLATIONS
+                                )
+                            )
+                        }
+                    }
                 }
-        }
-
-        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
-            if (!dictionarySharedViewModel.searchQuery.value.isNullOrEmpty()) {
-                var favorites = false
-                if (binding.tab.selectedTabPosition == 1)
-                        favorites = true
-
-                dictionarySharedViewModel.searches.value?.search(
-                    dictionarySharedViewModel.searchQuery.value!!, favorites
-                )
             }
-        }
 
-        dictionarySharedViewModel.translationsIds.observe(viewLifecycleOwner) {
-            if (it.isNotEmpty())
-                setTranslations()
-        }
-
-        setSectionsOrTranslations()
-
-        return root
-    }
-
-    private fun setTranslations() {
-        if (childFragmentManager.findFragmentByTag("TRANSLATIONS") == null)
-            childFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_view,  DictionaryTranslationsFragment(), "TRANSLATIONS")
-                .commit()
-    }
-
-    private fun setFavorites() {
-        if (childFragmentManager.findFragmentByTag("FAVORITES") == null)
-            childFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_view,  DictionaryFavoritesFragment(), "FAVORITES")
-                .commit()
-    }
-
-    private fun setSectionsOrTranslations() {
-        if (dictionarySharedViewModel.translationsIds.value!!.isEmpty()) {
-            if (childFragmentManager.findFragmentByTag("SECTIONS") == null)
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_view, DictionarySectionsFragment(), "SECTIONS")
-                    .commit()
-        } else {
-            setTranslations()
-        }
-    }
-
-    private fun searchDictionary(query: String?): Boolean {
-        if (query != null) {
-            if (query.isNotEmpty()) {
-                if (childFragmentManager.findFragmentByTag("SEARCH") == null)
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_view, DictionarySearchFragment(),"SEARCH")
-                            .commit()
-
-                dictionarySharedViewModel.setSearchQuery(query)
-                return true
+            override fun onResume(owner: LifecycleOwner) {
+                findNavController().addOnDestinationChangedListener(listener)
             }
-        }
 
-        return false
+            override fun onPause(owner: LifecycleOwner) {
+                findNavController().removeOnDestinationChangedListener(listener)
+            }
+        })
     }
+
+
+    fun findNavController(): NavController {
+        return Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_dictionary)
+    }
+
+
+    fun navigateToSectionsStack(restoreState: Boolean) {
+        val navController = findNavController()
+
+        navController.navigate("sections") {
+            popUpTo(navController.graph.findStartDestination().id) {
+                saveState = true
+            }
+            launchSingleTop = true
+            this.restoreState = restoreState
+        }
+    }
+
+    fun navigateToFavoritesStack() {
+        val navController = findNavController()
+
+        navController.navigate("favorites") {
+            popUpTo(navController.graph.findStartDestination().id) {
+                saveState = true
+            }
+            launchSingleTop = true
+            restoreState = true
+        }
+    }
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -192,16 +195,6 @@ class DictionaryFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
-        for (observer in searchesAdapterDataObservers)
-            dictionarySharedViewModel.searches.value?.unregisterAdapterDataObserver(observer)
-        searchesAdapterDataObservers.clear()
-
-        /**
-         *  we need to cancel the job in order to prevent leaking bound object inside of the job
-         *  because lifecycleScope is alive between onCreate and onDestroy
-         */
-        searchJob.cancel()
 
         _binding = null
     }

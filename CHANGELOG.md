@@ -1,6 +1,13 @@
 Details about this file’s format at <http://keepachangelog.com/>. 
 TODO: The change log is parsed automatically when minting releases through Fastlane, see `Fastlane/Fastfile`.
 
+## [1.1.6] - 2022-05-27Z
+
+- Chování vyhledávání: Při smazání vyhlédávacího výrazu přejde na seznam frází.Vyhledává ve všech výrazech nikoliv v názvech oborů. Vyhledává v oblíbených i ve všech slovech zároveň.
+- Ikona oblíbených je pouze obrys hvězdy místo plné hvězdy
+- Ve slovníku se zachovávají obrazovky a pozice seznamů když se odejde do jiné zóny (Děti, Abeceda, ..)
+- Na úvodní obrazovce funguje tlačítko zpět a tlačítko start není kapitálkami
+
 ## [1.1.0] - 2022-04-29Z
 
 - Design podle webu a Sketche

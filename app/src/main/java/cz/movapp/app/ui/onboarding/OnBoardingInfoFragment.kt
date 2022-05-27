@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.tabs.TabLayout
+import cz.movapp.app.ONBOARDING_PASSED_RESULT_CODE
 import cz.movapp.app.R
 import cz.movapp.app.databinding.FragmentOnBoardingInfoBinding
+
+
 
 class OnBoardingInfoFragment(private val position: Int) : Fragment() {
     private var _binding: FragmentOnBoardingInfoBinding? = null
@@ -29,29 +32,29 @@ class OnBoardingInfoFragment(private val position: Int) : Fragment() {
 
         binding.buttonExitOnBoarding.setOnClickListener {
             onBoardingViewModel.onBoardingDone.value = true
-            activity?.finish()
+            val activity = requireActivity()
+            activity.setResult(ONBOARDING_PASSED_RESULT_CODE)
+            activity.finish()
         }
-
-        if (position == 3)
-            binding.buttonExitOnBoarding.visibility = View.VISIBLE
-        else
-            binding.buttonExitOnBoarding.visibility = View.INVISIBLE
 
         when (position) {
             1 -> {
                 binding.imageInfo.setImageResource(R.drawable.dictionary)
                 binding.textInfoTitle.setText(R.string.on_boarding_info_1_title)
                 binding.textInfoDescription.setText(R.string.on_boarding_info_1_description)
+                binding.buttonExitOnBoarding.visibility = View.INVISIBLE
             }
             2 -> {
                 binding.imageInfo.setImageResource(R.drawable.child)
                 binding.textInfoTitle.setText(R.string.on_boarding_info_2_title)
                 binding.textInfoDescription.setText(R.string.on_boarding_info_2_description)
+                binding.buttonExitOnBoarding.visibility = View.INVISIBLE
             }
             3 -> {
                 binding.imageInfo.setImageResource(R.drawable.alphabet)
                 binding.textInfoTitle.setText(R.string.on_boarding_info_3_title)
                 binding.textInfoDescription.setText(R.string.on_boarding_info_3_description)
+                binding.buttonExitOnBoarding.visibility = View.VISIBLE
             }
         }
         return root
