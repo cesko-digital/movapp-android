@@ -10,12 +10,12 @@
     <string name="i_want_help">Přidat se k vývoji</string>
     <string name="about_license">Licence</string>
     <string name="about_version">Verze: %1$s (%2$s)</string>
-    <string name="country_flag">country flag</string>
-    <string name="play_transcription">play transcription</string>
+    <string name="country_flag">vlajka</string>
+    <string name="play_transcription">přehrát zvuk</string>
     <string name="i_want_learn">Chci se naučit</string>
     <string name="settings">Nastavení</string>
-    <string name="ukrainian">Ukrajinsky</string>
-    <string name="czech">Česky</string>
+    <string name="ukrainian">ukrajinsky</string>
+    <string name="czech">česky</string>
     <string name="alphabet_ukrainian">Ukrajinská abeceda</string>
     <string name="alphabet_czech">Česká abeceda</string>
     <string name="search_word">Hledat slovíčko</string>
