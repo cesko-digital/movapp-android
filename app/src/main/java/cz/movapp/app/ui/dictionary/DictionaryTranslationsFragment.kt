@@ -38,10 +38,7 @@ class DictionaryTranslationsFragment : Fragment() {
         recyclerView.adapter = dictionarySharedViewModel.translations.value
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            val favoritesIds = mutableListOf<String>()
-            it.forEach { favoritesIds.add(it.translationId) }
-
-            dictionarySharedViewModel.translations.value?.favoritesIds = favoritesIds
+            dictionarySharedViewModel.translations.value?.favoritesIds = it.map { it.translationId } as MutableList
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->

@@ -34,25 +34,24 @@ class DictionaryFavoritesFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionaryFavorites
         recyclerView.setHasFixedSize(true)
 
+        recyclerView.adapter = dictionarySharedViewModel.favoritesSearches.value!!
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            val searchAdapter = dictionarySharedViewModel.favoritesSearches.value
+            val adapter = getRVAdapter()
 
-            val favoritesIds = mutableListOf<String>()
-            it.forEach { favoritesIds.add(it.translationId) }
+            adapter?.favoritesIds = it.map { it.translationId } as MutableList
 
-            searchAdapter?.favoritesIds = favoritesIds
-
-            recyclerView.adapter = searchAdapter
-            searchAdapter?.search("",true)
+            recyclerView.adapter = adapter
+            adapter?.search("",true)
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            val favoritesAdapter =
-                binding.recyclerViewDictionaryFavorites.adapter as DictionarySearchAdapter
+            val adapter = getRVAdapter()
 
-            favoritesAdapter.langPair = lang
-            favoritesAdapter.notifyDataSetChanged()
+            if(adapter.langPair != lang){
+                adapter.langPair = lang
+                adapter.notifyDataSetChanged()
+            }
         })
 
         dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
@@ -65,6 +64,10 @@ class DictionaryFavoritesFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun getRVAdapter(): DictionarySearchAdapter {
+        return binding.recyclerViewDictionaryFavorites.adapter as DictionarySearchAdapter
     }
 
 

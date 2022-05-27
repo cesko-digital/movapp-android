@@ -53,12 +53,11 @@ class DictionarySectionsFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
 
         recyclerView.adapter = dictionarySharedViewModel.sections.value
+
         dictionarySharedViewModel.sections.value?.onItemClicked = { item ->
             dictionarySharedViewModel.translationsIds.value = item.phrases_ids.toMutableList()
             findNavController()
-                .navigate(
-                    DictionarySectionsFragmentDirections.toTranslations()
-                )
+                .navigate(DictionarySectionsFragmentDirections.toTranslations())
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
