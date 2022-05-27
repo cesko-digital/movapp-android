@@ -7,33 +7,6 @@
     app:startDestination="@id/nav_sections">
 
 
-    <!--    <fragment-->
-<!--        android:id="@+id/nav_dictionary"-->
-<!--        android:name="cz.movapp.app.ui.dictionary.DictionaryFragment"-->
-<!--        >-->
-
-<!--        &lt;!&ndash;        <action&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/to_dictionary_sections"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:destination="@id/nav_sections" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <action&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/to_dictionary_favorites"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:destination="@id/nav_favorites" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <action&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/to_dictionary_search"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:destination="@id/nav_search" />&ndash;&gt;-->
-
-
-<!--        <argument-->
-<!--            android:name="translation_ids"-->
-<!--            android:defaultValue="@null"-->
-<!--            app:argType="string[]"-->
-<!--            app:nullable="true" />-->
-
-
-<!--    </fragment>-->
-
     <fragment
         android:id="@+id/nav_sections"
         app:route="sections"
@@ -47,14 +20,6 @@
         <action
             android:id="@+id/to_nav_search"
             app:destination="@id/nav_search" />
-
-
-        <!--        <action-->
-<!--            android:id="@+id/nav_favorites_stack"-->
-<!--            app:destination="@id/nav_favorites_stack"-->
-<!--            app:popUpTo="@id/nav_favorites"-->
-<!--            app:popUpToSaveState="true"-->
-<!--            app:restoreState="true" />-->
 
     </fragment>
 
@@ -83,15 +48,7 @@
         tools:layout="@layout/fragment_dictionary_favorites"
         >
 
-<!--        <action-->
-<!--            android:id="@+id/nav_sections_stack"-->
-<!--            app:destination="@id/nav_sections_stack"-->
-<!--            app:popUpTo="@id/nav_sections"-->
-<!--            app:popUpToSaveState="true"-->
-<!--            app:restoreState="true" />-->
-
     </fragment>
-
 
 
 </navigation>
