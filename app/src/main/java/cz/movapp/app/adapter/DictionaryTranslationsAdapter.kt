@@ -46,9 +46,8 @@ open class DictionaryTranslationsAdapter(
 
     var favoritesIds = mutableListOf<String>()
 
-    class ItemViewHolder(binding: DictionaryTranslationItemBinding) :
+    class ItemViewHolder(val binding: DictionaryTranslationItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val binding = binding
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -64,7 +63,16 @@ open class DictionaryTranslationsAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
 
-        holder.binding.apply {
+        bindDataToView(item, holder.binding)
+    }
+
+    fun bindDataToView(
+        item: DictionaryTranslationsData,
+        binding: DictionaryTranslationItemBinding
+    ) {
+        val context = binding.root.context
+
+        binding.apply {
             if (langPair.isReversed) {
                 textFrom.text = item.source_translation
                 textFromTrans.text = brackets(item.source_transcription)
@@ -78,53 +86,59 @@ open class DictionaryTranslationsAdapter(
             }
         }
 
-        setFavoriteStar(holder, favoritesIds.contains(item.id))
+        setFavoriteStar(context, binding, favoritesIds.contains(item.id))
 
-        holder.binding.imageFavorites.setOnClickListener {
+        binding.imageFavorites.setOnClickListener {
             if (favoritesIds.contains(item.id)) {
                 favoritesIds.remove(item.id)
                 favoritesViewModel.removeFavorite(item.id)
-                setFavoriteStar(holder, false)
+                setFavoriteStar(context, binding, false)
             } else {
                 favoritesIds.add(item.id)
                 favoritesViewModel.addFavorites(item.id)
-                setFavoriteStar(holder, true)
+                setFavoriteStar(context, binding, true)
             }
         }
 
-        holder.binding.imagePlaySoundFrom.setOnClickListener {
+        binding.imagePlaySoundFrom.setOnClickListener {
             if (langPair.isReversed)
-                playSound(holder.itemView.context, item.source_sound_local)
+                playSound(context, item.source_sound_local)
             else
-                playSound(holder.itemView.context, item.main_sound_local)
+                playSound(context, item.main_sound_local)
         }
 
-        holder.binding.imagePlaySoundTo.setOnClickListener {
+        binding.imagePlaySoundTo.setOnClickListener {
             if (langPair.isReversed)
-                playSound(holder.itemView.context, item.main_sound_local)
+                playSound(context, item.main_sound_local)
             else
-                playSound(holder.itemView.context, item.source_sound_local)
+                playSound(context, item.source_sound_local)
         }
     }
 
-    private fun brackets(s: String): CharSequence? {
+
+
+    fun brackets(s: String): CharSequence? {
         return "[${s}]"
     }
 
-    private val favouritesIconSet by lazy { AppCompatResources.getDrawable(context, R.drawable.ic_baseline_star_24) }
-    private val favouritesIconNotSet by lazy { AppCompatResources.getDrawable(context, R.drawable.ic_baseline_star_outline_24) }
+    val favouritesIconSet by lazy { AppCompatResources.getDrawable(context, R.drawable.ic_baseline_star_24) }
+    val favouritesIconNotSet by lazy { AppCompatResources.getDrawable(context, R.drawable.ic_baseline_star_outline_24) }
 
-    private fun setFavoriteStar(holder: ItemViewHolder, isSet: Boolean) {
+    fun setFavoriteStar(
+        context: Context,
+        binding: DictionaryTranslationItemBinding,
+        isSet: Boolean
+    ) {
         if (isSet) {
-            holder.binding.imageFavorites.setImageDrawable(favouritesIconSet)
-            holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
+            binding.imageFavorites.setImageDrawable(favouritesIconSet)
+            binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
                     context, R.color.secondaryColor
                 )
             )
         } else {
-            holder.binding.imageFavorites.setImageDrawable(favouritesIconNotSet)
-            holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
+            binding.imageFavorites.setImageDrawable(favouritesIconNotSet)
+            binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
                     context, R.color.primaryTextColor
                 )
