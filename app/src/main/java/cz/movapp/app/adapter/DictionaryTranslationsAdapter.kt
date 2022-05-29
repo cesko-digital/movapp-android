@@ -119,7 +119,7 @@ open class DictionaryTranslationsAdapter(
             holder.binding.imageFavorites.setImageDrawable(favouritesIconSet)
             holder.binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
-                    context, R.color.secondaryColor
+                    context, R.color.primaryTextColor
                 )
             )
         } else {
