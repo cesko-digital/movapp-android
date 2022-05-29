@@ -81,15 +81,14 @@ class AlphabetFragment : Fragment() {
 
     companion object{
         fun newInstance(direction: AlphabetDirection): AlphabetFragment {
-            val fragment = AlphabetFragment()
-            val args = Bundle()
-            args.putString(
-                DIRECTION_ARG_KEY,
-                direction.name
-            )
-            fragment.arguments = args
-
-            return fragment
+            return AlphabetFragment().apply {
+                arguments = Bundle().apply {
+                    putString(
+                        DIRECTION_ARG_KEY,
+                        direction.name
+                    )
+                }
+            }
         }
     }
 }
