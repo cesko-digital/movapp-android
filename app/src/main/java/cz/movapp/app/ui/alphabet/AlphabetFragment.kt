@@ -11,11 +11,11 @@ import cz.movapp.android.hideKeyboard
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
 import cz.movapp.app.adapter.AlphabetFragmentAdapter
-import cz.movapp.app.databinding.FragmentAlphabetBinding
+import cz.movapp.app.databinding.FragmentAlphabetsBinding
 
 class AlphabetFragment : Fragment() {
 
-    private var _binding: FragmentAlphabetBinding? = null
+    private var _binding: FragmentAlphabetsBinding? = null
 
     private val mainSharedViewModel: MainViewModel by activityViewModels()
 
@@ -28,7 +28,7 @@ class AlphabetFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
+        _binding = FragmentAlphabetsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.pager.adapter = AlphabetFragmentAdapter(this)

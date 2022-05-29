@@ -16,12 +16,12 @@ import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.adapter.AlphabetAdapter
-import cz.movapp.app.databinding.FragmentAlphabetFromBinding
+import cz.movapp.app.databinding.FragmentAlphabetBinding
 
 
 class AlphabetFromFragment : Fragment() {
 
-    private var _binding: FragmentAlphabetFromBinding? = null
+    private var _binding: FragmentAlphabetBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -39,7 +39,7 @@ class AlphabetFromFragment : Fragment() {
         val viewModel =
             ViewModelProvider(this, AlphabetViewModel.Factory(app, lang, AlphabetViewModel.AlphabetDirection.FROM))
                 .get(AlphabetViewModel::class.java)
-        _binding = FragmentAlphabetFromBinding.inflate(inflater, container, false)
+        _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
 
         binding.recyclerViewAlphabet.layoutManager = GridLayoutManager(requireContext(), 2)
 
