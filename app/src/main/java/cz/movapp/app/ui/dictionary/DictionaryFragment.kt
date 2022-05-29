@@ -77,9 +77,9 @@ class DictionaryFragment : Fragment() {
 
         dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
             if (it != null) {
-                if (binding.tab.selectedTabPosition == TAB_POSITION_SECTIONS_OR_TRANSLATIONS) {
+                if(findNavController().currentDestination?.route?.contains("sections") == true){
                     if (it.isEmpty()) {
-                        navigateToSectionsStack(false)
+                        navigateToDictionarySections()
                     } else {
                         if(findNavController().currentDestination?.id != R.id.nav_search){
                             findNavController().navigate(R.id.nav_search)
@@ -92,13 +92,17 @@ class DictionaryFragment : Fragment() {
         return root
     }
 
+    private fun navigateToDictionarySections() {
+        navigateToSectionsStack(false)
+    }
+
     private fun setupTabLayout() {
         binding.tab.getTabAt(0)?.select()
 
         binding.tab.addOnTabSelectedListener(
             object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
-                    selectTab(tab)
+                    navigateByTab(tab)
                 }
 
                 override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -109,7 +113,7 @@ class DictionaryFragment : Fragment() {
 
                 }
 
-                private fun selectTab(tab: TabLayout.Tab?) {
+                private fun navigateByTab(tab: TabLayout.Tab?) {
                     when (tab?.position) {
                         TAB_POSITION_FAVORITES -> {
                             navigateToFavoritesStack()
@@ -133,7 +137,7 @@ class DictionaryFragment : Fragment() {
                         "favorites" -> {
                             binding.tab.selectTab(binding.tab.getTabAt(TAB_POSITION_FAVORITES))
                         }
-                        else -> {
+                        else -> if(destination.route?.contains("sections") == true){
                             binding.tab.selectTab(
                                 binding.tab.getTabAt(
                                     TAB_POSITION_SECTIONS_OR_TRANSLATIONS
