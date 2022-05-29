@@ -36,9 +36,10 @@ class AlphabetFragment : Fragment() {
     ): View {
         val lang = mainSharedViewModel.selectedLanguage.value!!
         val app = this.requireActivity().application as App
+        val direction = getArgDirection()
         val viewModel =
-            ViewModelProvider(this, AlphabetViewModel.Factory(app, lang, getArgDirection()))
-                .get(AlphabetViewModel::class.java)
+            ViewModelProvider(this, AlphabetViewModel.Factory(app, lang, direction))
+                .get(direction.name,AlphabetViewModel::class.java)
         _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
         this.viewLifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onDestroy(owner: LifecycleOwner) {
