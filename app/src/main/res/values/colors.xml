@@ -33,4 +33,5 @@
     <color name="greyTextColor">#676767</color>
 
     <color name="linkColor">#013abd</color>
+    <color name="children_background">#f7e06a</color>
 </resources>

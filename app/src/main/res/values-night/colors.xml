@@ -27,4 +27,5 @@
     <color name="greyTextColor">@color/primaryTextColor</color>
 
     <color name="linkColor">@color/secondaryDarkColor</color>
+    <color name="children_background">@color/alphabetSurfaceColor</color>
 </resources>
