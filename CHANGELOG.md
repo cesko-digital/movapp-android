@@ -2,6 +2,10 @@ Details about this file’s format at <http://keepachangelog.com/>.
 TODO: The change log is parsed automatically when minting releases through Fastlane, see `Fastlane/Fastfile`.
 
 ## [1.1.6] - 2022-05-27Z
+- Bug fix: Nešlo jít do oblíbených https://github.com/cesko-digital/movapp-android/issues/13
+- Hvězdička oblíbených změněna na modrou, pokud je vybrána 
+
+## [1.1.6] - 2022-05-27Z
 
 - Chování vyhledávání: Při smazání vyhlédávacího výrazu přejde na seznam frází.Vyhledává ve všech výrazech nikoliv v názvech oborů. Vyhledává v oblíbených i ve všech slovech zároveň.
 - Ikona oblíbených je pouze obrys hvězdy místo plné hvězdy
