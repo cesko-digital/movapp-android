@@ -15,7 +15,7 @@ import cz.movapp.android.hideKeyboard
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.AlphabetFromAdapter
+import cz.movapp.app.adapter.AlphabetAdapter
 import cz.movapp.app.databinding.FragmentAlphabetFromBinding
 
 
@@ -45,7 +45,7 @@ class AlphabetFromFragment : Fragment() {
 
         viewModel.alphabetsState.observe(viewLifecycleOwner) {
             if(it.isLoaded){
-                binding.recyclerViewAlphabet.adapter = AlphabetFromAdapter(it.alphabetData)
+                binding.recyclerViewAlphabet.adapter = AlphabetAdapter(it.alphabetData)
                 it.scrollPositions[it.lang.langCode]?.let { scrollPos ->
                     binding.recyclerViewAlphabet.restoreSavableScrollState(scrollPos)
                     (binding.recyclerViewAlphabet.layoutManager as GridLayoutManager)
