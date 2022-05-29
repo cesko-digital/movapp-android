@@ -27,10 +27,6 @@ class AlphabetViewModel(application: Application, langPair: LanguagePair, direct
     ) {
     }
 
-    enum class AlphabetDirection {
-        FROM, TO
-    }
-
     private lateinit var stateKey: StateStore.Key<Map<String, Int>>
     private lateinit var language: Language
 

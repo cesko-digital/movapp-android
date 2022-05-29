@@ -37,7 +37,7 @@ class AlphabetToFragment : Fragment() {
         val lang = mainSharedViewModel.selectedLanguage.value!!
         val app = this.requireActivity().application as App
         val viewModel =
-            ViewModelProvider(this, AlphabetViewModel.Factory(app, lang, AlphabetViewModel.AlphabetDirection.TO))
+            ViewModelProvider(this, AlphabetViewModel.Factory(app, lang, AlphabetDirection.TO))
                 .get(AlphabetViewModel::class.java)
         _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
 

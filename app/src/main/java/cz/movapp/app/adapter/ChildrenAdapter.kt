@@ -21,8 +21,7 @@ class ChildrenAdapter (
 
     var langPair = LanguagePair.getDefault()
 
-    class ItemViewHolder(binding: ChildrenItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val binding = binding
+    class ItemViewHolder(val binding: ChildrenItemBinding) : RecyclerView.ViewHolder(binding.root) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
