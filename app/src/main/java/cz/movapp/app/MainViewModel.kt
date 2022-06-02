@@ -31,7 +31,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun restoreLanguage() {
         viewModelScope.launch(Dispatchers.IO) {
-            val selectedLanguage = appModule().stateStore.restoreState(LanguageStateKeys.SELECTED_PAIR)
+            val selectedLanguage = appModule().dataStore.restoreState(LanguageStateKeys.SELECTED_PAIR)
             val lang = selectedLanguage.first()
             if (lang != null)
                 _selectedLanguage.postValue(lang)
@@ -39,7 +39,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun storeLanguage() {
-        appModule().stateStore.saveState(
+        appModule().dataStore.saveState(
             LanguageStateKeys.SELECTED_PAIR,
             selectedLanguage.value!!
         )

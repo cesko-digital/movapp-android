@@ -10,7 +10,7 @@ import org.junit.Test
 import java.lang.reflect.Type
 
 
-class StateStoreTest{
+class GsonDataStoreTest{
 
     @Test
     fun gsonGenericsDeserialization() {
@@ -28,13 +28,13 @@ class StateStoreTest{
     }
 
 
-    val k1 = StateStore.Key<String>("k1")
+    val k1 = DataStoreKey<String>("k1")
     val v1 = "v1"
 
-    val k2 = StateStore.Key<String>("k3")
+    val k2 = DataStoreKey<String>("k3")
     val v2 = "v3"
 
-    val k3 = StateStore.Key<Map<Boolean,Int>>("k2")
+    val k3 = DataStoreKey<Map<Boolean,Int>>("k2")
     val v3 = mapOf(true to 1)
 
 
@@ -42,7 +42,7 @@ class StateStoreTest{
     fun `restore saves restores values`() {
         runBlocking {
             val dataMap = mutableMapOf<Preferences.Key<String>, String?>()
-            val stateStoreMock = stateStoreMock(dataMap, this)
+            val stateStoreMock = gsonDataStoreMock(dataMap, this)
 
             stateStoreMock.saveState(k1, v1)
             assertThat(dataMap).isNotEmpty()
@@ -60,7 +60,7 @@ class StateStoreTest{
     fun `restore saves restores generic values`() {
         runBlocking {
             val dataMap = mutableMapOf<Preferences.Key<String>, String?>()
-            val stateStoreMock = stateStoreMock(dataMap, this)
+            val stateStoreMock = gsonDataStoreMock(dataMap, this)
 
 
             stateStoreMock.saveState(k3, v3)
@@ -75,7 +75,7 @@ class StateStoreTest{
     fun `restore throws exception when top level is generic type and Key type is null`() {
         runBlocking {
             val dataMap = mutableMapOf<Preferences.Key<String>, String?>()
-            val stateStoreMock = stateStoreMock(dataMap, this)
+            val stateStoreMock = gsonDataStoreMock(dataMap, this)
 
             stateStoreMock.saveState(k3, v3)
             val restoreState = stateStoreMock.restoreState(k3)
@@ -84,14 +84,14 @@ class StateStoreTest{
         }
     }
 
-    val k4 = StateStore.Key<Map<Boolean,Map<Boolean, Int>>>("k4", object : TypeToken<Map<Boolean, Map<Boolean, Int>>>() {}.type)
+    val k4 = DataStoreKey<Map<Boolean,Map<Boolean, Int>>>("k4", object : TypeToken<Map<Boolean, Map<Boolean, Int>>>() {}.type)
     val v4 = mapOf(true to mapOf(true to 1))
 
     @Test
     fun `restore when Key type set`() {
         runBlocking {
             val dataMap = mutableMapOf<Preferences.Key<String>, String?>()
-            val stateStoreMock = stateStoreMock(dataMap, this)
+            val stateStoreMock = gsonDataStoreMock(dataMap, this)
 
 
             stateStoreMock.saveState(k4, v4)
@@ -115,7 +115,7 @@ class StateStoreTest{
     fun `restore when Key type set2`() {
         runBlocking {
             val dataMap = mutableMapOf<Preferences.Key<String>, String?>()
-            val stateStoreMock = stateStoreMock(dataMap, this)
+            val stateStoreMock = gsonDataStoreMock(dataMap, this)
 
             stateStoreMock.saveState(k5, v5)
             val restoreState = stateStoreMock.restoreState(k5)
@@ -129,12 +129,12 @@ class StateStoreTest{
      */
     data class TODOBetterKey<T>(val name: String, val type: Type? = null) {
         companion object{
-            inline fun <reified T> create(name: String, type :Type? = null): StateStore.Key<T> {
+            inline fun <reified T> create(name: String, type :Type? = null): DataStoreKey<T> {
 //                checkGenerics<T>(type)
                 if (type == null && T::class.java.typeParameters?.isNotEmpty() == true) {
-                    return StateStore.Key(name, TypeToken.get(T::class.java).type)
+                    return DataStoreKey(name, TypeToken.get(T::class.java).type)
                 } else {
-                    return StateStore.Key(name)
+                    return DataStoreKey(name)
                 }
 
             }

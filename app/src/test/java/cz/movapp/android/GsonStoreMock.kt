@@ -12,16 +12,16 @@ import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
 
 /**
- * Mock of [StateStore] backed by map
+ * Mock of [GsonDataStore] backed by map
  */
-fun stateStoreMock(
+fun gsonDataStoreMock(
     dataMap: MutableMap<Preferences.Key<String>, String?> = mutableMapOf(),
     appScope: CoroutineScope,
     dispacher: CoroutineDispatcher = Dispatchers.Unconfined
-): StateStore {
+): GsonDataStore {
     val prefMock: Preferences = preferencesMock(dataMap)
 
-    val stateStoreMock = StateStore(appScope, object : DataStore<Preferences> {
+    val dataStoreMock = GsonDataStore(appScope, object : DataStore<Preferences> {
         override val data: Flow<Preferences>
             get() = flowOf(prefMock)
 
@@ -31,7 +31,7 @@ fun stateStoreMock(
             return pref2
         }
     }, dispacher)
-    return stateStoreMock
+    return dataStoreMock
 }
 
 

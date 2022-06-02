@@ -17,7 +17,7 @@ class OnBoardingViewModel(application: Application) :  AndroidViewModel(applicat
     val onBoardingDone: MutableLiveData<Boolean> = _onBoardingDone
 
     override fun onCleared() {
-        appModule().stateStore.saveState(
+        appModule().dataStore.saveState(
             OnBoardingStateKeys.ON_BOARDING_DONE,
             onBoardingDone.value!!
         )
