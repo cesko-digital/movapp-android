@@ -15,7 +15,6 @@ import cz.movapp.android.hideKeyboard
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.AlphabetAdapter
 import cz.movapp.app.databinding.FragmentAlphabetBinding
 
 

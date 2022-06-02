@@ -1,4 +1,4 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.dictionary
 
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.R
 import cz.movapp.app.data.LanguagePair
-import cz.movapp.app.ui.dictionary.DictionarySectionsData
 
 class DictionaryPhraseSectionsAdapter(
     private var dataset: List<DictionarySectionsData>,

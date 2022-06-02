@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionaryPhrasesSearchAllAdapter
 import cz.movapp.app.databinding.FragmentDictionaryPhrasesSearchAllBinding
 
 class DictionaryPhrasesSearchAllFragment : Fragment() {

@@ -1,10 +1,9 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.children
 
 import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +11,6 @@ import cz.movapp.android.playSound
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.R
 import cz.movapp.app.databinding.ChildrenItemBinding
-import cz.movapp.app.ui.children.ChildrenData
 import java.io.IOException
 
 class ChildrenAdapter (

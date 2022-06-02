@@ -10,7 +10,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
-import cz.movapp.app.adapter.AlphabetFragmentAdapter
 import cz.movapp.app.databinding.FragmentAlphabetsBinding
 
 class AlphabetsFragment : Fragment() {

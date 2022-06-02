@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionaryPhrasesSearchAllAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
 
 class DictionaryFavoritesFragment : Fragment() {

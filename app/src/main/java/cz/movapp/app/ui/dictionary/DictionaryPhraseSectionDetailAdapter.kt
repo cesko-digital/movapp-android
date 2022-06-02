@@ -1,4 +1,4 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.dictionary
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -15,7 +15,6 @@ import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.R
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.DictionaryTranslationItemBinding
-import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 
 open class DictionaryPhraseSectionDetailAdapter(
     private val wholeDataset: List<DictionaryTranslationsData>,

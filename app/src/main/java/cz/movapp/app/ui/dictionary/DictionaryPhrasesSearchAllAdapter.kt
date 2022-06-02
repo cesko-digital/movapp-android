@@ -1,8 +1,7 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.dictionary
 
 import android.content.Context
 import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import java.util.*
 
 class DictionaryPhrasesSearchAllAdapter(

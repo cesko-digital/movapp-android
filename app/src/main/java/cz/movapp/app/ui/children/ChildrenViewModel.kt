@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import cz.movapp.app.App
-import cz.movapp.app.adapter.ChildrenAdapter
 import cz.movapp.app.appModule
 import cz.movapp.app.data.ChildrenDatasource
 import kotlinx.coroutines.Dispatchers

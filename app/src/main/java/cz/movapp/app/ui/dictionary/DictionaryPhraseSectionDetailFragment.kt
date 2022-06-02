@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionaryPhraseSectionDetailAdapter
 import cz.movapp.app.databinding.FragmentDictionaryPhraseSectionDetailBinding
 
 class DictionaryPhraseSectionDetailFragment : Fragment() {

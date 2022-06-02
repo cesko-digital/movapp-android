@@ -1,4 +1,4 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.alphabet
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

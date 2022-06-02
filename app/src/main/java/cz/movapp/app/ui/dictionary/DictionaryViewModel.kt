@@ -3,10 +3,6 @@ package cz.movapp.app.ui.dictionary
 import android.app.Application
 import androidx.lifecycle.*
 import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.adapter.DictionaryFavoritesAdapter
-import cz.movapp.app.adapter.DictionaryPhrasesSearchAllAdapter
-import cz.movapp.app.adapter.DictionaryPhraseSectionsAdapter
-import cz.movapp.app.adapter.DictionaryPhraseSectionDetailAdapter
 import cz.movapp.app.data.DictionaryDatasource
 
 class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewModel) :
