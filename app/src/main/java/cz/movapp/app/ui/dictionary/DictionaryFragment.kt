@@ -17,7 +17,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.tabs.TabLayout
-import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.FavoritesViewModelFactory
@@ -203,15 +202,6 @@ class DictionaryFragment : Fragment() {
             launchSingleTop = true
             restoreState = true
         }
-    }
-
-
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        hideKeyboard(view, activity)
     }
 
     override fun onDestroyView() {

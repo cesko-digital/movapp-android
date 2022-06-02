@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
@@ -67,13 +66,6 @@ class DictionaryFavoritesFragment : Fragment() {
 
     private fun getRVAdapter(): DictionaryPhrasesSearchAllAdapter {
         return binding.recyclerViewDictionaryFavorites.adapter as DictionaryPhrasesSearchAllAdapter
-    }
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        hideKeyboard(view, activity)
     }
 
     override fun onDestroyView() {

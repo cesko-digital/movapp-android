@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.divider.MaterialDivider
-import cz.movapp.android.hideKeyboard
 import cz.movapp.app.R
 import cz.movapp.app.data.Section
 import cz.movapp.app.databinding.FragmentAboutTeamBinding
@@ -40,12 +39,6 @@ class AboutTeamFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        hideKeyboard(view, activity)
     }
 
     private fun createSectionView(section: Section): CardView {

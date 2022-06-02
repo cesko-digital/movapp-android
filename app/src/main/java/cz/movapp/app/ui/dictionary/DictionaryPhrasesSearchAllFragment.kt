@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.databinding.FragmentDictionaryPhrasesSearchAllBinding
@@ -109,11 +110,10 @@ class DictionaryPhrasesSearchAllFragment : Fragment() {
         return root
     }
 
-
-
-
     override fun onDestroyView() {
         super.onDestroyView()
+
+        hideKeyboard(requireView(), requireActivity())
 
         (binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter).submitList(
             listOf()

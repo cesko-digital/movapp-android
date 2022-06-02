@@ -11,7 +11,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import cz.movapp.android.getSavableScrollState
-import cz.movapp.android.hideKeyboard
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
@@ -43,10 +42,6 @@ class AlphabetFragment : Fragment() {
         this.viewLifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onDestroy(owner: LifecycleOwner) {
                 _binding = null
-            }
-
-            override fun onStart(owner: LifecycleOwner) {
-                hideKeyboard(binding.root, activity)
             }
         })
 
