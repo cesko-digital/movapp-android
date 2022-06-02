@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -13,6 +14,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.tabs.TabLayout
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
@@ -89,6 +92,13 @@ class DictionaryFragment : Fragment() {
             }
         }
 
+        binding.topAppBar.setNavigationOnClickListener {
+            NavigationUI.navigateUp(
+                findNavController(),
+                AppBarConfiguration(findNavController().graph)
+            )
+        }
+
         return root
     }
 
@@ -144,6 +154,13 @@ class DictionaryFragment : Fragment() {
                                 )
                             )
                         }
+                    }
+
+                    when (destination.route) {
+                        "sections" -> binding.topAppBar.navigationIcon = null
+                        "favorites" -> binding.topAppBar.navigationIcon = null
+                        else -> binding.topAppBar.navigationIcon = AppCompatResources
+                            .getDrawable(requireContext(), R.drawable.ic_baseline_arrow_back_24)
                     }
                 }
             }
