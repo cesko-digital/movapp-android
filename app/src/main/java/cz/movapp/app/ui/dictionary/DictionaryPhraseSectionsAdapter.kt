@@ -1,4 +1,4 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.dictionary
 
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -10,12 +10,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.R
 import cz.movapp.app.data.LanguagePair
-import cz.movapp.app.ui.dictionary.DictionarySectionsData
 
-class DictionarySectionsAdapter(
+class DictionaryPhraseSectionsAdapter(
     private var dataset: List<DictionarySectionsData>,
     var onItemClicked: (DictionarySectionsData) -> Unit = {},
-) : RecyclerView.Adapter<DictionarySectionsAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<DictionaryPhraseSectionsAdapter.ItemViewHolder>() {
 
     var langPair = LanguagePair.getDefault()
 

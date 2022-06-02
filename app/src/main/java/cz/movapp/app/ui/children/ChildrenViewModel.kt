@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import cz.movapp.app.App
-import cz.movapp.app.adapter.ChildrenAdapter
 import cz.movapp.app.appModule
 import cz.movapp.app.data.ChildrenDatasource
 import kotlinx.coroutines.Dispatchers
@@ -29,7 +28,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
         viewModelScope.launch(Dispatchers.IO) {
 
             val storedScrollPositions =
-                appModule().stateStore.restoreState(ChildrenStateKeys.SCROLL_POSITIONS)
+                appModule().dataStore.restoreState(ChildrenStateKeys.SCROLL_POSITIONS)
 
             val scrollPositions = storedScrollPositions.first()
 
@@ -46,7 +45,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
     private fun appModule() = getApplication<App>().appModule()
 
     override fun onCleared() {
-        appModule().stateStore.saveState(
+        appModule().dataStore.saveState(
             ChildrenStateKeys.SCROLL_POSITIONS,
             childrenState.value!!
         )

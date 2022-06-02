@@ -1,4 +1,4 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.alphabet
 
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -12,18 +12,16 @@ import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.android.playSound
 import cz.movapp.app.R
 import cz.movapp.app.databinding.AlphabetItemBinding
-import cz.movapp.app.ui.alphabet.AlphabetData
-import cz.movapp.app.ui.alphabet.LetterExampleData
 
 
-class AlphabetToAdapter(
+class AlphabetAdapter(
         private val dataset: List<AlphabetData>
-) : RecyclerView.Adapter<AlphabetToAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<AlphabetAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(val binding: AlphabetItemBinding) : RecyclerView.ViewHolder(binding.root) {
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlphabetToAdapter.ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding = AlphabetItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
@@ -32,7 +30,7 @@ class AlphabetToAdapter(
         return dataset.size
     }
 
-    override fun onBindViewHolder(holder: AlphabetToAdapter.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
         holder.apply {
@@ -59,7 +57,7 @@ class AlphabetToAdapter(
         }
     }
 
-    private fun createDynamicExample(holder: AlphabetToAdapter.ItemViewHolder, exampleData: LetterExampleData): RelativeLayout {
+    private fun createDynamicExample(holder: ItemViewHolder, exampleData: LetterExampleData): RelativeLayout {
         lateinit var paramsExample: RelativeLayout.LayoutParams
 
         /* create relative layout for one example */

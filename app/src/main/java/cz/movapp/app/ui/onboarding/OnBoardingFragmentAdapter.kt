@@ -1,4 +1,4 @@
-package cz.movapp.app.adapter
+package cz.movapp.app.ui.onboarding
 
 import android.view.View
 import androidx.fragment.app.Fragment

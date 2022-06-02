@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cz.movapp.android.hideKeyboard
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.ChildrenAdapter
 import cz.movapp.app.databinding.FragmentChildrenBinding
 
 class ChildrenFragment : Fragment() {

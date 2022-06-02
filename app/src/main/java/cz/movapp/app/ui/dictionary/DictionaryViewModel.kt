@@ -3,26 +3,21 @@ package cz.movapp.app.ui.dictionary
 import android.app.Application
 import androidx.lifecycle.*
 import cz.movapp.app.FavoritesViewModel
-import cz.movapp.app.adapter.DictionaryFavoritesAdapter
-import cz.movapp.app.adapter.DictionarySearchAdapter
-import cz.movapp.app.adapter.DictionarySectionsAdapter
-import cz.movapp.app.adapter.DictionaryTranslationsAdapter
 import cz.movapp.app.data.DictionaryDatasource
 
 class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewModel) :
     AndroidViewModel(app) {
 
 
-    val sections: LiveData<DictionarySectionsAdapter> =
-        MutableLiveData<DictionarySectionsAdapter>().apply {
+    val sections: LiveData<DictionaryPhraseSectionsAdapter> =
+        MutableLiveData<DictionaryPhraseSectionsAdapter>().apply {
             value =
-                DictionarySectionsAdapter(DictionaryDatasource().loadSections(app.applicationContext))
+                DictionaryPhraseSectionsAdapter(DictionaryDatasource().loadSections(app.applicationContext))
         }
 
-    val translations: LiveData<DictionaryTranslationsAdapter> =
-        MutableLiveData<DictionaryTranslationsAdapter>().apply {
-            value = DictionaryTranslationsAdapter(
-                app,
+    val translations: LiveData<DictionaryPhraseSectionDetailAdapter> =
+        MutableLiveData<DictionaryPhraseSectionDetailAdapter>().apply {
+            value = DictionaryPhraseSectionDetailAdapter(
                 DictionaryDatasource().loadTranslations(app.applicationContext),
                 favoritesViewModel
             )
@@ -31,25 +26,24 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
     val favorites: LiveData<DictionaryFavoritesAdapter> =
         MutableLiveData<DictionaryFavoritesAdapter>().apply {
             value = DictionaryFavoritesAdapter(
-                app,
                 DictionaryDatasource().loadTranslations(app.applicationContext),
                 favoritesViewModel
             )
         }
 
 
-    val translationsSearches: LiveData<DictionarySearchAdapter> =
-        MutableLiveData<DictionarySearchAdapter>().apply {
-            value = DictionarySearchAdapter(
+    val translationsSearches: LiveData<DictionaryPhrasesSearchAllAdapter> =
+        MutableLiveData<DictionaryPhrasesSearchAllAdapter>().apply {
+            value = DictionaryPhrasesSearchAllAdapter(
                 app,
                 DictionaryDatasource().loadTranslations(app.applicationContext),
                 favoritesViewModel
             )
         }
 
-    val favoritesSearches: LiveData<DictionarySearchAdapter> =
-        MutableLiveData<DictionarySearchAdapter>().apply {
-            value = DictionarySearchAdapter(
+    val favoritesSearches: LiveData<DictionaryPhrasesSearchAllAdapter> =
+        MutableLiveData<DictionaryPhrasesSearchAllAdapter>().apply {
+            value = DictionaryPhrasesSearchAllAdapter(
                 app,
                 DictionaryDatasource().loadTranslations(app.applicationContext),
                 favoritesViewModel

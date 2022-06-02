@@ -10,12 +10,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionarySearchAdapter
-import cz.movapp.app.databinding.FragmentDictionarySearchBinding
+import cz.movapp.app.databinding.FragmentDictionaryPhrasesSearchAllBinding
 
-class DictionarySearchFragment : Fragment() {
+class DictionaryPhrasesSearchAllFragment : Fragment() {
 
-    private var _binding: FragmentDictionarySearchBinding? = null
+    private var _binding: FragmentDictionaryPhrasesSearchAllBinding? = null
 
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
@@ -31,7 +30,7 @@ class DictionarySearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDictionarySearchBinding.inflate(inflater, container, false)
+        _binding = FragmentDictionaryPhrasesSearchAllBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val recyclerView = binding.recyclerViewDictionarySearch
@@ -43,7 +42,7 @@ class DictionarySearchFragment : Fragment() {
             val favoritesIds = mutableListOf<String>()
             it.forEach { favoritesIds.add(it.translationId) }
 
-            val adapter = recyclerView.adapter as DictionarySearchAdapter
+            val adapter = recyclerView.adapter as DictionaryPhrasesSearchAllAdapter
             if(adapter.favoritesIds != favoritesIds){
                 adapter.favoritesIds = favoritesIds
                 adapter.notifyDataSetChanged()
@@ -56,7 +55,7 @@ class DictionarySearchFragment : Fragment() {
          * would remain on previously found result but the more accurate result
          * is on top.
          */
-        (recyclerView.adapter as DictionarySearchAdapter).registerAdapterDataObserver(
+        (recyclerView.adapter as DictionaryPhrasesSearchAllAdapter).registerAdapterDataObserver(
             object: RecyclerView.AdapterDataObserver() {
                 init {
                     adapterDataObservers.add(this)
@@ -91,7 +90,7 @@ class DictionarySearchFragment : Fragment() {
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
             val adapter =
-                binding.recyclerViewDictionarySearch.adapter as DictionarySearchAdapter
+                binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter
             if(adapter.langPair != lang){
                 adapter.langPair = lang
                 adapter.notifyDataSetChanged()
@@ -116,12 +115,12 @@ class DictionarySearchFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
 
-        (binding.recyclerViewDictionarySearch.adapter as DictionarySearchAdapter).submitList(
+        (binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter).submitList(
             listOf()
         )
 
         for (observer in adapterDataObservers)
-            (binding.recyclerViewDictionarySearch.adapter as DictionarySearchAdapter).
+            (binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter).
                 unregisterAdapterDataObserver(observer)
         adapterDataObservers.clear()
 

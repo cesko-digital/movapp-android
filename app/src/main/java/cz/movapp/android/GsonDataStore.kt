@@ -19,18 +19,11 @@ import java.lang.reflect.Type
 /**
  * Key/Value pair disk storage
  */
-class StateStore(val appScope: CoroutineScope, dataStore: DataStore<Preferences>, val saveStateDispatcher: CoroutineDispatcher = Dispatchers.IO) :
+class GsonDataStore(val appScope: CoroutineScope, dataStore: DataStore<Preferences>, val saveStateDispatcher: CoroutineDispatcher = Dispatchers.IO) :
     DataStore<Preferences> by dataStore {
 
     companion object {
 
-    }
-
-    /**
-     * @param name
-     * @param type type information for GSON deserialization. example for Map<Boolean, Int> = "object : TypeToken<Map<Boolean, Int>>() {}.type"
-     */
-    data class Key<T>(val name: String, val type: Type? = null) {
     }
 
     val gson = Gson()
@@ -41,7 +34,7 @@ class StateStore(val appScope: CoroutineScope, dataStore: DataStore<Preferences>
      * @return value or null if not found
      */
     inline fun <reified T> restoreState(
-        key: Key<T>,
+        key: DataStoreKey<T>,
     ): Flow<T?> {
         if (key.type == null && T::class.java.typeParameters?.isNotEmpty() == true) {
             throw UnsupportedOperationException("Top level generic types like Map<Boolean, Int> not support add type parameter")
@@ -79,7 +72,7 @@ class StateStore(val appScope: CoroutineScope, dataStore: DataStore<Preferences>
      * @return value or null if not found
      */
     inline fun <reified T> restoreState(
-        key: Key<T>,
+        key: DataStoreKey<T>,
         type: Type
     ): Flow<T?> {
 
@@ -104,9 +97,9 @@ class StateStore(val appScope: CoroutineScope, dataStore: DataStore<Preferences>
     /**
      * !! add @Keep annotation fro serialized classes.
      */
-    inline fun <reified T> saveState(key: Key<T>, value: T) {
+    inline fun <reified T> saveState(key: DataStoreKey<T>, value: T) {
         appScope.launch(saveStateDispatcher) {
-            this@StateStore.edit { pref: MutablePreferences ->
+            this@GsonDataStore.edit { pref: MutablePreferences ->
                 pref[stringPreferencesKey(key.name)] = gson.toJson(value)
             }
         }

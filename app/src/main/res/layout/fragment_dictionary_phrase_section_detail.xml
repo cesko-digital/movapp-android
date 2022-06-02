@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dictionary.DictionaryTranslationsFragment"
+    tools:context=".ui.dictionary.DictionaryPhraseSectionDetailFragment"
     >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_dictionary_search"
+        android:id="@+id/recycler_view_dictionary_translations"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"

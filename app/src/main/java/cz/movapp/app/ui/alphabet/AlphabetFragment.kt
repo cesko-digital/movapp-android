@@ -6,59 +6,88 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.android.material.tabs.TabLayoutMediator
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import cz.movapp.android.getSavableScrollState
 import cz.movapp.android.hideKeyboard
+import cz.movapp.android.restoreSavableScrollState
+import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.R
-import cz.movapp.app.adapter.AlphabetFragmentAdapter
 import cz.movapp.app.databinding.FragmentAlphabetBinding
+
+
+private val DIRECTION_ARG_KEY = "alphabetDirection"
 
 class AlphabetFragment : Fragment() {
 
     private var _binding: FragmentAlphabetBinding? = null
 
-    private val mainSharedViewModel: MainViewModel by activityViewModels()
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private val mainSharedViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val lang = mainSharedViewModel.selectedLanguage.value!!
+        val app = this.requireActivity().application as App
+        val direction = getArgDirection()
+        val viewModel =
+            ViewModelProvider(this, AlphabetViewModel.Factory(app, lang, direction))
+                .get(direction.name,AlphabetViewModel::class.java)
         _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        this.viewLifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
+            override fun onDestroy(owner: LifecycleOwner) {
+                _binding = null
+            }
 
-        binding.pager.adapter = AlphabetFragmentAdapter(this)
+            override fun onStart(owner: LifecycleOwner) {
+                hideKeyboard(binding.root, activity)
+            }
+        })
 
-        TabLayoutMediator(binding.tab, binding.pager) { tab, position ->
-            if (mainSharedViewModel.selectedLanguage.value!!.isReversed) {
-                when (position) {
-                    0 -> tab.setText(R.string.alphabet_czech)
-                    1 -> tab.setText(R.string.alphabet_ukrainian)
+        binding.recyclerViewAlphabet.layoutManager = GridLayoutManager(requireContext(), 2)
+
+        viewModel.alphabetsState.observe(viewLifecycleOwner) {
+            if(it.isLoaded){
+                binding.recyclerViewAlphabet.adapter = AlphabetAdapter(it.alphabetData)
+                it.scrollPositions[it.lang.langCode]?.let { scrollPos ->
+                    binding.recyclerViewAlphabet.restoreSavableScrollState(scrollPos)
+                    (binding.recyclerViewAlphabet.layoutManager as GridLayoutManager)
+                        .scrollToPositionWithOffset(scrollPos, 1)
                 }
-            } else {
-                when (position) {
-                    0 -> tab.setText(R.string.alphabet_ukrainian)
-                    1 -> tab.setText(R.string.alphabet_czech)
+                binding.recyclerViewAlphabet.setHasFixedSize(true)
+            }
+        }
+
+        this.lifecycle.addObserver(object : DefaultLifecycleObserver {
+            override fun onPause(owner: LifecycleOwner) {
+                viewModel.onLanguageChanged( oldScrollPosition = binding.recyclerViewAlphabet.getSavableScrollState())
+            }
+        })
+        return binding.root
+    }
+
+    private fun getArgDirection(): AlphabetDirection {
+        return AlphabetDirection.valueOf(
+            requireArguments().getString(DIRECTION_ARG_KEY)!!
+        )
+    }
+
+    companion object{
+        fun newInstance(direction: AlphabetDirection): AlphabetFragment {
+            return AlphabetFragment().apply {
+                arguments = Bundle().apply {
+                    putString(
+                        DIRECTION_ARG_KEY,
+                        direction.name
+                    )
                 }
             }
-        }.attach()
-
-        return root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        hideKeyboard(view, activity)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        _binding = null
+        }
     }
 }
