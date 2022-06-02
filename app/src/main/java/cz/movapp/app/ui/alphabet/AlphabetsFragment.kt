@@ -32,7 +32,7 @@ class AlphabetsFragment : Fragment() {
 
         binding.pager.adapter = AlphabetFragmentAdapter(this)
 
-        TabLayoutMediator(binding.tab, binding.pager) { tab, position ->
+        TabLayoutMediator(binding.tabs, binding.pager) { tab, position ->
             if (mainSharedViewModel.selectedLanguage.value!!.isReversed) {
                 when (position) {
                     0 -> tab.setText(R.string.alphabet_czech)

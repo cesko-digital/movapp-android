@@ -97,9 +97,9 @@ class DictionaryFragment : Fragment() {
     }
 
     private fun setupTabLayout() {
-        binding.tab.getTabAt(0)?.select()
+        binding.tabs.getTabAt(0)?.select()
 
-        binding.tab.addOnTabSelectedListener(
+        binding.tabs.addOnTabSelectedListener(
             object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     navigateByTab(tab)
@@ -135,11 +135,11 @@ class DictionaryFragment : Fragment() {
                 ) {
                     when (destination.route) {
                         "favorites" -> {
-                            binding.tab.selectTab(binding.tab.getTabAt(TAB_POSITION_FAVORITES))
+                            binding.tabs.selectTab(binding.tabs.getTabAt(TAB_POSITION_FAVORITES))
                         }
                         else -> if(destination.route?.contains("sections") == true){
-                            binding.tab.selectTab(
-                                binding.tab.getTabAt(
+                            binding.tabs.selectTab(
+                                binding.tabs.getTabAt(
                                     TAB_POSITION_SECTIONS_OR_TRANSLATIONS
                                 )
                             )
