@@ -55,7 +55,7 @@ class AlphabetFragment : Fragment() {
         viewModel.alphabetsState.observe(viewLifecycleOwner) {
             if(it.isLoaded){
                 binding.recyclerViewAlphabet.adapter = AlphabetAdapter(it.alphabetData)
-                it.scrollPositions[it.lang.langCode]?.let { scrollPos ->
+                it.scrollPositions[it.sourceLang.langCode]?.let { scrollPos ->
                     binding.recyclerViewAlphabet.restoreSavableScrollState(scrollPos)
                     (binding.recyclerViewAlphabet.layoutManager as GridLayoutManager)
                         .scrollToPositionWithOffset(scrollPos, 1)

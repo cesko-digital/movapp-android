@@ -15,7 +15,7 @@ class DictionaryDatasource {
         var dict = mutableListOf<DictionarySectionsData>()
 
         try {
-            jsonString = context.assets.open("dictionary/uk-cs-dictionary.json").bufferedReader().use { it.readText() }
+            jsonString = context.assets.open("uk-cs-dictionary.json").bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             ioException.printStackTrace()
         }
@@ -51,7 +51,7 @@ class DictionaryDatasource {
         var translations = mutableListOf<DictionaryTranslationsData>()
 
         try {
-            jsonString = context.assets.open("dictionary/uk-cs-dictionary.json").bufferedReader().use { it.readText() }
+            jsonString = context.assets.open("uk-cs-dictionary.json").bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             ioException.printStackTrace()
         }
@@ -71,13 +71,13 @@ class DictionaryDatasource {
                     jsonObjMainItem.getString("transcription"),
                     stripAccents(jsonObjMainItem.getString("translation").toString().lowercase(Locale.getDefault())),
                     jsonObjMainItem.getString("sound_url"),
-                    jsonObjMainItem.getString("sound_url").replace("https://data.movapp.eu/data", "dictionary"),
+                    jsonObjMainItem.getString("sound_url").replace("https://data.movapp.eu/", ""),
 
                     jsonObjSourceItem.getString("translation"),
                     jsonObjSourceItem.getString("transcription"),
                     jsonObjSourceItem.getString("translation").lowercase(Locale.getDefault()),
                     jsonObjSourceItem.getString("sound_url"),
-                    jsonObjSourceItem.getString("sound_url").replace("https://data.movapp.eu/data", "dictionary")
+                    jsonObjSourceItem.getString("sound_url").replace("https://data.movapp.eu/", "")
                 )
             )
         }

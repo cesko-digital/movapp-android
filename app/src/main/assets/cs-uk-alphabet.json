@@ -1,0 +1,1098 @@
+{
+	"source": "cs",
+	"main": "uk",
+	"data": [
+		{
+			"id": "recOMNxm02MGy3r7I",
+			"letters": [
+				"A",
+				"a"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/28684483eaf82b628ef2088e5928b998.mp3",
+					"translation": "abeceda",
+					"transcription": "абецеда"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/f/fc2a36b07f5bf1c68ed52b636b74fe45.mp3",
+					"translation": "ananas",
+					"transcription": "ананас"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/4/4bff2b649206a5609914986c92d06e12.mp3",
+					"translation": "autobus",
+					"transcription": "аутобус"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recOMNxm02MGy3r7I.mp3",
+			"transcription": "[a]"
+		},
+		{
+			"id": "recd4wMiN82fnZpcY",
+			"letters": [
+				"Á",
+				"á"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/f/f1774c4e80e971d7cb30bba814fb3334.mp3",
+					"translation": "káva",
+					"transcription": "кава"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/7f981bb92dcb13b143a2fbb7af9ecfff.mp3",
+					"translation": "kráva",
+					"transcription": "крава"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/4/4f4c407678878b40d3b94034926d20fc.mp3",
+					"translation": "máma",
+					"transcription": "мама"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recd4wMiN82fnZpcY.mp3",
+			"transcription": "довгий [a]"
+		},
+		{
+			"id": "recf0H81umzag6uAn",
+			"letters": [
+				"B",
+				"b"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/e/ed71b424f2605c1a97eb418e491c78ea.mp3",
+					"translation": "balón",
+					"transcription": "балон"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/719984d650132b0597fd857a77cd17ed.mp3",
+					"translation": "brambory",
+					"transcription": "брамбори"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/b/bfcfcec81d234503ba8cf8d8ae871814.mp3",
+					"translation": "banán",
+					"transcription": "банан"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recf0H81umzag6uAn.mp3",
+			"transcription": "[б]"
+		},
+		{
+			"id": "recGoIj7i3OyrHVPY",
+			"letters": [
+				"C",
+				"c"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/69338065474e3792e95518dbe440d52e.mp3",
+					"translation": "cibule",
+					"transcription": "цібуле"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/a/aa3ef5b6ebb78d184429cab1ec2ab521.mp3",
+					"translation": "cop",
+					"transcription": "цоп"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/b/b4a34df68cc2d19e191bd6875ae9a609.mp3",
+					"translation": "citron",
+					"transcription": "цітрон"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recGoIj7i3OyrHVPY.mp3",
+			"transcription": "[ц]"
+		},
+		{
+			"id": "recvRLkJnneOir4jF",
+			"letters": [
+				"Č",
+				"č"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/35ee13ed4b72a374b9782cc411644cf8.mp3",
+					"translation": "čepice",
+					"transcription": "чепіце"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/d/d7d85717da971b16ff678a70d204e34a.mp3",
+					"translation": "čokoláda",
+					"transcription": "чоколада"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/92110b663891c4e36616b1023e15898f.mp3",
+					"translation": "červený",
+					"transcription": "червени"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recvRLkJnneOir4jF.mp3",
+			"transcription": "[ч]"
+		},
+		{
+			"id": "recNsSGLqLbok8HGg",
+			"letters": [
+				"D",
+				"d"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/6482aeb7bbb2acdfe52c3ef65beb2db9.mp3",
+					"translation": "dům",
+					"transcription": "дум"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/f/fdbde4ffe588c24b4c8161e3076b5e68.mp3",
+					"translation": "datel",
+					"transcription": "дател"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/e/e0e3a09867d975231716cead0a402f90.mp3",
+					"translation": "dopis",
+					"transcription": "допіс"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recNsSGLqLbok8HGg.mp3",
+			"transcription": "[д]"
+		},
+		{
+			"id": "recw7zddc4Xwy4Qfh",
+			"letters": [
+				"Ď",
+				"ď"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/6a1863e73b56a593fa2b676dee38f42e.mp3",
+					"translation": "ďábel",
+					"transcription": "дябел"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/7b9f8651c1dc85b0f58b04b9c0385dc7.mp3",
+					"translation": "děti",
+					"transcription": "дєті"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/4/4dafdad8bb198879e1461a7d2eb749ad.mp3",
+					"translation": "hodiny",
+					"transcription": "годіни"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recw7zddc4Xwy4Qfh.mp3",
+			"transcription": "[дь]"
+		},
+		{
+			"id": "reciXOG47yk1nFC7d",
+			"letters": [
+				"E",
+				"e"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/9f7a808b07e41a2ed0eb0a1da86b7d06.mp3",
+					"translation": "elektrikář",
+					"transcription": "електрікарж"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/d/d0f0fba9bb6a40b55beb53317f96555a.mp3",
+					"translation": "Evropa",
+					"transcription": "Европа"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/65d15fe9156f9c4bbffd98085992a44e.mp3",
+					"translation": "emu",
+					"transcription": "ему"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/reciXOG47yk1nFC7d.mp3",
+			"transcription": "[e]"
+		},
+		{
+			"id": "recf4FKmkWlgfHOnQ",
+			"letters": [
+				"É",
+				"é"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/e/e4dde7c303730b37e4e3ad80cb0966bc.mp3",
+					"translation": "lékárna",
+					"transcription": "лекарна"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/b/b8e6b611bba846b5cd4d665b049fb0d2.mp3",
+					"translation": "jméno",
+					"transcription": "ймено"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/782983df68edf61b6728ebad9797e362.mp3",
+					"translation": "létat",
+					"transcription": "летат"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recf4FKmkWlgfHOnQ.mp3",
+			"transcription": "довгий [е]"
+		},
+		{
+			"id": "recHIWry7ynphg9EY",
+			"letters": [
+				"Ě",
+				"ě"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/b/b7d085d49df1852fbc72ce0c25c9e9f3.mp3",
+					"translation": "kotě",
+					"transcription": "котє"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/28ad3a9d02864984108d2350ece26c1c.mp3",
+					"translation": "měkký",
+					"transcription": "мнєкки"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/96c9c71dc98e153d6e4960e7a1f8dc3e.mp3",
+					"translation": "něco",
+					"transcription": "нєцо"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recHIWry7ynphg9EY.mp3",
+			"transcription": "[є] (читаємо попередній приголосний м'яко)"
+		},
+		{
+			"id": "recgFq6HmkTFasdBQ",
+			"letters": [
+				"F",
+				"f"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/8ca97f08611baed79c52e2d3ef0d7769.mp3",
+					"translation": "fyzika",
+					"transcription": "физіка"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/4/4596bcc7b0c8e99876391898471b798b.mp3",
+					"translation": "fronta",
+					"transcription": "фронта"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/a/a471f65d9356fa36b5dd23eafdb67d24.mp3",
+					"translation": "flétna",
+					"transcription": "флетна"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recgFq6HmkTFasdBQ.mp3",
+			"transcription": "[ф]"
+		},
+		{
+			"id": "recBs2tfkK6CGz7CF",
+			"letters": [
+				"G",
+				"g"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/e/e503e2fc885605c6995481588a96bb35.mp3",
+					"translation": "garáž",
+					"transcription": "ґараж"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/0/00b540c76dafa6dd46e4fab60826c3d7.mp3",
+					"translation": "gramofon",
+					"transcription": "ґрамофон"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/9560b7251cc679f65413d0bf5bb9d5f7.mp3",
+					"translation": "gymnastika",
+					"transcription": "ґимнастіка"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recBs2tfkK6CGz7CF.mp3",
+			"transcription": "[ґ]"
+		},
+		{
+			"id": "recVPWpeTf5ertUkl",
+			"letters": [
+				"H",
+				"h"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/75da7def00dfae3ae1165f4f67914495.mp3",
+					"translation": "hlava",
+					"transcription": "глава"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/f/f1f7b2b27884dc6f27d404c6a4a7434d.mp3",
+					"translation": "houba",
+					"transcription": "гоуба"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/3cd7f1e393fc4ea2a742e8c25b66d586.mp3",
+					"translation": "harmonika",
+					"transcription": "гармоніка"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recVPWpeTf5ertUkl.mp3",
+			"transcription": "[г]"
+		},
+		{
+			"id": "recmG4r6k5EDssGbd",
+			"letters": [
+				"Ch",
+				"ch"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/0/0078ece789568af61f9494f12c2443ba.mp3",
+					"translation": "chléb",
+					"transcription": "хлеб"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/8190b15b6c4f168f28fdc2f0b7e32fa0.mp3",
+					"translation": "chobotnice",
+					"transcription": "хоботніце"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/c/c9876fcff85166cc5481b6d3414fbc42.mp3",
+					"translation": "chameleon",
+					"transcription": "хамелеон"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recmG4r6k5EDssGbd.mp3",
+			"transcription": "[х]"
+		},
+		{
+			"id": "recH5tDAgaZ3npwjb",
+			"letters": [
+				"I",
+				"i"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/c/c3581516868fb3b71746931cac66390e.mp3",
+					"translation": "internet",
+					"transcription": "інтернет"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/91d1e9981f602dd7e9ffa4827c68ee71.mp3",
+					"translation": "indián",
+					"transcription": "індіан"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/c/cf17e4e99e4800410a0c5705c5d2c3c2.mp3",
+					"translation": "iglů",
+					"transcription": "іґлу"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recH5tDAgaZ3npwjb.mp3",
+			"transcription": "[i]"
+		},
+		{
+			"id": "recpFmj9T3joam8KE",
+			"letters": [
+				"Í",
+				"í"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/1/11f3044d90c2fedf37e7f9c0a7470137.mp3",
+					"translation": "lípa",
+					"transcription": "ліпа"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/868d1890d1c4587bae261032bfd71ef4.mp3",
+					"translation": "papír",
+					"transcription": "папір"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/700c99a3601b87f2d9425571760d3c5d.mp3",
+					"translation": "písmeno",
+					"transcription": "пісмено"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recpFmj9T3joam8KE.mp3",
+			"transcription": "довгий [i]"
+		},
+		{
+			"id": "recYt771dyafvJAkx",
+			"letters": [
+				"J",
+				"j"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/7f51fa935071c1f7bc4dd1bf28ba13f3.mp3",
+					"translation": "jablko",
+					"transcription": "яблко"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/61c0a0d7ab1ee0d8d8dd9d7ab26ce81b.mp3",
+					"translation": "jahoda",
+					"transcription": "ягода"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/b/b7acf6fefc50ef44b8990718d83bd082.mp3",
+					"translation": "ježek",
+					"transcription": "єжек"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recYt771dyafvJAkx.mp3",
+			"transcription": "[й]"
+		},
+		{
+			"id": "rectZM77FCBpNtB3i",
+			"letters": [
+				"K",
+				"k"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/3eaaeed9bb734cee236da2b7d384d643.mp3",
+					"translation": "kočka",
+					"transcription": "кочка"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/8db868d4a710b7fe5a97f09b380c39f3.mp3",
+					"translation": "kobliha",
+					"transcription": "кобліга"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/73fe9e718740d6ad2f50939ee53648c5.mp3",
+					"translation": "kaktus",
+					"transcription": "кактус"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/rectZM77FCBpNtB3i.mp3",
+			"transcription": "[к]"
+		},
+		{
+			"id": "recAqkdPBflNh2AXu",
+			"letters": [
+				"L",
+				"l"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/875b2c7ee8b6171635b43d7ec36b1ec4.mp3",
+					"translation": "láska",
+					"transcription": "ласка"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/c/c79c335123aca851479801af8b864b1a.mp3",
+					"translation": "lampa",
+					"transcription": "лампа"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/86af1c2fd820797c1b2b39c09ade58b6.mp3",
+					"translation": "lev",
+					"transcription": "лев"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recAqkdPBflNh2AXu.mp3",
+			"transcription": "[л]"
+		},
+		{
+			"id": "recJz8EPMdOWvHeR5",
+			"letters": [
+				"M",
+				"m"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/a/a0af6d97ef41dce81fcaa4703ca7ed6f.mp3",
+					"translation": "mléko",
+					"transcription": "млеко"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/b/b79d2096c66248cad58c309283bcd8d4.mp3",
+					"translation": "metro",
+					"transcription": "метро"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/2a3b728546073fa4c6c09c2010002a78.mp3",
+					"translation": "maska",
+					"transcription": "маска"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recJz8EPMdOWvHeR5.mp3",
+			"transcription": "[м]"
+		},
+		{
+			"id": "recgdkPwsxkX24TrX",
+			"letters": [
+				"N",
+				"n"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/980f611b937defd59803f67345d257cb.mp3",
+					"translation": "noviny",
+					"transcription": "новіни"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/9a4541f2963d21bc0ec5ab4d70b04260.mp3",
+					"translation": "nula",
+					"transcription": "нула"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/757aa4701447ed532346bb8ec941390a.mp3",
+					"translation": "nos",
+					"transcription": "нос"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recgdkPwsxkX24TrX.mp3",
+			"transcription": "[н]"
+		},
+		{
+			"id": "recIfe0etVnOObokm",
+			"letters": [
+				"Ň",
+				"ň"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/1/1b41772b97e44b946b449b4027ce4660.mp3",
+					"translation": "kůň",
+					"transcription": "кунь"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/c/ccb6f8be265c9ac61493129d032cfe45.mp3",
+					"translation": "báseň",
+					"transcription": "басень"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/a/af510c05a9a89bdf661d4ce3897c9203.mp3",
+					"translation": "sáňky",
+					"transcription": "саньки"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recIfe0etVnOObokm.mp3",
+			"transcription": "нь"
+		},
+		{
+			"id": "recvyuObictVxkQJP",
+			"letters": [
+				"O",
+				"o"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/4/46dad5d3052c94278ce46c45916901dc.mp3",
+					"translation": "olej",
+					"transcription": "олей"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/6f33fb6967c551d28f4492b78618e10a.mp3",
+					"translation": "opice",
+					"transcription": "опіце"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/1/10bccea10183469385f61e19c68bb84f.mp3",
+					"translation": "ovoce",
+					"transcription": "овоце"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recvyuObictVxkQJP.mp3",
+			"transcription": "[о]"
+		},
+		{
+			"id": "rec3pU8WsY9bIt9ea",
+			"letters": [
+				"Ó",
+				"ó"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/9f7944879bd0a8749564a109bc439705.mp3",
+					"translation": "gól",
+					"transcription": "ґол"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/e/e12f3fb1ef196232b298ec0429708181.mp3",
+					"translation": "móda",
+					"transcription": "мода"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/8b06722879dad3e7ab410a5849aa5bbb.mp3",
+					"translation": "tón",
+					"transcription": "тон"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/rec3pU8WsY9bIt9ea.mp3",
+			"transcription": "[о]"
+		},
+		{
+			"id": "recyaP4EPZJLYtPS0",
+			"letters": [
+				"P",
+				"p"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/9/966ea578d37c9c5a6ac6bd4c6aca1bf6.mp3",
+					"translation": "peníze",
+					"transcription": "пенізе"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/5/5ef66fc876fb0c44a53408499ba5045e.mp3",
+					"translation": "Praha",
+					"transcription": "Прага"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/c/c13836afb34a96b3cb857376249dc44b.mp3",
+					"translation": "penál",
+					"transcription": "пенал"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recyaP4EPZJLYtPS0.mp3",
+			"transcription": "[п]"
+		},
+		{
+			"id": "recvwq52UMdkgXdqq",
+			"letters": [
+				"Q",
+				"q"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/c/cf7647252c053c310271d10300e6c153.mp3",
+					"translation": "Quido",
+					"transcription": "Qуідо"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/6701b56ab3ff30bb18225de93c864367.mp3",
+					"translation": "squat",
+					"transcription": "сqуат"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/399b2839b6153083a038c1a617637404.mp3",
+					"translation": "aquapark",
+					"transcription": "аqуапарк"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recvwq52UMdkgXdqq.mp3",
+			"transcription": "[кв]"
+		},
+		{
+			"id": "recNMze4nSTcENAXj",
+			"letters": [
+				"R",
+				"r"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/8b1f526083f73fb00aea6e321759f4f6.mp3",
+					"translation": "ryba",
+					"transcription": "риба"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/4/4bda0ff402352f927160948bb7bbe921.mp3",
+					"translation": "ruka",
+					"transcription": "рука"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/d/d2995fc12305f995cf84220e9d64b993.mp3",
+					"translation": "růže",
+					"transcription": "руже"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recNMze4nSTcENAXj.mp3",
+			"transcription": "[р]"
+		},
+		{
+			"id": "rec1KwJad9w9uuKV1",
+			"letters": [
+				"Ř",
+				"ř"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/5/56e692cdd3eff99c1a6ba08c659f8c77.mp3",
+					"translation": "Řím",
+					"transcription": "Ржім"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/0/09baaedc01ad21e4e37a9d8b09412579.mp3",
+					"translation": "řízek",
+					"transcription": "ржізек"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/38960abea3bf50e22511c75b9507aa40.mp3",
+					"translation": "řeka",
+					"transcription": "ржека"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/rec1KwJad9w9uuKV1.mp3",
+			"transcription": "[рж]"
+		},
+		{
+			"id": "recZm1oIDwy5UU0iR",
+			"letters": [
+				"S",
+				"s"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/65a3798f40db95c4ab443f3e2b7f4994.mp3",
+					"translation": "socha",
+					"transcription": "соха"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/3b98b447be0338d9d372f05eb30eaef4.mp3",
+					"translation": "sova",
+					"transcription": "сова"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/d/d11feea70c4ba54de90de43fe06c0520.mp3",
+					"translation": "stůl",
+					"transcription": "стул"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recZm1oIDwy5UU0iR.mp3",
+			"transcription": "[с]"
+		},
+		{
+			"id": "reccuK6qYZu9e7B29",
+			"letters": [
+				"Š",
+				"š"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/217add8b871847afc937219e5aa8ad3a.mp3",
+					"translation": "šéf",
+					"transcription": "шеф"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/a/ade89fe8bdfcea29dfcb056cef3d156d.mp3",
+					"translation": "šaty",
+					"transcription": "шати"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/2a449935b3e115ce685150755713beab.mp3",
+					"translation": "šnek",
+					"transcription": "шнек"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/reccuK6qYZu9e7B29.mp3",
+			"transcription": "[ш]"
+		},
+		{
+			"id": "rec5Osbji0pU6a9q1",
+			"letters": [
+				"T",
+				"t"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/711f7c74457a7ccd6911f90aecd3ef8d.mp3",
+					"translation": "televize",
+					"transcription": "телевізе"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/820d796da523553b8f504254a344882d.mp3",
+					"translation": "táta",
+					"transcription": "тата"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/0/0ef846a1a5853f4507e5abc0f7d1975b.mp3",
+					"translation": "tráva",
+					"transcription": "трава"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/rec5Osbji0pU6a9q1.mp3",
+			"transcription": "[т]"
+		},
+		{
+			"id": "recmwstNGXUzfad0y",
+			"letters": [
+				"Ť",
+				"ť"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/b/ba2f02eb43706944c1ba2ca8178276d4.mp3",
+					"translation": "ťukat",
+					"transcription": "тюкат"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/e/e97b40c4a8c4452e52f322ce8fe6060d.mp3",
+					"translation": "poušť",
+					"transcription": "поушть"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/3359857dc24866bc65a966a4cdfc6fb4.mp3",
+					"translation": "déšť",
+					"transcription": "дешть"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recmwstNGXUzfad0y.mp3",
+			"transcription": "[ть]"
+		},
+		{
+			"id": "recOZClpv93bn4wab",
+			"letters": [
+				"U",
+				"u"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/61e68db512a474e5efaa68bc97513a38.mp3",
+					"translation": "Ukrajina",
+					"transcription": "Україна"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/5/56e11be7cd85f1fcbf5d88465d421911.mp3",
+					"translation": "ucho",
+					"transcription": "ухо"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/f/f347bd26ab6c60b63a43e667cba29d9a.mp3",
+					"translation": "ulita",
+					"transcription": "уліта"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recOZClpv93bn4wab.mp3",
+			"transcription": "[у]"
+		},
+		{
+			"id": "rec8tRTS32tw03Q2B",
+			"letters": [
+				"Ú",
+				"ú"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/5/52db347c64c586cbdbf06b1509188ac5.mp3",
+					"translation": "účtenka",
+					"transcription": "учтенка"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/7/7c78c3b602865cbd91099dd415a0c899.mp3",
+					"translation": "úl",
+					"transcription": "ул"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/a/a46d3b1c8ab6baa8b8b9705b054f0efa.mp3",
+					"translation": "úkol",
+					"transcription": "укол"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/rec8tRTS32tw03Q2B.mp3",
+			"transcription": "довгий [у] на початку слова"
+		},
+		{
+			"id": "recDtpfUTJaP89EdI",
+			"letters": [
+				"Ů",
+				"ů"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/1/1b41772b97e44b946b449b4027ce4660.mp3",
+					"translation": "kůň",
+					"transcription": "кунь"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/223092a16235fec35a180898918d88f5.mp3",
+					"translation": "schůzka",
+					"transcription": "схузка"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/3dc65e7ff6d9d37e26890a971a4fed9f.mp3",
+					"translation": "průkazka",
+					"transcription": "пруказка"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recDtpfUTJaP89EdI.mp3",
+			"transcription": "довгий [у] в середині слова"
+		},
+		{
+			"id": "recXWTNJCjwaPFH8A",
+			"letters": [
+				"V",
+				"v"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/3/34205f5b875b89af970ca573931fce2f.mp3",
+					"translation": "voda",
+					"transcription": "вода"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/c/c7d63985ac80afcc18e3d4f6c9e06be8.mp3",
+					"translation": "vejce",
+					"transcription": "вейце"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/65383858b763d26238ae7e3e8ef72df8.mp3",
+					"translation": "vlk",
+					"transcription": "влк"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recXWTNJCjwaPFH8A.mp3",
+			"transcription": "[в]"
+		},
+		{
+			"id": "recRS6HviiW2DFRbA",
+			"letters": [
+				"W",
+				"w"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/f/fdd69f72615eef3131e59d25c6c0e5ee.mp3",
+					"translation": "workoholik",
+					"transcription": "wоркоголік"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/5/5f27dde10bfa8adadfd122521b0a01ef.mp3",
+					"translation": "wifi",
+					"transcription": "wіфі"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/26748b021bdc8922f93d9bf054cbec5d.mp3",
+					"translation": "WC",
+					"transcription": "WЦ"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recRS6HviiW2DFRbA.mp3",
+			"transcription": "[в]"
+		},
+		{
+			"id": "recY76k2vZRj1PFzm",
+			"letters": [
+				"X",
+				"x"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/d/d877c55797fd430ce8150363cd86058f.mp3",
+					"translation": "lux",
+					"transcription": "луx"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/0/0aac16330f9a907665ec2fad88f2e8dc.mp3",
+					"translation": "boxer",
+					"transcription": "боxер"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/0/00e023f5b4167575e0903fb96f26d636.mp3",
+					"translation": "xylofon",
+					"transcription": "xилофон"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recY76k2vZRj1PFzm.mp3",
+			"transcription": "[кс]"
+		},
+		{
+			"id": "recI2fyYDDTdmqHmg",
+			"letters": [
+				"Y",
+				"y"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/61822c940a6795cd6af2de279a40ede6.mp3",
+					"translation": "ženy",
+					"transcription": "жени"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/e/e42180165aa44a7b2a25d94d753ad6fe.mp3",
+					"translation": "lyže",
+					"transcription": "лиже"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/276a0b8a35d626e61283b7f9c2ca1e6b.mp3",
+					"translation": "myš",
+					"transcription": "миш"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recI2fyYDDTdmqHmg.mp3",
+			"transcription": "[и]"
+		},
+		{
+			"id": "recWsxs3At4XYy6J6",
+			"letters": [
+				"Ý",
+				"ý"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/e/e24724d88bf77f8b8f49ace6e14ca4eb.mp3",
+					"translation": "sýr",
+					"transcription": "сир"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/b/badb90cbc6ec892049c9df633ebde7dd.mp3",
+					"translation": "sýkorka",
+					"transcription": "сикорка"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/f/f20975dd83a98211517d93ec4d33f466.mp3",
+					"translation": "mlýn",
+					"transcription": "млин"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recWsxs3At4XYy6J6.mp3",
+			"transcription": "довгий [и]"
+		},
+		{
+			"id": "recg4Hs4x9HkWT3aW",
+			"letters": [
+				"Z",
+				"z"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/8/896339aa0a31414e80dcf1d6b7d0c2fd.mp3",
+					"translation": "zub",
+					"transcription": "зуб"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/69c459dd76c6198f72f0c20ddd3c9447.mp3",
+					"translation": "zebra",
+					"transcription": "зебра"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/6/6e9a9d24ab14a9d151b8c1580b59c1d9.mp3",
+					"translation": "zvon",
+					"transcription": "звон"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recg4Hs4x9HkWT3aW.mp3",
+			"transcription": "[з]"
+		},
+		{
+			"id": "recBHtwCtyLPme1LJ",
+			"letters": [
+				"Ž",
+				"ž"
+			],
+			"examples": [
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/291fae44be73a400f2def933b9f35c92.mp3",
+					"translation": "žena",
+					"transcription": "жена"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/a/a10bd3b2329268dcb76a9097d0c6debc.mp3",
+					"translation": "žárovka",
+					"transcription": "жаровка"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/cs-sounds/2/2a5ecbee2d7cfc433c7c2be87f1611ff.mp3",
+					"translation": "želva",
+					"transcription": "желва"
+				}
+			],
+			"sound_url": "https://data.movapp.eu/cs-alphabet/recBHtwCtyLPme1LJ.mp3",
+			"transcription": "[ж]"
+		}
+	]
+}
