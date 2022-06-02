@@ -12,13 +12,13 @@ import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.FavoritesViewModelFactory
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionarySectionsAdapter
+import cz.movapp.app.adapter.DictionaryPhraseSectionsAdapter
 import cz.movapp.app.data.FavoritesDatabase
-import cz.movapp.app.databinding.FragmentDictionarySectionsBinding
+import cz.movapp.app.databinding.FragmentDictionaryPhraseSectionsBinding
 
-class DictionarySectionsFragment : Fragment() {
+class DictionaryPhraseSectionsFragment : Fragment() {
 
-    private var _binding: FragmentDictionarySectionsBinding? = null
+    private var _binding: FragmentDictionaryPhraseSectionsBinding? = null
     private val binding get() = _binding!!
 
 
@@ -46,7 +46,7 @@ class DictionarySectionsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDictionarySectionsBinding.inflate(inflater, container, false)
+        _binding = FragmentDictionaryPhraseSectionsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val recyclerView = binding.recyclerViewDictionarySections
@@ -57,12 +57,12 @@ class DictionarySectionsFragment : Fragment() {
         dictionarySharedViewModel.sections.value?.onItemClicked = { item ->
             dictionarySharedViewModel.translationsIds.value = item.phrases_ids.toMutableList()
             findNavController()
-                .navigate(DictionarySectionsFragmentDirections.toTranslations())
+                .navigate(DictionaryPhraseSectionsFragmentDirections.toSectionDetail())
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
             val sectionsAdapter =
-                binding.recyclerViewDictionarySections.adapter as DictionarySectionsAdapter
+                binding.recyclerViewDictionarySections.adapter as DictionaryPhraseSectionsAdapter
 
             if (sectionsAdapter.langPair != lang) {
                 sectionsAdapter.langPair = lang

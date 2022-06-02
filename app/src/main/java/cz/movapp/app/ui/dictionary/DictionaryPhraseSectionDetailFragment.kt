@@ -9,12 +9,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionaryTranslationsAdapter
-import cz.movapp.app.databinding.FragmentDictionaryTranslationsBinding
+import cz.movapp.app.adapter.DictionaryPhraseSectionDetailAdapter
+import cz.movapp.app.databinding.FragmentDictionaryPhraseSectionDetailBinding
 
-class DictionaryTranslationsFragment : Fragment() {
+class DictionaryPhraseSectionDetailFragment : Fragment() {
 
-    private var _binding: FragmentDictionaryTranslationsBinding? = null
+    private var _binding: FragmentDictionaryPhraseSectionDetailBinding? = null
 
     private val dictionarySharedViewModel: DictionaryViewModel by activityViewModels()
     private val favoritesViewModel: FavoritesViewModel by activityViewModels()
@@ -29,7 +29,7 @@ class DictionaryTranslationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDictionaryTranslationsBinding.inflate(inflater, container, false)
+        _binding = FragmentDictionaryPhraseSectionDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val recyclerView = binding.recyclerViewDictionaryTranslations
@@ -43,7 +43,7 @@ class DictionaryTranslationsFragment : Fragment() {
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
             val adapter =
-                binding.recyclerViewDictionaryTranslations.adapter as DictionaryTranslationsAdapter
+                binding.recyclerViewDictionaryTranslations.adapter as DictionaryPhraseSectionDetailAdapter
 
             if(adapter.langPair != lang){
                 adapter.langPair = lang

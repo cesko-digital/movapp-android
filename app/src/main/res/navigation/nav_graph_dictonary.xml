@@ -10,34 +10,34 @@
     <fragment
         android:id="@+id/nav_sections"
         app:route="sections"
-        android:name="cz.movapp.app.ui.dictionary.DictionarySectionsFragment"
-        tools:layout="@layout/fragment_dictionary_sections" >
+        android:name="cz.movapp.app.ui.dictionary.DictionaryPhraseSectionsFragment"
+        tools:layout="@layout/fragment_dictionary_phrase_sections" >
 
         <action
-            android:id="@+id/to_translations"
-            app:destination="@id/nav_translations"
+            android:id="@+id/to_section_detail"
+            app:destination="@id/nav_section_detail"
             />
         <action
-            android:id="@+id/to_nav_search"
-            app:destination="@id/nav_search" />
+            android:id="@+id/to_nav_phrases_search"
+            app:destination="@id/nav_phrases_search" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/nav_search"
+        android:id="@+id/nav_phrases_search"
         app:route="sections/search"
-        android:name="cz.movapp.app.ui.dictionary.DictionarySearchFragment"
-        tools:layout="@layout/fragment_dictionary_search" />
+        android:name="cz.movapp.app.ui.dictionary.DictionaryPhrasesSearchAllFragment"
+        tools:layout="@layout/fragment_dictionary_phrases_search_all" />
 
     <fragment
-        android:id="@+id/nav_translations"
-        app:route="sections/translations"
-        android:name="cz.movapp.app.ui.dictionary.DictionaryTranslationsFragment"
-        tools:layout="@layout/fragment_dictionary_translations" >
+        android:id="@+id/nav_section_detail"
+        app:route="sections/detail"
+        android:name="cz.movapp.app.ui.dictionary.DictionaryPhraseSectionDetailFragment"
+        tools:layout="@layout/fragment_dictionary_phrase_section_detail" >
 
         <action
-            android:id="@+id/translations_to_nav_search"
-            app:destination="@id/nav_search" />
+            android:id="@+id/section_detail_to_nav_search"
+            app:destination="@id/nav_phrases_search" />
 
     </fragment>
 

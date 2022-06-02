@@ -5,11 +5,11 @@ import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import java.util.*
 
-class DictionarySearchAdapter(
+class DictionaryPhrasesSearchAllAdapter(
     private val context: Context,
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
-) : DictionaryTranslationsAdapter(wholeDataset, favoritesViewModel) {
+) : DictionaryPhraseSectionDetailAdapter(wholeDataset, favoritesViewModel) {
 
 
     enum class LevDirection {

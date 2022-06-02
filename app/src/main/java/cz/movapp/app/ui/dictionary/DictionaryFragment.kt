@@ -81,8 +81,8 @@ class DictionaryFragment : Fragment() {
                     if (it.isEmpty()) {
                         navigateToDictionarySections()
                     } else {
-                        if(findNavController().currentDestination?.id != R.id.nav_search){
-                            findNavController().navigate(R.id.nav_search)
+                        if(findNavController().currentDestination?.id != R.id.nav_phrases_search){
+                            findNavController().navigate(R.id.nav_phrases_search)
                         }
                     }
                 }

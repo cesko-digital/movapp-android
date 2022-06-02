@@ -17,10 +17,10 @@ import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.DictionaryTranslationItemBinding
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 
-open class DictionaryTranslationsAdapter(
+open class DictionaryPhraseSectionDetailAdapter(
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
-) : ListAdapter<DictionaryTranslationsData, DictionaryTranslationsAdapter.ItemViewHolder>(
+) : ListAdapter<DictionaryTranslationsData, DictionaryPhraseSectionDetailAdapter.ItemViewHolder>(
     DiffCallback
 ) {
 

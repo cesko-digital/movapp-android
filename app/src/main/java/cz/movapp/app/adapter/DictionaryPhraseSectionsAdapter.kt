@@ -12,10 +12,10 @@ import cz.movapp.app.R
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 
-class DictionarySectionsAdapter(
+class DictionaryPhraseSectionsAdapter(
     private var dataset: List<DictionarySectionsData>,
     var onItemClicked: (DictionarySectionsData) -> Unit = {},
-) : RecyclerView.Adapter<DictionarySectionsAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<DictionaryPhraseSectionsAdapter.ItemViewHolder>() {
 
     var langPair = LanguagePair.getDefault()
 
