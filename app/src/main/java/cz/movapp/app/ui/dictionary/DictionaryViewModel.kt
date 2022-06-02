@@ -22,7 +22,6 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
     val translations: LiveData<DictionaryTranslationsAdapter> =
         MutableLiveData<DictionaryTranslationsAdapter>().apply {
             value = DictionaryTranslationsAdapter(
-                app,
                 DictionaryDatasource().loadTranslations(app.applicationContext),
                 favoritesViewModel
             )
@@ -31,7 +30,6 @@ class DictionaryViewModel(app: Application, favoritesViewModel: FavoritesViewMod
     val favorites: LiveData<DictionaryFavoritesAdapter> =
         MutableLiveData<DictionaryFavoritesAdapter>().apply {
             value = DictionaryFavoritesAdapter(
-                app,
                 DictionaryDatasource().loadTranslations(app.applicationContext),
                 favoritesViewModel
             )
