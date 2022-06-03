@@ -110,10 +110,14 @@ class DictionaryPhrasesSearchAllFragment : Fragment() {
         return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onPause() {
+        super.onPause()
 
         hideKeyboard(requireView(), requireActivity())
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
 
         (binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter).submitList(
             listOf()
