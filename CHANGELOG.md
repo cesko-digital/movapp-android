@@ -1,6 +1,12 @@
 Details about this file’s format at <http://keepachangelog.com/>. 
 TODO: The change log is parsed automatically when minting releases through Fastlane, see `Fastlane/Fastfile`.
 
+## [1.1.8] - 2022-06-03Z
+- Přidání tlačítka zpět do slovníku
+- Ozvučení příkladů v abecedě
+- Bug fix: přepínání abeced podle nastavení jazyka
+- Aktualizace dat aplikace
+
 ## [1.1.6] - 2022-05-27Z
 - Bug fix: Nešlo jít do oblíbených https://github.com/cesko-digital/movapp-android/issues/13
 - Hvězdička oblíbených změněna na modrou, pokud je vybrána 
