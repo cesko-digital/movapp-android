@@ -1,6 +1,10 @@
 package cz.movapp.app.ui.alphabet
 
-data class LetterExampleData(val example: String, val transcription: String)
+data class LetterExampleData(
+    val example: String,
+    val transcription: String,
+    val file_name: String?
+)
 
 data class AlphabetData(
     val id: String,

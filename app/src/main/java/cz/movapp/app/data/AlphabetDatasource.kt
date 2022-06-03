@@ -30,6 +30,8 @@ class AlphabetDatasource(private val context: Context) {
         val jsonArr = JSONObject(jsonString).getJSONArray("data")
 
         for (i in 0 until jsonArr.length()) {
+            var soundUrl: String? = null
+
             val jsonLetterObj = jsonArr.getJSONObject(i)
 
             var examples = mutableListOf<LetterExampleData>()
@@ -39,13 +41,16 @@ class AlphabetDatasource(private val context: Context) {
             for (j in 0 until jsonExamplesArr.length()) {
                 val jsonExampleObj = jsonExamplesArr.getJSONObject(j)
 
+                soundUrl = jsonExampleObj.getNullString("sound_url")
+
                 examples.add(LetterExampleData(
                     jsonExampleObj.getString("translation"),
-                    jsonExampleObj.getString("transcription")
+                    jsonExampleObj.getString("transcription"),
+                    if (soundUrl == null) null else soundUrl!!.replace("https://data.movapp.eu/", "")
                 ))
             }
 
-            val fileName = jsonLetterObj.getNullString("sound_url")
+            soundUrl = jsonLetterObj.getNullString("sound_url")
             alphabet.add(
                 AlphabetData(
                     id = jsonLetterObj.getString("id"),
@@ -53,7 +58,7 @@ class AlphabetDatasource(private val context: Context) {
                     letter_capital = jsonLetterObj.getJSONArray("letters").getNullString(0),
                     letter = if (jsonLetterObj.getJSONArray("letters").length() < 2) null else jsonLetterObj.getJSONArray("letters").getNullString(1),
                     file_name = fileName,
-                    letterSoundAssetFile = if (fileName == null) null else jsonLetterObj.getString("sound_url").replace("https://data.movapp.eu/", ""),
+                    letterSoundAssetFile = if (soundUrl == null) null else soundUrl!!.replace("https://data.movapp.eu/", ""),
                     transcription = jsonLetterObj.getString("transcription"),
                     examples = examples
                 )
