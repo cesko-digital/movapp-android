@@ -2,7 +2,7 @@ package cz.movapp.app.ui.alphabet
 
 import android.app.Application
 import androidx.lifecycle.*
-import cz.movapp.android.StateStore
+import cz.movapp.android.DataStoreKey
 import cz.movapp.app.App
 import cz.movapp.app.appModule
 import cz.movapp.app.data.Language
@@ -22,38 +22,39 @@ class AlphabetViewModel(application: Application, langPair: LanguagePair, direct
     data class AlphabetState(
         val alphabetData: List<AlphabetData> = listOf(),
         val scrollPositions: Map<String, Int> = mapOf(),
-        val lang: Language = getDefault().from,
+        val sourceLang: Language = getDefault().from,
+        val mainLang: Language = getDefault().to,
         val isLoaded: Boolean = false
     ) {
     }
 
-    enum class AlphabetDirection {
-        FROM, TO
-    }
-
-    private lateinit var stateKey: StateStore.Key<Map<String, Int>>
-    private lateinit var language: Language
+    private lateinit var stateKey: DataStoreKey<Map<String, Int>>
+    private lateinit var sourceLang: Language
+    private lateinit var mainLang: Language
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
              if (direction == AlphabetDirection.FROM) {
                  stateKey = AlphabetStateKeys.SCROLL_POSITIONS_FROM
-                 language = langPair.from
+                 sourceLang = langPair.from
+                 mainLang = langPair.to
              } else {
                  stateKey = AlphabetStateKeys.SCROLL_POSITIONS_TO
-                 language = langPair.to
+                 sourceLang = langPair.to
+                 mainLang = langPair.from
              }
 
             val storedScrollPositions =
-                appModule().stateStore.restoreState(stateKey)
+                appModule().dataStore.restoreState(stateKey)
 
             val scrollPositions = storedScrollPositions.first()
-            val alphabetData = appModule().alphabetDataSource.load(language)
+            val alphabetData = appModule().alphabetDataSource.load(sourceLang, mainLang)
 
             withContext(Dispatchers.Main) {
                 val newValue = alphabetsState.value!!.copy(
                     alphabetData = alphabetData,
-                    lang = language,
+                    sourceLang = sourceLang,
+                    mainLang = mainLang,
                     scrollPositions = scrollPositions ?: AlphabetState().scrollPositions,
                     isLoaded = true
                 )
@@ -63,13 +64,14 @@ class AlphabetViewModel(application: Application, langPair: LanguagePair, direct
     }
 
     fun onLanguageChanged(
-        lang: Language = alphabetsState.value!!.lang,
+        sourceLang: Language = alphabetsState.value!!.sourceLang,
+        mainLang: Language = alphabetsState.value!!.mainLang,
         oldScrollPosition: Int
     ) {
         if (alphabetsState.value!!.isLoaded){
             viewModelScope.launch(Dispatchers.IO) {
                 appModule().alphabetDataSource
-                    .load(lang)
+                    .load(sourceLang, mainLang)
                     .let {
 
                         withContext(Dispatchers.Main){
@@ -77,10 +79,11 @@ class AlphabetViewModel(application: Application, langPair: LanguagePair, direct
                                 alphabetData = it,
                                 scrollPositions = ifIsLoadedUpdateScrollPosition(
                                     alphabetsState.value!!,
-                                    lang,
+                                    sourceLang,
                                     oldScrollPosition
                                 ),
-                                lang = lang,
+                                sourceLang = sourceLang,
+                                mainLang = mainLang,
                                 isLoaded = true,
                             )
                             alphabetsState.setValue(newValue)
@@ -104,7 +107,7 @@ class AlphabetViewModel(application: Application, langPair: LanguagePair, direct
     private fun appModule() = getApplication<App>().appModule()
 
     override fun onCleared() {
-        appModule().stateStore.saveState(
+        appModule().dataStore.saveState(
             stateKey,
             alphabetsState.value!!.scrollPositions
         )

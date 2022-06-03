@@ -15,11 +15,11 @@ class AlphabetDatasource(private val context: Context) {
 
     private val cache = mutableMapOf<String,List<AlphabetData>>()
 
-    fun loadByLanguage(langCode: String): List<AlphabetData> {
+    fun loadByLanguage(sourceLangCode: String, mainLangCode: String): List<AlphabetData> {
         var jsonString: String = ""
         var alphabet = mutableListOf<AlphabetData>()
 
-        val fileName = "alphabet/%s-alphabet.json".format(langCode)
+        val fileName = "$sourceLangCode-$mainLangCode-alphabet.json"
 
         try {
             jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
@@ -30,6 +30,8 @@ class AlphabetDatasource(private val context: Context) {
         val jsonArr = JSONObject(jsonString).getJSONArray("data")
 
         for (i in 0 until jsonArr.length()) {
+            var soundUrl: String? = null
+
             val jsonLetterObj = jsonArr.getJSONObject(i)
 
             var examples = mutableListOf<LetterExampleData>()
@@ -39,21 +41,24 @@ class AlphabetDatasource(private val context: Context) {
             for (j in 0 until jsonExamplesArr.length()) {
                 val jsonExampleObj = jsonExamplesArr.getJSONObject(j)
 
+                soundUrl = jsonExampleObj.getNullString("sound_url")
+
                 examples.add(LetterExampleData(
-                    jsonExampleObj.getString("example"),
-                    jsonExampleObj.getString("example_transcription")
+                    jsonExampleObj.getString("translation"),
+                    jsonExampleObj.getString("transcription"),
+                    if (soundUrl == null) null else soundUrl!!.replace("https://data.movapp.eu/", "")
                 ))
             }
 
-            val fileName = jsonLetterObj.getNullString("file_name")
+            soundUrl = jsonLetterObj.getNullString("sound_url")
             alphabet.add(
                 AlphabetData(
                     id = jsonLetterObj.getString("id"),
-                    language = langCode,
-                    letter_capital = jsonLetterObj.getJSONArray("letter").getNullString(0),
-                    letter = jsonLetterObj.getJSONArray("letter").getNullString(1),
+                    language = sourceLangCode,
+                    letter_capital = jsonLetterObj.getJSONArray("letters").getNullString(0),
+                    letter = if (jsonLetterObj.getJSONArray("letters").length() < 2) null else jsonLetterObj.getJSONArray("letters").getNullString(1),
                     file_name = fileName,
-                    letterSoundAssetFile = (if (fileName == null) null else "alphabet/$langCode-alphabet/${jsonLetterObj.getString("id") + ".mp3"}"),
+                    letterSoundAssetFile = if (soundUrl == null) null else soundUrl!!.replace("https://data.movapp.eu/", ""),
                     transcription = jsonLetterObj.getString("transcription"),
                     examples = examples
                 )
@@ -63,15 +68,15 @@ class AlphabetDatasource(private val context: Context) {
         return alphabet
     }
 
-    fun load(lang: Language): List<AlphabetData> {
-        return lazyCacheLoad(lang)
+    fun load(sourceLang: Language, mainLang: Language): List<AlphabetData> {
+        return lazyCacheLoad(sourceLang, mainLang)
     }
 
-    private fun lazyCacheLoad(language: Language): List<AlphabetData> {
-        var selected = cache[language.langCode]
+    private fun lazyCacheLoad(sourceLang: Language, mainLang: Language): List<AlphabetData> {
+        var selected = cache[sourceLang.langCode]
         return if (selected == null) {
-            selected = loadByLanguage(language.langCode)
-            cache[language.langCode] = selected
+            selected = loadByLanguage(sourceLang.langCode, mainLang.langCode)
+            cache[sourceLang.langCode] = selected
             selected
         } else {
             selected

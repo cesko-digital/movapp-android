@@ -10,10 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
-import cz.movapp.android.hideKeyboard
 import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.ChildrenAdapter
 import cz.movapp.app.databinding.FragmentChildrenBinding
 
 class ChildrenFragment : Fragment() {
@@ -64,12 +62,6 @@ class ChildrenFragment : Fragment() {
         })
 
         return root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        hideKeyboard(view, activity)
     }
 
     override fun onDestroyView() {

@@ -18,16 +18,17 @@ class AlphabetDatasourceTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         val dataSource = AlphabetDatasource(appContext)
 
-        assertThat(openAlphabetLetterSoundAssetFiles(dataSource, appContext, "cs")).isNotEmpty()
-        assertThat(openAlphabetLetterSoundAssetFiles(dataSource, appContext, "uk")).isNotEmpty()
+        assertThat(openAlphabetLetterSoundAssetFiles(dataSource, appContext, "cs", "uk")).isNotEmpty()
+        assertThat(openAlphabetLetterSoundAssetFiles(dataSource, appContext, "uk", "cs")).isNotEmpty()
     }
 
     private fun openAlphabetLetterSoundAssetFiles(
         dataSource: AlphabetDatasource,
         appContext: Context,
-        langCode: String
+        sourceLang: String,
+        mainLang: String
     ): List<InputStream?> {
-        val alphabet = dataSource.loadByLanguage(langCode)
+        val alphabet = dataSource.loadByLanguage(sourceLang, mainLang)
         return alphabet
             .map { alphabetData -> alphabetData.letterSoundAssetFile?.let { appContext.assets.open(it) } }
     }

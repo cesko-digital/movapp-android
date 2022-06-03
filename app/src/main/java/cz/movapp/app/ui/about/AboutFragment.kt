@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import cz.movapp.android.hideKeyboard
 import cz.movapp.android.openUri
 import cz.movapp.app.BuildConfig
 import cz.movapp.app.MainViewModel
@@ -134,12 +133,6 @@ class AboutFragment : Fragment() {
             openUri(context, HTTP_MOVAPP_UMAPA)
         }
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        hideKeyboard(view, activity)
     }
 
     override fun onDestroyView() {

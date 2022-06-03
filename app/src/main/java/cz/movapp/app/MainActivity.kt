@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val onBoardingResultLauncher = registerOnBoardingResult(this,
             onOnBoardingLeft = { finish() })
         lifecycleScope.launch(Dispatchers.IO) {
-            val onBoardingDone = appModule().stateStore.restoreState(OnBoardingStateKeys.ON_BOARDING_DONE).first()
+            val onBoardingDone = appModule().dataStore.restoreState(OnBoardingStateKeys.ON_BOARDING_DONE).first()
             if (onBoardingDone == null || onBoardingDone == false){
                 withContext(Dispatchers.Main){
                     onBoardingResultLauncher.launch(

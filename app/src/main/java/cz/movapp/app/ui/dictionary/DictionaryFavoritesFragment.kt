@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
-import cz.movapp.app.adapter.DictionarySearchAdapter
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
 
 class DictionaryFavoritesFragment : Fragment() {
@@ -66,15 +65,14 @@ class DictionaryFavoritesFragment : Fragment() {
         return root
     }
 
-    private fun getRVAdapter(): DictionarySearchAdapter {
-        return binding.recyclerViewDictionaryFavorites.adapter as DictionarySearchAdapter
+    private fun getRVAdapter(): DictionaryPhrasesSearchAllAdapter {
+        return binding.recyclerViewDictionaryFavorites.adapter as DictionaryPhrasesSearchAllAdapter
     }
 
+    override fun onPause() {
+        super.onPause()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        hideKeyboard(view, activity)
+        hideKeyboard(requireView(), requireActivity())
     }
 
     override fun onDestroyView() {

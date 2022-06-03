@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -13,8 +14,9 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.tabs.TabLayout
-import cz.movapp.android.hideKeyboard
 import cz.movapp.android.textChanges
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.FavoritesViewModelFactory
@@ -81,12 +83,19 @@ class DictionaryFragment : Fragment() {
                     if (it.isEmpty()) {
                         navigateToDictionarySections()
                     } else {
-                        if(findNavController().currentDestination?.id != R.id.nav_search){
-                            findNavController().navigate(R.id.nav_search)
+                        if(findNavController().currentDestination?.id != R.id.nav_phrases_search){
+                            findNavController().navigate(R.id.nav_phrases_search)
                         }
                     }
                 }
             }
+        }
+
+        binding.topAppBar.setNavigationOnClickListener {
+            NavigationUI.navigateUp(
+                findNavController(),
+                AppBarConfiguration(findNavController().graph)
+            )
         }
 
         return root
@@ -97,9 +106,9 @@ class DictionaryFragment : Fragment() {
     }
 
     private fun setupTabLayout() {
-        binding.tab.getTabAt(0)?.select()
+        binding.tabs.getTabAt(0)?.select()
 
-        binding.tab.addOnTabSelectedListener(
+        binding.tabs.addOnTabSelectedListener(
             object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     navigateByTab(tab)
@@ -135,15 +144,22 @@ class DictionaryFragment : Fragment() {
                 ) {
                     when (destination.route) {
                         "favorites" -> {
-                            binding.tab.selectTab(binding.tab.getTabAt(TAB_POSITION_FAVORITES))
+                            binding.tabs.selectTab(binding.tabs.getTabAt(TAB_POSITION_FAVORITES))
                         }
                         else -> if(destination.route?.contains("sections") == true){
-                            binding.tab.selectTab(
-                                binding.tab.getTabAt(
+                            binding.tabs.selectTab(
+                                binding.tabs.getTabAt(
                                     TAB_POSITION_SECTIONS_OR_TRANSLATIONS
                                 )
                             )
                         }
+                    }
+
+                    when (destination.route) {
+                        "sections" -> binding.topAppBar.navigationIcon = null
+                        "favorites" -> binding.topAppBar.navigationIcon = null
+                        else -> binding.topAppBar.navigationIcon = AppCompatResources
+                            .getDrawable(requireContext(), R.drawable.ic_baseline_arrow_back_24)
                     }
                 }
             }
@@ -186,15 +202,6 @@ class DictionaryFragment : Fragment() {
             launchSingleTop = true
             restoreState = true
         }
-    }
-
-
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        hideKeyboard(view, activity)
     }
 
     override fun onDestroyView() {
