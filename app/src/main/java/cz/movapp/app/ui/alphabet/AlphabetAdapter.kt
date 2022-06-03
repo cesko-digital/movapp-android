@@ -98,7 +98,9 @@ class AlphabetAdapter(
 
             id = generateViewId()
 
-            visibility = View.GONE
+            if (exampleData.file_name == null) {
+                visibility = View.GONE
+            }
         }
 
         /* set layout params of textview */
@@ -115,8 +117,7 @@ class AlphabetAdapter(
         imagePlayExample.layoutParams = paramsExample
 
         imagePlayExample.setOnClickListener { view ->
-            // TODO: import sounds to assets and use it here
-            // playSound(view.context, exampleData.soundAssetFile)
+            playSound(view.context, exampleData.file_name!!)
         }
 
         layout.addView(textExample)
