@@ -34,87 +34,27 @@ class AboutTeamFragment : Fragment() {
         _binding = FragmentAboutTeamBinding.inflate(inflater, container, false)
 
         for (section in teamViewModel.team.sections!!) {
-            binding.linearLayout.addView(createSectionTextView(section.name))
-            binding.linearLayout.addView(createSectionView(section))
+            val sectionTemplateLayout = layoutInflater.inflate(R.layout.template_team_section, container, false)
+
+            sectionTemplateLayout.findViewById<TextView>(R.id.text_team_section_name).text = section.name
+
+            val sectionLayout = sectionTemplateLayout.findViewById<LinearLayout>(R.id.linear_layout_section_team)
+
+            for (member in section.members) {
+                val memberTextView = (layoutInflater.inflate(R.layout.template_team_member, container, false) as TextView).apply {
+                    text = member.name
+                }
+
+                sectionLayout.addView(memberTextView)
+
+                if (section.members.indexOf(member) < (section.members.size - 1))
+                    sectionLayout.addView(layoutInflater.inflate(R.layout.template_team_divider, container, false) as MaterialDivider)
+            }
+
+            binding.linearLayout.addView(sectionTemplateLayout)
         }
 
         return binding.root
-    }
-
-    private fun createSectionView(section: Section): CardView {
-        val cardViewMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8f, requireContext().resources.displayMetrics)
-
-        val cardViewLayoutParams = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        ).apply {
-            topMargin = cardViewMargin.toInt()
-            bottomMargin = cardViewMargin.toInt()
-        }
-
-        val cardView = CardView(requireContext()).apply {
-            layoutParams = cardViewLayoutParams
-            radius = cardViewMargin
-            setCardBackgroundColor(ContextCompat.getColor(context, R.color.secondarySurfaceColor))
-        }
-
-        val layoutMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16f, requireContext().resources.displayMetrics)
-
-        val layoutLayoutParams = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
-        ).apply {
-            marginStart = layoutMargin.toInt()
-            marginEnd = layoutMargin.toInt()
-        }
-
-        val layout = LinearLayout(requireContext()).apply {
-            orientation = LinearLayout.VERTICAL
-            layoutParams = layoutLayoutParams
-        }
-
-        for (member in section.members) {
-            val memberTextView = (layoutInflater.inflate(R.layout.template_team_member, null) as TextView).apply {
-                text = member.name
-            }
-
-            layout.addView(memberTextView)
-
-            if (section.members.indexOf(member) < (section.members.size - 1))
-                layout.addView(createDivider())
-        }
-
-        cardView.addView(layout)
-
-        return cardView
-    }
-
-    private fun createSectionTextView(label: String): TextView {
-        val layoutPar = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-
-        val textView = TextView(context).apply {
-            text = label
-            isAllCaps = true
-            setTextColor(ContextCompat.getColor(context, R.color.greyTextColor))
-            layoutParams = layoutPar
-        }
-
-        return textView
-    }
-
-    private fun createDivider(): MaterialDivider {
-        val layoutPar = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-
-        return MaterialDivider(requireContext()).apply {
-            setBackgroundColor(ContextCompat.getColor(context, R.color.dividerColor))
-            layoutParams = layoutPar
-        }
     }
 
     override fun onDestroyView() {
