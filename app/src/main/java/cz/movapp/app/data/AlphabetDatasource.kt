@@ -43,14 +43,23 @@ class AlphabetDatasource(private val context: Context) {
 
                 soundUrl = jsonExampleObj.getNullString("sound_url")
 
+                if (soundUrl != null) {
+                    soundUrl = soundUrl!!.replace("https://data.movapp.eu/", "")
+                    soundUrl = if (context.assets.open(soundUrl).readBytes().isEmpty()) null else soundUrl
+                }
+
                 examples.add(LetterExampleData(
                     jsonExampleObj.getString("translation"),
                     jsonExampleObj.getString("transcription"),
-                    if (soundUrl == null) null else soundUrl!!.replace("https://data.movapp.eu/", "")
+                    soundUrl
                 ))
             }
 
             soundUrl = jsonLetterObj.getNullString("sound_url")
+            if (soundUrl != null) {
+                soundUrl = soundUrl!!.replace("https://data.movapp.eu/", "")
+            }
+
             alphabet.add(
                 AlphabetData(
                     id = jsonLetterObj.getString("id"),
@@ -58,7 +67,7 @@ class AlphabetDatasource(private val context: Context) {
                     letter_capital = jsonLetterObj.getJSONArray("letters").getNullString(0),
                     letter = if (jsonLetterObj.getJSONArray("letters").length() < 2) null else jsonLetterObj.getJSONArray("letters").getNullString(1),
                     file_name = fileName,
-                    letterSoundAssetFile = if (soundUrl == null) null else soundUrl!!.replace("https://data.movapp.eu/", ""),
+                    letterSoundAssetFile = soundUrl,
                     transcription = jsonLetterObj.getString("transcription"),
                     examples = examples
                 )

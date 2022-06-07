@@ -1,12 +1,9 @@
 package cz.movapp.app.ui.alphabet
 
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.generateViewId
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.android.playSound
