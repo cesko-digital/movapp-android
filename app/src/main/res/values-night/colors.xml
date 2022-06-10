@@ -27,4 +27,6 @@
     <color name="greyTextColor">@color/primaryTextColor</color>
 
     <color name="linkColor">@color/secondaryDarkColor</color>
+
+    <color name="upButtonColor">#BFBEBE</color>
 </resources>

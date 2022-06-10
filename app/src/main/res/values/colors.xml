@@ -33,4 +33,6 @@
     <color name="greyTextColor">#676767</color>
 
     <color name="linkColor">#013abd</color>
+
+    <color name="upButtonColor">@color/white</color>
 </resources>

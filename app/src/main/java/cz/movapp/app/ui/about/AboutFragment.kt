@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -13,7 +14,6 @@ import cz.movapp.android.openUri
 import cz.movapp.app.BuildConfig
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
-import cz.movapp.app.data.Language
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.FragmentAboutBinding
 
@@ -50,42 +50,8 @@ class AboutFragment : Fragment() {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
 
         val context = this.requireContext()
-        val languageList = listOf(Language.Czech.stringText, Language.Ukrainian.stringText)
 
-        ArrayAdapter(
-            context,
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            languageList
-        ).also { adapter ->
-            binding.learnChoice.adapter = adapter
-
-            if (mainSharedViewModel.selectedLanguage.value!! == LanguagePair.UkToCs) {
-                val spinnerPosition = adapter.getPosition(Language.Czech.stringText)
-                binding.learnChoice.setSelection(spinnerPosition)
-            } else {
-                val spinnerPosition = adapter.getPosition(Language.Ukrainian.stringText)
-                binding.learnChoice.setSelection(spinnerPosition)
-            }
-        }
-
-        binding.learnChoice.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                adapterView: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                if (adapterView?.getItemAtPosition(position).toString() == resources.getString(R.string.czech))
-                    mainSharedViewModel.selectLanguage(LanguagePair.UkToCs)
-                else
-                    mainSharedViewModel.selectLanguage(LanguagePair.CsToUk)
-
-                mainSharedViewModel.storeLanguage()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
+        setupLanguageSpinner(this, binding.learnChoice)
 
         binding.textAboutVersion.text = String.format(
             resources.getString(R.string.about_version),
@@ -133,6 +99,74 @@ class AboutFragment : Fragment() {
             openUri(context, HTTP_MOVAPP_UMAPA)
         }
         return binding.root
+    }
+
+    private fun setupLanguageSpinner(fragment: Fragment, spinner: Spinner) {
+        val context = spinner.context
+
+        val langItems =
+            LanguagePair.values().map { LanguageSpinnerItem(it, context.getString(it.from.adjectiveStringId)) }
+
+        ArrayAdapter(
+            context,
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            langItems
+        ).also { adapter ->
+            spinner.adapter = adapter
+
+            mainSharedViewModel.selectedLanguage.observe(fragment.viewLifecycleOwner){ langPair ->
+                setSpinnerSelection(
+                    spinner,
+                    adapter,
+                    langItems,
+                    langPair
+                )
+            }
+        }
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                mainSharedViewModel.selectLanguage((adapterView?.getItemAtPosition(position) as LanguageSpinnerItem).lang)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+    }
+
+    private fun setSpinnerSelection(
+        spinner: Spinner,
+        adapter: ArrayAdapter<LanguageSpinnerItem>,
+        langItems: List<LanguageSpinnerItem>,
+        selectedLangPair: LanguagePair
+    ) {
+        spinner.setSelection(
+            adapter.getPosition(
+                toLanguageSpinnerItem(
+                    langItems,
+                    selectedLangPair
+                )
+            )
+        )
+    }
+
+    private fun toLanguageSpinnerItem(
+        langPairItems: List<LanguageSpinnerItem>,
+        restoredLang: LanguagePair?
+    ): LanguageSpinnerItem {
+        return (langPairItems.firstOrNull { it.lang == restoredLang }
+            ?: langPairItems.first { it.lang == LanguagePair.getDefault() })
+    }
+
+    class LanguageSpinnerItem(val lang: LanguagePair, val text: String) {
+        override fun toString(): String {
+            return text
+        }
     }
 
     override fun onDestroyView() {

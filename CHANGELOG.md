@@ -1,6 +1,9 @@
 Details about this file’s format at <http://keepachangelog.com/>. 
 TODO: The change log is parsed automatically when minting releases through Fastlane, see `Fastlane/Fastfile`.
 
+## [1.2.0] - 2022-06-10Z
+- Opravy chyb
+
 ## [1.1.8] - 2022-06-03Z
 - Přidání tlačítka zpět do slovníku
 - Ozvučení příkladů v abecedě
