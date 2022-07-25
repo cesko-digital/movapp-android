@@ -105,7 +105,7 @@ class AboutFragment : Fragment() {
         val context = spinner.context
 
         val langItems =
-            LanguagePair.values().map { LanguageSpinnerItem(it, context.getString(it.from.adjectiveStringId)) }
+            LanguagePair.values().map { LanguageSpinnerItem(it, context.getString(it.to.adjectiveStringId)) }
 
         ArrayAdapter(
             context,
