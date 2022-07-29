@@ -34,13 +34,17 @@ class DictionaryPhraseSectionDetailFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionaryTranslations
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.translations.value
+        dictionarySharedViewModel.translations.observe(viewLifecycleOwner) {
+            recyclerView.adapter = it
+        }
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
             dictionarySharedViewModel.translations.value?.favoritesIds = it.map { it.translationId } as MutableList
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            dictionarySharedViewModel.onLanguageChanged(lang)
+
             val adapter =
                 binding.recyclerViewDictionaryTranslations.adapter as DictionaryPhraseSectionDetailAdapter
 

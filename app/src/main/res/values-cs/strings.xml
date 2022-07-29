@@ -31,4 +31,8 @@
     <string name="on_boarding_info_3_description">Naučte se všechny znaky ukrajinské cyrilice. Pomohou vám ukázková slova.</string>
     <string name="about_partners">Partnerské projekty</string>
     <string name="about_stand_by_ukraine">Stojíme za Ukrajinou</string>
+    <string name="slovak">slovensky</string>
+    <string name="polish">polsky</string>
+    <string name="alphabet_slovak">Slovenská abeceda</string>
+    <string name="alphabet_polish">Polská abeceda</string>
 </resources>

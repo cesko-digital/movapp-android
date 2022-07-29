@@ -132,6 +132,7 @@ class AboutFragment : Fragment() {
                 id: Long
             ) {
                 mainSharedViewModel.selectLanguage((adapterView?.getItemAtPosition(position) as LanguageSpinnerItem).lang)
+                mainSharedViewModel.storeLanguage()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {

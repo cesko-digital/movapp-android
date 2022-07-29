@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import cz.movapp.app.App
 import cz.movapp.app.appModule
 import cz.movapp.app.data.ChildrenDatasource
+import cz.movapp.app.data.LanguagePair
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -19,7 +20,7 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
     val childrenState = MutableLiveData<Int>(0)
 
     private val _children = MutableLiveData<ChildrenAdapter>().apply {
-        value = ChildrenAdapter(ChildrenDatasource().loadChildren(context))
+        value = ChildrenAdapter(ChildrenDatasource().loadChildren(context, LanguagePair.getDefault()))
     }
 
     val children: MutableLiveData<ChildrenAdapter> = _children
@@ -40,6 +41,10 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
 
     fun storeState(scrollPosition: Int) {
         childrenState.value = scrollPosition
+    }
+
+    fun onLanguageChanged(langPair: LanguagePair) {
+        _children.value = ChildrenAdapter(ChildrenDatasource().loadChildren(context, langPair))
     }
 
     private fun appModule() = getApplication<App>().appModule()

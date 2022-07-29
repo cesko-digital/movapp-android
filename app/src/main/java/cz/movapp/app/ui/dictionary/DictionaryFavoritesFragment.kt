@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import cz.movapp.android.hideKeyboard
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.MainViewModel
+import cz.movapp.app.data.Favorites
 import cz.movapp.app.databinding.FragmentDictionaryFavoritesBinding
 
 class DictionaryFavoritesFragment : Fragment() {
@@ -36,20 +37,22 @@ class DictionaryFavoritesFragment : Fragment() {
         recyclerView.adapter = dictionarySharedViewModel.favoritesSearches.value!!
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
-            val adapter = getRVAdapter()
-
-            adapter?.favoritesIds = it.map { it.translationId } as MutableList
-
-            recyclerView.adapter = adapter
-            adapter?.search("",true)
+            reloadFavoritesIds(it)
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            dictionarySharedViewModel.onLanguageChanged(lang)
+            recyclerView.adapter = dictionarySharedViewModel.favoritesSearches.value!!
+
             val adapter = getRVAdapter()
 
             if(adapter.langPair != lang){
                 adapter.langPair = lang
                 adapter.notifyDataSetChanged()
+            }
+
+            if (favoritesViewModel.favorites.value != null) {
+                reloadFavoritesIds(favoritesViewModel.favorites.value!!)
             }
         })
 
@@ -63,6 +66,14 @@ class DictionaryFavoritesFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun reloadFavoritesIds(favoritesIds: List<Favorites>) {
+        val adapter = getRVAdapter()
+
+        adapter?.favoritesIds = favoritesIds.map { it.translationId } as MutableList
+
+        adapter?.search("",true)
     }
 
     private fun getRVAdapter(): DictionaryPhrasesSearchAllAdapter {

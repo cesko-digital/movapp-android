@@ -3,5 +3,7 @@
     <string-array name="language_array">
         <item>Česky</item>
         <item>Yкраїнський</item>
+        <item>Slovensky</item>
+        <item>Polsky</item>
     </string-array>
 </resources>

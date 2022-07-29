@@ -50,15 +50,19 @@ class DictionaryPhraseSectionsFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionarySections
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.sections.value
+        dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
+            recyclerView.adapter = it
 
-        dictionarySharedViewModel.sections.value?.onItemClicked = { item ->
-            dictionarySharedViewModel.translationsIds.value = item.phrases_ids.toMutableList()
-            findNavController()
-                .navigate(DictionaryPhraseSectionsFragmentDirections.toSectionDetail())
+            dictionarySharedViewModel.sections.value?.onItemClicked = { item ->
+                dictionarySharedViewModel.translationsIds.value = item.phrases_ids.toMutableList()
+                findNavController()
+                    .navigate(DictionaryPhraseSectionsFragmentDirections.toSectionDetail())
+            }
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            dictionarySharedViewModel.onLanguageChanged(lang)
+
             val sectionsAdapter =
                 binding.recyclerViewDictionarySections.adapter as DictionaryPhraseSectionsAdapter
 

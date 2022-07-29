@@ -57,8 +57,8 @@ class ChildrenAdapter (
                 textChildrenFrom.text = formatTrans(item.main_translation, item.main_transcription)
                 textChildrenTo.text = formatTrans(item.source_translation, item.source_transcription)
 
-                imageChildrenFlagFrom.setImageResource(R.drawable.cz)
-                imageChildrenFlagTo.setImageResource(R.drawable.ua)
+                imageChildrenFlagFrom.setImageResource(langPair.to.flagResId)
+                imageChildrenFlagTo.setImageResource(langPair.from.flagResId)
 
                 imagePlaySoundFrom.setOnClickListener {
                     playSound(holder.itemView.context, item.main_sound_local)
@@ -70,8 +70,8 @@ class ChildrenAdapter (
                 textChildrenFrom.text = formatTrans(item.source_translation, item.source_transcription)
                 textChildrenTo.text = formatTrans(item.main_translation, item.main_transcription)
 
-                imageChildrenFlagFrom.setImageResource(R.drawable.ua)
-                imageChildrenFlagTo.setImageResource(R.drawable.cz)
+                imageChildrenFlagFrom.setImageResource(langPair.from.flagResId)
+                imageChildrenFlagTo.setImageResource(langPair.to.flagResId)
 
                 imagePlaySoundFrom.setOnClickListener {
                     playSound(holder.itemView.context, item.source_sound_local)
