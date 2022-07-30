@@ -13,14 +13,15 @@ class DictionaryViewModel(private val app: Application, private val favoritesVie
     val sections: MutableLiveData<DictionaryPhraseSectionsAdapter> =
         MutableLiveData<DictionaryPhraseSectionsAdapter>().apply {
             value =
-                DictionaryPhraseSectionsAdapter(DictionaryDatasource().loadSections(app.applicationContext, langPair))
+                DictionaryPhraseSectionsAdapter(DictionaryDatasource().loadSections(app.applicationContext, langPair), langPair)
         }
 
     val translations: MutableLiveData<DictionaryPhraseSectionDetailAdapter> =
         MutableLiveData<DictionaryPhraseSectionDetailAdapter>().apply {
             value = DictionaryPhraseSectionDetailAdapter(
                 DictionaryDatasource().loadTranslations(app.applicationContext, langPair),
-                favoritesViewModel
+                favoritesViewModel,
+                langPair
             )
         }
 
@@ -28,7 +29,8 @@ class DictionaryViewModel(private val app: Application, private val favoritesVie
         MutableLiveData<DictionaryFavoritesAdapter>().apply {
             value = DictionaryFavoritesAdapter(
                 DictionaryDatasource().loadTranslations(app.applicationContext, langPair),
-                favoritesViewModel
+                favoritesViewModel,
+                langPair
             )
         }
 
@@ -38,7 +40,8 @@ class DictionaryViewModel(private val app: Application, private val favoritesVie
             value = DictionaryPhrasesSearchAllAdapter(
                 app,
                 DictionaryDatasource().loadTranslations(app.applicationContext, langPair),
-                favoritesViewModel
+                favoritesViewModel,
+                langPair
             )
         }
 
@@ -47,7 +50,8 @@ class DictionaryViewModel(private val app: Application, private val favoritesVie
             value = DictionaryPhrasesSearchAllAdapter(
                 app,
                 DictionaryDatasource().loadTranslations(app.applicationContext, langPair),
-                favoritesViewModel
+                favoritesViewModel,
+                langPair
             )
         }
 
@@ -55,32 +59,39 @@ class DictionaryViewModel(private val app: Application, private val favoritesVie
         langPair = newLangPair
 
         sections.value =
-            DictionaryPhraseSectionsAdapter(DictionaryDatasource().loadSections(app.applicationContext, langPair))
+            DictionaryPhraseSectionsAdapter(
+                DictionaryDatasource().loadSections(app.applicationContext, langPair),
+                langPair
+            )
 
         translations.value =
             DictionaryPhraseSectionDetailAdapter(
                 DictionaryDatasource().loadTranslations(app.applicationContext, langPair),
-                favoritesViewModel
+                favoritesViewModel,
+                langPair
             )
 
         favorites.value =
             DictionaryFavoritesAdapter(
                 DictionaryDatasource().loadTranslations(app.applicationContext, langPair),
-                favoritesViewModel
+                favoritesViewModel,
+                langPair
             )
 
         translationsSearches.value =
             DictionaryPhrasesSearchAllAdapter(
                 app,
                 DictionaryDatasource().loadTranslations(app.applicationContext, langPair),
-                favoritesViewModel
+                favoritesViewModel,
+                langPair
             )
 
         favoritesSearches.value =
             DictionaryPhrasesSearchAllAdapter(
                 app,
                 DictionaryDatasource().loadTranslations(app.applicationContext, langPair),
-                favoritesViewModel
+                favoritesViewModel,
+                langPair
             )
     }
 

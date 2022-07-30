@@ -34,25 +34,25 @@ class DictionaryFavoritesFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionaryFavorites
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.favoritesSearches.value!!
+        dictionarySharedViewModel.favoritesSearches.observe(viewLifecycleOwner) {
+            recyclerView.adapter = it
+        }
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
             reloadFavoritesIds(it)
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            dictionarySharedViewModel.onLanguageChanged(lang)
-            recyclerView.adapter = dictionarySharedViewModel.favoritesSearches.value!!
-
             val adapter = getRVAdapter()
 
             if(adapter.langPair != lang){
-                adapter.langPair = lang
-                adapter.notifyDataSetChanged()
-            }
+                dictionarySharedViewModel.onLanguageChanged(lang)
 
-            if (favoritesViewModel.favorites.value != null) {
-                reloadFavoritesIds(favoritesViewModel.favorites.value!!)
+                if (favoritesViewModel.favorites.value != null) {
+                    reloadFavoritesIds(favoritesViewModel.favorites.value!!)
+                }
+
+                adapter.notifyDataSetChanged()
             }
         })
 

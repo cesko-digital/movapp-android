@@ -13,10 +13,9 @@ import cz.movapp.app.data.LanguagePair
 
 class DictionaryPhraseSectionsAdapter(
     private var dataset: List<DictionarySectionsData>,
+    var langPair: LanguagePair,
     var onItemClicked: (DictionarySectionsData) -> Unit = {},
 ) : RecyclerView.Adapter<DictionaryPhraseSectionsAdapter.ItemViewHolder>() {
-
-    var langPair = LanguagePair.getDefault()
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textFromTo: TextView = view.findViewById(R.id.text_dictionary_from_to)

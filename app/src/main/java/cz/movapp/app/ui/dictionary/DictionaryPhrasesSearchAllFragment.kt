@@ -37,7 +37,11 @@ class DictionaryPhrasesSearchAllFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionarySearch
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.translationsSearches.value
+        dictionarySharedViewModel.translationsSearches.observe(viewLifecycleOwner) {
+            unregisterSearchObservers()
+            recyclerView.adapter = it
+            registerSearchObservers(recyclerView.adapter as DictionaryPhrasesSearchAllAdapter)
+        }
 
         favoritesViewModel.favorites.observe(viewLifecycleOwner) { it ->
             val favoritesIds = mutableListOf<String>()
@@ -50,13 +54,35 @@ class DictionaryPhrasesSearchAllFragment : Fragment() {
             }
         }
 
+        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
+            val adapter =
+                binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter
+            if(adapter.langPair != lang){
+                dictionarySharedViewModel.onLanguageChanged(lang)
+                adapter.notifyDataSetChanged()
+            }
+        })
+
+        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
+            if (it != null) {
+                dictionarySharedViewModel.translationsSearches.value?.search(
+                    it, false
+                )
+            }
+        }
+
+        return root
+    }
+
+    private fun registerSearchObservers(adapter: DictionaryPhrasesSearchAllAdapter) {
         /**
          * This data observer is used to scroll up in case of data change.
          * It is necessary in searching. As the user writes, the recyclerview
          * would remain on previously found result but the more accurate result
          * is on top.
          */
-        (recyclerView.adapter as DictionaryPhrasesSearchAllAdapter).registerAdapterDataObserver(
+
+        adapter.registerAdapterDataObserver(
             object: RecyclerView.AdapterDataObserver() {
                 init {
                     adapterDataObservers.add(this)
@@ -88,32 +114,19 @@ class DictionaryPhrasesSearchAllFragment : Fragment() {
                 }
             }
         )
-
-        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            val adapter =
-                binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter
-            if(adapter.langPair != lang){
-                adapter.langPair = lang
-                adapter.notifyDataSetChanged()
-            }
-        })
-
-        dictionarySharedViewModel.searchQuery.observe(viewLifecycleOwner) {
-            if (it != null) {
-                dictionarySharedViewModel.translationsSearches.value?.search(
-                    it, false
-                )
-            }
-        }
-
-
-        return root
     }
 
     override fun onPause() {
         super.onPause()
 
         hideKeyboard(requireView(), requireActivity())
+    }
+
+    private fun unregisterSearchObservers() {
+        for (observer in adapterDataObservers)
+            (binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter).
+            unregisterAdapterDataObserver(observer)
+        adapterDataObservers.clear()
     }
 
     override fun onDestroyView() {
@@ -123,10 +136,7 @@ class DictionaryPhrasesSearchAllFragment : Fragment() {
             listOf()
         )
 
-        for (observer in adapterDataObservers)
-            (binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter).
-                unregisterAdapterDataObserver(observer)
-        adapterDataObservers.clear()
+        unregisterSearchObservers()
 
         binding.recyclerViewDictionarySearch.adapter = null
         _binding = null

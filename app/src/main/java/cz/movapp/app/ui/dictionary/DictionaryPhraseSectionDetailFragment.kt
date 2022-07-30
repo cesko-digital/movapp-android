@@ -43,13 +43,11 @@ class DictionaryPhraseSectionDetailFragment : Fragment() {
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
-            dictionarySharedViewModel.onLanguageChanged(lang)
-
             val adapter =
                 binding.recyclerViewDictionaryTranslations.adapter as DictionaryPhraseSectionDetailAdapter
 
-            if(adapter.langPair != lang){
-                adapter.langPair = lang
+            if(adapter.langPair != lang) {
+                dictionarySharedViewModel.onLanguageChanged(lang)
                 adapter.notifyDataSetChanged()
             }
         })
