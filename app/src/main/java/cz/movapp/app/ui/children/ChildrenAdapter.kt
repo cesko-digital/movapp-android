@@ -53,12 +53,12 @@ class ChildrenAdapter (
                 imageChildrenMain.setImageDrawable(null)
             }
 
+            imageChildrenFlagFrom.setImageResource(langPair.from.flagResId)
+            imageChildrenFlagTo.setImageResource(langPair.to.flagResId)
+
             if (!langPair.isReversed) {
                 textChildrenFrom.text = formatTrans(item.main_translation, item.main_transcription)
                 textChildrenTo.text = formatTrans(item.source_translation, item.source_transcription)
-
-                imageChildrenFlagFrom.setImageResource(langPair.to.flagResId)
-                imageChildrenFlagTo.setImageResource(langPair.from.flagResId)
 
                 imagePlaySoundFrom.setOnClickListener {
                     playSound(holder.itemView.context, item.main_sound_local)
@@ -69,9 +69,6 @@ class ChildrenAdapter (
             } else {
                 textChildrenFrom.text = formatTrans(item.source_translation, item.source_transcription)
                 textChildrenTo.text = formatTrans(item.main_translation, item.main_transcription)
-
-                imageChildrenFlagFrom.setImageResource(langPair.from.flagResId)
-                imageChildrenFlagTo.setImageResource(langPair.to.flagResId)
 
                 imagePlaySoundFrom.setOnClickListener {
                     playSound(holder.itemView.context, item.source_sound_local)
