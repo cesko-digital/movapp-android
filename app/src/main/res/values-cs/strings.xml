@@ -35,4 +35,5 @@
     <string name="polish">polsky</string>
     <string name="alphabet_slovak">Slovenská abeceda</string>
     <string name="alphabet_polish">Polská abeceda</string>
+    <string name="i_know">Rodný jazyk</string>
 </resources>
