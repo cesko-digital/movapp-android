@@ -42,16 +42,9 @@ class AlphabetsFragment : Fragment() {
         val langPair = mainSharedViewModel.selectedLanguage.value!!
 
         TabLayoutMediator(binding.tabs, binding.pager) { tab, position ->
-            if (langPair.isReversed) {
-                when (position) {
-                    0 -> tab.setText(langCaptionsArray[langPair.to.langCode]!!)
-                    1 -> tab.setText(langCaptionsArray[langPair.from.langCode]!!)
-                }
-            } else {
-                when (position) {
-                    0 -> tab.setText(langCaptionsArray[langPair.from.langCode]!!)
-                    1 -> tab.setText(langCaptionsArray[langPair.to.langCode]!!)
-                }
+            when (position) {
+                0 -> tab.setText(langCaptionsArray[langPair.to.langCode]!!)
+                1 -> tab.setText(langCaptionsArray[langPair.from.langCode]!!)
             }
         }.attach()
 
