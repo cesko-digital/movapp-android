@@ -1,6 +1,7 @@
 package cz.movapp.app.data
 
 import android.content.Context
+import cz.movapp.android.createLangAssetsString
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import org.json.JSONObject
@@ -10,12 +11,15 @@ import java.util.*
 
 class DictionaryDatasource {
 
-    fun loadSections(context: Context): List<DictionarySectionsData> {
+    private val sectionsCache = mutableMapOf<String,List<DictionarySectionsData>>()
+    private val translationsCache = mutableMapOf<String,List<DictionaryTranslationsData>>()
+
+    private fun loadSectionsFromAssets(context: Context, langStorageString: String): List<DictionarySectionsData> {
         var jsonString: String = ""
         var dict = mutableListOf<DictionarySectionsData>()
 
         try {
-            jsonString = context.assets.open("uk-cs-dictionary.json").bufferedReader().use { it.readText() }
+            jsonString = context.assets.open("${langStorageString}-dictionary.json").bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             ioException.printStackTrace()
         }
@@ -46,12 +50,12 @@ class DictionaryDatasource {
         return dict
     }
 
-    fun loadTranslations(context: Context): List<DictionaryTranslationsData> {
+    private fun loadTranslationsFromAssets(context: Context, langStorageString: String): List<DictionaryTranslationsData> {
         var jsonString: String = ""
         var translations = mutableListOf<DictionaryTranslationsData>()
 
         try {
-            jsonString = context.assets.open("uk-cs-dictionary.json").bufferedReader().use { it.readText() }
+            jsonString = context.assets.open("${langStorageString}-dictionary.json").bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             ioException.printStackTrace()
         }
@@ -83,6 +87,38 @@ class DictionaryDatasource {
         }
 
         return translations
+    }
+
+    fun loadSections(context: Context, langPair: LanguagePair): List<DictionarySectionsData> {
+        var langStorageString = createLangAssetsString(langPair)
+        return lazySectionsCacheLoad(context, langStorageString)
+    }
+
+    fun loadTranslations(context: Context, langPair: LanguagePair): List<DictionaryTranslationsData> {
+        var langStorageString = createLangAssetsString(langPair)
+        return lazyTranslationsCacheLoad(context, langStorageString)
+    }
+
+    private fun lazySectionsCacheLoad(context: Context, langStorageString: String): List<DictionarySectionsData> {
+        var selected = sectionsCache[langStorageString]
+        return if (selected == null) {
+            selected = loadSectionsFromAssets(context, langStorageString)
+            sectionsCache[langStorageString] = selected
+            selected
+        } else {
+            selected
+        }
+    }
+
+    private fun lazyTranslationsCacheLoad(context: Context, langStorageString: String): List<DictionaryTranslationsData> {
+        var selected = translationsCache[langStorageString]
+        return if (selected == null) {
+            selected = loadTranslationsFromAssets(context, langStorageString)
+            translationsCache[langStorageString] = selected
+            selected
+        } else {
+            selected
+        }
     }
 
     private fun stripAccents(input: String): String {

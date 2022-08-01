@@ -1,19 +1,22 @@
 package cz.movapp.app.data
 
 import android.content.Context
+import cz.movapp.android.createLangAssetsString
 import cz.movapp.app.ui.children.ChildrenData
-import org.json.JSONArray
+import cz.movapp.app.ui.dictionary.DictionarySectionsData
 import org.json.JSONObject
 import java.io.IOException
 
 class ChildrenDatasource {
 
-    fun loadChildren(context: Context): List<ChildrenData>{
+    private val cache = mutableMapOf<String,List<ChildrenData>>()
+
+    private fun loadChildrenFromAssets(context: Context, langStorageString: String): List<ChildrenData> {
         var jsonString: String = ""
         val children = mutableListOf<ChildrenData>()
 
         try {
-            jsonString = context.assets.open("uk-cs-dictionary.json").bufferedReader().use { it.readText() }
+            jsonString = context.assets.open("${langStorageString}-dictionary.json").bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             ioException.printStackTrace()
         }
@@ -29,34 +32,57 @@ class ChildrenDatasource {
                 val jsonPhrasesArr = jsonObj.getJSONArray("phrases")
 
                 for (j in 0 until jsonPhrasesArr.length()) {
-                    val forKidsId = jsonPhrasesArr.getString(j)
-                    val jsonItemObj = jsonPhrasesObj.getJSONObject(forKidsId)
+                    try {
+                        val forKidsId = jsonPhrasesArr.getString(j)
+                        val jsonItemObj = jsonPhrasesObj.getJSONObject(forKidsId)
 
-                    val jsonObjMainItem = jsonItemObj.getJSONObject("main")
-                    val jsonObjSourceItem = jsonItemObj.getJSONObject("source")
+                        val jsonObjMainItem = jsonItemObj.getJSONObject("main")
+                        val jsonObjSourceItem = jsonItemObj.getJSONObject("source")
 
-                    val imagePath = "images/android/${forKidsId}/${forKidsId}.webp"
+                        val imagePath = "images/android/${forKidsId}/${forKidsId}.webp"
 
-                    children.add(ChildrenData(
-                        forKidsId,
+                        children.add(
+                            ChildrenData(
+                                forKidsId,
 
-                        jsonObjMainItem.getString("translation"),
-                        jsonObjMainItem.getString("transcription"),
-                        jsonObjMainItem.getString("sound_url"),
-                        jsonObjMainItem.getString("sound_url").replace("https://data.movapp.eu/", ""),
+                                jsonObjMainItem.getString("translation"),
+                                jsonObjMainItem.getString("transcription"),
+                                jsonObjMainItem.getString("sound_url"),
+                                jsonObjMainItem.getString("sound_url")
+                                    .replace("https://data.movapp.eu/", ""),
 
-                        jsonObjSourceItem.getString("translation"),
-                        jsonObjSourceItem.getString("transcription"),
-                        jsonObjSourceItem.getString("sound_url"),
-                        jsonObjSourceItem.getString("sound_url").replace("https://data.movapp.eu/", ""),
+                                jsonObjSourceItem.getString("translation"),
+                                jsonObjSourceItem.getString("transcription"),
+                                jsonObjSourceItem.getString("sound_url"),
+                                jsonObjSourceItem.getString("sound_url")
+                                    .replace("https://data.movapp.eu/", ""),
 
-                        imagePath
-                    )
-                    )
+                                imagePath
+                            )
+                        )
+                    } catch (e: Exception) {
+                        continue
+                    }
                 }
             }
         }
 
         return children
+    }
+
+    fun loadChildren(context: Context, langPair: LanguagePair): List<ChildrenData> {
+        var langStorageString = createLangAssetsString(langPair)
+        return lazyChildrenCacheLoad(context, langStorageString)
+    }
+
+    private fun lazyChildrenCacheLoad(context: Context, langStorageString: String): List<ChildrenData> {
+        var selected = cache[langStorageString]
+        return if (selected == null) {
+            selected = loadChildrenFromAssets(context, langStorageString)
+            cache[langStorageString] = selected
+            selected
+        } else {
+            selected
+        }
     }
 }

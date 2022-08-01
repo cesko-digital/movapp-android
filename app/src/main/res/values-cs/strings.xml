@@ -25,10 +25,19 @@
     <string name="on_boarding_choice">Vyberte jazyk, který se chcete naučit</string>
     <string name="on_boarding_info_1_title">Slovníček</string>
     <string name="on_boarding_info_1_description">Naučte se stovky základních slovíček a frází čtením i poslechem. Slovíčka třídíme dle životních situací.</string>
-    <string name="on_boarding_info_2_title">Pro děti</string>
-    <string name="on_boarding_info_2_description">Ilustrovaný ukrajinsko-český slovníček s desítkami tisknutelných karet.</string>
-    <string name="on_boarding_info_3_title">Ukrajinská abeceda</string>
-    <string name="on_boarding_info_3_description">Naučte se všechny znaky ukrajinské cyrilice. Pomohou vám ukázková slova.</string>
+    <string name="on_boarding_info_2_title">Abeceda</string>
+    <string name="on_boarding_info_2_description">Naučte se všechny znaky ukrajinské cyrilice. Pomohou vám ukázková slova.</string>
+    <string name="on_boarding_info_3_title">Pro děti</string>
     <string name="about_partners">Partnerské projekty</string>
     <string name="about_stand_by_ukraine">Stojíme za Ukrajinou</string>
+    <string name="slovak">slovensky</string>
+    <string name="polish">polsky</string>
+    <string name="alphabet_slovak">Slovenská abeceda</string>
+    <string name="alphabet_polish">Polská abeceda</string>
+    <string name="i_know">Rodný jazyk</string>
+    <string name="on_boarding_info_0_title">Výborně!</string>
+    <string name="on_boarding_info_0_description">Pojd\'me se učit %1$s. Aplikaci můžete používat i offline pokud nejste připojeni k internetu.</string>
+    <string name="on_boarding_skip">Přeskočit</string>
+    <string name="on_boarding_choice_native">Vyberte jazyk, kterým umíte mluvit</string>
+    <string name="on_boarding_info_3_description">Ilustrovaný ukrajinsko-český slovníček s desítkami karet pro děti.</string>
 </resources>

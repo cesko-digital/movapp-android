@@ -42,7 +42,8 @@ class ChildrenFragment : Fragment() {
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            (recyclerView.adapter as ChildrenAdapter).langPair = mainSharedViewModel.selectedLanguage.value!!
+            childrenViewModel.onLanguageChanged(it)
+            (recyclerView.adapter as ChildrenAdapter).langPair = it
             recyclerView.adapter?.notifyDataSetChanged()
         }
 

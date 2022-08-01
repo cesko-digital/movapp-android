@@ -9,11 +9,13 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import cz.movapp.android.openUri
 import cz.movapp.app.BuildConfig
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
+import cz.movapp.app.data.Language
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.FragmentAboutBinding
 
@@ -26,6 +28,8 @@ class AboutFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private var selectedLanguageObserver: Observer<LanguagePair>? = null
 
     companion object {
         const val HTTP_MOVAPP_WEB = "https://www.movapp.cz"
@@ -51,7 +55,11 @@ class AboutFragment : Fragment() {
 
         val context = this.requireContext()
 
-        setupLanguageSpinner(this, binding.learnChoice)
+        setupNativeLanguageSpinner(this, binding.nativeLanguageChoice)
+
+        mainSharedViewModel.selectedNativeLanguage.observe(viewLifecycleOwner) {
+            setupLanguageSpinner(this, binding.learnChoice, it)
+        }
 
         binding.textAboutVersion.text = String.format(
             resources.getString(R.string.about_version),
@@ -101,11 +109,10 @@ class AboutFragment : Fragment() {
         return binding.root
     }
 
-    private fun setupLanguageSpinner(fragment: Fragment, spinner: Spinner) {
+    private fun setupNativeLanguageSpinner(fragment: Fragment, spinner: Spinner) {
         val context = spinner.context
 
-        val langItems =
-            LanguagePair.values().map { LanguageSpinnerItem(it, context.getString(it.from.adjectiveStringId)) }
+        val langItems = Language.values().map { NativeLanguageSpinnerItem(it, context.getString(it.adjectiveStringId)) }
 
         ArrayAdapter(
             context,
@@ -115,7 +122,7 @@ class AboutFragment : Fragment() {
             spinner.adapter = adapter
 
             mainSharedViewModel.selectedLanguage.observe(fragment.viewLifecycleOwner){ langPair ->
-                setSpinnerSelection(
+                setNativeLanguageSpinnerSelection(
                     spinner,
                     adapter,
                     langItems,
@@ -131,12 +138,89 @@ class AboutFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                mainSharedViewModel.selectLanguage((adapterView?.getItemAtPosition(position) as LanguageSpinnerItem).lang)
+                selectedLanguageObserver?.let {
+                    mainSharedViewModel.selectedLanguage.removeObserver(it)
+                }
+                val lang = (adapterView?.getItemAtPosition(position) as NativeLanguageSpinnerItem).lang
+
+                if (mainSharedViewModel.selectedLanguage.value!!.from != lang) {
+                    mainSharedViewModel.selectLanguage(
+                        LanguagePair.values().filter { it.from == lang }[0]
+                    )
+                }
+
+                mainSharedViewModel.selectNativeLanguage(lang)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+    }
+
+    private fun setupLanguageSpinner(fragment: Fragment, spinner: Spinner, nativeLanguage: Language) {
+        val context = spinner.context
+
+        var langItems =
+            LanguagePair.values().map { LanguageSpinnerItem(it, context.getString(it.to.adjectiveStringId)) }
+
+        langItems = if (nativeLanguage.langCode == "uk") {
+            langItems.filter { it.lang.to.langCode != nativeLanguage.langCode }
+        } else {
+            langItems.filter { it.lang.from.langCode == nativeLanguage.langCode }
+        }
+
+        ArrayAdapter(
+            context,
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            langItems
+        ).also { adapter ->
+            spinner.adapter = adapter
+
+            selectedLanguageObserver = Observer { langPair ->
+                setSpinnerSelection(
+                    spinner,
+                    adapter,
+                    langItems,
+                    langPair
+                )
+            }
+
+            mainSharedViewModel.selectedLanguage.observe(
+                fragment.viewLifecycleOwner,
+                selectedLanguageObserver!!
+            )
+        }
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                mainSharedViewModel.selectLanguage((adapterView?.getItemAtPosition(position) as LanguageSpinnerItem).lang)
+                mainSharedViewModel.storeLanguage()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+    }
+
+    private fun setNativeLanguageSpinnerSelection(
+        spinner: Spinner,
+        adapter: ArrayAdapter<NativeLanguageSpinnerItem>,
+        langItems: List<NativeLanguageSpinnerItem>,
+        selectedLangPair: LanguagePair
+    ) {
+        spinner.setSelection(
+            adapter.getPosition(
+                toNativeLanguageSpinnerItem(
+                    langItems,
+                    selectedLangPair
+                )
+            )
+        )
     }
 
     private fun setSpinnerSelection(
@@ -155,12 +239,26 @@ class AboutFragment : Fragment() {
         )
     }
 
+    private fun toNativeLanguageSpinnerItem(
+        langPairItems: List<NativeLanguageSpinnerItem>,
+        restoredLang: LanguagePair
+    ): NativeLanguageSpinnerItem {
+        return (langPairItems.firstOrNull { it.lang == restoredLang.from }
+            ?: langPairItems.first { it.lang == LanguagePair.getDefault().from })
+    }
+
     private fun toLanguageSpinnerItem(
         langPairItems: List<LanguageSpinnerItem>,
         restoredLang: LanguagePair?
     ): LanguageSpinnerItem {
         return (langPairItems.firstOrNull { it.lang == restoredLang }
             ?: langPairItems.first { it.lang == LanguagePair.getDefault() })
+    }
+
+    class NativeLanguageSpinnerItem(val lang: Language, val text: String) {
+        override fun toString(): String {
+            return text
+        }
     }
 
     class LanguageSpinnerItem(val lang: LanguagePair, val text: String) {

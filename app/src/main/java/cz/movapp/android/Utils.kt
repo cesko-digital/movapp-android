@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.FragmentActivity
+import cz.movapp.app.data.LanguagePair
 
 
 /**
@@ -34,4 +35,12 @@ fun hideKeyboard(view: View, activity: FragmentActivity?) {
     val inputMethodManager =
         activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun createLangAssetsString(langPair: LanguagePair): String {
+    return if (langPair.isReversed) {
+        "${langPair.from.langCode}-${langPair.to.langCode}"
+    } else {
+        "${langPair.to.langCode}-${langPair.from.langCode}"
+    }
 }

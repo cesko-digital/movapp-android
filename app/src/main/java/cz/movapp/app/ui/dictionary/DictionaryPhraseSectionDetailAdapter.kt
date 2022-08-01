@@ -19,6 +19,7 @@ import cz.movapp.app.databinding.DictionaryTranslationItemBinding
 open class DictionaryPhraseSectionDetailAdapter(
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
+    var langPair: LanguagePair,
 ) : ListAdapter<DictionaryTranslationsData, DictionaryPhraseSectionDetailAdapter.ItemViewHolder>(
     DiffCallback
 ) {
@@ -126,8 +127,6 @@ open class DictionaryPhraseSectionDetailAdapter(
         }
 
     }
-
-    var langPair = LanguagePair.getDefault()
 
     var favoritesIds = mutableListOf<String>()
 

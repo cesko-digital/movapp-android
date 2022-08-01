@@ -16,7 +16,13 @@ enum class LanguagePair(
 
 
     CsToUk(Language.Czech, Language.Ukrainian, false),
-    UkToCs(Language.Ukrainian, Language.Czech, true);
+    UkToCs(Language.Ukrainian, Language.Czech, true),
+
+    SkToUk(Language.Slovak, Language.Ukrainian, false),
+    UkToSk(Language.Ukrainian, Language.Slovak, true),
+
+    PlToUk(Language.Polish, Language.Ukrainian, false),
+    UkToPl(Language.Ukrainian, Language.Polish, true);
 
     companion object {
         fun getDefault(): LanguagePair {
@@ -38,7 +44,8 @@ enum class Language(
     @DrawableRes val flagResId: Int,
     @StringRes val adjectiveStringId: Int
 ) {
-
     Ukrainian("uk", R.drawable.ua, R.string.ukrainian),
-    Czech("cs", R.drawable.cz, R.string.czech)
+    Czech("cs", R.drawable.cz, R.string.czech),
+    Slovak("sk", R.drawable.sk, R.string.slovak),
+    Polish("pl", R.drawable.pl, R.string.polish)
 }

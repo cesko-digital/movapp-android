@@ -41,7 +41,6 @@ class OnBoardingActivity  : AppCompatActivity() {
 
         binding.pagerOnBoarding.adapter = OnBoardingFragmentAdapter(this)
 
-        binding.dotsOnBoarding
         TabLayoutMediator(binding.dotsOnBoarding,binding.pagerOnBoarding) { tab, position ->
         }.attach()
     }

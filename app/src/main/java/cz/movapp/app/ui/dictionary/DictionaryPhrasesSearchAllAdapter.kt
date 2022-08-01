@@ -2,13 +2,15 @@ package cz.movapp.app.ui.dictionary
 
 import android.content.Context
 import cz.movapp.app.FavoritesViewModel
+import cz.movapp.app.data.LanguagePair
 import java.util.*
 
 class DictionaryPhrasesSearchAllAdapter(
     private val context: Context,
     private val wholeDataset: List<DictionaryTranslationsData>,
     private val favoritesViewModel: FavoritesViewModel,
-) : DictionaryPhraseSectionDetailAdapter(wholeDataset, favoritesViewModel) {
+    private val languagePair: LanguagePair,
+) : DictionaryPhraseSectionDetailAdapter(wholeDataset, favoritesViewModel, languagePair) {
 
 
     enum class LevDirection {

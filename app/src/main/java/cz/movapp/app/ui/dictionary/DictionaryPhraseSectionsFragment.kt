@@ -50,12 +50,14 @@ class DictionaryPhraseSectionsFragment : Fragment() {
         val recyclerView = binding.recyclerViewDictionarySections
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.adapter = dictionarySharedViewModel.sections.value
+        dictionarySharedViewModel.sections.observe(viewLifecycleOwner) {
+            recyclerView.adapter = it
 
-        dictionarySharedViewModel.sections.value?.onItemClicked = { item ->
-            dictionarySharedViewModel.translationsIds.value = item.phrases_ids.toMutableList()
-            findNavController()
-                .navigate(DictionaryPhraseSectionsFragmentDirections.toSectionDetail())
+            dictionarySharedViewModel.sections.value?.onItemClicked = { item ->
+                dictionarySharedViewModel.translationsIds.value = item.phrases_ids.toMutableList()
+                findNavController()
+                    .navigate(DictionaryPhraseSectionsFragmentDirections.toSectionDetail())
+            }
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
@@ -63,7 +65,7 @@ class DictionaryPhraseSectionsFragment : Fragment() {
                 binding.recyclerViewDictionarySections.adapter as DictionaryPhraseSectionsAdapter
 
             if (sectionsAdapter.langPair != lang) {
-                sectionsAdapter.langPair = lang
+                dictionarySharedViewModel.onLanguageChanged(lang)
                 sectionsAdapter.notifyDataSetChanged()
             }
         })

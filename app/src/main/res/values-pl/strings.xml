@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="on_boarding_info_0_title">Świetnie!</string>
+    <string name="on_boarding_info_0_description">Został wybrany język %1$s. Z aplikacji możesz korzystać też offline, jeśli nie masz połączenia z internetem.</string>
+    <string name="polish">Polski</string>
+    <string name="czech">Czeski</string>
+    <string name="slovak">Słowacki</string>
+    <string name="on_boarding_skip">Pomiń</string>
+    <string name="on_boarding_choice">Wybierz język, którego chcesz się nauczyć</string>
+    <string name="on_boarding_info_1_title">Słowniczek</string>
+    <string name="on_boarding_info_1_description">Naucz się setki podstawowych słówek i zwrotów przez czytanie i słuchanie. Słówka są posortowane według sytuacji w których są używane.</string>
+    <string name="on_boarding_info_2_title">Alfabet</string>
+    <string name="on_boarding_info_2_description">Naucz się znaków ukraińskiej cyrylicy. Pomogą Ci przykładowe słowa.</string>
+    <string name="on_boarding_info_3_title">Dla dzieci</string>
+    <string name="on_boarding_info_3_description">Ilustrowany ukraińsko-polski słownik dla dzieci z kilkudziesięcioma hasłami.</string>
+    <string name="on_boarding_exit">Rozpocznij naukę</string>
+</resources>
