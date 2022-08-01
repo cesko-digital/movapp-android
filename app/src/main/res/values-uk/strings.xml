@@ -24,11 +24,16 @@
     <string name="on_boarding_exit">Почати навчання</string>
     <string name="on_boarding_choice">Виберіть мову, яку хочете вивчити</string>
     <string name="on_boarding_info_1_title">Словник</string>
-    <string name="on_boarding_info_1_description">Вивчіть сотні базових слів та фраз, читаючи й слухаючи. Слова та фрази розділені на категорії відповідно до життєвих ситуацій.</string>
-    <string name="on_boarding_info_2_title">Для дітей</string>
-    <string name="on_boarding_info_2_description">Ілюстрований чесько-український словник із десятками карток для друку.</string>
-    <string name="on_boarding_info_3_title">Чеський алфавіт</string>
-    <string name="on_boarding_info_3_description">Вивчіть всі літери чеського алфавіту. Вам допоможуть приклади слів.</string>
+    <string name="on_boarding_info_1_description">Вивчите сотні основних слів та фраз за допомогою читання та прослуховування. Слова згруповані за життєвими ситуаціями</string>
+    <string name="on_boarding_info_2_title">Алфавіт</string>
+    <string name="on_boarding_info_2_description">Вивчите всі літери. Допоможуть слова-приклади.</string>
     <string name="about_partners">Партнерські проекти</string>
     <string name="about_stand_by_ukraine">Stojíme za Ukrajinou</string>
+    <string name="on_boarding_info_0_title">Відмінно!</string>
+    <string name="on_boarding_info_0_description">Йдемо вивчати %1$s. Додатком можете скористатися і офлайн, якщо не маєте підключення до інтернету.</string>
+    <string name="slovak">Словацька</string>
+    <string name="polish">Польська</string>
+    <string name="on_boarding_skip">Пропустити</string>
+    <string name="on_boarding_info_3_title">Для дітей</string>
+    <string name="on_boarding_info_3_description">Ілюстрований українсько-чеський словник з десятками карток для дітей</string>
 </resources>

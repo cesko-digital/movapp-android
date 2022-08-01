@@ -11,10 +11,10 @@ import com.google.android.material.tabs.TabLayout
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
 import cz.movapp.app.data.LanguagePair
-import cz.movapp.app.databinding.FragmentOnBoardingWelcomeBinding
+import cz.movapp.app.databinding.FragmentOnBoardingLanguageLearnBinding
 
-class OnBoardingWelcomeFragment : Fragment() {
-    private var _binding: FragmentOnBoardingWelcomeBinding? = null
+class OnBoardingLanguageLearnFragment : Fragment() {
+    private var _binding: FragmentOnBoardingLanguageLearnBinding? = null
 
     private val mainSharedViewModel: MainViewModel by activityViewModels()
 
@@ -27,27 +27,38 @@ class OnBoardingWelcomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentOnBoardingWelcomeBinding.inflate(inflater, container, false)
+        _binding = FragmentOnBoardingLanguageLearnBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.buttonSelectFrom.setOnClickListener {
+        binding.imageFlagCz.setOnClickListener {
             goToInfo(LanguagePair.UkToCs)
-
         }
 
-        binding.buttonSelectTo.setOnClickListener {
-            goToInfo(LanguagePair.CsToUk)
+        binding.imageFlagSk.setOnClickListener {
+            goToInfo(LanguagePair.UkToSk)
+        }
+
+        binding.imageFlagPl.setOnClickListener {
+            goToInfo(LanguagePair.UkToPl)
         }
 
         return root
     }
 
     private fun goToInfo(langPair: LanguagePair) {
-         mainSharedViewModel.selectLanguage(langPair)
-         mainSharedViewModel.storeLanguage()
+        mainSharedViewModel.selectNativeLanguage(langPair.from)
+        mainSharedViewModel.selectLanguage(langPair)
+        mainSharedViewModel.storeLanguage()
 
-         val pager = activity?.findViewById<ViewPager2>(R.id.pager_on_boarding)
-         pager?.setCurrentItem(1, true)
+        val pager =  activity?.findViewById<ViewPager2>(R.id.pager_on_boarding)
+        val pagerAdapter = pager?.adapter as OnBoardingFragmentAdapter
+
+        pagerAdapter?.removeFirst()
+        if (pagerAdapter.size == pagerAdapter.originalSize - 1) {
+            pagerAdapter.removeFirst()
+        }
+
+        pager?.setCurrentItem(0, true)
     }
 
     override fun onResume() {
