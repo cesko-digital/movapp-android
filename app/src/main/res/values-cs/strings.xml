@@ -14,8 +14,8 @@
     <string name="play_transcription">přehrát zvuk</string>
     <string name="i_want_learn">Chci se naučit</string>
     <string name="settings">Nastavení</string>
-    <string name="ukrainian">Ukrajinsky</string>
-    <string name="czech">Česky</string>
+    <string name="ukrainian">ukrajinsky</string>
+    <string name="czech">česky</string>
     <string name="alphabet_ukrainian">Ukrajinská abeceda</string>
     <string name="alphabet_czech">Česká abeceda</string>
     <string name="search_word">Hledat slovíčko</string>
@@ -30,8 +30,8 @@
     <string name="on_boarding_info_3_title">Pro děti</string>
     <string name="about_partners">Partnerské projekty</string>
     <string name="about_stand_by_ukraine">Stojíme za Ukrajinou</string>
-    <string name="slovak">Slovensky</string>
-    <string name="polish">Polsky</string>
+    <string name="slovak">slovensky</string>
+    <string name="polish">polsky</string>
     <string name="alphabet_slovak">Slovenská abeceda</string>
     <string name="alphabet_polish">Polská abeceda</string>
     <string name="i_know">Rodný jazyk</string>
