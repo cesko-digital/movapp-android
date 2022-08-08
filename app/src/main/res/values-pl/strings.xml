@@ -14,8 +14,8 @@
     <string name="play_transcription">odtwórz dźwięk</string>
     <string name="i_want_learn">Chcę się nauczyć</string>
     <string name="settings">Ustawienia</string>
-    <string name="ukrainian">Ukraiński</string>
-    <string name="czech">Czeski</string>
+    <string name="ukrainian">ukraiński</string>
+    <string name="czech">czeski</string>
     <string name="alphabet_ukrainian">Alfabet ukraiński</string>
     <string name="alphabet_czech">Alfabet czeski</string>
     <string name="search_word">Szukaj słowa</string>
@@ -31,8 +31,8 @@
     <string name="on_boarding_info_3_description">Ilustrowany ukraińsko-polski słownik dla dzieci z kilkudziesięcioma hasłami.</string>
     <string name="about_partners">Projekty partnerskie</string>
     <string name="about_stand_by_ukraine">Stojíme za Ukrajinou (Murem za Ukrainą)</string>
-    <string name="slovak">Słowacki</string>
-    <string name="polish">Polski</string>
+    <string name="slovak">słowacki</string>
+    <string name="polish">polski</string>
     <string name="alphabet_slovak">Alfabet słowacki</string>
     <string name="alphabet_polish">Alfabet polski</string>
     <string name="i_know">Język ojczysty</string>
