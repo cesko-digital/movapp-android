@@ -11,7 +11,7 @@
     <string name="about_license">Ліцензія</string>
     <string name="about_version">Версія: %1$s (%2$s)</string>
     <string name="country_flag">прапор країни</string>
-    <string name="play_transcription">звук</string>
+    <string name="play_transcription">відтворити звук</string>
     <string name="settings">Налаштування</string>
     <string name="i_want_learn">Хочу вчити</string>
     <string name="ukrainian">українська</string>
@@ -35,7 +35,7 @@
     <string name="polish">польська</string>
     <string name="on_boarding_skip">Пропустити</string>
     <string name="on_boarding_info_3_title">Для дітей</string>
-    <string name="on_boarding_info_3_description">Ілюстрований українсько-чеський словник з десятками карток для дітей</string>
+    <string name="on_boarding_info_3_description">Ілюстрований двомовний словник з десятками карток для дітей.</string>
     <string name="i_know">Рідна мова</string>
     <string name="alphabet_slovak">Словацький алфавіт</string>
     <string name="alphabet_polish">Польський алфавіт</string>

@@ -6,7 +6,7 @@
     <string name="title_favorites">Obľúbené</string>
     <string name="about_project">O projekte</string>
     <string name="about_team">Tím</string>
-    <string name="about_application">O aplikácií</string>
+    <string name="about_application">O aplikácii</string>
     <string name="i_want_help">Pridať sa k vývoju</string>
     <string name="about_license">Licencia</string>
     <string name="about_version">Verzia: %1$s (%2$s)</string>
@@ -21,10 +21,10 @@
     <string name="search_word">Hľadať slovíčko</string>
     <string name="title_settings">Nastavenia</string>
     <string name="on_boarding_welcome">Vítajte v MOVAPP!</string>
-    <string name="on_boarding_exit">Začať s učením</string>
+    <string name="on_boarding_exit">Začať sa učiť</string>
     <string name="on_boarding_choice">Vyberte jazyk, ktorý se chcete naučit</string>
     <string name="on_boarding_info_1_title">Slovníček</string>
-    <string name="on_boarding_info_1_description">Naučte sa stovky základných slovíčok a frází čitaním i posluchom. Slovíčka triedime  podľa životných situacií.</string>
+    <string name="on_boarding_info_1_description">Naučte sa stovky základných slovíčok a frází čitaním i počúvaním. Slovíčka triedime  podľa životných situacií.</string>
     <string name="on_boarding_info_2_title">Abeceda</string>
     <string name="on_boarding_info_2_description">Naučte sa všetky znaky ukrajinskej cyriliky. Pomôžu  vám ukážkové slová.</string>
     <string name="on_boarding_info_3_title">Pre deti</string>
@@ -36,8 +36,8 @@
     <string name="alphabet_polish">Poľská abeceda</string>
     <string name="i_know">Rodný jazyk</string>
     <string name="on_boarding_info_0_title">Výborne!</string>
-    <string name="on_boarding_info_0_description">Poďme sa učiť %1$s. Aplikáciu môžete používať aj offline pokiaľ nie ste pripojený k internetu.</string>
+    <string name="on_boarding_info_0_description">Poďme sa učiť po %1$s. Aplikáciu môžete používať aj offline pokiaľ nie ste pripojený k internetu.</string>
     <string name="on_boarding_skip">Preskočiť</string>
     <string name="on_boarding_choice_native">Vyberte jazyk, ktorým hovoríte</string>
-    <string name="on_boarding_info_3_description">Ilustrovaný ukrajinsko-slovenský slovníček s desiatkami  kariet pre deti.</string>
+    <string name="on_boarding_info_3_description">Ilustrovaný dvojjazyčný slovníček s desiatkami kariet pre deti.</string>
 </resources>
