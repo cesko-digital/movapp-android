@@ -50,7 +50,7 @@ class OnBoardingInfoFragment(private val position: Int) : Fragment() {
                 mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
                     binding.textInfoDescription.setText(String.format(
                         resources.getString(R.string.on_boarding_info_0_description),
-                        resources.getString(it.to.adjectiveStringId)
+                        resources.getString(it.to.accusativeStringId)
                     ))
                 }
                 binding.textSkip.visibility = View.VISIBLE

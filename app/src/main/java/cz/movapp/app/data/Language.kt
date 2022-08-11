@@ -42,10 +42,11 @@ enum class LanguagePair(
 enum class Language(
     val langCode: String,
     @DrawableRes val flagResId: Int,
-    @StringRes val adjectiveStringId: Int
+    @StringRes val stringId: Int,
+    @StringRes val accusativeStringId: Int
 ) {
-    Ukrainian("uk", R.drawable.ua, R.string.ukrainian),
-    Czech("cs", R.drawable.cz, R.string.czech),
-    Slovak("sk", R.drawable.sk, R.string.slovak),
-    Polish("pl", R.drawable.pl, R.string.polish)
+    Ukrainian("uk", R.drawable.ua, R.string.ukrainian, R.string.ukrainian_accusative),
+    Czech("cs", R.drawable.cz, R.string.czech, R.string.czech_accusative),
+    Slovak("sk", R.drawable.sk, R.string.slovak, R.string.slovak_accusative),
+    Polish("pl", R.drawable.pl, R.string.polish, R.string.polish_accusative)
 }

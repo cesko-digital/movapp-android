@@ -14,8 +14,8 @@
     <string name="play_transcription">prehrať zvuk</string>
     <string name="i_want_learn">Chcem sa naučiť</string>
     <string name="settings">Nastavenia</string>
-    <string name="ukrainian">ukrajinsky</string>
-    <string name="czech">česky</string>
+    <string name="ukrainian">ukrajinčina</string>
+    <string name="czech">čeština</string>
     <string name="alphabet_ukrainian">Ukrajinská abeceda</string>
     <string name="alphabet_czech">Česká abeceda</string>
     <string name="search_word">Hľadať slovíčko</string>
@@ -30,8 +30,8 @@
     <string name="on_boarding_info_3_title">Pre deti</string>
     <string name="about_partners">Partnerské projekty</string>
     <string name="about_stand_by_ukraine">Stojíme za Ukrajinou</string>
-    <string name="slovak">slovensky</string>
-    <string name="polish">poľsky</string>
+    <string name="slovak">slovenčina</string>
+    <string name="polish">poľština</string>
     <string name="alphabet_slovak">Slovenská abeceda</string>
     <string name="alphabet_polish">Poľská abeceda</string>
     <string name="i_know">Rodný jazyk</string>
@@ -40,4 +40,8 @@
     <string name="on_boarding_skip">Preskočiť</string>
     <string name="on_boarding_choice_native">Vyberte jazyk, ktorým hovoríte</string>
     <string name="on_boarding_info_3_description">Ilustrovaný dvojjazyčný slovníček s desiatkami kariet pre deti.</string>
+    <string name="czech_accusative">česky</string>
+    <string name="ukrainian_accusative">ukrajinsky</string>
+    <string name="polish_accusative">poľsky</string>
+    <string name="slovak_accusative">slovensky</string>
 </resources>

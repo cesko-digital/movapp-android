@@ -40,4 +40,8 @@
     <string name="on_boarding_info_0_description">Będziemy się uczyć %1$s. Z aplikacji możesz korzystać też offline, jeśli nie masz połączenia z internetem.</string>
     <string name="on_boarding_skip">Pomiń</string>
     <string name="on_boarding_choice_native">Wybierz język, którym umiesz się posługiwać</string>
+    <string name="czech_accusative">czeskiego</string>
+    <string name="ukrainian_accusative">ukraińskiego</string>
+    <string name="polish_accusative">polskiego</string>
+    <string name="slovak_accusative">słowackiego</string>
 </resources>

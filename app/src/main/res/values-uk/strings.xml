@@ -40,4 +40,8 @@
     <string name="alphabet_slovak">Словацький алфавіт</string>
     <string name="alphabet_polish">Польський алфавіт</string>
     <string name="on_boarding_choice_native">Виберіть мову, якою вмієте говорити</string>
+    <string name="czech_accusative">чеську</string>
+    <string name="ukrainian_accusative">українську</string>
+    <string name="polish_accusative">польську</string>
+    <string name="slovak_accusative">словацьку</string>
 </resources>

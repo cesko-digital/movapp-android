@@ -112,7 +112,7 @@ class AboutFragment : Fragment() {
     private fun setupNativeLanguageSpinner(fragment: Fragment, spinner: Spinner) {
         val context = spinner.context
 
-        val langItems = Language.values().map { NativeLanguageSpinnerItem(it, context.getString(it.adjectiveStringId)) }
+        val langItems = Language.values().map { NativeLanguageSpinnerItem(it, context.getString(it.stringId)) }
 
         ArrayAdapter(
             context,
@@ -161,7 +161,7 @@ class AboutFragment : Fragment() {
         val context = spinner.context
 
         var langItems =
-            LanguagePair.values().map { LanguageSpinnerItem(it, context.getString(it.to.adjectiveStringId)) }
+            LanguagePair.values().map { LanguageSpinnerItem(it, context.getString(it.to.accusativeStringId)) }
 
         langItems = if (nativeLanguage.langCode == "uk") {
             langItems.filter { it.lang.to.langCode != nativeLanguage.langCode }

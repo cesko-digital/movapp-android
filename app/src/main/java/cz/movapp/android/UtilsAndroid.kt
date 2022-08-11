@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.net.Uri
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.AttributeSet
 import android.webkit.WebView
 import android.widget.EditText
 import androidx.annotation.CheckResult
@@ -18,6 +19,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.onStart
+import java.util.*
 
 fun RecyclerView.getSavableScrollState(): Int {
     return when (this.layoutManager) {
@@ -69,4 +71,17 @@ fun EditText.textChanges(): Flow<CharSequence?> {
         addTextChangedListener(listener)
         awaitClose { removeTextChangedListener(listener) }
     }.onStart { emit(text) }
+}
+
+
+class CapitalizedTextView: androidx.appcompat.widget.AppCompatTextView  {
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet): super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int): super(context, attrs, defStyleAttr)
+
+    override fun setText(text: CharSequence?, type: BufferType?) {
+        val capitalized = text.toString()
+            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+        super.setText(capitalized , type)
+    }
 }
