@@ -1,6 +1,9 @@
 Details about this file’s format at <http://keepachangelog.com/>. 
 TODO: The change log is parsed automatically when minting releases through Fastlane, see `Fastlane/Fastfile`.
 
+## [1.2.2] - 2022-08-01Z
+- Hra pexeso
+
 ## [1.2.1] - 2022-08-01Z
 - Přidaní slovenštiny a polštiny
 - Opravy chyb
