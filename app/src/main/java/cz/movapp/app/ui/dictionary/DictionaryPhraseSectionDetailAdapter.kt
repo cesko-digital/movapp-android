@@ -150,14 +150,12 @@ open class DictionaryPhraseSectionDetailAdapter(
         bindDataToView(item, holder.binding, langPair, favoritesIds, favoritesViewModel)
     }
 
-
-
     fun selectTranslations(translationsIds: List<String>) {
-        submitList(if (translationsIds.isEmpty()) {
-            listOf()
-        } else {
-            wholeDataset.filter { it.id in translationsIds }
-        })
-    }
+        val result = mutableListOf<DictionaryTranslationsData>()
+        for (id in translationsIds) {
+            result.add(wholeDataset.first { it.id == id })
+        }
 
+        submitList(result)
+    }
 }
