@@ -13,23 +13,23 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ChildrenViewModel(application: Application) : AndroidViewModel(application) {
+class ChildrenDictionaryViewModel(application: Application) : AndroidViewModel(application) {
 
     private val context = application.applicationContext
 
     val childrenState = MutableLiveData<Int>(0)
 
-    private val _children = MutableLiveData<ChildrenAdapter>().apply {
-        value = ChildrenAdapter(ChildrenDatasource().loadChildren(context, LanguagePair.getDefault()))
+    private val _children = MutableLiveData<ChildrenDictionaryAdapter>().apply {
+        value = ChildrenDictionaryAdapter(ChildrenDatasource().loadChildren(context, LanguagePair.getDefault()))
     }
 
-    val children: MutableLiveData<ChildrenAdapter> = _children
+    val children: MutableLiveData<ChildrenDictionaryAdapter> = _children
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
 
             val storedScrollPositions =
-                appModule().dataStore.restoreState(ChildrenStateKeys.SCROLL_POSITIONS)
+                appModule().dataStore.restoreState(ChildrenDictionaryStateKeys.SCROLL_POSITIONS)
 
             val scrollPositions = storedScrollPositions.first()
 
@@ -44,15 +44,19 @@ class ChildrenViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun onLanguageChanged(langPair: LanguagePair) {
-        _children.value = ChildrenAdapter(ChildrenDatasource().loadChildren(context, langPair))
+        _children.value = ChildrenDictionaryAdapter(ChildrenDatasource().loadChildren(context, langPair))
     }
 
     private fun appModule() = getApplication<App>().appModule()
 
-    override fun onCleared() {
+    fun store() {
         appModule().dataStore.saveState(
-            ChildrenStateKeys.SCROLL_POSITIONS,
+            ChildrenDictionaryStateKeys.SCROLL_POSITIONS,
             childrenState.value!!
         )
+    }
+
+    override fun onCleared() {
+        store()
     }
 }

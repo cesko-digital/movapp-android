@@ -12,7 +12,7 @@
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:padding="@dimen/general_padding"
-        android:forceDarkAllowed="false"
+        android:background="@drawable/children_alphabet_image_border"
         app:layout_constraintBottom_toTopOf="@+id/layout_children_labels"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

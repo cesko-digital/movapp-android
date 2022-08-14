@@ -31,7 +31,7 @@ fun RecyclerView.getSavableScrollState(): Int {
 
 fun RecyclerView.restoreSavableScrollState(position: Int) {
     val layoutManager = this.layoutManager as LinearLayoutManager?
-    layoutManager?.scrollToPositionWithOffset(position, 0)
+    layoutManager?.scrollToPositionWithOffset(position, 1)
 }
 
 fun WebView.enableDarkMode() {

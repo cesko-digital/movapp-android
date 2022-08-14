@@ -44,4 +44,6 @@
     <string name="ukrainian_accusative">ukrajinsky</string>
     <string name="polish_accusative">poľsky</string>
     <string name="slovak_accusative">slovensky</string>
+    <string name="memory_game">Pexeso</string>
+    <string name="memory_game_new_game">Nová hra</string>
 </resources>

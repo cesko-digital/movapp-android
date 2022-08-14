@@ -44,4 +44,6 @@
     <string name="ukrainian_accusative">українську</string>
     <string name="polish_accusative">польську</string>
     <string name="slovak_accusative">словацьку</string>
+    <string name="memory_game">Гра Memory</string>
+    <string name="memory_game_new_game">Нова гра</string>
 </resources>

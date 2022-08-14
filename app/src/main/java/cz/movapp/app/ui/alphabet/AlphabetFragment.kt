@@ -27,6 +27,8 @@ class AlphabetFragment : Fragment() {
 
     private val mainSharedViewModel: MainViewModel by activityViewModels()
 
+    private lateinit var alphabetViewModel: AlphabetViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,7 +37,7 @@ class AlphabetFragment : Fragment() {
         val lang = mainSharedViewModel.selectedLanguage.value!!
         val app = this.requireActivity().application as App
         val direction = getArgDirection()
-        val viewModel =
+        alphabetViewModel =
             ViewModelProvider(this, AlphabetViewModel.Factory(app, lang, direction))
                 .get("${lang.name}_${direction.name}", AlphabetViewModel::class.java)
         _binding = FragmentAlphabetBinding.inflate(inflater, container, false)
@@ -47,11 +49,10 @@ class AlphabetFragment : Fragment() {
 
         binding.recyclerViewAlphabet.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        viewModel.alphabetsState.observe(viewLifecycleOwner) {
+        alphabetViewModel.alphabetsState.observe(viewLifecycleOwner) {
             if(it.isLoaded){
                 binding.recyclerViewAlphabet.adapter = AlphabetAdapter(it.alphabetData)
                 it.scrollPositions[it.sourceLang.langCode]?.let { scrollPos ->
-                    binding.recyclerViewAlphabet.restoreSavableScrollState(scrollPos)
                     (binding.recyclerViewAlphabet.layoutManager as GridLayoutManager)
                         .scrollToPositionWithOffset(scrollPos, 1)
                 }
@@ -61,7 +62,7 @@ class AlphabetFragment : Fragment() {
 
         this.lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onPause(owner: LifecycleOwner) {
-                viewModel.onLanguageChanged( oldScrollPosition = binding.recyclerViewAlphabet.getSavableScrollState())
+                alphabetViewModel.onLanguageChanged( oldScrollPosition = binding.recyclerViewAlphabet.getSavableScrollState())
             }
         })
         return binding.root
@@ -71,6 +72,11 @@ class AlphabetFragment : Fragment() {
         return AlphabetDirection.valueOf(
             requireArguments().getString(DIRECTION_ARG_KEY)!!
         )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        alphabetViewModel.store()
     }
 
     companion object{

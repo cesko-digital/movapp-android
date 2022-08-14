@@ -106,11 +106,15 @@ class AlphabetViewModel(application: Application, langPair: LanguagePair, direct
 
     private fun appModule() = getApplication<App>().appModule()
 
-    override fun onCleared() {
+    fun store() {
         appModule().dataStore.saveState(
             stateKey,
             alphabetsState.value!!.scrollPositions
         )
+    }
+
+    override fun onCleared() {
+        store()
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -13,9 +13,9 @@ import cz.movapp.app.R
 import cz.movapp.app.databinding.ChildrenItemBinding
 import java.io.IOException
 
-class ChildrenAdapter (
-    private val dataset: List<ChildrenData>
-): RecyclerView.Adapter<ChildrenAdapter.ItemViewHolder>() {
+class ChildrenDictionaryAdapter (
+    private val dataset: List<ChildrenDictionaryData>
+): RecyclerView.Adapter<ChildrenDictionaryAdapter.ItemViewHolder>() {
 
     var langPair = LanguagePair.getDefault()
 
@@ -33,16 +33,6 @@ class ChildrenAdapter (
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         val context = holder.binding.root.context
-
-        /* for dark theme, use white color as tint */
-        when (context.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
-            Configuration.UI_MODE_NIGHT_YES -> {
-                holder.binding.imageChildrenMain.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.white))
-            }
-            else -> {
-                holder.binding.imageChildrenMain.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.black))
-            }
-        }
 
         holder.binding.apply {
             try {
