@@ -2,18 +2,17 @@ package cz.movapp.app.data
 
 import android.content.Context
 import cz.movapp.android.createLangAssetsString
-import cz.movapp.app.ui.children.ChildrenData
-import cz.movapp.app.ui.dictionary.DictionarySectionsData
+import cz.movapp.app.ui.children.ChildrenDictionaryData
 import org.json.JSONObject
 import java.io.IOException
 
 class ChildrenDatasource {
 
-    private val cache = mutableMapOf<String,List<ChildrenData>>()
+    private val cache = mutableMapOf<String,List<ChildrenDictionaryData>>()
 
-    private fun loadChildrenFromAssets(context: Context, langStorageString: String): List<ChildrenData> {
+    private fun loadChildrenFromAssets(context: Context, langStorageString: String): List<ChildrenDictionaryData> {
         var jsonString: String = ""
-        val children = mutableListOf<ChildrenData>()
+        val children = mutableListOf<ChildrenDictionaryData>()
 
         try {
             jsonString = context.assets.open("${langStorageString}-dictionary.json").bufferedReader().use { it.readText() }
@@ -42,7 +41,7 @@ class ChildrenDatasource {
                         val imagePath = "images/android/${forKidsId}/${forKidsId}.webp"
 
                         children.add(
-                            ChildrenData(
+                            ChildrenDictionaryData(
                                 forKidsId,
 
                                 jsonObjMainItem.getString("translation"),
@@ -70,12 +69,12 @@ class ChildrenDatasource {
         return children
     }
 
-    fun loadChildren(context: Context, langPair: LanguagePair): List<ChildrenData> {
+    fun loadChildren(context: Context, langPair: LanguagePair): List<ChildrenDictionaryData> {
         var langStorageString = createLangAssetsString(langPair)
         return lazyChildrenCacheLoad(context, langStorageString)
     }
 
-    private fun lazyChildrenCacheLoad(context: Context, langStorageString: String): List<ChildrenData> {
+    private fun lazyChildrenCacheLoad(context: Context, langStorageString: String): List<ChildrenDictionaryData> {
         var selected = cache[langStorageString]
         return if (selected == null) {
             selected = loadChildrenFromAssets(context, langStorageString)

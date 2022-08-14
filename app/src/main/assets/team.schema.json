@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Team",
+  "type": "object",
+  "properties": {
+    "sections": {
+      "title": "Teams sections",
+      "type": "array",
+      "items": {
+        "title": "Team section",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "members": {
+            "type": "array",
+            "format": "table",
+            "title": "Team members",
+            "uniqueItems": true,
+            "items": {
+              "title": "Team member",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "Name"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "members"
+        ]
+      }
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

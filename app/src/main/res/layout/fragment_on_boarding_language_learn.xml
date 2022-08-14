@@ -21,7 +21,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -29,6 +29,7 @@
         app:layout_constraintBottom_toTopOf="@+id/flag_bottom_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
         <ImageView
             android:id="@+id/image_flag_cz"
             android:layout_width="wrap_content"
@@ -42,6 +43,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <cz.movapp.android.CapitalizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/czech"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/image_flag_cz"
+            app:layout_constraintRight_toRightOf="@+id/image_flag_cz"
+            app:layout_constraintTop_toBottomOf="@+id/image_flag_cz" />
+
         <ImageView
             android:id="@+id/image_flag_sk"
             android:layout_width="wrap_content"
@@ -54,12 +65,23 @@
             app:layout_constraintStart_toEndOf="@+id/image_flag_cz"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <cz.movapp.android.CapitalizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slovak"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/image_flag_sk"
+            app:layout_constraintRight_toRightOf="@+id/image_flag_sk"
+            app:layout_constraintTop_toBottomOf="@+id/image_flag_sk" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flag_bottom_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="80dp"
@@ -80,6 +102,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <cz.movapp.android.CapitalizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/polish"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/image_flag_pl"
+            app:layout_constraintRight_toRightOf="@+id/image_flag_pl"
+            app:layout_constraintTop_toBottomOf="@+id/image_flag_pl" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

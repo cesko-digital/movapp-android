@@ -5,21 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.recyclerview.widget.LinearLayoutManager
-import cz.movapp.android.restoreSavableScrollState
-import cz.movapp.app.MainViewModel
+import com.google.android.material.tabs.TabLayoutMediator
+import cz.movapp.app.R
 import cz.movapp.app.databinding.FragmentChildrenBinding
 
 class ChildrenFragment : Fragment() {
 
     private var _binding: FragmentChildrenBinding? = null
-
-    private val mainSharedViewModel: MainViewModel by activityViewModels()
-    private val childrenViewModel: ChildrenViewModel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,41 +25,21 @@ class ChildrenFragment : Fragment() {
         _binding = FragmentChildrenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView = binding.recyclerViewChildren
-        childrenViewModel.children.observe(viewLifecycleOwner) {
-            it.langPair = mainSharedViewModel.selectedLanguage.value!!
-            recyclerView.adapter = it
-            recyclerView.setHasFixedSize(true)
+        binding.pager.adapter = ChildrenFragmentAdapter(this)
 
-        }
-
-        mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            childrenViewModel.onLanguageChanged(it)
-            (recyclerView.adapter as ChildrenAdapter).langPair = it
-            recyclerView.adapter?.notifyDataSetChanged()
-        }
-
-        childrenViewModel.childrenState.observe(viewLifecycleOwner) {
-            it.let { scrollPos ->
-                if (scrollPos != null)
-                    binding.recyclerViewChildren.restoreSavableScrollState(scrollPos)
+        TabLayoutMediator(binding.tabs, binding.pager) { tab, position ->
+            when (position) {
+                0 -> tab.setText(R.string.title_dictionary)
+                1 -> tab.setText(R.string.memory_game)
             }
-        }
-
-        this.lifecycle.addObserver(object : DefaultLifecycleObserver {
-            override fun onPause(owner: LifecycleOwner) {
-                childrenViewModel.storeState(
-                    (binding.recyclerViewChildren.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
-                )
-            }
-        })
+        }.attach()
 
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding.recyclerViewChildren.adapter = null
+
         _binding = null
     }
 }

@@ -1,6 +1,6 @@
 package cz.movapp.app.ui.children
 
-data class ChildrenData(
+data class ChildrenDictionaryData(
     val id: String,
 
     val main_translation: String,

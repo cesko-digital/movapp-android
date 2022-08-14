@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/image_volume"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/flow_header"
+        app:layout_constraintTop_toTopOf="@+id/flow_header"
+        app:srcCompat="@drawable/ic_baseline_volume_up_24"
+        app:tint="@color/secondaryTextColor" />
+
+
+    <Button
+        android:id="@+id/button_memory_game_new_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/ukFlagTopColor"
+        android:text="@string/memory_game_new_game"
+        app:layout_constraintTop_toTopOf="@+id/flow_header"
+        app:layout_constraintBottom_toBottomOf="@+id/flow_header" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="image_volume, button_memory_game_new_game"
+        app:flow_horizontalStyle="spread_inside"
+        app:flow_verticalAlign="top"
+        app:flow_verticalStyle="packed"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridView
+        android:id="@+id/grid_view_memory_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:gravity="center"
+        android:horizontalSpacing="3dp"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="3dp"
+        android:padding="100dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toTopOf="@+id/text_memory_game"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flow_header" />
+
+
+    <TextView
+        android:id="@+id/text_memory_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_centerVertical="true"
+        android:text="@string/memory_game" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

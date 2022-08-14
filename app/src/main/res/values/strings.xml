@@ -22,10 +22,14 @@
     <string name="i_know">Native language</string>
     <string name="i_want_learn">Want to learn</string>
     <string name="settings">Settings</string>
-    <string name="ukrainian">Ukrainian</string>
-    <string name="czech">Czech</string>
-    <string name="slovak">Slovak</string>
-    <string name="polish">Polish</string>
+    <string name="ukrainian">ukrainian</string>
+    <string name="ukrainian_accusative">ukrainian</string>
+    <string name="czech">czech</string>
+    <string name="czech_accusative">czech</string>
+    <string name="slovak">slovak</string>
+    <string name="slovak_accusative">slovak</string>
+    <string name="polish">polish</string>
+    <string name="polish_accusative">polish</string>
     <string name="alphabet_ukrainian">Ukrainian alphabet</string>
     <string name="alphabet_czech">Czech alphabet</string>
     <string name="alphabet_slovak">Slovak alphabet</string>
@@ -44,6 +48,8 @@
     <string name="on_boarding_info_3_title">For kids</string>
     <string name="on_boarding_skip">Skip</string>
     <string name="on_boarding_exit">Start learning</string>
-    <string name="on_boarding_info_3_description">Illustrated Ukrainian-Czech dictionary with dozens of printable cards.</string>
+    <string name="on_boarding_info_3_description">Illustrated bilingual dictionary with dozens of printable cards.</string>
+    <string name="memory_game">Memory game</string>
+    <string name="memory_game_new_game">New game</string>
 
 </resources>
