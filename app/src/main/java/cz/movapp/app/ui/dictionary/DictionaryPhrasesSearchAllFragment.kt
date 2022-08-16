@@ -132,10 +132,6 @@ class DictionaryPhrasesSearchAllFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
 
-        (binding.recyclerViewDictionarySearch.adapter as DictionaryPhrasesSearchAllAdapter).submitList(
-            listOf()
-        )
-
         unregisterSearchObservers()
 
         binding.recyclerViewDictionarySearch.adapter = null
