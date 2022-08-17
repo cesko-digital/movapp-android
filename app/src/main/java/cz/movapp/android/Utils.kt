@@ -27,7 +27,7 @@ fun playSound(
     }
     player?.prepare()
     player?.start()
-
+    player?.duration
     return player
 }
 
