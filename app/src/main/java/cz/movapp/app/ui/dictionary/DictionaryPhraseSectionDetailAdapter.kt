@@ -151,11 +151,8 @@ open class DictionaryPhraseSectionDetailAdapter(
     }
 
     fun selectTranslations(translationsIds: List<String>) {
-        val result = mutableListOf<DictionaryTranslationsData>()
-        for (id in translationsIds) {
-            result.add(wholeDataset.first { it.id == id })
-        }
-
-        submitList(result)
+        submitList(
+            wholeDataset.filter { translationsIds.contains(it.id) }.sortedBy { translationsIds.indexOf(it.id) }
+        )
     }
 }

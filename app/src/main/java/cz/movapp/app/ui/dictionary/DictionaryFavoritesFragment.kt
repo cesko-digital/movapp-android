@@ -71,9 +71,9 @@ class DictionaryFavoritesFragment : Fragment() {
     private fun reloadFavoritesIds(favoritesIds: List<Favorites>) {
         val adapter = getRVAdapter()
 
-        adapter?.favoritesIds = favoritesIds.map { it.translationId } as MutableList
+        adapter.favoritesIds = favoritesIds.map { it.translationId } as MutableList
 
-        adapter?.search("",true)
+        adapter.setFavorites()
     }
 
     private fun getRVAdapter(): DictionaryPhrasesSearchAllAdapter {
