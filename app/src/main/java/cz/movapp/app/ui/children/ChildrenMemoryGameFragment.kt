@@ -76,7 +76,6 @@ class ChildrenMemoryGameFragment  : Fragment() {
 
                     if (checkGameFinished()) {
                         binding.imageVolume.visibility = View.INVISIBLE
-                        memoryGameViewModel.setBestScore()
                         binding.gridViewMemoryGame.setBackgroundResource(R.drawable.card_back)
                         binding.gridViewMemoryGame.setPadding(dpToPx(context, 30).toInt())
 
@@ -89,8 +88,6 @@ class ChildrenMemoryGameFragment  : Fragment() {
                         playGameSound(context, "memory-game-sounds/reward_sfx.mp3")
                     }
 
-                } else {
-                    memoryGameViewModel.increaseFaults()
                 }
             }
         }
@@ -128,8 +125,6 @@ class ChildrenMemoryGameFragment  : Fragment() {
             flipped.clear()
             tmpFlipped.clear()
 
-            memoryGameViewModel.score.value = 0
-
             binding.gridViewMemoryGame.invalidateViews()
             binding.gridViewMemoryGame.numColumns = memoryGameViewModel.edgeSize
             binding.gridViewMemoryGame.adapter = it
@@ -156,18 +151,6 @@ class ChildrenMemoryGameFragment  : Fragment() {
                 binding.imageVolume.setImageResource(R.drawable.ic_baseline_volume_up_24)
             }
         }
-
-        val scoreTextObserver = Observer<Int> {
-            binding.textMemoryGame.text = "Error count: ${memoryGameViewModel.score.value}"
-
-            if (memoryGameViewModel.bestScore.value!! < 9999) {
-                binding.textMemoryGame.text =
-                    "${binding.textMemoryGame.text} (Best: ${memoryGameViewModel.bestScore.value})"
-            }
-        }
-
-        memoryGameViewModel.score.observe(viewLifecycleOwner, scoreTextObserver)
-        memoryGameViewModel.bestScore.observe(viewLifecycleOwner, scoreTextObserver)
 
         return root
     }

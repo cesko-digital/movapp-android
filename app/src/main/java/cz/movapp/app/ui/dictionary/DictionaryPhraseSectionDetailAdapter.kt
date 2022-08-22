@@ -150,14 +150,9 @@ open class DictionaryPhraseSectionDetailAdapter(
         bindDataToView(item, holder.binding, langPair, favoritesIds, favoritesViewModel)
     }
 
-
-
     fun selectTranslations(translationsIds: List<String>) {
-        submitList(if (translationsIds.isEmpty()) {
-            listOf()
-        } else {
-            wholeDataset.filter { it.id in translationsIds }
-        })
+        submitList(
+            wholeDataset.filter { translationsIds.contains(it.id) }.sortedBy { translationsIds.indexOf(it.id) }
+        )
     }
-
 }

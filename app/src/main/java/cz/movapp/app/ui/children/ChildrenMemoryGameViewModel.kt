@@ -25,12 +25,6 @@ class ChildrenMemoryGameViewModel(application: Application) : AndroidViewModel(a
 
     lateinit var discovered: List<MutableList<Boolean>>
 
-    val bestScore = MutableLiveData<Int>().apply { value = 9999 }
-
-    private val _score = MutableLiveData<Int>().apply { value = 0 }
-
-    val score: MutableLiveData<Int> = _score
-
     private val _memoryGameAdapter = MutableLiveData<ChildrenMemoryGameAdapter>().apply {
         value = randomizedAdapter(LanguagePair.getDefault())
     }
@@ -45,14 +39,6 @@ class ChildrenMemoryGameViewModel(application: Application) : AndroidViewModel(a
             val muteValue = storedMute.first()
             withContext(Dispatchers.Main) {
                 muteValue?.let { mute.value = it }
-            }
-
-            val storedScore =
-                appModule().dataStore.restoreState(ChildrenMemoryGameKeys.BEST_SCORE)
-
-            val scoreValue = storedScore.first()
-            withContext(Dispatchers.Main) {
-                scoreValue?.let {  bestScore.value = it }
             }
         }
     }
@@ -106,10 +92,6 @@ class ChildrenMemoryGameViewModel(application: Application) : AndroidViewModel(a
         _memoryGameAdapter.value = randomizedAdapter(lanPair)
     }
 
-    fun increaseFaults() {
-        _score.value = _score.value?.plus(1)
-    }
-
     fun toggleVolume() {
         mute.value = !mute.value!!
     }
@@ -119,21 +101,6 @@ class ChildrenMemoryGameViewModel(application: Application) : AndroidViewModel(a
             ChildrenMemoryGameKeys.MUTE,
             mute.value!!
         )
-    }
-
-    fun setBestScore() {
-        if (bestScore.value!! < _score.value!!) {
-            return
-        }
-
-        bestScore.value = _score.value
-
-        if (bestScore.value!! < 9999) {
-            appModule().dataStore.saveState(
-                ChildrenMemoryGameKeys.BEST_SCORE,
-                bestScore.value!!
-            )
-        }
     }
 
     override fun onCleared() {

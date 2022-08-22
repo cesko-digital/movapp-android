@@ -10,10 +10,5 @@ class ChildrenMemoryGameKeys {
                 "MemoryGame.mute",
                 object : TypeToken<Boolean>() {}.type
             )
-        val BEST_SCORE =
-            DataStoreKey<Int>(
-                "MemoryGame.bestScore",
-                object : TypeToken<Int>() {}.type
-            )
     }
 }

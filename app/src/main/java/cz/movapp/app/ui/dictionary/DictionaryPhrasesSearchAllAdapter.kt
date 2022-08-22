@@ -40,7 +40,15 @@ class DictionaryPhrasesSearchAllAdapter(
         submitList(result)
     }
 
-    fun firstFavoritesThenByLevenshteinThenRestComparator(constraint: String) =
+    fun setFavorites() {
+        submitList(if (languagePair.isReversed) {
+            wholeDataset.filter { favoritesIds.contains(it.id) }.sortedBy { it.source_stripped }
+        } else {
+            wholeDataset.filter { favoritesIds.contains(it.id) }.sortedBy { it.main_stripped }
+        })
+    }
+
+    private fun firstFavoritesThenByLevenshteinThenRestComparator(constraint: String) =
         object : Comparator<DictionaryTranslationsData> {
 
             var direction: LevDirection = LevDirection.UNSET
