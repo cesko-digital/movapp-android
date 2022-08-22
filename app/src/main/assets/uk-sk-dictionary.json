@@ -30,6 +30,8 @@
 				"recZPYINEi1VUr9to",
 				"recZQqRzGOAFXbuSA",
 				"rec4YxIbDUDRTrBiz",
+				"recERdWEC1VKdL5EO",
+				"recGhymaY8009QUfx",
 				"rec0phJtjM2JriePZ",
 				"recTWVFfUIenJxvVc",
 				"reci6pBJjB7qoPGXD",
@@ -124,6 +126,8 @@
 				"recSGyCkfjLkDui8g",
 				"rec1vAhqWY0TVXOBf",
 				"recgd3zbARuRgh82C",
+				"recukfWVNfVpjelWD",
+				"rec2zk6JNXVcp682g",
 				"recMpZQq2IJWEPHrH",
 				"recf9ELFEbbeMKVDJ",
 				"recARpbgZt9mwS2G9",
@@ -172,7 +176,7 @@
 		{
 			"id": "rechV8E2Nr8VcBBIt",
 			"name": {
-				"source": "Цифри",
+				"source": "Числа",
 				"main": "Čísla"
 			},
 			"description": "",
@@ -221,8 +225,6 @@
 				"recjNDQ0c4czstq8C",
 				"recpbVCrQUHEh10qD",
 				"receC4wn1PFAoZkq7",
-				"recXcgSZmMFRUChvq",
-				"rectyIGMMQLcuDSNW",
 				"recPsEea8oqh6SjYD",
 				"recR8AsnmPj9uXN0e",
 				"recZluTBncO9nfWVo",
@@ -232,7 +234,9 @@
 				"recoaEMTNbsKRKNAk",
 				"recAbEEX5YPIncVLq",
 				"recDOYIrcPmdcOvUC",
-				"recV13Gr1iU7Jxwgs"
+				"recV13Gr1iU7Jxwgs",
+				"recXcgSZmMFRUChvq",
+				"rectyIGMMQLcuDSNW"
 			]
 		},
 		{
@@ -299,6 +303,8 @@
 				"recTWHmkDs1dzHs6U",
 				"recdg9ZvRV1gKUtdh",
 				"recF4cEsVe3NmKPCL",
+				"recgvXdYBEZUT74w4",
+				"rec3zUDc8iBGp2cvj",
 				"recj0eBnYGljSUmue",
 				"rec0TQjsQ18yTbuoZ",
 				"reczw2UxDDT3nINFc",
@@ -932,6 +938,7 @@
 				"reclQulIhTO067aSj",
 				"recQwbMbl975QTG1Q",
 				"recArFXfhZTceb3f9",
+				"recAyk2ZDcC5wvNbB",
 				"recRA8z9E21IVwTBm",
 				"recTODuAwTbUVdMvJ",
 				"reclTCBzrRTSHq6tb",
@@ -1004,6 +1011,7 @@
 				"recwKU7LF182hUPdV",
 				"receeJ7l9bfuXNK3u",
 				"recLaIXBESqIbM1fh",
+				"rectw6le9yJM3gNxD",
 				"recNtd9ZKqUToam5V",
 				"reczg2hY3nkfRrMEd",
 				"recAzqInU5ud6lXES",
@@ -1077,7 +1085,8 @@
 				"recYfDqP9LdZNZXvF",
 				"recdMFUF25rsXtyaD",
 				"recYHWwB7xKHOCQ0V",
-				"recZcWAPRbXKn9P9N"
+				"recZcWAPRbXKn9P9N",
+				"recQICbPcnNGLZF4T"
 			]
 		},
 		{
@@ -1198,6 +1207,8 @@
 				"recqzh66xFUzxpcHq",
 				"recpAGJv55xqoSnDH",
 				"recF2rx6waAgVw0vn",
+				"recXfV5T2cGOgwPLC",
+				"receBFf8XbMmIjrUA",
 				"recY8GSfSGdWbMUqZ",
 				"recbMNtkDqJ4ravyk",
 				"reciKtGT2HM8lrfdF",
@@ -1222,7 +1233,8 @@
 				"recIBAdapbQyWdaL5",
 				"reciGb6FBoQOJgW3G",
 				"recLtW4c0d4r2bSQh",
-				"recNT0DNCKctU6SVS"
+				"recNT0DNCKctU6SVS",
+				"recCGFWuPd0Qj1gna"
 			]
 		},
 		{
@@ -1438,8 +1450,8 @@
 				"transcription": "Кде найдем.."
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/5/5f8591bb8011be61ac1e995dcc4ee323.mp3",
-				"translation": "Де можна знайти...",
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c648ac3b6426831556967dcace3d10ac.mp3",
+				"translation": "Де можна знайти...?",
 				"transcription": "De možna znajty.."
 			},
 			"image_url": null
@@ -1606,8 +1618,8 @@
 				"transcription": "Чо знамена"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/2/2385ed8419cc1168cfc5496292039ee5.mp3",
-				"translation": "Що означає...",
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/577f8e80357d31ca01b2b466613a54e4.mp3",
+				"translation": "Що означає...?",
 				"transcription": "Ščo označaje.."
 			},
 			"image_url": null
@@ -1671,8 +1683,8 @@
 		"recFVLhqNETC0RhCl": {
 			"id": "recFVLhqNETC0RhCl",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/1/1e1b790dd3e93e14e46b9bd35c9f6f10.mp3",
-				"translation": "Áno",
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/e1977e89fcd4ce5b7f031b5878f7956c.mp3",
+				"translation": "Áno.",
 				"transcription": "Ано"
 			},
 			"source": {
@@ -1732,9 +1744,9 @@
 				"transcription": "Немате за чо"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/f/f3ba12a21ba8cb35228abea5a4514165.mp3",
-				"translation": "Нема за що. / Прошу.",
-				"transcription": "Nema za ščo / Prošu."
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b3f30f026dfe9fbf3e829aec9897ba6d.mp3",
+				"translation": "Нема за що. Прошу.",
+				"transcription": "Nema za ščo Prošu."
 			},
 			"image_url": null
 		},
@@ -1783,8 +1795,8 @@
 		"recZQqRzGOAFXbuSA": {
 			"id": "recZQqRzGOAFXbuSA",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/d/dc02f4aa0217fbd4f5d726af1037e03d.mp3",
-				"translation": "V pohode",
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/5470a979fd97c25bbce1b5ca8dfa9036.mp3",
+				"translation": "V pohode.",
 				"transcription": "В погоде"
 			},
 			"source": {
@@ -1836,25 +1848,11 @@
 			},
 			"image_url": null
 		},
-		"rec4YxIbDUDRTrBiz": {
-			"id": "rec4YxIbDUDRTrBiz",
-			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/7/7e0e7a04bb19fa3d6708141864e8c2c8.mp3",
-				"translation": "Nehovorím po česky.",
-				"transcription": "Неговорім по чески"
-			},
-			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/a/a1f8f191ee7729c2123023c6430ac2f8.mp3",
-				"translation": "Не розмовляю чеською.",
-				"transcription": "Ne rozmovljaju českoju"
-			},
-			"image_url": null
-		},
 		"rec4typYILeNEcLn2": {
 			"id": "rec4typYILeNEcLn2",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/3/3e150d10be77835b6d17f693b63ae948.mp3",
-				"translation": "Prepáč",
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/a15740a96d7d3f5fa371bc02db0f212a.mp3",
+				"translation": "Prepáč.",
 				"transcription": "Препач"
 			},
 			"source": {
@@ -1993,8 +1991,8 @@
 		"recjgxBVDyKsmmVlA": {
 			"id": "recjgxBVDyKsmmVlA",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/b/b1af96d18e834d2f816197dd7bf6eaad.mp3",
-				"translation": "Nie",
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d632033c57d13c641c74a0412831cba9.mp3",
+				"translation": "Nie.",
 				"transcription": "Ніе"
 			},
 			"source": {
@@ -2026,8 +2024,8 @@
 				"transcription": "Ака є адреса.."
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/4/406b55cab936f40f08b9b74b44697ca4.mp3",
-				"translation": "Яка адреса у...",
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a81248cf9549992684bfe1ccc21a6931.mp3",
+				"translation": "Яка адреса у...?",
 				"transcription": "Jaka adresa u.."
 			},
 			"image_url": null
@@ -2110,8 +2108,8 @@
 				"transcription": "Ако са достанем на.. Ако са достанем к...?"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/5/5121f61e7ff06c92f922f5f9293cce85.mp3",
-				"translation": "Як дістатись до...",
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/6a0a73495b26d9eeeab8e74db04aa4bd.mp3",
+				"translation": "Як дістатись до...?",
 				"transcription": "Jak distatys do.."
 			},
 			"image_url": null
@@ -2718,6 +2716,20 @@
 			},
 			"image_url": null
 		},
+		"recMlhvKbeEiIIxcS": {
+			"id": "recMlhvKbeEiIIxcS",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/a0b8b757b0c52ab263af06393707c9e4.mp3",
+				"translation": "strieborný",
+				"transcription": "стріеборни"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/010f1008f9334851b8d1ff6072c78bb0.mp3",
+				"translation": "срібний",
+				"transcription": "sribnyj"
+			},
+			"image_url": null
+		},
 		"recNMHY2ZlZCKOoAV": {
 			"id": "recNMHY2ZlZCKOoAV",
 			"main": {
@@ -2729,6 +2741,132 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/7/7c8c0abcf473f3ba3bb7aaf269adcf7e.mp3",
 				"translation": "біла",
 				"transcription": "bila"
+			},
+			"image_url": null
+		},
+		"recQ44KDAyz9hNYB7": {
+			"id": "recQ44KDAyz9hNYB7",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/2fc0eb610eb1ff7bba29ac5d1b65f76e.mp3",
+				"translation": "béžová",
+				"transcription": "бежова"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/36546048880a4efe21eea189be33b04f.mp3",
+				"translation": "бежева",
+				"transcription": "beževa"
+			},
+			"image_url": null
+		},
+		"recS37DAGITfdfBZx": {
+			"id": "recS37DAGITfdfBZx",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/535178fc77c086637e5c53a868773d0f.mp3",
+				"translation": "hnedá",
+				"transcription": "гнеда"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/ca13f7e497ba1bbddcc27559d269bee1.mp3",
+				"translation": "коричнева",
+				"transcription": "koryčneva"
+			},
+			"image_url": null
+		},
+		"recUqgfUaOg2ypOul": {
+			"id": "recUqgfUaOg2ypOul",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c1f2be76c8fed1143a4203c46965f6c8.mp3",
+				"translation": "tyrkysový",
+				"transcription": "тиркисови"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/60c879428baa17d1ed7fb60d3e112a24.mp3",
+				"translation": "бірюзовий",
+				"transcription": "birjuzovyj"
+			},
+			"image_url": null
+		},
+		"reclfDyQEhvOywoy2": {
+			"id": "reclfDyQEhvOywoy2",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d8ccb5173dc093ebfe9466a5c518b004.mp3",
+				"translation": "béžový",
+				"transcription": "бежови"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/ba08baa19e5cc78e50202b1f4494c163.mp3",
+				"translation": "бежевий",
+				"transcription": "beževyj"
+			},
+			"image_url": null
+		},
+		"recltuA34Ey80lKOQ": {
+			"id": "recltuA34Ey80lKOQ",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/2c7ad122467da2a94f47709c24568f6e.mp3",
+				"translation": "sivá",
+				"transcription": "сіва"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/bc48eacf5de173d45c81374dcd6459df.mp3",
+				"translation": "сіра",
+				"transcription": "sira"
+			},
+			"image_url": null
+		},
+		"recmE1dendMd8XBAz": {
+			"id": "recmE1dendMd8XBAz",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/92110b663891c4e36616b1023e15898f.mp3",
+				"translation": "červený",
+				"transcription": "червени"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7303a16c7e74c0d61446184ab3049da8.mp3",
+				"translation": "червоний",
+				"transcription": "červonyj"
+			},
+			"image_url": null
+		},
+		"recnwtVjywSMjJN1Z": {
+			"id": "recnwtVjywSMjJN1Z",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/cebd2a3d6b2baf4b574ccd7c7eeede8e.mp3",
+				"translation": "tyrkysová",
+				"transcription": "тиркисова"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a6a72a7b4a62d86c2d0de0c306bdb0c0.mp3",
+				"translation": "бірюзова",
+				"transcription": "birjuzova"
+			},
+			"image_url": null
+		},
+		"recnHXS3hBNW0cIsr": {
+			"id": "recnHXS3hBNW0cIsr",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/6cf0de327c09e2d2f27bfe25d44fc242.mp3",
+				"translation": "svetlomodrá",
+				"transcription": "светломодра"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/06726aa74aa5d57caf66590f86f13258.mp3",
+				"translation": "блакитна",
+				"transcription": "blakytna"
+			},
+			"image_url": null
+		},
+		"rectrNIoM1en6n3ze": {
+			"id": "rectrNIoM1en6n3ze",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/6c73ebede3f33c9eb5c1468f16f9b55d.mp3",
+				"translation": "ružový",
+				"transcription": "ружови"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/71eba64b340673dceb1d92a11e408319.mp3",
+				"translation": "рожевий",
+				"transcription": "roževyj"
 			},
 			"image_url": null
 		},
@@ -2746,12 +2884,82 @@
 			},
 			"image_url": null
 		},
+		"reczhKl12ovvCkW0t": {
+			"id": "reczhKl12ovvCkW0t",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/a58fb297e02de4fa05e858ff8653f2fa.mp3",
+				"translation": "strieborná",
+				"transcription": "стріеборна"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/ce9392b799ff3a3173b2e7e4d8645171.mp3",
+				"translation": "срібна",
+				"transcription": "sribna"
+			},
+			"image_url": null
+		},
+		"reczFSvSniDSt1z1g": {
+			"id": "reczFSvSniDSt1z1g",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/f/fda64b0d7256361c3d715fcb86f11d5f.mp3",
+				"translation": "žltý",
+				"transcription": "жлти"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/0982077f7c194cc045e7e224b77c5cef.mp3",
+				"translation": "жовтий",
+				"transcription": "žovtyj"
+			},
+			"image_url": null
+		},
+		"recAzS51hv7jkGTWE": {
+			"id": "recAzS51hv7jkGTWE",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/27e3f348cd165895141b8da52a54331f.mp3",
+				"translation": "tmavozelený",
+				"transcription": "тмавозелени"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7066b8507ddac4cb6cf02541dafe2aba.mp3",
+				"translation": "зелений",
+				"transcription": "zelenyj"
+			},
+			"image_url": null
+		},
+		"recFPJsMCjbb5i54K": {
+			"id": "recFPJsMCjbb5i54K",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/0ac1ac26c3415495448136398cbbd2aa.mp3",
+				"translation": "oranžový",
+				"transcription": "оранжови"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/360640354c8adc85666481ee409d7cd1.mp3",
+				"translation": "помаранчевий",
+				"transcription": "pomarančevyj"
+			},
+			"image_url": null
+		},
+		"recJPgBJxIoQAtrgf": {
+			"id": "recJPgBJxIoQAtrgf",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/0af23a9901a0defe49c818eefcb70ca8.mp3",
+				"translation": "svetlozelený",
+				"transcription": "светлозелени"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/3c248849a108e90e21f8c52308d784be.mp3",
+				"translation": "салатовий",
+				"transcription": "salatovyj"
+			},
+			"image_url": null
+		},
 		"recVbGL5tdyOP4mqh": {
 			"id": "recVbGL5tdyOP4mqh",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/7/766b09a09d60198d129ef38407726f9f.mp3",
-				"translation": "zelená",
-				"transcription": "зелена"
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/6cc2150b07ea0cde0803aeb15b19d935.mp3",
+				"translation": "tmavozelená",
+				"transcription": "тмавозелена"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/2/2822cdd9458ffa2dc9e81492da944f0a.mp3",
@@ -2760,12 +2968,68 @@
 			},
 			"image_url": null
 		},
+		"recWCJMmEXaD4qTtG": {
+			"id": "recWCJMmEXaD4qTtG",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/690416bd690d36802cc62d1fb5aee18e.mp3",
+				"translation": "svetlozelená",
+				"transcription": "светлозелена"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/8/87148ecfb59cc9d9cbc975df65a2f1b2.mp3",
+				"translation": "салатова",
+				"transcription": "salatova"
+			},
+			"image_url": null
+		},
+		"recWGLuQfNSZ1PVkM": {
+			"id": "recWGLuQfNSZ1PVkM",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c9669b047cc237edb126bf781d064bcc.mp3",
+				"translation": "hnedý",
+				"transcription": "гнеди"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/5cf6390647b3ccb06c52e48ca690f10b.mp3",
+				"translation": "коричневий",
+				"transcription": "koryčnevyj"
+			},
+			"image_url": null
+		},
+		"recZrdjeEGhBZk8VG": {
+			"id": "recZrdjeEGhBZk8VG",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7f5dae65b7c7d31162a297a2eb5b3a83.mp3",
+				"translation": "čierny",
+				"transcription": "чіерни"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/69b8c8127e54ec3b6509fd1179d22327.mp3",
+				"translation": "чорний",
+				"transcription": "čornyj"
+			},
+			"image_url": null
+		},
+		"rec1uh4W904qQWylA": {
+			"id": "rec1uh4W904qQWylA",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/edcdd598d8b23cbb89a4b40e324e6b08.mp3",
+				"translation": "sivý",
+				"transcription": "сіви"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/4ffc90a3e4fcdfdb126fd83a248417e2.mp3",
+				"translation": "сірий",
+				"transcription": "siryj"
+			},
+			"image_url": null
+		},
 		"rec1zpONbihZvF8wa": {
 			"id": "rec1zpONbihZvF8wa",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/2/22a10178acca65868adbd34c847620fc.mp3",
-				"translation": "modrá",
-				"transcription": "модра"
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7f26240e0f61042c3596bc17b1a2d0c3.mp3",
+				"translation": "tmavomodrá",
+				"transcription": "тмавомодра"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/3/33f2e39a3b6dfa98e8d400bad581fcc9.mp3",
@@ -2788,6 +3052,90 @@
 			},
 			"image_url": null
 		},
+		"rec4zL0SyeuBxRmfS": {
+			"id": "rec4zL0SyeuBxRmfS",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/6bf4545ea49d3f86a25b20024261b0e8.mp3",
+				"translation": "fialový",
+				"transcription": "фіалови"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/9deb9bdff20ff0ad829c7a23c88df5d5.mp3",
+				"translation": "фіолетовий",
+				"transcription": "fioletovyj"
+			},
+			"image_url": null
+		},
+		"rec6kQ5aGumfetmgS": {
+			"id": "rec6kQ5aGumfetmgS",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/71fc2c1b70b36ecb36f36e143e7c2360.mp3",
+				"translation": "ružová",
+				"transcription": "ружова"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/58b9a4438de2bfab148fa232933c19d3.mp3",
+				"translation": "рожева",
+				"transcription": "roževa"
+			},
+			"image_url": null
+		},
+		"rec7Kkq51YKGZXrTs": {
+			"id": "rec7Kkq51YKGZXrTs",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/ebc82bf8de862c2537e61dd1f96dc574.mp3",
+				"translation": "zlatý",
+				"transcription": "злати"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/5044e118456e3be1b0ab8f00af96e7c5.mp3",
+				"translation": "золотий",
+				"transcription": "zolotyj"
+			},
+			"image_url": null
+		},
+		"rec98r4rPkCJRrZgQ": {
+			"id": "rec98r4rPkCJRrZgQ",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d8cff7d0569ecdc17551a6f9938c3cc5.mp3",
+				"translation": "svetlomodrý",
+				"transcription": "светломодри"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/40f57a654e60b3060929b1db1e4e37c3.mp3",
+				"translation": "блакитний",
+				"transcription": "blakytnyj"
+			},
+			"image_url": null
+		},
+		"recadYxSCaw0wQhtI": {
+			"id": "recadYxSCaw0wQhtI",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/3464f64481810d56f37d6e1752ebaea1.mp3",
+				"translation": "tmavomodrý",
+				"transcription": "тмавомодри"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/afb3998621175c5e48789d8b569a7585.mp3",
+				"translation": "синій",
+				"transcription": "synij"
+			},
+			"image_url": null
+		},
+		"recae9LFW0tQM6yoK": {
+			"id": "recae9LFW0tQM6yoK",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/257dc4d53c9acea608a5fdd213130b74.mp3",
+				"translation": "oranžová",
+				"transcription": "оранжова"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e43d9d38cdd126bbd1fe6e38829b65d6.mp3",
+				"translation": "помаранчева",
+				"transcription": "pomarančeva"
+			},
+			"image_url": null
+		},
 		"recbT57lydNwku6tE": {
 			"id": "recbT57lydNwku6tE",
 			"main": {
@@ -2799,6 +3147,48 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/c/cd35e7f7bcd366098d93612e88bde480.mp3",
 				"translation": "фіолетова",
 				"transcription": "fioletova"
+			},
+			"image_url": null
+		},
+		"reccjCAA74rW7Zvat": {
+			"id": "reccjCAA74rW7Zvat",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/4417370040c434ecc5623c53839bd480.mp3",
+				"translation": "čierna",
+				"transcription": "чіерна"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/eb171b9ef970579549ea645f3bc110cf.mp3",
+				"translation": "чорна",
+				"transcription": "čorna"
+			},
+			"image_url": null
+		},
+		"reccx8Oc0N6ubKRyL": {
+			"id": "reccx8Oc0N6ubKRyL",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c5c768728857eee2a72d5055048a7a82.mp3",
+				"translation": "biely",
+				"transcription": "біели"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/791bbfb88dd36200178256878d2618d5.mp3",
+				"translation": "білий",
+				"transcription": "bilyj"
+			},
+			"image_url": null
+		},
+		"recdTgDaG6HLZCG6p": {
+			"id": "recdTgDaG6HLZCG6p",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/9730db63b17a4bbeaf6ce7f02ab5bc42.mp3",
+				"translation": "zlatá",
+				"transcription": "злата"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/35011844da94780d776132cfb8f25cc6.mp3",
+				"translation": "золота",
+				"transcription": "zolota"
 			},
 			"image_url": null
 		},
@@ -4356,6 +4746,118 @@
 			},
 			"image_url": null
 		},
+		"recrseQD8Hpqvvq1O": {
+			"id": "recrseQD8Hpqvvq1O",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/40bce68b28ec8c55f34d09fe317041f4.mp3",
+				"translation": "hrad",
+				"transcription": "град"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/af22002e5cb391df9b3c937c9239c306.mp3",
+				"translation": "замок",
+				"transcription": "zamok"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recrseQD8Hpqvvq1O/recrseQD8Hpqvvq1O.svg"
+		},
+		"recBIe7fRk2F1nNpK": {
+			"id": "recBIe7fRk2F1nNpK",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/21781503ad561e8a4541e1c5cc059ae9.mp3",
+				"translation": "kráľ",
+				"transcription": "краль"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/2b7effa223e5c0e1645ef9d52bc8e69b.mp3",
+				"translation": "король",
+				"transcription": "korol"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recBIe7fRk2F1nNpK/recBIe7fRk2F1nNpK.svg"
+		},
+		"recCkNzYvObXmZvYP": {
+			"id": "recCkNzYvObXmZvYP",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/747d184f4d9ba33aa592b93e19531585.mp3",
+				"translation": "statočný rytier",
+				"transcription": "статочни ритіер"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c5c29e48906f128f110da0e3624c415f.mp3",
+				"translation": "хоробрий лицар",
+				"transcription": "chorobryj lycar"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recCkNzYvObXmZvYP/recCkNzYvObXmZvYP.svg"
+		},
+		"recIZcZUCfpJSk2SD": {
+			"id": "recIZcZUCfpJSk2SD",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/ce26e462832030438a05877aa0579e8d.mp3",
+				"translation": "kôň",
+				"transcription": "кyoнь"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/90aff605e2929bfb8c5d2356af0cc07e.mp3",
+				"translation": "кінь",
+				"transcription": "kiň"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recIZcZUCfpJSk2SD/recIZcZUCfpJSk2SD.svg"
+		},
+		"recXZLTBQlb3K6kiP": {
+			"id": "recXZLTBQlb3K6kiP",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7fd9cc0d01bf221924907d4ae6efc20e.mp3",
+				"translation": "zlatý prsteň",
+				"transcription": "злати прстень"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/3b33eb6cf109ec089704d957103376bf.mp3",
+				"translation": "золотий перстень",
+				"transcription": "zolotyj persteň"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recXZLTBQlb3K6kiP/recXZLTBQlb3K6kiP.svg"
+		},
+		"rec2OHQkeKpPJ688r": {
+			"id": "rec2OHQkeKpPJ688r",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/5ac158f93ec3bffaa02e055acff4a6c5.mp3",
+				"translation": "trojhlavý drak",
+				"transcription": "тройглави драк"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/f/f06f10450456fa39f432ccf3f70007da.mp3",
+				"translation": "триголовий дракон",
+				"transcription": "tryholovyj drakon"
+			},
+			"image_url": "https://data.movapp.eu/images/source/rec2OHQkeKpPJ688r/rec2OHQkeKpPJ688r.svg"
+		},
+		"rec3Hffm13BNJ5bMi": {
+			"id": "rec3Hffm13BNJ5bMi",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c28a062b99c8069c25a61fe92430068c.mp3",
+				"translation": "poklad",
+				"transcription": "поклад"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1c112c5e045a7f8e80b7cf374d21707c.mp3",
+				"translation": "скарб",
+				"transcription": "skarb"
+			},
+			"image_url": "https://data.movapp.eu/images/source/rec3Hffm13BNJ5bMi/rec3Hffm13BNJ5bMi.svg"
+		},
+		"rec5UVMOcRIIzL6tz": {
+			"id": "rec5UVMOcRIIzL6tz",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1abc26ecd25d322dfbc4254920ae7752.mp3",
+				"translation": "krásna princezná",
+				"transcription": "красна прінцезна"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c6553f12a0d6f01fbd5c7f1e1bff0c7a.mp3",
+				"translation": "прекрасна принцеса",
+				"transcription": "prekrasna pryncesa"
+			},
+			"image_url": "https://data.movapp.eu/images/source/rec5UVMOcRIIzL6tz/rec5UVMOcRIIzL6tz.svg"
+		},
 		"recSBbQmJSQgnCs8L": {
 			"id": "recSBbQmJSQgnCs8L",
 			"main": {
@@ -4378,9 +4880,9 @@
 				"transcription": "Потребуєм бить хвільку сама Потребуєм бить хвільку сам."
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/f/f373e496ec377696dd121e693feb694c.mp3",
-				"translation": "Мені потрібно побути самій. / Мені потрібно побути самому.",
-				"transcription": "Meni potribno pobuty samij / Meni potribno pobuty samomu."
+				"sound_url": "https://data.movapp.eu/uk-sounds/8/8385e05fec9cb9906d3d816ce7c93d00.mp3",
+				"translation": "Мені потрібно побути самій. Мені потрібно побути самому.",
+				"transcription": "Meni potribno pobuty samij Meni potribno pobuty samomu."
 			},
 			"image_url": null
 		},
@@ -4636,6 +5138,20 @@
 			},
 			"image_url": null
 		},
+		"recNUsvIWlB3tcirM": {
+			"id": "recNUsvIWlB3tcirM",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/a0a48ab4822d9d810170bfea06fa4314.mp3",
+				"translation": "bahniatka (kvety vŕby rakytovej)",
+				"transcription": "багніатка (квети врби ракитовей)"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/986cc3128e981fdc0eeee17ff9c02f78.mp3",
+				"translation": "котики (цвіт верби)",
+				"transcription": "kotyky (cvit verby)"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recNUsvIWlB3tcirM/recNUsvIWlB3tcirM.svg"
+		},
 		"recO63i72BlfDPiBk": {
 			"id": "recO63i72BlfDPiBk",
 			"main": {
@@ -4790,6 +5306,20 @@
 			},
 			"image_url": "https://data.movapp.eu/images/source/recKlHqjeKtykVtxr/recKlHqjeKtykVtxr.svg"
 		},
+		"rec5fdqTajZEuCqHg": {
+			"id": "rec5fdqTajZEuCqHg",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/f/ffae10dd48f2d04f6a39989d1695ef06.mp3",
+				"translation": "prvosienka",
+				"transcription": "првосіенка"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/399ac42593b048d107b8c0a00dacb122.mp3",
+				"translation": "примула",
+				"transcription": "prymula"
+			},
+			"image_url": "https://data.movapp.eu/images/source/rec5fdqTajZEuCqHg/rec5fdqTajZEuCqHg.svg"
+		},
 		"recae4qGFIzQN668j": {
 			"id": "recae4qGFIzQN668j",
 			"main": {
@@ -4803,6 +5333,20 @@
 				"transcription": "tualet"
 			},
 			"image_url": "https://data.movapp.eu/images/source/recae4qGFIzQN668j/recae4qGFIzQN668j.svg"
+		},
+		"recfH04JtTPCYUuYk": {
+			"id": "recfH04JtTPCYUuYk",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/8d6173c22b26cbd1711b7fe2d78b201d.mp3",
+				"translation": "tulipány",
+				"transcription": "туліпани"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/518561bb250b69c13418da0dfee2a118.mp3",
+				"translation": "тюльпани",
+				"transcription": "ťulpany"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recfH04JtTPCYUuYk/recfH04JtTPCYUuYk.svg"
 		},
 		"recghExYGd8hOht4G": {
 			"id": "recghExYGd8hOht4G",
@@ -4933,9 +5477,9 @@
 		"rec5YcyhlYlL5KM3v": {
 			"id": "rec5YcyhlYlL5KM3v",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/5/51700d3a796069925d391658dd6b3446.mp3",
-				"translation": "desiata / olovrant",
-				"transcription": "десіата / оловрант"
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/8fa95b4f235cc12bd516e25f839f57df.mp3",
+				"translation": "desiata, olovrant",
+				"transcription": "десіата, оловрант"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/2/29a9849c6ee1f9b85d898f2d1d8d7e7b.mp3",
@@ -4985,6 +5529,34 @@
 				"transcription": "napij"
 			},
 			"image_url": "https://data.movapp.eu/images/source/reckjJeBnSMFrjTS1/reckjJeBnSMFrjTS1.svg"
+		},
+		"reck19inqRxl3nKp6": {
+			"id": "reck19inqRxl3nKp6",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/9c3280cc9557712aa6900443e4b92e57.mp3",
+				"translation": "mak",
+				"transcription": "мак"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/67cdeb0a742e896e870f5b5dbf7e6623.mp3",
+				"translation": "мак",
+				"transcription": "mak"
+			},
+			"image_url": "https://data.movapp.eu/images/source/reck19inqRxl3nKp6/reck19inqRxl3nKp6.svg"
+		},
+		"recej4MIzQjjFhjGT": {
+			"id": "recej4MIzQjjFhjGT",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7649bd86c57aedbe046b7835eeaeb5f7.mp3",
+				"translation": "slnečnica",
+				"transcription": "слнечніца"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1b8c8c3b820d858c39b09637e7ca6faf.mp3",
+				"translation": "соняшник",
+				"transcription": "sonjašnyk"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recej4MIzQjjFhjGT/recej4MIzQjjFhjGT.svg"
 		},
 		"recNYgZsQM1PrG5ME": {
 			"id": "recNYgZsQM1PrG5ME",
@@ -5918,9 +6490,9 @@
 				"transcription": "Мyoжем сі пожічать.."
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/e/e04ff6bf2088a7b056272b48785759e4.mp3",
-				"translation": "Можу взяти... ",
-				"transcription": "Možu vzjaty.. "
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e79cc215fc9d3c1956a9873842c0a419.mp3",
+				"translation": "Можу взяти...",
+				"transcription": "Možu vzjaty.."
 			},
 			"image_url": null
 		},
@@ -6058,9 +6630,9 @@
 				"transcription": "Бол добри Бола добра?"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/0/07233d94b5e9df3900133a9915e642d5.mp3",
-				"translation": "Був чемний? Була чемна? ",
-				"transcription": "Buv čemnyj Bula čemna? "
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/ccd0159271857ed3f8040e98110954ba.mp3",
+				"translation": "Був чемний? Була чемна?",
+				"transcription": "Buv čemnyj Bula čemna?"
 			},
 			"image_url": null
 		},
@@ -6165,9 +6737,9 @@
 		"recr6flIkiDC8Z17w": {
 			"id": "recr6flIkiDC8Z17w",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/5/53ab346ac10f559627c6a4f319160c21.mp3",
-				"translation": "Plakal? Plakala?",
-				"transcription": "Плакал Плакала?"
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/5aad7db544060fc5981842f30052db35.mp3",
+				"translation": "Plakal. Plakala.",
+				"transcription": "Плакал Плакала."
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/c/c458da7cd027fba3261fee26f4ba2427.mp3",
@@ -6193,9 +6765,9 @@
 		"recvREW81ine0c3M7": {
 			"id": "recvREW81ine0c3M7",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/8/8646761311a3d74ec06753a41693d9b4.mp3",
-				"translation": "po desiate / olovrante",
-				"transcription": "по десіате / оловранте"
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/5288beed14a5288f4e700f743f1e9e5b.mp3",
+				"translation": "po desiate, po olovrante",
+				"transcription": "по десіате, по оловранте"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/d/d0f0792f91eb2009bd9fc63385ff8d04.mp3",
@@ -6215,6 +6787,20 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/9/9b52193f4267c1fc949bb8f1c055e4f3.mp3",
 				"translation": "після сну",
 				"transcription": "pislja snu"
+			},
+			"image_url": null
+		},
+		"reczBRPO0Be5XIMND": {
+			"id": "reczBRPO0Be5XIMND",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/28cd0c1012ec9e92272ad6d4e4c77972.mp3",
+				"translation": "Kedy máme prísť?",
+				"transcription": "Кеди маме прість"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/f/fbd3bb33151d55c9498b3bd7584d0e28.mp3",
+				"translation": "О котрій годині ми маємо прийти?",
+				"transcription": "O kotrij hodyni my majemo pryjty"
 			},
 			"image_url": null
 		},
@@ -6445,9 +7031,9 @@
 		"recklqKCX8mVWTTDr": {
 			"id": "recklqKCX8mVWTTDr",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/e/e932ca4c74effbe8d068927c683cde70.mp3",
-				"translation": "pred desiatou / olovrantom",
-				"transcription": "пред десіатоу / оловрантом"
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/e8d3bcf4a019826e3531a2ba01ca0b57.mp3",
+				"translation": "pred desiatou, pred olovrantom",
+				"transcription": "пред десіатоу, пред оловрантом"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/7/77a844ec9697c29f21689a495b2980db.mp3",
@@ -6795,9 +7381,9 @@
 		"reczQ8GDc9yJgdevw": {
 			"id": "reczQ8GDc9yJgdevw",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/a/a37f694c016da2c6ee92b14bd2a130d6.mp3",
-				"translation": "Si hladná / hladný?",
-				"transcription": "Сі гладна / гладни"
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/aa05d193a6421d7a43d5ec80e627524e.mp3",
+				"translation": "Si hladná? Si hladný?",
+				"transcription": "Сі гладна Сі гладни?"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/3/347d931c7535865b42f189aad3eb44f4.mp3",
@@ -6851,9 +7437,9 @@
 		"rec9kAsk1Es9Eg0KD": {
 			"id": "rec9kAsk1Es9Eg0KD",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/1/157d241ce8f86db42fd9f8e86c5af1e5.mp3",
-				"translation": "Máme desiatu / olovrant.",
-				"transcription": "Маме десіату / оловрант"
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/67159e3b614c870cb30ce5a77ea4562a.mp3",
+				"translation": "Máme desiatu. Máte olovrant.",
+				"transcription": "Маме десіату Мате оловрант."
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/8/880e0e1e6cb809ed34abe312ce0283ed.mp3",
@@ -7198,6 +7784,48 @@
 			},
 			"image_url": null
 		},
+		"recwmEvUhtjXHArl4": {
+			"id": "recwmEvUhtjXHArl4",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7b6ab2889fee9aafb0d144cd423fe4d8.mp3",
+				"translation": "magnólia",
+				"transcription": "маґноліа"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/96bfbe494c33e1f3e11347885fd35eb8.mp3",
+				"translation": "магнолія",
+				"transcription": "mahnolija"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recwmEvUhtjXHArl4/recwmEvUhtjXHArl4.svg"
+		},
+		"recTmB87kPk5iES99": {
+			"id": "recTmB87kPk5iES99",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/535614024977fe6f43b4f021a7b60b80.mp3",
+				"translation": "púpava",
+				"transcription": "пупава"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/544eb8e7b32305581bd53610d72f1603.mp3",
+				"translation": "кульбаба",
+				"transcription": "kulbaba"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recTmB87kPk5iES99/recTmB87kPk5iES99.svg"
+		},
+		"recvhMjpZUAm9YT96": {
+			"id": "recvhMjpZUAm9YT96",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/9ba0ff5d4119c510035e82ad78249f65.mp3",
+				"translation": "orgován",
+				"transcription": "орґован"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/3b657fa98f29d66cd05bf5ba0519c6dd.mp3",
+				"translation": "бузок",
+				"transcription": "buzok"
+			},
+			"image_url": "https://data.movapp.eu/images/source/recvhMjpZUAm9YT96/recvhMjpZUAm9YT96.svg"
+		},
 		"recEOSGp3z8wTJvoG": {
 			"id": "recEOSGp3z8wTJvoG",
 			"main": {
@@ -7380,6 +8008,76 @@
 			},
 			"image_url": null
 		},
+		"recNRAkb5jKOZLxqk": {
+			"id": "recNRAkb5jKOZLxqk",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/a732ae493e9f7a2f95006d2704c0a63e.mp3",
+				"translation": "dvadsať",
+				"transcription": "двадсать"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/68b0af43c7281169497de9263d442051.mp3",
+				"translation": "двадцять",
+				"transcription": "dvadcjať"
+			},
+			"image_url": null
+		},
+		"recN27ULMIcizurne": {
+			"id": "recN27ULMIcizurne",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c67ed9a09ab136fae610b6a087d82e21.mp3",
+				"translation": "dva",
+				"transcription": "два"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c2c854ecd422455e737419840be146aa.mp3",
+				"translation": "два",
+				"transcription": "dva"
+			},
+			"image_url": null
+		},
+		"recONmWXnVx6uuAuq": {
+			"id": "recONmWXnVx6uuAuq",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/2dd7dfcd1ec0a45e4d71699d89efa63f.mp3",
+				"translation": "sedemnásť",
+				"transcription": "седемнасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/05252ad592e84263cd359e3f7e74f8ab.mp3",
+				"translation": "сімнадцять",
+				"transcription": "simnadcjať"
+			},
+			"image_url": null
+		},
+		"recPsEea8oqh6SjYD": {
+			"id": "recPsEea8oqh6SjYD",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/a535a5d6cfeeadbb1f31f54f0bbbbac8.mp3",
+				"translation": "deväťtisíc",
+				"transcription": "деветьтісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/d/d406108b4e79461a2f54f3e143247097.mp3",
+				"translation": "дев'ять тисяч",
+				"transcription": "dev'jať tysjač"
+			},
+			"image_url": null
+		},
+		"recQds4RHs5y4HCk7": {
+			"id": "recQds4RHs5y4HCk7",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/3fb9abfade74f11112f2481c98c90914.mp3",
+				"translation": "devätnásť",
+				"transcription": "деветнасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/8/8dc9232b0f57c0bc2c2cfe07a5588897.mp3",
+				"translation": "дев'ятнадцять",
+				"transcription": "dev'jatnadcjať"
+			},
+			"image_url": null
+		},
 		"recQVO6cdyJmAQVUS": {
 			"id": "recQVO6cdyJmAQVUS",
 			"main": {
@@ -7391,6 +8089,20 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/f/fb5ad84186cf355f42bebd1f659450b1.mp3",
 				"translation": "сім",
 				"transcription": "sim"
+			},
+			"image_url": null
+		},
+		"recR8AsnmPj9uXN0e": {
+			"id": "recR8AsnmPj9uXN0e",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/965e885e2812899a54f0d9aaf3b5f059.mp3",
+				"translation": "desaťtisíc",
+				"transcription": "десатьтісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/bd1cfe1b245559dc6697c142db32dcd9.mp3",
+				"translation": "десять тисяч",
+				"transcription": "desjať tysjač"
 			},
 			"image_url": null
 		},
@@ -7408,6 +8120,20 @@
 			},
 			"image_url": null
 		},
+		"recSAozJJ1EXTUQ0j": {
+			"id": "recSAozJJ1EXTUQ0j",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/3eac0d8f60103694b789142e78cb064b.mp3",
+				"translation": "osemnásť",
+				"transcription": "осемнасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/0d57031b8db3779fbfbe32fea3a7876d.mp3",
+				"translation": "вісімнадцять",
+				"transcription": "visimnadcjať"
+			},
+			"image_url": null
+		},
 		"recSB7px6DpwhjjKG": {
 			"id": "recSB7px6DpwhjjKG",
 			"main": {
@@ -7419,6 +8145,188 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/f/f0a35b587e17b9e6095cfa6c8d5543c4.mp3",
 				"translation": "вісім",
 				"transcription": "visim"
+			},
+			"image_url": null
+		},
+		"recmpRgZcf63opYot": {
+			"id": "recmpRgZcf63opYot",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/20309720c6d6a21890eda22c4a3109a2.mp3",
+				"translation": "dvanásť",
+				"transcription": "дванасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7165ebcd7df2f62db32900ce613b9bf4.mp3",
+				"translation": "дванадцять",
+				"transcription": "dvanadcjať"
+			},
+			"image_url": null
+		},
+		"recoYiUHOiLeiMlik": {
+			"id": "recoYiUHOiLeiMlik",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d2cfe69af2d64330670e08efb2c86df7.mp3",
+				"translation": "tri",
+				"transcription": "трі"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/5789d8642128e91502eec9e591403bcd.mp3",
+				"translation": "три",
+				"transcription": "try"
+			},
+			"image_url": null
+		},
+		"reco9ajZkyZMbHDoJ": {
+			"id": "reco9ajZkyZMbHDoJ",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/366f70a9fc1ec7721f694c49790c5693.mp3",
+				"translation": "trinásť",
+				"transcription": "трінасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/4a58bc0b443878dfce44250bb3bcb0cf.mp3",
+				"translation": "тринадцять",
+				"transcription": "trynadcjať"
+			},
+			"image_url": null
+		},
+		"recoaEMTNbsKRKNAk": {
+			"id": "recoaEMTNbsKRKNAk",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/57301fbde6fbc961574cb6cebb35d2ec.mp3",
+				"translation": "päť miliónov",
+				"transcription": "петь міліонов"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c6c905dd422bb9bcd58f3d5093c5a6da.mp3",
+				"translation": "п'ять мільйонів",
+				"transcription": "p'jať miljoniv"
+			},
+			"image_url": null
+		},
+		"recoGb1uShhRPTc0U": {
+			"id": "recoGb1uShhRPTc0U",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/88470164d69c731ab18b464553224c13.mp3",
+				"translation": "päť",
+				"transcription": "петь"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/cd9671ea5c009803f9ca3db91b6a8122.mp3",
+				"translation": "п'ять",
+				"transcription": "p'jať"
+			},
+			"image_url": null
+		},
+		"recpOdrTrTnbRxDMH": {
+			"id": "recpOdrTrTnbRxDMH",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/e8cd9395322b4614701b1b64d37d71ff.mp3",
+				"translation": "šesťsto",
+				"transcription": "шестьсто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/30cd79dc927625f979258e887f02d755.mp3",
+				"translation": "шістсот",
+				"transcription": "šistsot"
+			},
+			"image_url": null
+		},
+		"recpbVCrQUHEh10qD": {
+			"id": "recpbVCrQUHEh10qD",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/52b34acfc3b98ede9ec41ce4653aecca.mp3",
+				"translation": "sedemtisíc",
+				"transcription": "седемтісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/0193f662efa7744ed7b69645e80f7e8b.mp3",
+				"translation": "сім тисяч",
+				"transcription": "sim tysjač"
+			},
+			"image_url": null
+		},
+		"recqBHX7AP0Nsromn": {
+			"id": "recqBHX7AP0Nsromn",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/f/f3e1cb33d9008e0aa57979cc274d0d28.mp3",
+				"translation": "päťsto",
+				"transcription": "петьсто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/6c6af4870d5ab67487b76f0867721fe4.mp3",
+				"translation": "п'ятсот",
+				"transcription": "p'jatsot"
+			},
+			"image_url": null
+		},
+		"rectyIGMMQLcuDSNW": {
+			"id": "rectyIGMMQLcuDSNW",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/dc63a76b5c25f72f94a46d3cce442d83.mp3",
+				"translation": "desať miliónov",
+				"transcription": "десать міліонов"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/4095ce1290b04c2ea0ca84f57ad5434e.mp3",
+				"translation": "десять мільйонів",
+				"transcription": "desjať miljoniv"
+			},
+			"image_url": null
+		},
+		"rectB6VvaeVf3xWNi": {
+			"id": "rectB6VvaeVf3xWNi",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1c38a0a5beefc8c846194fe97ddad4fd.mp3",
+				"translation": "sto",
+				"transcription": "сто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1d84c6f7b118d4245f292462a5bef8ab.mp3",
+				"translation": "сто",
+				"transcription": "sto"
+			},
+			"image_url": null
+		},
+		"recu9FaDZ1O253851": {
+			"id": "recu9FaDZ1O253851",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/176fc4df668450cc9f43c318cd64253d.mp3",
+				"translation": "dva milióny",
+				"transcription": "два міліони"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b6a2ec2609a361febed4b93607e3c507.mp3",
+				"translation": "два мільйони",
+				"transcription": "dva miljony"
+			},
+			"image_url": null
+		},
+		"recvTWAN0Rf5iHage": {
+			"id": "recvTWAN0Rf5iHage",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/6b319bd56871e1915d5635849caff70e.mp3",
+				"translation": "tri milióny",
+				"transcription": "трі міліони"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/d/d65e924eb08fcd51de4acde295b27f16.mp3",
+				"translation": "три мільйони",
+				"transcription": "try miljony"
+			},
+			"image_url": null
+		},
+		"reczi9UtSwgdltjks": {
+			"id": "reczi9UtSwgdltjks",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/ef7f287cf2037cb1971cf7b4297a5dd0.mp3",
+				"translation": "päťdesiat",
+				"transcription": "петьдесіат"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e8f34f6b045654631400ce6ed01a25c2.mp3",
+				"translation": "п'ятдесят",
+				"transcription": "p'jatdesjat"
 			},
 			"image_url": null
 		},
@@ -7436,6 +8344,76 @@
 			},
 			"image_url": null
 		},
+		"recAbEEX5YPIncVLq": {
+			"id": "recAbEEX5YPIncVLq",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c47a99acf0f86dea4f90b42cedc2a245.mp3",
+				"translation": "šesť miliónov",
+				"transcription": "шесть міліонов"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/16e895e3a6782650fa7d8cd3e400d094.mp3",
+				"translation": "шість мільйонів",
+				"transcription": "šisť miljoniv"
+			},
+			"image_url": null
+		},
+		"recAqwJusrLd7kO4R": {
+			"id": "recAqwJusrLd7kO4R",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c7229fb4daf0ac298ddcbf542f07d78f.mp3",
+				"translation": "tritisíc",
+				"transcription": "трітісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e5d893e113d7e5e6854c6b908a927002.mp3",
+				"translation": "три тисячі",
+				"transcription": "try tysjači"
+			},
+			"image_url": null
+		},
+		"recBxr6jO7KAGvPiN": {
+			"id": "recBxr6jO7KAGvPiN",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/9e120ed16a64f4dc81c718a22a1dba73.mp3",
+				"translation": "deväťsto",
+				"transcription": "деветьсто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/622a114beaa361eedfa6dd0dbb1b89c3.mp3",
+				"translation": "дев'ять сотень",
+				"transcription": "dev'jať soteň"
+			},
+			"image_url": null
+		},
+		"recC0EaHE99mcDw5w": {
+			"id": "recC0EaHE99mcDw5w",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7af39965481431720ee8e4fbbb18461d.mp3",
+				"translation": "tridsať",
+				"transcription": "трідсать"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e57babc45a820a383d987e79e4d85dcb.mp3",
+				"translation": "тридцять",
+				"transcription": "trydcjať"
+			},
+			"image_url": null
+		},
+		"recDOYIrcPmdcOvUC": {
+			"id": "recDOYIrcPmdcOvUC",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/6cf89c566c818dc023cf4c8f7f5ab202.mp3",
+				"translation": "sedem miliónov",
+				"transcription": "седем міліонов"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/18deb3b1e68339bc938f5b14841e2693.mp3",
+				"translation": "сім мільйонів",
+				"transcription": "sim miljoniv"
+			},
+			"image_url": null
+		},
 		"recDC9kW6vAOSFJfu": {
 			"id": "recDC9kW6vAOSFJfu",
 			"main": {
@@ -7447,6 +8425,370 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/b/b262cd94f074d3099f55c571865f232c.mp3",
 				"translation": "шість",
 				"transcription": "šisť"
+			},
+			"image_url": null
+		},
+		"recFGgwE91EO5sdOK": {
+			"id": "recFGgwE91EO5sdOK",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/ca7da21d2fb5039259dc8e58bf7222dd.mp3",
+				"translation": "tisíc",
+				"transcription": "тісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/2c210be0f3a0630d784edebb49892b2d.mp3",
+				"translation": "тисяч",
+				"transcription": "tysjač"
+			},
+			"image_url": null
+		},
+		"recJDMpOGXGo6n0OD": {
+			"id": "recJDMpOGXGo6n0OD",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/85e03dd8d113d0b2b998559770acde1c.mp3",
+				"translation": "osemdesiat",
+				"transcription": "осемдесіат"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7b942c4b124e2572858ef885b1493888.mp3",
+				"translation": "вісімдесят",
+				"transcription": "visimdesjat"
+			},
+			"image_url": null
+		},
+		"recKky6cmaEaqRoty": {
+			"id": "recKky6cmaEaqRoty",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/827152d6b43e0f607c0c7b32348a93f8.mp3",
+				"translation": "štyridsať",
+				"transcription": "штирідсать"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a5472f7d5fb02e047254a90d7ce3f227.mp3",
+				"translation": "сорок",
+				"transcription": "sorok"
+			},
+			"image_url": null
+		},
+		"recV13Gr1iU7Jxwgs": {
+			"id": "recV13Gr1iU7Jxwgs",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/52596e57eb2d8af63c61eaa56b1a0f53.mp3",
+				"translation": "osem miliónov",
+				"transcription": "осем міліонов"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/f/f7bc6a4654c638730dd634799f679666.mp3",
+				"translation": "вісім мільйонів",
+				"transcription": "visim miljoniv"
+			},
+			"image_url": null
+		},
+		"recV2ClOYjqFYxDBI": {
+			"id": "recV2ClOYjqFYxDBI",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1ef0149781271b1e651aba87b1c5728b.mp3",
+				"translation": "tristo",
+				"transcription": "трісто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/4d3d5e785e0279b111bc2622a18ccc04.mp3",
+				"translation": "триста",
+				"transcription": "trysta"
+			},
+			"image_url": null
+		},
+		"recXcgSZmMFRUChvq": {
+			"id": "recXcgSZmMFRUChvq",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/4feac466771be76446f33d233c01a310.mp3",
+				"translation": "deväť miliónov",
+				"transcription": "деветь міліонов"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/207e0ce053eff553edfe396e217b5ffa.mp3",
+				"translation": "дев'ять мільйонів",
+				"transcription": "dev'jať miljoniv"
+			},
+			"image_url": null
+		},
+		"recXLHFV9zI3CoBHF": {
+			"id": "recXLHFV9zI3CoBHF",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/cd68957334d0a9280f19312feaf54dde.mp3",
+				"translation": "štyristo",
+				"transcription": "штирісто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/0ec6f0a2cb0632d8c16496b8eec141fb.mp3",
+				"translation": "чотириста",
+				"transcription": "čotyrysta"
+			},
+			"image_url": null
+		},
+		"recZluTBncO9nfWVo": {
+			"id": "recZluTBncO9nfWVo",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1b419c33a37afd06696f9ff6f6d76e37.mp3",
+				"translation": "milión",
+				"transcription": "міліон"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/cea67609dabe89694e6e767b0b6f0766.mp3",
+				"translation": "мільйон",
+				"transcription": "miljon"
+			},
+			"image_url": null
+		},
+		"recZINWHCH2eTvFyw": {
+			"id": "recZINWHCH2eTvFyw",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/65febdcba7604f3b9b71f364a5148fa1.mp3",
+				"translation": "štrnásť",
+				"transcription": "штрнасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/493d17e45aca57a8e362f40e54d11549.mp3",
+				"translation": "чотирнадцять",
+				"transcription": "čotyrnadcjať"
+			},
+			"image_url": null
+		},
+		"rec0di0kYlHYgrD6Q": {
+			"id": "rec0di0kYlHYgrD6Q",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7375646561c7ef9bce001c1e5b444ee7.mp3",
+				"translation": "deväťdesiat",
+				"transcription": "деветьдесіат"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/0cb147ee3b598ea035ab38c3e58185d6.mp3",
+				"translation": "дев'яносто",
+				"transcription": "dev'janosto"
+			},
+			"image_url": null
+		},
+		"rec13jRNEkg4f7zWB": {
+			"id": "rec13jRNEkg4f7zWB",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/f/fecf1f447b2821fc907501711eadd9ac.mp3",
+				"translation": "štyritisíc",
+				"transcription": "штирітісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/9676dc93206f8f7039a3f7aad942f205.mp3",
+				"translation": "чотири тисячі",
+				"transcription": "čotyry tysjači"
+			},
+			"image_url": null
+		},
+		"rec3K9tolj9VA8KDV": {
+			"id": "rec3K9tolj9VA8KDV",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/6a55c5277cd0c7633f5cea8feb0c4f5b.mp3",
+				"translation": "šesťdesiat",
+				"transcription": "шестьдесіат"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/8/867bc6fee3ad41c4b15f6de458382695.mp3",
+				"translation": "шістдесят",
+				"transcription": "šistdesjat"
+			},
+			"image_url": null
+		},
+		"rec4Qt4UyBUHQW5qh": {
+			"id": "rec4Qt4UyBUHQW5qh",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/0a797904abb69b1afc9740388d66e003.mp3",
+				"translation": "štyri",
+				"transcription": "штирі"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/4248d90b0168334211a88502004d034a.mp3",
+				"translation": "чотири",
+				"transcription": "čotyry"
+			},
+			"image_url": null
+		},
+		"rec5R86YyvqqGmvmW": {
+			"id": "rec5R86YyvqqGmvmW",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/325dd10fb076c8b4901fe0f9302e7e6b.mp3",
+				"translation": "osemsto",
+				"transcription": "осемсто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/315912f28a1a88c869f845601893f26d.mp3",
+				"translation": "Вісім сотень",
+				"transcription": "Visim soteň"
+			},
+			"image_url": null
+		},
+		"rec53RYlYguTpcOfm": {
+			"id": "rec53RYlYguTpcOfm",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/206f91f0c6b31eb6ea39781a40e76c0e.mp3",
+				"translation": "pätnásť",
+				"transcription": "петнасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/11c99ae4a7c707f93256dadc5244ace2.mp3",
+				"translation": "п'ятнадцять",
+				"transcription": "p'jatnadcjať"
+			},
+			"image_url": null
+		},
+		"rec8rSlMxUVAl9JEp": {
+			"id": "rec8rSlMxUVAl9JEp",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/eb98eb1ae23751f5c8ef787df794439a.mp3",
+				"translation": "dvetisíc",
+				"transcription": "дветісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/5c081f4c9568a86c2bf30ab6056e8f47.mp3",
+				"translation": "дві тисячі",
+				"transcription": "dvi tysjači"
+			},
+			"image_url": null
+		},
+		"reccb7prtaGXHAHqh": {
+			"id": "reccb7prtaGXHAHqh",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1fea7720627036a4a8dbe2c2bb2f5726.mp3",
+				"translation": "päťtisíc",
+				"transcription": "петьтісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b7cedf4ef4cd733aa7a105de751a6e62.mp3",
+				"translation": "п'ять тисяч",
+				"transcription": "p'jať tysjač"
+			},
+			"image_url": null
+		},
+		"recd3YvEH5rv2ZWQG": {
+			"id": "recd3YvEH5rv2ZWQG",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/64c999a68d23a79e7708dc9d2f8d667f.mp3",
+				"translation": "dvesto",
+				"transcription": "двесто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/6390904fffaafabff1471ade5a144d2a.mp3",
+				"translation": "двісті",
+				"transcription": "dvisti"
+			},
+			"image_url": null
+		},
+		"receC4wn1PFAoZkq7": {
+			"id": "receC4wn1PFAoZkq7",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/079bf0c241119a0820623b442183f86c.mp3",
+				"translation": "osemtisíc",
+				"transcription": "осемтісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/53452043f63f20ba3921c8178dc6d85d.mp3",
+				"translation": "вісім тисяч",
+				"transcription": "visim tysjač"
+			},
+			"image_url": null
+		},
+		"recf98uFZCCfZ49ee": {
+			"id": "recf98uFZCCfZ49ee",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1dcd7fe5b208aeaa3479ec0c1225bd92.mp3",
+				"translation": "sedemsto",
+				"transcription": "седемсто"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c89d7d10a669c062cf54b41959559e4b.mp3",
+				"translation": "сім сотень",
+				"transcription": "sim soteň"
+			},
+			"image_url": null
+		},
+		"recfJGOu0PkuHUNOs": {
+			"id": "recfJGOu0PkuHUNOs",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/b/b37e47f0b437e35b69fbe1d91d143a89.mp3",
+				"translation": "jedenásť",
+				"transcription": "єденасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b81dd693df43358768bcbcc1e42de996.mp3",
+				"translation": "одинадцять",
+				"transcription": "odynadcjať"
+			},
+			"image_url": null
+		},
+		"recgRvLeO3Gbzv1kE": {
+			"id": "recgRvLeO3Gbzv1kE",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/185f3471e82b6d1b8f98a9e55bc4c252.mp3",
+				"translation": "jeden",
+				"transcription": "єден"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/92587df24405ccad343d8a5842449ed9.mp3",
+				"translation": "одна",
+				"transcription": "odna"
+			},
+			"image_url": null
+		},
+		"reci8QoDfweWmMJ65": {
+			"id": "reci8QoDfweWmMJ65",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c782643cbd237d994f0d86134ec9e0f3.mp3",
+				"translation": "šestnásť",
+				"transcription": "шестнасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/35e0c44cc99569f3251e83f3f607b8e1.mp3",
+				"translation": "шістнадцять",
+				"transcription": "šistnadcjať"
+			},
+			"image_url": null
+		},
+		"recjdgAxkvselkjWB": {
+			"id": "recjdgAxkvselkjWB",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/2dd7dfcd1ec0a45e4d71699d89efa63f.mp3",
+				"translation": "sedemnásť",
+				"transcription": "седемнасть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a8a27715696bcb0c6734f02382c44ad9.mp3",
+				"translation": "сімдесят",
+				"transcription": "simdesjat"
+			},
+			"image_url": null
+		},
+		"recjNDQ0c4czstq8C": {
+			"id": "recjNDQ0c4czstq8C",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/26a61bbb9d969fc3b04aab6243032769.mp3",
+				"translation": "šesťtisíc",
+				"transcription": "шестьтісіц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/be5b040ad1eb3a964b5f09fa9d4b175e.mp3",
+				"translation": "шість тисяч",
+				"transcription": "šisť tysjač"
+			},
+			"image_url": null
+		},
+		"reck1G5e2dtqYOdVH": {
+			"id": "reck1G5e2dtqYOdVH",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/3bde915e7e46831a621a178b73903b7a.mp3",
+				"translation": "štyri milióny",
+				"transcription": "штирі міліони"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/bd27b8fc926d7cd0ca34a9d1f70f6ddb.mp3",
+				"translation": "чотири мільйони",
+				"transcription": "čotyry miljony"
 			},
 			"image_url": null
 		},
@@ -8041,9 +9383,9 @@
 		"rec6k6cdQBy38u6t2": {
 			"id": "rec6k6cdQBy38u6t2",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/1/1487c076c7416a8c9c2ff23f16db2499.mp3",
-				"translation": "Pani učiteľka!  Pán učiteľ!",
-				"transcription": "Пані учітелька  Пан учітель!"
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d1a3c3a30d9df1388000944ca32ba5aa.mp3",
+				"translation": "Pani učiteľka! Pán učiteľ!",
+				"transcription": "Пані учітелька Пан учітель!"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/9/901a2ebda242ec0d00bdca2f8b54300a.mp3",
@@ -9175,9 +10517,9 @@
 		"recmutb4BDiXI1vhm": {
 			"id": "recmutb4BDiXI1vhm",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/a/a7ca53ffd42376df5a6be154fedc8ab0.mp3",
-				"translation": "мандаринки",
-				"transcription": "мандаринки"
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/717647d1a91af8321bfbe92a014b2407.mp3",
+				"translation": "mandarínky",
+				"transcription": "мандарінки"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/e/ed89b92aefac4c6af5a22cd31595cad5.mp3",
@@ -9309,6 +10651,20 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/e/ec90bf66578ad5f48bea936e9658d64a.mp3",
 				"translation": "цибуля",
 				"transcription": "cybulja"
+			},
+			"image_url": null
+		},
+		"recENnyksYXRQUv6T": {
+			"id": "recENnyksYXRQUv6T",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d52e612531c7612b036fc4fe9bb37083.mp3",
+				"translation": "žemľa",
+				"transcription": "жемльа"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/d/db85888692e2ab4b5b52c43608d4ef78.mp3",
+				"translation": "булочка",
+				"transcription": "buločka"
 			},
 			"image_url": null
 		},
@@ -9539,9 +10895,9 @@
 		"recaCRIyNmCOVP78A": {
 			"id": "recaCRIyNmCOVP78A",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/b/b5c7d94fd3098343c820df02137160d3.mp3",
-				"translation": " jablká",
-				"transcription": " яблка"
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/295c0fcce97d0a5cc49565ffda88d17f.mp3",
+				"translation": "jablká",
+				"transcription": "яблка"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/8/8261d075ad7f14aa4660be58c0acf856.mp3",
@@ -9684,9 +11040,9 @@
 				"transcription": "15 дкґ шунки, просім"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/d/da491c5244955b6297e4d33bf6b7ecef.mp3",
-				"translation": "150 грам шинки, будь ласка ",
-				"transcription": "150 hram šynky, buď laska "
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/ac53cdc695b1a7b2f4c067723db082e8.mp3",
+				"translation": "150 грам шинки, будь ласка",
+				"transcription": "150 hram šynky, buď laska"
 			},
 			"image_url": null
 		},
@@ -10670,20 +12026,6 @@
 			},
 			"image_url": null
 		},
-		"recgd3zbARuRgh82C": {
-			"id": "recgd3zbARuRgh82C",
-			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/f/ff67826628e626ce448f8aa01a9049e2.mp3",
-				"translation": " V pondelok mám hodinu češtiny.",
-				"transcription": " В понделок мам годіну чештіни"
-			},
-			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/4/47ab8355c531e75f2ecef4b7d0fbbd9e.mp3",
-				"translation": "У понеділок у мене заняття з чеської.",
-				"transcription": "U ponedilok u mene zanjatťa z českoji"
-			},
-			"image_url": null
-		},
 		"rechfb9BV2BgHpvNs": {
 			"id": "rechfb9BV2BgHpvNs",
 			"main": {
@@ -10975,6 +12317,34 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/f/fb5ad84186cf355f42bebd1f659450b1.mp3",
 				"translation": "сім",
 				"transcription": "sim"
+			},
+			"image_url": null
+		},
+		"recHiYKDoOawugqMQ": {
+			"id": "recHiYKDoOawugqMQ",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/e4730cef2466cd6aed0ca72812a03c9e.mp3",
+				"translation": "Ide tento autobus do...?",
+				"transcription": "Іде тенто аутобус до.."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/599ffd15f6d05693b960f53e8b8ae60c.mp3",
+				"translation": "Цей автобус їде до...?",
+				"transcription": "Cej avtobus jide do.."
+			},
+			"image_url": null
+		},
+		"rec0TQjsQ18yTbuoZ": {
+			"id": "rec0TQjsQ18yTbuoZ",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/66445812bbdfdfeb7038681cba29093b.mp3",
+				"translation": "Kedy ide...?",
+				"transcription": "Кеди іде.."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/99a3c46778b217d3bacde0cd2cd5786c.mp3",
+				"translation": "Коли їде...?",
+				"transcription": "Koly jide.."
 			},
 			"image_url": null
 		},
@@ -11443,9 +12813,9 @@
 		"rec5ECW5165n8OFDc": {
 			"id": "rec5ECW5165n8OFDc",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/a/a5a5c7a5a92e510af695576fc604a634.mp3",
-				"translation": "skoro / takmer",
-				"transcription": "скоро / такмер"
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d9b37546da32da3acc1deeaa05f5468e.mp3",
+				"translation": "skoro, takmer",
+				"transcription": "скоро, такмер"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/8/86fa6369e063606ce6e705f86da45af1.mp3",
@@ -11745,20 +13115,6 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/9/9b2ecff0d9aff8b17c9252a77d2722d3.mp3",
 				"translation": "Ходімо зі мною.",
 				"transcription": "Chodimo zi mnoju"
-			},
-			"image_url": null
-		},
-		"recF2rx6waAgVw0vn": {
-			"id": "recF2rx6waAgVw0vn",
-			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/c/cc606c20cc9cfd2e5cd98c98d23aa90d.mp3",
-				"translation": "Hovoríte po česky?",
-				"transcription": "Говоріте по чески"
-			},
-			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/d/d6956d38b26128777ba37238ced56202.mp3",
-				"translation": "Ви розмовляєте чеською?",
-				"transcription": "Vy rozmovljajete českoju"
 			},
 			"image_url": null
 		},
@@ -12753,6 +14109,62 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/0/06ce0953f32894b3246a4bd34025b3db.mp3",
 				"translation": "тигри",
 				"transcription": "tyhry"
+			},
+			"image_url": null
+		},
+		"recXfV5T2cGOgwPLC": {
+			"id": "recXfV5T2cGOgwPLC",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1d5003ad624cc585c1366f3bb7becbd3.mp3",
+				"translation": "Hovoríte po slovensky?",
+				"transcription": "Говоріте по словенски"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1bca13344d912f1ef5784275d7a4d40b.mp3",
+				"translation": "Ви розмовляєте словацькою?",
+				"transcription": "Vy rozmovljajete slovackoju"
+			},
+			"image_url": null
+		},
+		"recERdWEC1VKdL5EO": {
+			"id": "recERdWEC1VKdL5EO",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/e0291422099e2d4df53ecd127584e22e.mp3",
+				"translation": "Nehovorím po slovensky.",
+				"transcription": "Неговорім по словенски"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/0234eab21dffdcab306987ab918eb3b3.mp3",
+				"translation": "Не розмовляю словацькою.",
+				"transcription": "Ne rozmovljaju slovackoju"
+			},
+			"image_url": null
+		},
+		"recukfWVNfVpjelWD": {
+			"id": "recukfWVNfVpjelWD",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c01a60d50b0df30e2343cea937f87a5c.mp3",
+				"translation": "V pondelok mám hodinu slovenčiny.",
+				"transcription": "В понделок мам годіну словенчіни"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/28e26be1411f3bbe5404110c5b160473.mp3",
+				"translation": "У понеділок у мене заняття з словацької.",
+				"transcription": "U ponedilok u mene zanjatťa z slovackoji"
+			},
+			"image_url": null
+		},
+		"rectw6le9yJM3gNxD": {
+			"id": "rectw6le9yJM3gNxD",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/df73cee6da7d25b2f38606e1d3e2203d.mp3",
+				"translation": "slovenčina",
+				"transcription": "словенчіна"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/ea1151151c688354e09143de33f1fe70.mp3",
+				"translation": "словацька мова",
+				"transcription": "slovacka mova"
 			},
 			"image_url": null
 		}
