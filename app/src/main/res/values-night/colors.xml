@@ -29,4 +29,9 @@
     <color name="linkColor">@color/secondaryDarkColor</color>
 
     <color name="upButtonColor">#BFBEBE</color>
+
+    <color name="playerColumns">#1B1B1B</color>
+    <color name="playerRead">#CAC0C0</color>
+    <color name="playerReading">#ffd500</color>
+    <color name="playerUnRead">#FFFFFF</color>
 </resources>

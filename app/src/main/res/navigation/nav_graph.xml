@@ -32,7 +32,20 @@
     <fragment
         android:id="@+id/nav_children"
         android:name="cz.movapp.app.ui.children.ChildrenFragment"
-        tools:layout="@layout/fragment_children" />
+        tools:layout="@layout/fragment_children" >
+        <action
+            android:id="@+id/to_fairy_tale_player"
+            app:destination="@id/nav_fairy_tale_player" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fairy_tale_player"
+        android:name="cz.movapp.app.ui.children.ChildrenFairyTalePlayerFragment"
+        tools:layout="@layout/fragment_children_fairy_tale_player" >
+        <argument
+            android:name="slug"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_about"

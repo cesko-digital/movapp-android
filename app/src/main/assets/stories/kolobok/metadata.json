@@ -1,0 +1,232 @@
+{
+    "timeline": [
+        {
+            "cs": {
+                "text": "Žili byli dědeček a babička. Dědeček babičku poprosil, aby upekla koblížek.",
+                "start": 13.883,
+                "end": 22.108
+            },
+            "uk": {
+                "text": "Жили-були дід і баба, і попросив дід бабу спекти колобок.",
+                "start": 13.5955,
+                "end": 19.1955
+            }
+        },
+        {
+            "cs": {
+                "text": "Babička našla mouku, umíchala těsto a upekla koblížek.",
+                "start": 22.108,
+                "end": 27.9955
+            },
+            "uk": {
+                "text": "Баба знайшла борошно, намісила тісто і спекла колобок.",
+                "start": 19.1955,
+                "end": 24.7705
+            }
+        },
+        {
+            "cs": {
+                "text": "Vytáhla ho z pece a postavila na okno, aby vychladl.",
+                "start": 27.9955,
+                "end": 33.558
+            },
+            "uk": {
+                "text": "Вона витягла його з печі і поставила на вікні, щоб вичахав.",
+                "start": 24.7705,
+                "end": 30.3955
+            }
+        },
+        {
+            "cs": {
+                "text": "Koblížek ležel a ležel na okně, a tu seskočil a kutálel se po cestičce.",
+                "start": 33.558,
+                "end": 40.4705
+            },
+            "uk": {
+                "text": "Колобок лежав-лежав на вікні, а тоді зістрибнув і покотився доріжкою.",
+                "start": 30.3955,
+                "end": 36.858
+            }
+        },
+        {
+            "cs": {
+                "text": "Kutálí se po cestičce, když tu před ním stojí zajíček. A říká, že ho sní.",
+                "start": 40.4705,
+                "end": 48.608
+            },
+            "uk": {
+                "text": "Котиться він доріжкою, а назустріч йому зайчик. І каже, що його з'їсть.",
+                "start": 36.858,
+                "end": 44.408
+            }
+        },
+        {
+            "cs": {
+                "text": "Koblížek požádal zajíčka, aby ho nejedl, a místo toho mu zazpíval písničku a utekl.",
+                "start": 48.608,
+                "end": 56.733
+            },
+            "uk": {
+                "text": "Колобок попросив зайчика, щоб він його не їв, а натомість заспівав йому пісеньку і втік.",
+                "start": 44.408,
+                "end": 52.0205
+            }
+        },
+        {
+            "cs": {
+                "text": "Kutálí se koblížek dál po cestičce, když tu před ním stojí vlk. A taky říká, že ho sní.",
+                "start": 56.733,
+                "end": 65.7455
+            },
+            "uk": {
+                "text": "Котиться далі колобок доріжкою, аж назустріч йому вовк. І теж каже, що його з'їсть.",
+                "start": 52.0205,
+                "end": 60.3205
+            }
+        },
+        {
+            "cs": {
+                "text": "Koblížek poprosil vlka, aby ho nejedl, a nabídl mu, že mu zazpívá písničku.",
+                "start": 65.7455,
+                "end": 73.2455
+            },
+            "uk": {
+                "text": "Колобок благав вовка не їсти його і запропонував і йому заспівати пісеньку.",
+                "start": 60.3205,
+                "end": 67.2955
+            }
+        },
+        {
+            "cs": {
+                "text": "Vlk souhlasil a koblížek, zatímco zpíval svou písničku, utekl.",
+                "start": 73.2455,
+                "end": 80.083
+            },
+            "uk": {
+                "text": "Вовк погодився, а колобок поки співав свою пісеньку, то і втік.",
+                "start": 67.2955,
+                "end": 73.1955
+            }
+        },
+        {
+            "cs": {
+                "text": "Kutálí se koblížek dál po cestičce, když tu před ním stojí medvěd. A také slibuje, že ho sní.",
+                "start": 80.083,
+                "end": 89.3205
+            },
+            "uk": {
+                "text": "Котиться далі колобок доріжкою, аж назустріч йому ведмідь. І теж обіцяє його з'їсти.",
+                "start": 73.1955,
+                "end": 81.3205
+            }
+        },
+        {
+            "cs": {
+                "text": "Ale koblížek požádal medvěda, aby ho nejedl a místo toho si poslechl písničku o koblížkově dobrodružství.",
+                "start": 89.3205,
+                "end": 98.2205
+            },
+            "uk": {
+                "text": "Але колобок попросив ведмедя не їсти його, а послухати пісеньку про пригоди колобка.",
+                "start": 81.3205,
+                "end": 88.4955
+            }
+        },
+        {
+            "cs": {
+                "text": "A znovu, zatímco koblížek zpíval, podařilo se mu utéct medvědovi.",
+                "start": 98.2205,
+                "end": 104.8705
+            },
+            "uk": {
+                "text": "І знову поки колобок співав, йому вдалося втекти від ведмедя.",
+                "start": 88.4955,
+                "end": 94.3455
+            }
+        },
+        {
+            "cs": {
+                "text": "A tak se koblížek dál kutálel po cestičce, když tu před ním stojí lištička. I ona si chce pochutnat na koblížkovi.",
+                "start": 104.8705,
+                "end": 114.8205
+            },
+            "uk": {
+                "text": "Тож покотився колобок далі доріжкою, аж назустріч йому лисичка. Вона теж хоче поласувати колобком.",
+                "start": 94.3455,
+                "end": 103.4205
+            }
+        },
+        {
+            "cs": {
+                "text": "Ale koblížek zase - prosí, aby ho nejedla a místo toho si poslechla písničku.",
+                "start": 114.8205,
+                "end": 121.9455
+            },
+            "uk": {
+                "text": "Але колобок знову за своє - просить не їсти його, а послухати пісеньку.",
+                "start": 103.4205,
+                "end": 109.8705
+            }
+        },
+        {
+            "cs": {
+                "text": "Lištička souhlasila, a tak koblížek zase začal zpívat.",
+                "start": 121.9455,
+                "end": 127.8205
+            },
+            "uk": {
+                "text": "Лисичка погодилась, тож колобок вкотре заспівав.",
+                "start": 109.8705,
+                "end": 115.0455
+            }
+        },
+        {
+            "cs": {
+                "text": "Ale když písnička skončila, poprosila lištička, aby znovu zazpíval nádhernou písničku, která se jí moc líbila.",
+                "start": 127.8205,
+                "end": 137.3705
+            },
+            "uk": {
+                "text": "Але коли пісенька скінчилась, лисичка попросила повторити чудову пісеньку, яка їй дуже сподобалась.",
+                "start": 115.0455,
+                "end": 123.358
+            }
+        },
+        {
+            "cs": {
+                "text": "Stěžovala si ale, že nedoslechne, a požádala koblížka, aby si jí sedl na jazyk a ona ho tak lépe slyšela.",
+                "start": 137.3705,
+                "end": 146.408
+            },
+            "uk": {
+                "text": "Однак вона поскаржилась, що недочуває і попрохала колобка сісти їй на язик, щоб було краще чути. ",
+                "start": 123.358,
+                "end": 131.5705
+            }
+        },
+        {
+            "cs": {
+                "text": "Koblížek radostně skočil lištičce na jazyk a začal zpívat...",
+                "start": 146.408,
+                "end": 152.408
+            },
+            "uk": {
+                "text": "Колобок радісно застрибнув лисичці на язик і почав співати...",
+                "start": 131.5705,
+                "end": 137.2205
+            }
+        },
+        {
+            "cs": {
+                "text": "A liška ho - chramst - snědla!",
+                "start": 152.408,
+                "end": 155.083
+            },
+            "uk": {
+                "text": "А лисичка його - гам - і з'їла!",
+                "start": 137.2205,
+                "end": 140.208
+            }
+        }
+    ]
+}

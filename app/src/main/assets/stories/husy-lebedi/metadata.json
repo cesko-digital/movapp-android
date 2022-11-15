@@ -1,0 +1,232 @@
+{
+    "timeline": [
+        {
+            "cs": {
+                "text": "Žili byli muž se ženou a měli dvě děti, dceru Maričku a syna Ivánka.",
+                "start": 13.758,
+                "end": 20.1955
+            },
+            "uk": {
+                "text": "Жили-були чоловік із жінкою та мали вони двох діток, доньку Марічку та сина, Іванка.",
+                "start": 13.7955,
+                "end": 21.2705
+            }
+        },
+        {
+            "cs": {
+                "text": "Jednoho dne odjeli rodiče do města na trh a řekli Maričce, aby pohlídala svého mladšího bratra.",
+                "start": 20.1955,
+                "end": 28.1705
+            },
+            "uk": {
+                "text": "Одного дня батьки поїхали в місто на ярмарку і наказали Марічці слідкувати за молодшим братом.",
+                "start": 21.2705,
+                "end": 28.5955
+            }
+        },
+        {
+            "cs": {
+                "text": "Marička však svého bratříčka posadila na lavičku na sluníčku a sama běžela za kamarádkami.",
+                "start": 28.1705,
+                "end": 35.733
+            },
+            "uk": {
+                "text": "Але Марічка братика посадила на лавку на сонечці, а сама побігла до подружок.",
+                "start": 28.5955,
+                "end": 35.3205
+            }
+        },
+        {
+            "cs": {
+                "text": "Když se vrátila, Ivánek nikde nebyl a dívka tušila, že ho odnesly husy-labutě za babou Jagou.",
+                "start": 35.733,
+                "end": 43.9205
+            },
+            "uk": {
+                "text": "Коли повернулась, Іванка ніде не було, і дівчинка здогадалась, що його забрали гуси-лебеді до баби Яги.",
+                "start": 35.3205,
+                "end": 43.708
+            }
+        },
+        {
+            "cs": {
+                "text": "Marička se vydala najít je, ale neví, kam se rozběhnout.",
+                "start": 43.9205,
+                "end": 49.9705
+            },
+            "uk": {
+                "text": "Кинулась Марічка наздоганяти їх, але не знає, куди бігти.",
+                "start": 43.708,
+                "end": 49.558
+            }
+        },
+        {
+            "cs": {
+                "text": "Tu uviděla dívenka Pícku a zeptala se jí na cestu.",
+                "start": 49.9705,
+                "end": 55.283
+            },
+            "uk": {
+                "text": "Побачила дівчинка Пічку і спитала у неї дороги.",
+                "start": 49.558,
+                "end": 54.658
+            }
+        },
+        {
+            "cs": {
+                "text": "A Pícka požádala Maričku, aby z ní vytáhla koláče - jinak by se spálily, a ona že pak dívce cestu ukáže.",
+                "start": 55.283,
+                "end": 64.908
+            },
+            "uk": {
+                "text": "А Пічка попросила Марічку витягти пиріжки, щоб не згоріли, а тоді вона дівчинці дорогу підкаже.",
+                "start": 54.658,
+                "end": 62.5955
+            }
+        },
+        {
+            "cs": {
+                "text": "Marička vytáhla koláče, Pícka jí ukázala cestu, a tak se rozběhla sestřička za svým bratrem.",
+                "start": 64.908,
+                "end": 73.508
+            },
+            "uk": {
+                "text": "Марічка пиріжки витягла, Пічка їй шлях вказала, тож побігла сестричка далі за братом.",
+                "start": 62.5955,
+                "end": 70.158
+            }
+        },
+        {
+            "cs": {
+                "text": "Najednou vidí Jabloň a i té se Marička zeptala, kam husy-labutě letěly.",
+                "start": 73.508,
+                "end": 80.183
+            },
+            "uk": {
+                "text": "Аж бачить росте Яблуня, і у неї Марічка спитала, куди гуси-лебеді полетіли.",
+                "start": 70.158,
+                "end": 77.008
+            }
+        },
+        {
+            "cs": {
+                "text": "Jabloň požádala Maričku, aby otrhala zralá jablíčka, a teprve pak jí cestu ukázala.",
+                "start": 80.183,
+                "end": 88.1955
+            },
+            "uk": {
+                "text": "Яблуня попросила Марічку струсити стиглі яблучка, і лише тоді їй дорогу підказала.",
+                "start": 77.008,
+                "end": 84.383
+            }
+        },
+        {
+            "cs": {
+                "text": "Jde Marička dál a vidí mléčnou Říčku s kyselými břehy a ptá se jí na cestu.",
+                "start": 88.1955,
+                "end": 95.158
+            },
+            "uk": {
+                "text": "Прямує Марічка далі і бачить молочну Річку з киселевими берегами, і у неї дорогу питає.",
+                "start": 84.383,
+                "end": 91.7455
+            }
+        },
+        {
+            "cs": {
+                "text": "Říčka řekla, že jí cestu ukáže, pokud jí Marička těžký kámen z proudu odsune.",
+                "start": 95.158,
+                "end": 102.6955
+            },
+            "uk": {
+                "text": "Річка промовила, що вкаже шлях, якщо Марічка їй важкий камінь з течії зсуне.",
+                "start": 91.7455,
+                "end": 98.8205
+            }
+        },
+        {
+            "cs": {
+                "text": "Dívka posounula holí kámen a Říčka jí ukázala cestu k domu baby Jagy.",
+                "start": 102.6955,
+                "end": 109.433
+            },
+            "uk": {
+                "text": "Дівчинка палицею камінь зсунула, і Річка їй показала шлях до хати Баби Яги.",
+                "start": 98.8205,
+                "end": 105.7205
+            }
+        },
+        {
+            "cs": {
+                "text": "Tam u kamen seděl Ivánek, a tak ho Marička chytila a rozběhla se domů.",
+                "start": 109.433,
+                "end": 115.9705
+            },
+            "uk": {
+                "text": "Там на припічку сидів Іванко, тож Марічка його вхопила і ну тікати додому.",
+                "start": 105.7205,
+                "end": 112.333
+            }
+        },
+        {
+            "cs": {
+                "text": "Baba Jaga uviděla, že je chlapec pryč - a že děti dožene.",
+                "start": 115.9705,
+                "end": 121.683
+            },
+            "uk": {
+                "text": "Побачила Баба Яга, що хлопчика немає і кинулась наздоганяти дітей.",
+                "start": 112.333,
+                "end": 118.583
+            }
+        },
+        {
+            "cs": {
+                "text": "Ale Maričku s bratrem schovala pod příkrým břehem Říčka.",
+                "start": 121.683,
+                "end": 127.1705
+            },
+            "uk": {
+                "text": "Але Марічку з братиком заховала під крутим берегом Річка.",
+                "start": 118.583,
+                "end": 123.883
+            }
+        },
+        {
+            "cs": {
+                "text": "A pak je i Jabloň přikryla větvemi a Pícka přichýlila, takže se babě Jaze nepovedlo děti najít a sníst.",
+                "start": 127.1705,
+                "end": 135.7455
+            },
+            "uk": {
+                "text": "А потім їх і Яблуня вітами прикрила, і Пічка прихистила, тож не вдалося Бабі Язі дітей знайти та з'їсти.",
+                "start": 123.883,
+                "end": 132.408
+            }
+        },
+        {
+            "cs": {
+                "text": "Poděkovala Marička Říčce, Jabloni a Pícce a vrátila se domů s bratrem.",
+                "start": 135.7455,
+                "end": 142.808
+            },
+            "uk": {
+                "text": "Подякувала Марічка Річці, Яблуні та Пічці, повернулася додому з братиком.",
+                "start": 132.408,
+                "end": 139.3455
+            }
+        },
+        {
+            "cs": {
+                "text": "A tu se i rodiče vrátili z trhu a přivezli dětem dobrotu.",
+                "start": 142.808,
+                "end": 146.6955
+            },
+            "uk": {
+                "text": "Аж тут і батьки з ярмарки повернулись і гостинці дітям привезли.",
+                "start": 139.3455,
+                "end": 145.670469
+            }
+        }
+    ]
+}

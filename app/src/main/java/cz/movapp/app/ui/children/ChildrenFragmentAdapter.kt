@@ -22,7 +22,7 @@ class ChildrenFragmentAdapter(fragment: Fragment) : FragmentStateAdapter(fragmen
         val fragment = when(position) {
             0 -> ChildrenDictionaryFragment()
             1 -> ChildrenMemoryGameFragment()
-            2 -> ChildrenDictionaryFragment()
+            2 -> ChildrenFairyTalesFragment()
             else -> throw IndexOutOfBoundsException("AlphabetFragment: unexpected position = $position")
         }
 
