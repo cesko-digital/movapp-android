@@ -35,4 +35,9 @@
     <color name="linkColor">#013abd</color>
 
     <color name="upButtonColor">@color/white</color>
+
+    <color name="playerColumns">#1511CA</color>
+    <color name="playerRead">#CAC0C0</color>
+    <color name="playerReading">#ffd500</color>
+    <color name="playerUnRead">#FFFFFF</color>
 </resources>

@@ -18,7 +18,8 @@ fun playSound(
 ): MediaPlayer? {
     val afd: AssetFileDescriptor = context.assets.openFd(assetFileName)
     var player: MediaPlayer? = MediaPlayer()
-    player?.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+    player?.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length);
+    afd.close()
 
     player?.setOnCompletionListener { mp ->
         mp?.reset()

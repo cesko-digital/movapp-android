@@ -1,0 +1,244 @@
+{
+    "timeline": [
+        {
+            "cs": {
+                "text": "Byl jednou jeden tatínek, který žil se svou dceruškou Mařenkou a synkem Jeníčkem.",
+                "start": 14.3455,
+                "end": 21.533
+            },
+            "uk": {
+                "text": "Жив був один тато, який жив з донькою Маренкою та сином Єнічком.",
+                "start": 14.1705,
+                "end": 20.258
+            }
+        },
+        {
+            "cs": {
+                "text": "Bydleli v chaloupce uprostřed lesa.",
+                "start": 21.533,
+                "end": 25.5705
+            },
+            "uk": {
+                "text": "Жили вони в хатинці посеред лісу.",
+                "start": 20.258,
+                "end": 24.2205
+            }
+        },
+        {
+            "cs": {
+                "text": "Tatínek pracoval jako dřevorubec a děti s ním často chodily do lesa, když tatínek pracoval.",
+                "start": 25.5705,
+                "end": 33.183
+            },
+            "uk": {
+                "text": "Татусь працював лісорубом, і діти часто ходили з ним до лісу, коли він працював.",
+                "start": 24.2205,
+                "end": 31.108
+            }
+        },
+        {
+            "cs": {
+                "text": "Zatímco kácel stromy, děti si v lese hrály a mlsaly lesní jahody a borůvky.",
+                "start": 33.183,
+                "end": 40.1455
+            },
+            "uk": {
+                "text": "Поки він рубав дерева, діти гралися в лісі і ласували лісовою суницею та чорницею.",
+                "start": 31.108,
+                "end": 38.3455
+            }
+        },
+        {
+            "cs": {
+                "text": "Jednoho dne se zatoulaly příliš daleko a nemohly najít cestu domů.",
+                "start": 40.1455,
+                "end": 46.208
+            },
+            "uk": {
+                "text": "Одного разу вони зайшли дуже далеко і не могли знайти дорогу додому.",
+                "start": 38.3455,
+                "end": 44.308
+            }
+        },
+        {
+            "cs": {
+                "text": "Bloudily lesem, volaly tatínka, plakaly. Hledaly, ale najít nemohly.",
+                "start": 46.208,
+                "end": 54.383
+            },
+            "uk": {
+                "text": "Вони блукали лісом, кликали тата, плакали. Шукали, але знайти не змогли.",
+                "start": 44.308,
+                "end": 52.5205
+            }
+        },
+        {
+            "cs": {
+                "text": "Když padla tma, vylezl Jeníček na strom a rozhlédl se po lese.",
+                "start": 54.383,
+                "end": 60.633
+            },
+            "uk": {
+                "text": "Коли стало поночі, Єнічек виліз на дерево і подивився на ліс.",
+                "start": 52.5205,
+                "end": 58.608
+            }
+        },
+        {
+            "cs": {
+                "text": "V dálce uviděl světýlko. „To musí být naše chaloupka!“ zavolal na Mařenku.",
+                "start": 60.633,
+                "end": 68.6205
+            },
+            "uk": {
+                "text": "Вдалині він побачив світло. - Мабуть, це наша хатинка! - закричав він Маренці.",
+                "start": 58.608,
+                "end": 67.508
+            }
+        },
+        {
+            "cs": {
+                "text": "Děti se vydaly za světlem a opravdu zakrátko došly k chaloupce.",
+                "start": 68.6205,
+                "end": 74.3955
+            },
+            "uk": {
+                "text": "Діти попрямували за світлом і невдовзі дійшли до хатинки.",
+                "start": 67.508,
+                "end": 72.9705
+            }
+        },
+        {
+            "cs": {
+                "text": "Nebyla to však jejich chaloupka. Tahle byla celá z perníku.",
+                "start": 74.3955,
+                "end": 80.733
+            },
+            "uk": {
+                "text": "Але це була не їхня хатинка. Ця хатинка була повністю зроблена із пряника.",
+                "start": 72.9705,
+                "end": 80.408
+            }
+        },
+        {
+            "cs": {
+                "text": "Děti se zaradovaly! Měly už hlad, a tak si opatrně vzaly z chaloupky kousek perníku.",
+                "start": 80.733,
+                "end": 88.9705
+            },
+            "uk": {
+                "text": "Діти зраділи! Вони вже були голодні, тому обережно відламали від хатинки шматок пряника.",
+                "start": 80.408,
+                "end": 89.1455
+            }
+        },
+        {
+            "cs": {
+                "text": "Najednou se s prásknutím otevřely dveře. Děti se vylekaly.",
+                "start": 88.9705,
+                "end": 95.4455
+            },
+            "uk": {
+                "text": "Раптом з тріском відчинилися двері. Діти злякалися.",
+                "start": 89.1455,
+                "end": 95.2705
+            }
+        },
+        {
+            "cs": {
+                "text": "Z chaloupky se vyšourala babička. Pozvala děti do chaloupky, nabídla jim jídlo a přespání.",
+                "start": 95.4455,
+                "end": 104.283
+            },
+            "uk": {
+                "text": "З хатинки вийшла бабуся. Вона запросила дітей до хатинки, пригостила їх їжею та запропонувала ночівлю.",
+                "start": 95.2705,
+                "end": 104.4955
+            }
+        },
+        {
+            "cs": {
+                "text": "Nebyla to ale hodná babička, byla to zlá čarodějnice.",
+                "start": 104.283,
+                "end": 109.908
+            },
+            "uk": {
+                "text": "Але це не була добра бабуся, це була зла відьма.",
+                "start": 104.4955,
+                "end": 109.4205
+            }
+        },
+        {
+            "cs": {
+                "text": "Děti zavřela do komory, aby si je tam vykrmila a mohla je pak sníst.",
+                "start": 109.908,
+                "end": 116.208
+            },
+            "uk": {
+                "text": "Вона зачинила дітей у погріб, щоб відгодувати їх  і потім  з'їсти.",
+                "start": 109.4205,
+                "end": 115.4705
+            }
+        },
+        {
+            "cs": {
+                "text": "Dětem se podařilo prolézt okénkem a utéct.",
+                "start": 116.208,
+                "end": 121.2955
+            },
+            "uk": {
+                "text": "Дітям вдалося вибратися через вікно і втекти.",
+                "start": 115.4705,
+                "end": 120.283
+            }
+        },
+        {
+            "cs": {
+                "text": "Běžely temným lesem, utíkaly a utíkaly, co jim síly stačily.",
+                "start": 121.2955,
+                "end": 127.9455
+            },
+            "uk": {
+                "text": "Вони бігли темним лісом, тікали і тікали, поки вистачало сил.",
+                "start": 120.283,
+                "end": 126.483
+            }
+        },
+        {
+            "cs": {
+                "text": "Najednou se ocitly před jinou chaloupkou. A byla to jejich chaloupka!",
+                "start": 127.9455,
+                "end": 134.8205
+            },
+            "uk": {
+                "text": "Раптом вони опинилися перед іншою хатинкою. І це була їхня хатинка!",
+                "start": 126.483,
+                "end": 133.833
+            }
+        },
+        {
+            "cs": {
+                "text": "Z chaloupky vyběhl tatínek. Objal obě děti a všichni byli rádi, že se zase našli.",
+                "start": 134.8205,
+                "end": 143.0205
+            },
+            "uk": {
+                "text": "З хатинки вибіг тато. Він обійняв обох дітей, і всі були раді, що вони знайшлися.",
+                "start": 133.833,
+                "end": 142.033
+            }
+        },
+        {
+            "cs": {
+                "text": "A už se nikdy nespustili z očí.",
+                "start": 143.0205,
+                "end": 145.583
+            },
+            "uk": {
+                "text": "І відтоді вони ніколи не випускали один одного з очей.",
+                "start": 142.033,
+                "end": 146.983
+            }
+        }
+    ]
+}

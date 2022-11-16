@@ -51,5 +51,6 @@
     <string name="on_boarding_info_3_description">Illustrated bilingual dictionary with dozens of printable cards.</string>
     <string name="memory_game">Memory game</string>
     <string name="memory_game_new_game">New game</string>
-
+    <string name="fairy_tales">Fairy tales</string>
+    <string name="fairy_tales_minutes">min</string>
 </resources>

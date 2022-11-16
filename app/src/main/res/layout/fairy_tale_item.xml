@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:layout_marginVertical="5dp"
+    android:layout_marginStart="@dimen/list_items_inline_with_searchbar_padding_sides"
+    android:layout_marginEnd="@dimen/list_items_inline_with_searchbar_padding_sides"
+    android:focusable="true"
+    android:background="@drawable/odd_outline">
+
+    <LinearLayout
+        android:id="@+id/section_fairy_tale_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="@dimen/general_padding">
+
+
+        <ImageView
+            android:id="@+id/fairy_tale_image"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/general_padding"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/child" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fairy_tale_image" >
+
+            <LinearLayout
+                android:id="@+id/fairy_tale_labels_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="@dimen/items_with_play_padding" >
+
+                <TextView
+                    android:id="@+id/fairy_tale_name_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primaryTextColor"
+                    android:text="Fairy Tale name from"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/fairy_tale_name_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/greyTextColor"
+                    android:text="Fairy Tale name to"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/fairy_tale_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3 min"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/fairy_tale_origin"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="@dimen/general_padding"
+                android:src="@drawable/ua" />
+
+            <ImageView
+                android:id="@+id/fairy_tale_play_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/general_padding"
+                android:layout_marginBottom="@dimen/general_padding"
+                android:src="@drawable/player_play" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
