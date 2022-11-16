@@ -1,6 +1,9 @@
 Details about this file’s format at <http://keepachangelog.com/>. 
 TODO: The change log is parsed automatically when minting releases through Fastlane, see `Fastlane/Fastfile`.
 
+## [1.3.1] - 2022-11-16Z
+- Pohadky (UA a CZ)
+
 ## [1.3.0] - 2022-08-22Z
 - Opravy chyb
 - Aktualizace dat aplikace
