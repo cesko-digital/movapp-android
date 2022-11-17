@@ -439,7 +439,9 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         super.onPause()
         if (player != null) {
             binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
-            player!!.stop()
+            if (player!!.isPlaying || playerPaused) {
+                player!!.stop()
+            }
         }
 
         playerPaused = false
