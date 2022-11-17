@@ -1,7 +1,6 @@
 package cz.movapp.app.ui.children
 
 import android.content.res.AssetFileDescriptor
-import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
@@ -11,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +20,6 @@ import cz.movapp.app.data.FairyTale
 import cz.movapp.app.data.Language
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.FragmentChildrenFairyTalePlayerBinding
-import java.io.IOException
 import kotlin.math.floor
 
 class ChildrenFairyTalePlayerFragment : Fragment() {
@@ -238,9 +237,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             afd.close()
         }
 
-        binding.fairyTalePlayerSeekbar.apply {
-        }
-
         player!!.setOnPreparedListener {
             player!!.start()
 
@@ -297,6 +293,14 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         }
 
         binding.apply {
+            topPlayerBar.navigationIcon = AppCompatResources
+                .getDrawable(requireContext(), R.drawable.ic_baseline_arrow_back_24)
+
+            topPlayerBar.setNavigationOnClickListener {
+                activity?.onBackPressed()
+            }
+            topPlayerBar.title = context!!.resources.getString(R.string.fairy_tales)
+
             fairyTaleImage.setImageDrawable(
                 childrenFairyTalesViewModel.getFairyTaleDrawable(metaFairyTale.slug)
             )
