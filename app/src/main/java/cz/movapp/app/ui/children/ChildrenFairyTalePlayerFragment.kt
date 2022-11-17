@@ -1,10 +1,11 @@
 package cz.movapp.app.ui.children
 
-import android.content.res.AssetFileDescriptor
-import android.media.MediaPlayer
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +14,16 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.MainViewModel
+import cz.movapp.app.MediaPlayerForegroundService
 import cz.movapp.app.R
 import cz.movapp.app.data.FairyTale
 import cz.movapp.app.data.Language
 import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.databinding.FragmentChildrenFairyTalePlayerBinding
+import java.util.concurrent.atomic.AtomicInteger
 import kotlin.math.floor
 
 class ChildrenFairyTalePlayerFragment : Fragment() {
@@ -30,6 +34,91 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
     private val childrenFairyTalesViewModel: ChildrenFairyTalesViewModel by activityViewModels()
 
     private val binding get() = _binding!!
+
+    private var broadcastMediaStateReceiver : BroadcastReceiver? = null
+    private var broadcastMediaTimeReceiver : BroadcastReceiver? = null
+
+    private var langPair = LanguagePair.getDefault()
+
+    enum class BilingualState {
+        TO, FROM, TO_FROM
+    }
+
+    var toName : String = ""
+    var fromName : String = ""
+
+    private var  bilingualState = BilingualState.TO_FROM
+
+    private var currentTime = AtomicInteger(0)
+    private var durationTime = AtomicInteger(0)
+
+    private var playerPaused = true;
+
+    private fun startMediaPlayerService(fileName: String){
+        Intent(context, MediaPlayerForegroundService::class.java).also {
+            it.putExtra("fileName", fileName)
+            it.putExtra("toName", toName)
+            it.putExtra("fromName", fromName)
+        }.also {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context!!.startForegroundService(it)
+            } else {
+                context!!.startService(it)
+            }
+        }
+    }
+
+    private fun stopMediaPlayerService() {
+        sendMediaPlayerStateToActivity("stopService")
+    }
+
+    private fun sendMediaPlayerSeekTo(seekTo : Int) {
+        val intent = Intent("MediaPlayerSeekTo")
+        intent.putExtra("seekTo", seekTo)
+        LocalBroadcastManager.getInstance(context!!).sendBroadcast(intent)
+    }
+
+
+    private fun seekFairyTaleBilingual(
+        seekInPlayer: Boolean,
+        recyclerViewAdapterTo: ChildrenFairyTalePlayerAdapter,
+        recyclerViewAdapterFrom: ChildrenFairyTalePlayerAdapter,
+        position: Int,
+        updateStart: Int,
+        updateCount: Int,
+        seekBar: SeekBar? = null
+    ) {
+        if (!playerPaused) {
+
+            if (seekInPlayer) {
+                sendMediaPlayerSeekTo(position)
+            }
+
+            recyclerViewAdapterTo.notifyItemRangeChanged(
+                updateStart,
+                updateCount
+            )
+
+            recyclerViewAdapterFrom.notifyItemRangeChanged(
+                updateStart,
+                updateCount
+            )
+
+            if (seekBar != null) {
+                seekBar.progress = position
+            }
+        } else {
+            if (seekInPlayer) {
+                sendMediaPlayerSeekTo(position)
+            }
+        }
+    }
+
+    private fun sendMediaPlayerStateToActivity(state: String) {
+        val intent = Intent("MediaPlayerState")
+        intent.putExtra("state", state)
+        LocalBroadcastManager.getInstance(context!!).sendBroadcast(intent)
+    }
 
     private fun getFairyTalePosition(fairyTale: FairyTale, mediaPosition: Float, lang: Language): Int {
         var i = 0
@@ -50,33 +139,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         return -1
     }
 
-    class DelayedChecker(
-        private val handler: Handler,
-        private val delayTime: Long,
-        private val cond: ()-> Boolean,
-        private val checker: () -> Unit): Runnable {
-
-        override fun run() {
-            checker()
-            if (cond()) {
-                handler.postDelayed(this, delayTime)
-            }
-        }
-    }
-
-    private var langPair = LanguagePair.getDefault()
-    private var handler: Handler? = null
-    private var runnableCheck : DelayedChecker? = null
-    private var player: MediaPlayer? = null
-    private var playerPaused = false;
-
-    enum class BilingualState {
-        TO, FROM, TO_FROM
-    }
-
-    private var  bilingualState = BilingualState.TO_FROM
-
-
     private fun getFlagDrawable(langCode: String): Int {
         return when (langCode) {
             "uk" -> R.drawable.ua
@@ -93,7 +155,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             BilingualState.FROM -> getFlagDrawable(langPair.from.langCode)
             BilingualState.TO_FROM -> getFlagDrawable("${langPair.to.langCode}_${langPair.from.langCode}")
         }
-
     }
 
     private fun setRecyclerViewLayoutWeight(recyclerView: RecyclerView, showMe: Boolean) {
@@ -121,38 +182,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         }
     }
 
-    private fun seekFairyTaleBilingual(
-        player: MediaPlayer,
-        seekInPlayer: Boolean,
-        recyclerViewAdapterTo: ChildrenFairyTalePlayerAdapter,
-        recyclerViewAdapterFrom: ChildrenFairyTalePlayerAdapter,
-        position: Int,
-        updateStart: Int,
-        updateCount: Int,
-        seekBar: SeekBar? = null
-    ) {
-        if (player.isPlaying) {
-
-            if (seekInPlayer) {
-                player.seekTo(position)
-            }
-
-            recyclerViewAdapterTo.notifyItemRangeChanged(
-                updateStart,
-                updateCount
-            )
-
-            recyclerViewAdapterFrom.notifyItemRangeChanged(
-                updateStart,
-                updateCount
-            )
-
-            if (seekBar != null) {
-                seekBar.progress = position
-            }
-        }
-    }
-
     private fun setFairyTaleTime(currentText: TextView, currentTime: Float, durationText: TextView, duration: Float) {
         currentText.text = "${"%02d".format(floor(currentTime / 60).toInt())}:${"%02d".format(floor(currentTime % 60).toInt())}"
         durationText.text = "${"%02d".format(floor(duration / 60).toInt())}:${"%02d".format(floor(duration % 60).toInt())}"
@@ -166,9 +195,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         _binding = FragmentChildrenFairyTalePlayerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        handler = Looper.myLooper()?.let { Handler(it) }
-        player = MediaPlayer()
-
         var slug = ""
         if (arguments != null) {
             slug = arguments!!.get("slug").toString()
@@ -180,12 +206,85 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         val recyclerViewTo =  binding.recyclerViewChildrenFairyTaleColumnsTo
         val recyclerViewFrom =  binding.recyclerViewChildrenFairyTaleColumnsFrom
 
+        broadcastMediaStateReceiver = object : BroadcastReceiver() {
+            override fun onReceive(c: Context?, intend: Intent?) {
+                if (_binding != null) {
+                    when (intend?.getStringExtra("state")) {
+                        "start" -> binding.fairyTalePlayButton.setImageResource(R.drawable.player_pause)
+                        "pause" -> binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
+                        "stop" -> {
+                            binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
+                            playerPaused = true
+                        }
+                    }
+                }
+            }
+        }
+
+        broadcastMediaTimeReceiver = object : BroadcastReceiver() {
+            override fun onReceive(c: Context?, intend: Intent?) {
+                if (intend !== null && _binding != null) {
+                    currentTime.set(intend.getIntExtra("current", 0))
+                    durationTime.set(intend.getIntExtra("duration", 0))
+
+                    val ct = currentTime.get()
+                    val dur = durationTime.get()
+
+                    binding.fairyTalePlayerSeekbar.max = dur
+                    binding.fairyTalePlayerSeekbar.progress = ct
+
+                    val i = getFairyTalePosition(fairyTale, ct/1000F, langPair.to)
+
+                    if (i != emphasizedColumn) {
+                        seekFairyTaleBilingual(
+                            false,
+                            (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
+                            (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
+                            i,
+                            if (i == 0) 0 else i - 1,
+                            2
+                        )
+                    }
+
+                    if (emphasizedColumn < i ) {
+                        recyclerViewTo.scrollToPosition(i + 1)
+                        recyclerViewFrom.scrollToPosition(i + 1)
+                    }
+
+                    if (emphasizedColumn > i ) {
+                        recyclerViewTo.scrollToPosition(if (i == 0) 0 else i - 1)
+                        recyclerViewFrom.scrollToPosition(if (i == 0) 0 else i - 1)
+                    }
+
+                    emphasizedColumn = i
+
+                    setFairyTaleTime(
+                        binding.fairyTalePlayerCurrentTime,
+                        ct / 1000F,
+                        binding.fairyTalePlayerDuration,
+                        dur / 1000F,
+                    )
+                }
+            }
+        }
+
+        LocalBroadcastManager.getInstance(requireContext()).registerReceiver(
+            broadcastMediaStateReceiver!!,
+            IntentFilter("MediaPlayerState")
+        )
+
+        LocalBroadcastManager.getInstance(requireContext()).registerReceiver(
+            broadcastMediaTimeReceiver!!,
+            IntentFilter("MediaPlayerTime")
+        )
+
         childrenFairyTalesViewModel.fairyTales.observe(viewLifecycleOwner) {
             it.langPair = mainSharedViewModel.selectedLanguage.value!!
 
             val emphasizer = object: (Int) -> EmphasizerEvaluation () {
                 override fun invoke(pos: Int): EmphasizerEvaluation {
-                    val playerPos = player!!.currentPosition / 1000F
+                    //val playerPos = player!!.currentPosition / 1000F
+                    val playerPos = currentTime.get() / 1000F
 
                     val fairyTalePosition = getFairyTalePosition(fairyTale, playerPos, langPair.to)
 
@@ -230,66 +329,13 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter).langPair = it
             recyclerViewFrom.adapter?.notifyDataSetChanged()
 
-            player!!.reset()
+            when(langPair.to.langCode) {
+                "cs" -> { toName = metaFairyTale.title.cs!!; fromName = metaFairyTale.title.uk!! }
+                "uk" -> { toName = metaFairyTale.title.uk!!; fromName = metaFairyTale.title.cs!! }
+            }
 
-            val afd: AssetFileDescriptor = context!!.assets.openFd("stories/${slug}/${it.to.langCode}.mp3")
-            player!!.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length);
-            afd.close()
-        }
-
-        player!!.setOnPreparedListener {
-            player!!.start()
-
-            binding.fairyTalePlayerSeekbar.max = player!!.duration
-
-            runnableCheck = DelayedChecker(
-                handler!!,
-                200,
-                { player!!.isPlaying },
-                {
-                    val curPos = player!!.currentPosition
-                    binding.fairyTalePlayerSeekbar.progress = curPos
-                    val i = getFairyTalePosition(fairyTale, curPos/1000F, langPair.to)
-
-                    if (i != emphasizedColumn) {
-                        seekFairyTaleBilingual(
-                            player!!,
-                            false,
-                            (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
-                            (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
-                            i,
-                            if (i == 0) 0 else i - 1,
-                            2
-                        )
-                    }
-
-                    if (emphasizedColumn < i ) {
-                        recyclerViewTo.scrollToPosition(i + 1)
-                        recyclerViewFrom.scrollToPosition(i + 1)
-                    }
-
-                    if (emphasizedColumn > i ) {
-                        recyclerViewTo.scrollToPosition(if (i == 0) 0 else i - 1)
-                        recyclerViewFrom.scrollToPosition(if (i == 0) 0 else i - 1)
-                    }
-
-                    emphasizedColumn = i
-
-                    setFairyTaleTime(
-                        binding.fairyTalePlayerCurrentTime,
-                        player!!.currentPosition / 1000F,
-                        binding.fairyTalePlayerDuration,
-                        player!!.duration / 1000F,
-                    )
-                }
-            )
-
-            handler!!.postDelayed(runnableCheck!!, 200)
-        }
-
-        player!!.setOnCompletionListener {
-            player!!.stop()
-            binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
+            stopMediaPlayerService()
+            startMediaPlayerService("stories/${slug}/${langPair.to.langCode}.mp3")
         }
 
         binding.apply {
@@ -329,7 +375,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                 override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
                     if (b) {
                         seekFairyTaleBilingual(
-                            player!!,
                             true,
                             (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
                             (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
@@ -348,69 +393,57 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             })
 
             fairyTaleBackButton.setOnClickListener {
-                if (player!!.isPlaying) {
-                    var newPosition = player!!.currentPosition - 10 * 1000
-                    newPosition = if (newPosition < 0) 0 else newPosition
+                var newPosition = currentTime.get() - 10 * 1000
+                newPosition = if (newPosition < 0) 0 else newPosition
 
-                    seekFairyTaleBilingual(
-                        player!!,
-                        true,
-                        (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
-                        (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
-                        newPosition,
-                        0,
-                        fairyTale.sections!!.size,
-                        binding.fairyTalePlayerSeekbar
-                    )
-                }
+                seekFairyTaleBilingual(
+                    true,
+                    (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
+                    (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
+                    newPosition,
+                    0,
+                    fairyTale.sections!!.size,
+                    binding.fairyTalePlayerSeekbar
+                )
             }
 
             fairyTaleForwardButton.setOnClickListener {
-                if (player!!.isPlaying) {
-                    var newPosition = player!!.currentPosition + 10 * 1000
-                    newPosition = if (newPosition > player!!.duration) player!!.duration else newPosition
+                var newPosition = currentTime.get() + 10 * 1000
+                val duration = durationTime.get()
+                newPosition = if (newPosition > duration) duration else newPosition
 
-                    seekFairyTaleBilingual(
-                        player!!,
-                        true,
-                        (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
-                        (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
-                        newPosition,
-                        0,
-                        fairyTale.sections!!.size,
-                        binding.fairyTalePlayerSeekbar
-                    )
-                }
+                seekFairyTaleBilingual(
+                    true,
+                    (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
+                    (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
+                    newPosition,
+                    0,
+                    fairyTale.sections!!.size,
+                    binding.fairyTalePlayerSeekbar
+                )
             }
 
             fairyTalePlayButton.setOnClickListener{
-                if (player!!.isPlaying) {
-                    binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
 
-                    player!!.pause()
-                    playerPaused = true
+                playerPaused = if (playerPaused) {
+                    sendMediaPlayerStateToActivity("start")
+
+                    seekFairyTaleBilingual(
+                        true,
+                        (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
+                        (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
+                        binding.fairyTalePlayerSeekbar.progress,
+                        0,
+                        fairyTale.sections!!.size
+                    )
+
+                    false
                 } else {
-                    binding.fairyTalePlayButton.setImageResource(R.drawable.player_pause)
-
-                    if (playerPaused) {
-                        playerPaused = false
-                        player!!.start()
-
-                        seekFairyTaleBilingual(
-                            player!!,
-                            true,
-                            (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
-                            (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
-                            binding.fairyTalePlayerSeekbar.progress,
-                            0,
-                            fairyTale.sections!!.size
-                        )
-
-                        handler!!.postDelayed(runnableCheck!!, 200)
-                    } else {
-                        player!!.prepareAsync()
-                    }
+                    sendMediaPlayerStateToActivity("pause")
+                    true
                 }
+
+
             }
 
             fairyTaleFlag.setOnClickListener {
@@ -437,33 +470,30 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        if (player != null) {
-            binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
-            if (player!!.isPlaying || playerPaused) {
-                player!!.stop()
-            }
-        }
 
-        playerPaused = false
+        sendMediaPlayerStateToActivity("stop")
+        binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
+        playerPaused = true
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        if (handler != null && runnableCheck != null) {
-            handler!!.removeCallbacks(runnableCheck!!)
-        }
-        if (player != null) {
-            if (player!!.isPlaying) {
-                player!!.stop()
-            }
 
-            player!!.reset()
+        if (broadcastMediaStateReceiver != null) {
+            LocalBroadcastManager.getInstance(context!!)
+                .unregisterReceiver(broadcastMediaStateReceiver!!)
+            broadcastMediaStateReceiver = null
         }
+
+        if (broadcastMediaTimeReceiver != null) {
+            LocalBroadcastManager.getInstance(context!!)
+                .unregisterReceiver(broadcastMediaTimeReceiver!!)
+            broadcastMediaTimeReceiver = null
+        }
+
+        stopMediaPlayerService()
 
         playerPaused = false
-        player = null
-        handler = null
-        runnableCheck = null
         _binding = null
     }
 }
