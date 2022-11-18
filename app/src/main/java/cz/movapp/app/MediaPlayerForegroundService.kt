@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK
 import android.content.res.AssetFileDescriptor
 import android.media.AudioAttributes
 import android.media.MediaPlayer
@@ -56,6 +55,11 @@ class MediaPlayerForegroundService : Service()  {
             )
         }
 
+        if (player != null) {
+            handler!!.postDelayed(runnableCheck!!, 200)
+            return START_REDELIVER_INTENT
+        }
+
         lockCpu()
 
         handler = Looper.myLooper()?.let { Handler(it) }
@@ -72,9 +76,9 @@ class MediaPlayerForegroundService : Service()  {
 
         player!!.setAudioAttributes(
             AudioAttributes.Builder()
-            .setUsage(AudioAttributes.USAGE_MEDIA)
-            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-            .build()
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .build()
         )
 
         runnableCheck = DelayedChecker(
@@ -82,7 +86,7 @@ class MediaPlayerForegroundService : Service()  {
             200,
             { player!!.isPlaying },
             {
-                sendCurrentTimeToActivity(player!!.currentPosition, player!!.duration)
+                sendCurrentTime(player!!.currentPosition, player!!.duration)
             }
         )
 
@@ -95,7 +99,7 @@ class MediaPlayerForegroundService : Service()  {
         player!!.setOnCompletionListener {
             player!!.stop()
             player!!.prepareAsync()
-            sendMediaPlayerStateToActivity("stop")
+            sendMediaPlayerState("stop")
         }
 
         player!!.prepareAsync()
@@ -107,7 +111,7 @@ class MediaPlayerForegroundService : Service()  {
                         if (playerPaused) {
                             player!!.start()
 
-                            sendCurrentTimeToActivity(player!!.currentPosition, player!!.duration)
+                            sendCurrentTime(player!!.currentPosition, player!!.duration)
 
                             handler!!.postDelayed(runnableCheck!!, 200)
                         }
@@ -151,7 +155,6 @@ class MediaPlayerForegroundService : Service()  {
         )
 
         return START_REDELIVER_INTENT
-        return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onBind(intent: Intent?): IBinder? {
@@ -187,13 +190,13 @@ class MediaPlayerForegroundService : Service()  {
             .build()
     }
 
-    private fun sendMediaPlayerStateToActivity(state: String) {
+    private fun sendMediaPlayerState(state: String) {
         val intent = Intent("MediaPlayerState")
         intent.putExtra("state", state)
         LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
     }
 
-    private fun sendCurrentTimeToActivity(current : Int, duration : Int) {
+    private fun sendCurrentTime(current : Int, duration : Int) {
         val intent = Intent("MediaPlayerTime")
         intent.putExtra("current", current)
         intent.putExtra("duration", duration)

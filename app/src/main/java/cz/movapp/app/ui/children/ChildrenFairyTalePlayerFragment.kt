@@ -69,7 +69,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
     }
 
     private fun stopMediaPlayerService() {
-        sendMediaPlayerStateToActivity("stopService")
+        sendMediaPlayerState("stopService")
     }
 
     private fun sendMediaPlayerSeekTo(seekTo : Int) {
@@ -78,6 +78,11 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         LocalBroadcastManager.getInstance(context!!).sendBroadcast(intent)
     }
 
+    private fun sendMediaPlayerState(state: String) {
+        val intent = Intent("MediaPlayerState")
+        intent.putExtra("state", state)
+        LocalBroadcastManager.getInstance(context!!).sendBroadcast(intent)
+    }
 
     private fun seekFairyTaleBilingual(
         seekInPlayer: Boolean,
@@ -112,12 +117,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                 sendMediaPlayerSeekTo(position)
             }
         }
-    }
-
-    private fun sendMediaPlayerStateToActivity(state: String) {
-        val intent = Intent("MediaPlayerState")
-        intent.putExtra("state", state)
-        LocalBroadcastManager.getInstance(context!!).sendBroadcast(intent)
     }
 
     private fun getFairyTalePosition(fairyTale: FairyTale, mediaPosition: Float, lang: Language): Int {
@@ -426,7 +425,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             fairyTalePlayButton.setOnClickListener{
 
                 playerPaused = if (playerPaused) {
-                    sendMediaPlayerStateToActivity("start")
+                    sendMediaPlayerState("start")
 
                     seekFairyTaleBilingual(
                         true,
@@ -439,7 +438,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
 
                     false
                 } else {
-                    sendMediaPlayerStateToActivity("pause")
+                    sendMediaPlayerState("pause")
                     true
                 }
 
@@ -471,7 +470,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
     override fun onPause() {
         super.onPause()
 
-        sendMediaPlayerStateToActivity("stop")
+        sendMediaPlayerState("stop")
         binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
         playerPaused = true
     }
