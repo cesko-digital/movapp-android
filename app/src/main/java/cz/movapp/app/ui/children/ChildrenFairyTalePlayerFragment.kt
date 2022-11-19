@@ -54,8 +54,9 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
 
     private var playerPaused = true;
 
-    private fun startMediaPlayerService(fileName: String){
+    private fun startMediaPlayerService(slug: String, fileName: String){
         Intent(context, MediaPlayerForegroundService::class.java).also {
+            it.putExtra("slug", slug)
             it.putExtra("fileName", fileName)
             it.putExtra("toName", toName)
             it.putExtra("fromName", fromName)
@@ -334,7 +335,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             }
 
             stopMediaPlayerService()
-            startMediaPlayerService("stories/${slug}/${langPair.to.langCode}.mp3")
+            startMediaPlayerService(slug, "stories/${slug}/${langPair.to.langCode}.mp3")
         }
 
         binding.apply {

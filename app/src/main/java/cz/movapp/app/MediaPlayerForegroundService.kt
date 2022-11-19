@@ -6,17 +6,25 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.res.AssetFileDescriptor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.media.session.MediaSession
+import android.media.session.PlaybackState
 import android.os.*
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import java.io.IOException
 
 
 class MediaPlayerForegroundService : Service()  {
     private val channelId = "MediaPlayerForegroundServiceChannel"
 
     private var player: MediaPlayer? = null
+    private var mediaSession : MediaSession? = null
+    private var slug: String? = null
     private var fileName: String? = null
     private var handler: Handler? = null
     private var runnableCheck : DelayedChecker? = null
@@ -41,26 +49,15 @@ class MediaPlayerForegroundService : Service()  {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        slug = intent?.getStringExtra("slug")
         fileName = intent?.getStringExtra("fileName")
         val toName = intent?.getStringExtra("toName")
         val fromName = intent?.getStringExtra("fromName")
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForeground(
-                1,
-                notificationToDisplayServiceInform(
-                    if (toName != null) toName!! else "",
-                    if (fromName != null) fromName!! else "",
-                )
-            )
-        }
-
-        if (player != null) {
-            handler!!.postDelayed(runnableCheck!!, 200)
-            return START_REDELIVER_INTENT
-        }
-
         lockCpu()
+
+
+        mediaSession = MediaSession(this, "Movapp Fairy Tale")
 
         handler = Looper.myLooper()?.let { Handler(it) }
 
@@ -87,6 +84,7 @@ class MediaPlayerForegroundService : Service()  {
             { player!!.isPlaying },
             {
                 sendCurrentTime(player!!.currentPosition, player!!.duration)
+                updateNotificationState()
             }
         )
 
@@ -94,6 +92,7 @@ class MediaPlayerForegroundService : Service()  {
             playerPaused = true
             player!!.seekTo(0)
             handler!!.postDelayed(runnableCheck!!, 200)
+            mediaSession!!.isActive = true
         }
 
         player!!.setOnCompletionListener {
@@ -154,6 +153,16 @@ class MediaPlayerForegroundService : Service()  {
             IntentFilter("MediaPlayerSeekTo")
         )
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForeground(
+                1,
+                notificationToDisplayServiceInform(
+                    if (toName != null) toName!! else "",
+                    if (fromName != null) fromName!! else "",
+                )
+            )
+        }
+
         return START_REDELIVER_INTENT
     }
 
@@ -182,12 +191,41 @@ class MediaPlayerForegroundService : Service()  {
             this,
             0, notificationIntent, PendingIntent.FLAG_MUTABLE
         )
-        return NotificationCompat.Builder(this, channelId)
+
+        var bitmap = try {
+            val imageStream = applicationContext.assets.open("stories/${slug}/thumbnail.webp")
+            BitmapFactory.decodeStream(imageStream)
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+            null
+        }
+
+        return Notification.Builder(this, channelId)
             .setContentTitle(toName)
             .setContentText(fromName)
             .setSmallIcon(R.drawable.player_play)
             .setContentIntent(pendingIntent)
+            .setLargeIcon(bitmap)
+            .setStyle(Notification.MediaStyle().setMediaSession(mediaSession!!.sessionToken))
             .build()
+    }
+
+    private fun updateNotificationState() {
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return
+        }
+
+        if (!player!!.isPlaying) {
+            return
+        }
+
+        val stateBuilder = PlaybackState.Builder()
+            .setState(PlaybackState.STATE_PLAYING,
+                player!!.currentPosition.toLong(),
+                1.0f
+            )
+        mediaSession!!.setPlaybackState(stateBuilder.build())
     }
 
     private fun sendMediaPlayerState(state: String) {
