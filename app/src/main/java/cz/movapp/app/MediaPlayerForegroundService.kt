@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.content.res.AssetFileDescriptor
 import android.graphics.BitmapFactory
 import android.media.AudioAttributes
+import android.media.MediaMetadata
 import android.media.MediaPlayer
 import android.media.session.MediaSession
 import android.media.session.PlaybackState
@@ -63,6 +64,8 @@ class MediaPlayerForegroundService : Service()  {
                 sendMediaPlayerState("pause")
             }
 
+            updateNotificationSessionMetadata(slug!!, toName!!, fromName!!)
+
             return START_STICKY
         }
 
@@ -106,6 +109,8 @@ class MediaPlayerForegroundService : Service()  {
             player!!.seekTo(0)
             handler!!.postDelayed(runnableCheck!!, 200)
             mediaSession!!.isActive = true
+
+            updateNotificationSessionMetadata(slug!!, toName!!, fromName!!)
         }
 
         player!!.setOnCompletionListener {
@@ -211,6 +216,33 @@ class MediaPlayerForegroundService : Service()  {
         }
     }
 
+    private fun updateNotificationSessionMetadata(slug: String, toName: String, fromName: String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val bitmap = try {
+                val imageStream = applicationContext.assets.open("stories/${slug}/thumbnail.webp")
+                BitmapFactory.decodeStream(imageStream)
+            } catch (ioException: IOException) {
+                ioException.printStackTrace()
+                null
+            }
+
+            val metadataBuilder = MediaMetadata.Builder().apply {
+                putString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE, toName)
+                putString(MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE, fromName)
+                //putString(MediaMetadata.METADATA_KEY_DISPLAY_ICON_URI, myData.artUri)
+                // And at minimum the title and artist for legacy support
+                putString(MediaMetadata.METADATA_KEY_TITLE, toName)
+                putString(MediaMetadata.METADATA_KEY_ARTIST, fromName)
+                // A small bitmap for the artwork is also recommended
+                putBitmap(MediaMetadata.METADATA_KEY_ART, bitmap)
+                // Add any other fields you have for your data as well
+                putLong(MediaMetadata.METADATA_KEY_DURATION, player!!.duration.toLong())
+            }
+
+            mediaSession!!.setMetadata(metadataBuilder.build())
+        }
+    }
+
     private fun notificationToDisplayServiceInform(toName: String, fromName: String): Notification {
         createNotificationChannel()
         val notificationIntent = Intent(this, MainActivity::class.java)
@@ -233,6 +265,9 @@ class MediaPlayerForegroundService : Service()  {
             .setSmallIcon(R.drawable.player_play)
             .setContentIntent(pendingIntent)
             .setLargeIcon(bitmap)
+            .setOngoing(true)
+            .setChannelId(channelId)
+            .setVisibility(Notification.VISIBILITY_PUBLIC)
             .setStyle(Notification.MediaStyle().setMediaSession(mediaSession!!.sessionToken))
             .build()
     }
