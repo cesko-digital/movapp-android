@@ -85,6 +85,12 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         LocalBroadcastManager.getInstance(context!!).sendBroadcast(intent)
     }
 
+    private fun sendMediaPlayerFileName(fileName: String) {
+        val intent = Intent("MediaPlayerFileName")
+        intent.putExtra("fileName", fileName)
+        LocalBroadcastManager.getInstance(context!!).sendBroadcast(intent)
+    }
+
     private fun seekFairyTaleBilingual(
         seekInPlayer: Boolean,
         recyclerViewAdapterTo: ChildrenFairyTalePlayerAdapter,
@@ -195,6 +201,8 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         _binding = FragmentChildrenFairyTalePlayerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        langPair = mainSharedViewModel.selectedLanguage.value!!
+
         var slug = ""
         if (arguments != null) {
             slug = arguments!!.get("slug").toString()
@@ -213,8 +221,9 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                         "start" -> binding.fairyTalePlayButton.setImageResource(R.drawable.player_pause)
                         "pause" -> binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
                         "stop" -> {
-                            binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
                             playerPaused = true
+                            binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
+                            binding.fairyTalePlayerSeekbar.progress = 0
                         }
                     }
                 }
@@ -224,6 +233,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         broadcastMediaTimeReceiver = object : BroadcastReceiver() {
             override fun onReceive(c: Context?, intend: Intent?) {
                 if (intend !== null && _binding != null) {
+                    playerPaused = ! intend.getBooleanExtra("isPlaying", false)
                     currentTime.set(intend.getIntExtra("current", 0))
                     durationTime.set(intend.getIntExtra("duration", 0))
 
@@ -283,7 +293,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
 
             val emphasizer = object: (Int) -> EmphasizerEvaluation () {
                 override fun invoke(pos: Int): EmphasizerEvaluation {
-                    //val playerPos = player!!.currentPosition / 1000F
                     val playerPos = currentTime.get() / 1000F
 
                     val fairyTalePosition = getFairyTalePosition(fairyTale, playerPos, langPair.to)
@@ -296,7 +305,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                         return EmphasizerEvaluation.EQUAL
                     }
 
-                    /* this will not happen but IDE complains */
                     return EmphasizerEvaluation.GREATER
                 }
             }
@@ -334,8 +342,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                 "uk" -> { toName = metaFairyTale.title.uk!!; fromName = metaFairyTale.title.cs!! }
             }
 
-            stopMediaPlayerService()
-            startMediaPlayerService(slug, "stories/${slug}/${langPair.to.langCode}.mp3")
+            sendMediaPlayerFileName("stories/${slug}/${langPair.to.langCode}.mp3")
         }
 
         binding.apply {
@@ -442,8 +449,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                     sendMediaPlayerState("pause")
                     true
                 }
-
-
             }
 
             fairyTaleFlag.setOnClickListener {
@@ -465,15 +470,12 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             }
         }
 
+        startMediaPlayerService(
+            slug,
+            "stories/${slug}/${langPair.to.langCode}.mp3"
+        )
+
         return root
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-        sendMediaPlayerState("stop")
-        binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
-        playerPaused = true
     }
 
     override fun onDestroyView() {

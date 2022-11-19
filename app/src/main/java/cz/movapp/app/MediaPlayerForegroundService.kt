@@ -6,15 +6,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.res.AssetFileDescriptor
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.media.session.MediaSession
 import android.media.session.PlaybackState
 import android.os.*
-import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import java.io.IOException
 
@@ -33,6 +30,7 @@ class MediaPlayerForegroundService : Service()  {
 
     private var broadcastMediaStateReceiver : BroadcastReceiver? = null
     private var broadcastMediaSeekToReceiver : BroadcastReceiver? = null
+    private var broadcastMediaFileNameReceiver : BroadcastReceiver? = null
 
     class DelayedChecker(
         private val handler: Handler,
@@ -50,12 +48,27 @@ class MediaPlayerForegroundService : Service()  {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         slug = intent?.getStringExtra("slug")
-        fileName = intent?.getStringExtra("fileName")
+        val newFileName = intent?.getStringExtra("fileName")
         val toName = intent?.getStringExtra("toName")
         val fromName = intent?.getStringExtra("fromName")
 
-        lockCpu()
+        if (player != null) {
+            if (fileName != newFileName) {
+                reloadMediaPlayer(newFileName!!)
+            }
 
+            if (player!!.isPlaying) {
+                sendMediaPlayerState("start")
+            } else {
+                sendMediaPlayerState("pause")
+            }
+
+            return START_STICKY
+        }
+
+        fileName = newFileName
+
+        lockCpu()
 
         mediaSession = MediaSession(this, "Movapp Fairy Tale")
 
@@ -96,9 +109,8 @@ class MediaPlayerForegroundService : Service()  {
         }
 
         player!!.setOnCompletionListener {
-            player!!.stop()
-            player!!.prepareAsync()
             sendMediaPlayerState("stop")
+            playerPaused = true
         }
 
         player!!.prepareAsync()
@@ -143,6 +155,16 @@ class MediaPlayerForegroundService : Service()  {
             }
         }
 
+        broadcastMediaFileNameReceiver = object : BroadcastReceiver() {
+            override fun onReceive(c: Context?, intend: Intent?) {
+                val newFileName = intend?.getStringExtra("fileName")
+
+                if (newFileName != fileName) {
+                    reloadMediaPlayer(newFileName!!)
+                }
+            }
+        }
+
         LocalBroadcastManager.getInstance(applicationContext).registerReceiver(
             broadcastMediaStateReceiver!!,
             IntentFilter("MediaPlayerState")
@@ -151,6 +173,11 @@ class MediaPlayerForegroundService : Service()  {
         LocalBroadcastManager.getInstance(applicationContext).registerReceiver(
             broadcastMediaSeekToReceiver!!,
             IntentFilter("MediaPlayerSeekTo")
+        )
+
+        LocalBroadcastManager.getInstance(applicationContext).registerReceiver(
+            broadcastMediaFileNameReceiver!!,
+            IntentFilter("MediaPlayerFileName")
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -163,7 +190,7 @@ class MediaPlayerForegroundService : Service()  {
             )
         }
 
-        return START_REDELIVER_INTENT
+        return START_STICKY
     }
 
     override fun onBind(intent: Intent?): IBinder? {
@@ -192,7 +219,7 @@ class MediaPlayerForegroundService : Service()  {
             0, notificationIntent, PendingIntent.FLAG_MUTABLE
         )
 
-        var bitmap = try {
+        val bitmap = try {
             val imageStream = applicationContext.assets.open("stories/${slug}/thumbnail.webp")
             BitmapFactory.decodeStream(imageStream)
         } catch (ioException: IOException) {
@@ -236,11 +263,23 @@ class MediaPlayerForegroundService : Service()  {
 
     private fun sendCurrentTime(current : Int, duration : Int) {
         val intent = Intent("MediaPlayerTime")
+        intent.putExtra("isPlaying", player!!.isPlaying)
         intent.putExtra("current", current)
         intent.putExtra("duration", duration)
         LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
     }
 
+    private fun reloadMediaPlayer(newFileName : String) {
+        fileName = newFileName
+
+        player!!.reset()
+
+        val afd: AssetFileDescriptor = applicationContext.assets.openFd(fileName!!)
+        player!!.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length);
+        afd.close()
+
+        player!!.prepareAsync()
+    }
     private fun lockCpu() {
         wakeLock =
             (getSystemService(Context.POWER_SERVICE) as PowerManager).run {
@@ -270,9 +309,15 @@ class MediaPlayerForegroundService : Service()  {
                 .unregisterReceiver(broadcastMediaSeekToReceiver!!)
             broadcastMediaSeekToReceiver = null
         }
+        if (broadcastMediaFileNameReceiver != null) {
+            LocalBroadcastManager.getInstance(applicationContext)
+                .unregisterReceiver(broadcastMediaFileNameReceiver!!)
+            broadcastMediaFileNameReceiver = null
+        }
 
         if (handler != null && runnableCheck != null) {
             handler!!.removeCallbacks(runnableCheck!!)
+            handler = null
         }
 
         player!!.reset()
