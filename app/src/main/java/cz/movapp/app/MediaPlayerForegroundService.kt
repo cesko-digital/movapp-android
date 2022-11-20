@@ -209,6 +209,7 @@ class MediaPlayerForegroundService : Service()  {
                 "Foreground Service Channel",
                 NotificationManager.IMPORTANCE_DEFAULT
             )
+            serviceChannel.setSound(null,null)
             val manager = getSystemService(
                 NotificationManager::class.java
             )
@@ -265,8 +266,6 @@ class MediaPlayerForegroundService : Service()  {
             .setSmallIcon(R.drawable.player_play)
             .setContentIntent(pendingIntent)
             .setLargeIcon(bitmap)
-            .setOngoing(true)
-            .setChannelId(channelId)
             .setVisibility(Notification.VISIBILITY_PUBLIC)
             .setStyle(Notification.MediaStyle().setMediaSession(mediaSession!!.sessionToken))
             .build()
