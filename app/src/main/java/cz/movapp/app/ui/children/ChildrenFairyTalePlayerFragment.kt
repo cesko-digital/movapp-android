@@ -22,6 +22,7 @@ import cz.movapp.app.R
 import cz.movapp.app.data.FairyTale
 import cz.movapp.app.data.Language
 import cz.movapp.app.data.LanguagePair
+import cz.movapp.app.data.MetaFairyTale
 import cz.movapp.app.databinding.FragmentChildrenFairyTalePlayerBinding
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.math.floor
@@ -202,6 +203,19 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         durationText.text = "${"%02d".format(floor(duration / 60).toInt())}:${"%02d".format(floor(duration % 60).toInt())}"
     }
 
+    private fun setFairyTaleLanguage(metaFairyTale: MetaFairyTale) {
+        langPair = mainSharedViewModel.selectedLanguage.value!!
+
+        binding.fairyTaleFlag.setImageResource(
+            getBilingualFlag(langPair, bilingualState)
+        )
+
+        when(langPair.to.langCode) {
+            "cs" -> { toName = metaFairyTale.title.cs!!; fromName = metaFairyTale.title.uk!! }
+            "uk" -> { toName = metaFairyTale.title.uk!!; fromName = metaFairyTale.title.cs!! }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -209,8 +223,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
     ): View {
         _binding = FragmentChildrenFairyTalePlayerBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        langPair = mainSharedViewModel.selectedLanguage.value!!
 
         var slug = ""
         if (arguments != null) {
@@ -222,6 +234,8 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         var emphasizedColumn = -1;
         val recyclerViewTo =  binding.recyclerViewChildrenFairyTaleColumnsTo
         val recyclerViewFrom =  binding.recyclerViewChildrenFairyTaleColumnsFrom
+
+        setFairyTaleLanguage(metaFairyTale)
 
         broadcastMediaStateReceiver = object : BroadcastReceiver() {
             override fun onReceive(c: Context?, intend: Intent?) {
@@ -343,22 +357,14 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-            langPair = it
 
-            binding.fairyTaleFlag.setImageResource(
-                getBilingualFlag(it, bilingualState)
-            )
+            setFairyTaleLanguage(metaFairyTale)
 
             (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter).langPair = it
             recyclerViewTo.adapter?.notifyDataSetChanged()
 
             (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter).langPair = it
             recyclerViewFrom.adapter?.notifyDataSetChanged()
-
-            when(langPair.to.langCode) {
-                "cs" -> { toName = metaFairyTale.title.cs!!; fromName = metaFairyTale.title.uk!! }
-                "uk" -> { toName = metaFairyTale.title.uk!!; fromName = metaFairyTale.title.cs!! }
-            }
 
             sendMediaPlayerFileName("stories/${slug}/${langPair.to.langCode}.mp3")
         }

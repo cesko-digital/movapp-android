@@ -19,10 +19,13 @@ import java.io.IOException
 
 class MediaPlayerForegroundService : Service()  {
     private val channelId = "MediaPlayerForegroundServiceChannel"
+    private val notificationId = 123456
 
     private var player: MediaPlayer? = null
     private var mediaSession : MediaSession? = null
     private var slug: String? = null
+    private var toName: String? = null
+    private var fromName: String? = null
     private var fileName: String? = null
     private var handler: Handler? = null
     private var runnableCheck : DelayedChecker? = null
@@ -50,12 +53,20 @@ class MediaPlayerForegroundService : Service()  {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         slug = intent?.getStringExtra("slug")
         val newFileName = intent?.getStringExtra("fileName")
-        val toName = intent?.getStringExtra("toName")
-        val fromName = intent?.getStringExtra("fromName")
+        toName = intent?.getStringExtra("toName")
+        fromName = intent?.getStringExtra("fromName")
 
         if (player != null) {
             if (fileName != newFileName) {
                 reloadMediaPlayer(newFileName!!)
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val manager = getSystemService(
+                    NotificationManager::class.java
+                )
+
+                manager.notify(notificationId, createNotification())
             }
 
             if (player!!.isPlaying) {
@@ -63,8 +74,6 @@ class MediaPlayerForegroundService : Service()  {
             } else {
                 sendMediaPlayerState("pause")
             }
-
-            updateNotificationSessionMetadata(slug!!, toName!!, fromName!!)
 
             return START_STICKY
         }
@@ -80,8 +89,6 @@ class MediaPlayerForegroundService : Service()  {
         player = MediaPlayer().apply {
             setWakeMode(applicationContext, PowerManager.PARTIAL_WAKE_LOCK)
         }
-
-        player!!.setScreenOnWhilePlaying(true)
 
         val afd: AssetFileDescriptor = applicationContext.assets.openFd(fileName!!)
         player!!.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length);
@@ -110,7 +117,7 @@ class MediaPlayerForegroundService : Service()  {
             handler!!.postDelayed(runnableCheck!!, 200)
             mediaSession!!.isActive = true
 
-            updateNotificationSessionMetadata(slug!!, toName!!, fromName!!)
+            updateNotificationSessionMetadata()
         }
 
         player!!.setOnCompletionListener {
@@ -187,11 +194,8 @@ class MediaPlayerForegroundService : Service()  {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForeground(
-                1,
-                notificationToDisplayServiceInform(
-                    if (toName != null) toName!! else "",
-                    if (fromName != null) fromName!! else "",
-                )
+                notificationId,
+                notificationToDisplayServiceInform()
             )
         }
 
@@ -206,7 +210,7 @@ class MediaPlayerForegroundService : Service()  {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val serviceChannel = NotificationChannel(
                 channelId,
-                "Foreground Service Channel",
+                "Movapp fairy tale notification Channel",
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             serviceChannel.setSound(null,null)
@@ -217,7 +221,7 @@ class MediaPlayerForegroundService : Service()  {
         }
     }
 
-    private fun updateNotificationSessionMetadata(slug: String, toName: String, fromName: String) {
+    private fun updateNotificationSessionMetadata() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val bitmap = try {
                 val imageStream = applicationContext.assets.open("stories/${slug}/thumbnail.webp")
@@ -230,13 +234,9 @@ class MediaPlayerForegroundService : Service()  {
             val metadataBuilder = MediaMetadata.Builder().apply {
                 putString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE, toName)
                 putString(MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE, fromName)
-                //putString(MediaMetadata.METADATA_KEY_DISPLAY_ICON_URI, myData.artUri)
-                // And at minimum the title and artist for legacy support
                 putString(MediaMetadata.METADATA_KEY_TITLE, toName)
                 putString(MediaMetadata.METADATA_KEY_ARTIST, fromName)
-                // A small bitmap for the artwork is also recommended
                 putBitmap(MediaMetadata.METADATA_KEY_ART, bitmap)
-                // Add any other fields you have for your data as well
                 putLong(MediaMetadata.METADATA_KEY_DURATION, player!!.duration.toLong())
             }
 
@@ -244,8 +244,7 @@ class MediaPlayerForegroundService : Service()  {
         }
     }
 
-    private fun notificationToDisplayServiceInform(toName: String, fromName: String): Notification {
-        createNotificationChannel()
+    private fun createNotification(): Notification {
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
             this,
@@ -271,22 +270,26 @@ class MediaPlayerForegroundService : Service()  {
             .build()
     }
 
+    private fun notificationToDisplayServiceInform(): Notification {
+        createNotificationChannel()
+        return createNotification()
+    }
+
     private fun updateNotificationState() {
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            return
-        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (!player!!.isPlaying) {
+                return
+            }
 
-        if (!player!!.isPlaying) {
-            return
+            val stateBuilder = PlaybackState.Builder()
+                .setState(
+                    PlaybackState.STATE_PLAYING,
+                    player!!.currentPosition.toLong(),
+                    1.0f
+                )
+            mediaSession!!.setPlaybackState(stateBuilder.build())
         }
-
-        val stateBuilder = PlaybackState.Builder()
-            .setState(PlaybackState.STATE_PLAYING,
-                player!!.currentPosition.toLong(),
-                1.0f
-            )
-        mediaSession!!.setPlaybackState(stateBuilder.build())
     }
 
     private fun sendMediaPlayerState(state: String) {
