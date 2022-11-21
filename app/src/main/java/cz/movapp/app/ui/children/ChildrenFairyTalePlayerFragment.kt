@@ -271,23 +271,30 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
 
                     val i = getFairyTalePosition(fairyTale, ct/1000F, langPair.to)
 
-                    if (i != emphasizedColumn) {
+                    if (emphasizedColumn < i ) {
                         seekFairyTaleBilingual(
                             false,
                             (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
                             (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
                             i,
-                            if (i == 0) 0 else i - 1,
-                            2
+                            0,
+                            i + 1
                         )
-                    }
 
-                    if (emphasizedColumn < i ) {
                         recyclerViewTo.scrollToPosition(i + 1)
                         recyclerViewFrom.scrollToPosition(i + 1)
                     }
 
                     if (emphasizedColumn > i ) {
+                        seekFairyTaleBilingual(
+                            false,
+                            (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter),
+                            (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter),
+                            i,
+                            i,
+                            fairyTale.sections!!.size - i
+                        )
+
                         recyclerViewTo.scrollToPosition(if (i == 0) 0 else i - 1)
                         recyclerViewFrom.scrollToPosition(if (i == 0) 0 else i - 1)
                     }
