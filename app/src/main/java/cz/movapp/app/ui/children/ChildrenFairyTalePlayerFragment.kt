@@ -90,12 +90,6 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
     }
 
-    private fun sendMediaPlayerFileName(fileName: String) {
-        val intent = Intent("MediaPlayerFileName")
-        intent.putExtra("fileName", fileName)
-        LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
-    }
-
     private fun seekFairyTaleBilingual(
         seekInPlayer: Boolean,
         recyclerViewAdapterTo: ChildrenFairyTalePlayerAdapter,
@@ -366,7 +360,10 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter).langPair = it
             recyclerViewFrom.adapter?.notifyDataSetChanged()
 
-            sendMediaPlayerFileName("stories/${slug}/${langPair.to.langCode}.mp3")
+            startMediaPlayerService(
+                slug,
+                "stories/${slug}/${langPair.to.langCode}.mp3"
+            )
         }
 
         binding.apply {

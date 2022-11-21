@@ -19,13 +19,10 @@ import java.io.IOException
 
 class MediaPlayerForegroundService : Service()  {
     private val channelId = "MediaPlayerForegroundServiceChannel"
-    private val notificationId = 123456
+    private val notificationId = 1233456
 
     private var player: MediaPlayer? = null
     private var mediaSession : MediaSession? = null
-    private var slug: String? = null
-    private var toName: String? = null
-    private var fromName: String? = null
     private var fileName: String? = null
     private var handler: Handler? = null
     private var runnableCheck : DelayedChecker? = null
@@ -34,7 +31,6 @@ class MediaPlayerForegroundService : Service()  {
 
     private var broadcastMediaStateReceiver : BroadcastReceiver? = null
     private var broadcastMediaSeekToReceiver : BroadcastReceiver? = null
-    private var broadcastMediaFileNameReceiver : BroadcastReceiver? = null
 
     class DelayedChecker(
         private val handler: Handler,
@@ -51,22 +47,23 @@ class MediaPlayerForegroundService : Service()  {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        slug = intent?.getStringExtra("slug")
+        val slug = intent?.getStringExtra("slug")
         val newFileName = intent?.getStringExtra("fileName")
-        toName = intent?.getStringExtra("toName")
-        fromName = intent?.getStringExtra("fromName")
+        val toName = intent?.getStringExtra("toName")
+        val fromName = intent?.getStringExtra("fromName")
 
         if (player != null) {
-            if (fileName != newFileName) {
-                reloadMediaPlayer(newFileName!!)
-            }
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val manager = getSystemService(
                     NotificationManager::class.java
                 )
 
-                manager.notify(notificationId, createNotification())
+                manager.notify(notificationId, createNotification(slug!!, toName!!, fromName!!))
+            }
+
+            if (fileName != newFileName) {
+                fileName = newFileName
+                initMediaPlayer(slug!!, toName!!, fromName!!, true)
             }
 
             if (player!!.isPlaying) {
@@ -82,17 +79,13 @@ class MediaPlayerForegroundService : Service()  {
 
         lockCpu()
 
-        mediaSession = MediaSession(this, "Movapp Fairy Tale")
+        mediaSession = MediaSession(this, "Movapp Fairy Tale Media Session")
 
         handler = Looper.myLooper()?.let { Handler(it) }
 
         player = MediaPlayer().apply {
             setWakeMode(applicationContext, PowerManager.PARTIAL_WAKE_LOCK)
         }
-
-        val afd: AssetFileDescriptor = applicationContext.assets.openFd(fileName!!)
-        player!!.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length);
-        afd.close()
 
         player!!.setAudioAttributes(
             AudioAttributes.Builder()
@@ -111,21 +104,7 @@ class MediaPlayerForegroundService : Service()  {
             }
         )
 
-        player!!.setOnPreparedListener {
-            playerPaused = true
-            player!!.seekTo(0)
-            handler!!.postDelayed(runnableCheck!!, 200)
-            mediaSession!!.isActive = true
-
-            updateNotificationSessionMetadata()
-        }
-
-        player!!.setOnCompletionListener {
-            sendMediaPlayerState("stop")
-            playerPaused = true
-        }
-
-        player!!.prepareAsync()
+        initMediaPlayer(slug!!, toName!!, fromName!!,false)
 
         broadcastMediaStateReceiver = object : BroadcastReceiver() {
             override fun onReceive(c: Context?, intend: Intent?) {
@@ -167,16 +146,6 @@ class MediaPlayerForegroundService : Service()  {
             }
         }
 
-        broadcastMediaFileNameReceiver = object : BroadcastReceiver() {
-            override fun onReceive(c: Context?, intend: Intent?) {
-                val newFileName = intend?.getStringExtra("fileName")
-
-                if (newFileName != fileName) {
-                    reloadMediaPlayer(newFileName!!)
-                }
-            }
-        }
-
         LocalBroadcastManager.getInstance(applicationContext).registerReceiver(
             broadcastMediaStateReceiver!!,
             IntentFilter("MediaPlayerState")
@@ -187,15 +156,10 @@ class MediaPlayerForegroundService : Service()  {
             IntentFilter("MediaPlayerSeekTo")
         )
 
-        LocalBroadcastManager.getInstance(applicationContext).registerReceiver(
-            broadcastMediaFileNameReceiver!!,
-            IntentFilter("MediaPlayerFileName")
-        )
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForeground(
                 notificationId,
-                notificationToDisplayServiceInform()
+                notificationToDisplayServiceInform(slug!!, toName!!, fromName!!)
             )
         }
 
@@ -221,7 +185,7 @@ class MediaPlayerForegroundService : Service()  {
         }
     }
 
-    private fun updateNotificationSessionMetadata() {
+    private fun updateNotificationSessionMetadata(slug: String, toName: String, fromName: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val bitmap = try {
                 val imageStream = applicationContext.assets.open("stories/${slug}/thumbnail.webp")
@@ -244,7 +208,7 @@ class MediaPlayerForegroundService : Service()  {
         }
     }
 
-    private fun createNotification(): Notification {
+    private fun createNotification(slug: String, toName: String, fromName: String): Notification {
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
             this,
@@ -270,9 +234,9 @@ class MediaPlayerForegroundService : Service()  {
             .build()
     }
 
-    private fun notificationToDisplayServiceInform(): Notification {
+    private fun notificationToDisplayServiceInform(slug: String, toName: String, fromName: String): Notification {
         createNotificationChannel()
-        return createNotification()
+        return createNotification(slug, toName, fromName)
     }
 
     private fun updateNotificationState() {
@@ -306,14 +270,32 @@ class MediaPlayerForegroundService : Service()  {
         LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
     }
 
-    private fun reloadMediaPlayer(newFileName : String) {
-        fileName = newFileName
+    private fun initMediaPlayer(slug: String, toName: String, fromName: String, reset: Boolean) {
+        if (reset) {
+            player!!.reset()
+        }
 
-        player!!.reset()
+        player!!.setOnPreparedListener {
+            playerPaused = true
+            player!!.seekTo(0)
+            handler!!.postDelayed(runnableCheck!!, 200)
+            mediaSession!!.isActive = true
 
-        val afd: AssetFileDescriptor = applicationContext.assets.openFd(fileName!!)
-        player!!.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length);
-        afd.close()
+            updateNotificationSessionMetadata(slug, toName, fromName)
+        }
+
+        player!!.setOnCompletionListener {
+            sendMediaPlayerState("stop")
+            playerPaused = true
+        }
+
+        try {
+            val afd: AssetFileDescriptor = applicationContext.assets.openFd(fileName!!)
+            player!!.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length);
+            afd.close()
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+        }
 
         player!!.prepareAsync()
     }
@@ -345,11 +327,6 @@ class MediaPlayerForegroundService : Service()  {
             LocalBroadcastManager.getInstance(applicationContext)
                 .unregisterReceiver(broadcastMediaSeekToReceiver!!)
             broadcastMediaSeekToReceiver = null
-        }
-        if (broadcastMediaFileNameReceiver != null) {
-            LocalBroadcastManager.getInstance(applicationContext)
-                .unregisterReceiver(broadcastMediaFileNameReceiver!!)
-            broadcastMediaFileNameReceiver = null
         }
 
         if (handler != null && runnableCheck != null) {
