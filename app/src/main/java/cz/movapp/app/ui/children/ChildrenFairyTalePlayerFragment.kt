@@ -25,6 +25,7 @@ import cz.movapp.app.data.LanguagePair
 import cz.movapp.app.data.MetaFairyTale
 import cz.movapp.app.databinding.FragmentChildrenFairyTalePlayerBinding
 import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.floor
 
 class ChildrenFairyTalePlayerFragment : Fragment() {
@@ -52,7 +53,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
     var toName : String = ""
     var fromName : String = ""
 
-    private var  bilingualState = BilingualState.TO_FROM
+    private var  bilingualState = AtomicReference(BilingualState.TO_FROM)
 
     private var currentTime = AtomicInteger(0)
     private var durationTime = AtomicInteger(0)
@@ -87,6 +88,15 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
     private fun sendMediaPlayerState(state: String) {
         val intent = Intent("MediaPlayerState")
         intent.putExtra("state", state)
+        LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+    }
+
+    private fun sendMediaPlayerOnlyChangeLang(fileName: String, toNameChange: String, fromNameChange: String, seekTo: Int) {
+        val intent = Intent("MediaPlayerOnlyLang")
+        intent.putExtra("fileName", fileName)
+        intent.putExtra("toName", toNameChange)
+        intent.putExtra("fromName", fromNameChange)
+        intent.putExtra("seekTo", seekTo)
         LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
     }
 
@@ -149,6 +159,17 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         return -1
     }
 
+    private fun getFairyTaleTimestamp(fairyTale: FairyTale, column: Int, lang: Language): Float {
+        if (column < 0) {
+            return 0F
+        }
+        return when (lang.langCode) {
+            "cs" -> fairyTale.sections!![column].cs.start
+            "uk" -> fairyTale.sections!![column].uk.start
+            else -> 0F
+        }
+    }
+
     private fun getFlagDrawable(langCode: String): Int {
         return when (langCode) {
             "uk" -> R.drawable.ua
@@ -201,12 +222,21 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         langPair = mainSharedViewModel.selectedLanguage.value!!
 
         binding.fairyTaleFlag.setImageResource(
-            getBilingualFlag(langPair, bilingualState)
+            getBilingualFlag(langPair, bilingualState.get())
         )
 
-        when(langPair.to.langCode) {
+        when(getMediaLang().langCode) {
             "cs" -> { toName = metaFairyTale.title.cs!!; fromName = metaFairyTale.title.uk!! }
             "uk" -> { toName = metaFairyTale.title.uk!!; fromName = metaFairyTale.title.cs!! }
+        }
+    }
+
+    private fun getMediaLang() : Language {
+        return when (bilingualState.get()) {
+            BilingualState.TO -> langPair.to
+            BilingualState.FROM -> langPair.from
+            BilingualState.TO_FROM -> langPair.to
+            null -> langPair.to
         }
     }
 
@@ -232,9 +262,9 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         setFairyTaleLanguage(metaFairyTale)
 
         broadcastMediaStateReceiver = object : BroadcastReceiver() {
-            override fun onReceive(c: Context?, intend: Intent?) {
+            override fun onReceive(c: Context?, intent: Intent?) {
                 if (_binding != null) {
-                    when (intend?.getStringExtra("state")) {
+                    when (intent?.getStringExtra("state")) {
                         "start" -> binding.fairyTalePlayButton.setImageResource(R.drawable.player_pause)
                         "pause" -> binding.fairyTalePlayButton.setImageResource(R.drawable.player_play)
                         "stop" -> {
@@ -247,21 +277,21 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         }
 
         broadcastMediaTimeReceiver = object : BroadcastReceiver() {
-            override fun onReceive(c: Context?, intend: Intent?) {
+            override fun onReceive(c: Context?, intent: Intent?) {
                 if (playerState == PlayerState.STOPPED) {
                     return
                 }
 
-                if (intend !== null && _binding != null) {
+                if (intent !== null && _binding != null) {
 
-                    playerState = if (intend.getBooleanExtra("isPlaying", false)) {
+                    playerState = if (intent.getBooleanExtra("isPlaying", false)) {
                         PlayerState.PLAYING
                     } else {
                         PlayerState.PAUSED
                     }
 
-                    currentTime.set(intend.getIntExtra("current", 0))
-                    durationTime.set(intend.getIntExtra("duration", 0))
+                    currentTime.set(intent.getIntExtra("current", 0))
+                    durationTime.set(intent.getIntExtra("duration", 0))
 
                     val ct = currentTime.get()
                     val dur = durationTime.get()
@@ -269,7 +299,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                     binding.fairyTalePlayerSeekbar.max = dur
                     binding.fairyTalePlayerSeekbar.progress = ct
 
-                    val i = getFairyTalePosition(fairyTale, ct/1000F, langPair.to)
+                    val i = getFairyTalePosition(fairyTale, ct/1000F, getMediaLang())
 
                     if (emphasizedColumn < i ) {
                         seekFairyTaleBilingual(
@@ -328,7 +358,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                 override fun invoke(pos: Int): EmphasizerEvaluation {
                     val playerPos = currentTime.get() / 1000F
 
-                    val fairyTalePosition = getFairyTalePosition(fairyTale, playerPos, langPair.to)
+                    val fairyTalePosition = getFairyTalePosition(fairyTale, playerPos, getMediaLang())
 
                     if (pos < fairyTalePosition) {
                         return EmphasizerEvaluation.LOWER
@@ -369,7 +399,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
 
             startMediaPlayerService(
                 slug,
-                "stories/${slug}/${langPair.to.langCode}.mp3"
+                "stories/${slug}/${getMediaLang().langCode}.mp3"
             )
         }
 
@@ -490,27 +520,49 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             }
 
             fairyTaleFlag.setOnClickListener {
-                bilingualState = when (bilingualState) {
+                bilingualState.set(when (bilingualState.get()) {
                     BilingualState.TO -> BilingualState.FROM
                     BilingualState.FROM -> BilingualState.TO_FROM
                     BilingualState.TO_FROM -> BilingualState.TO
-                }
+                    null -> BilingualState.TO_FROM
+                })
 
                 fairyTaleFlag.setImageResource(
-                    getBilingualFlag(langPair, bilingualState)
+                    getBilingualFlag(langPair, bilingualState.get())
                 )
 
                 setRecyclerViewSplitScreen(
-                    bilingualState,
+                    bilingualState.get(),
                     recyclerViewTo,
                     recyclerViewFrom
+                )
+
+                val toNameChange = when (bilingualState.get()) {
+                    BilingualState.TO -> toName
+                    BilingualState.FROM -> fromName
+                    BilingualState.TO_FROM -> toName
+                    null -> toName
+                }
+
+                val fromNameChange = when (bilingualState.get()) {
+                    BilingualState.TO -> fromName
+                    BilingualState.FROM -> toName
+                    BilingualState.TO_FROM -> fromName
+                    null -> fromName
+                }
+
+                sendMediaPlayerOnlyChangeLang(
+                    "stories/${slug}/${getMediaLang().langCode}.mp3",
+                    toNameChange,
+                    fromNameChange,
+                    (getFairyTaleTimestamp(fairyTale, emphasizedColumn, getMediaLang()) * 1000).toInt()
                 )
             }
         }
 
         startMediaPlayerService(
             slug,
-            "stories/${slug}/${langPair.to.langCode}.mp3"
+            "stories/${slug}/${getMediaLang().langCode}.mp3"
         )
 
         return root

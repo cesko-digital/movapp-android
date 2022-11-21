@@ -31,6 +31,7 @@ class MediaPlayerForegroundService : Service()  {
 
     private var broadcastMediaStateReceiver : BroadcastReceiver? = null
     private var broadcastMediaSeekToReceiver : BroadcastReceiver? = null
+    private var broadcastMediaChangeLangReceiver : BroadcastReceiver? = null
 
     class DelayedChecker(
         private val handler: Handler,
@@ -63,7 +64,7 @@ class MediaPlayerForegroundService : Service()  {
 
             if (fileName != newFileName) {
                 fileName = newFileName
-                initMediaPlayer(slug!!, toName!!, fromName!!, true)
+                initMediaPlayer(slug!!, toName!!, fromName!!, -1,false, true)
             }
 
             if (player!!.isPlaying) {
@@ -104,11 +105,11 @@ class MediaPlayerForegroundService : Service()  {
             }
         )
 
-        initMediaPlayer(slug!!, toName!!, fromName!!,false)
+        initMediaPlayer(slug!!, toName!!, fromName!!,-1, false, false)
 
         broadcastMediaStateReceiver = object : BroadcastReceiver() {
-            override fun onReceive(c: Context?, intend: Intent?) {
-                when (intend?.getStringExtra("state")) {
+            override fun onReceive(c: Context?, intent: Intent?) {
+                when (intent?.getStringExtra("state")) {
                     "start" -> {
                         if (playerPaused) {
                             player!!.start()
@@ -137,12 +138,40 @@ class MediaPlayerForegroundService : Service()  {
         }
 
         broadcastMediaSeekToReceiver = object : BroadcastReceiver() {
-            override fun onReceive(c: Context?, intend: Intent?) {
-                val seekTo = intend?.getIntExtra("seekTo", 0)
+            override fun onReceive(c: Context?, intent: Intent?) {
+                val seekTo = intent?.getIntExtra("seekTo", 0)
 
                 if (player!!.isPlaying || playerPaused) {
                     player!!.seekTo(seekTo!!)
                 }
+            }
+        }
+
+        broadcastMediaChangeLangReceiver = object : BroadcastReceiver() {
+            override fun onReceive(c: Context?, intent: Intent?) {
+                val fileNameChange = intent?.getStringExtra("fileName")
+                val toNameChange = intent?.getStringExtra("toName")
+                val fromNameChange = intent?.getStringExtra("fromName")
+                val seekToChange = intent?.getIntExtra("seekTo", 0)
+
+                if (fileNameChange == fileName) {
+                    return
+                }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    val manager = getSystemService(
+                        NotificationManager::class.java
+                    )
+
+                    manager.notify(notificationId, createNotification(slug, toNameChange!!, fromNameChange!!))
+                }
+
+                handler!!.removeCallbacksAndMessages(null)
+                player!!.setOnCompletionListener{ }
+                player!!.setOnPreparedListener{ }
+
+                fileName = fileNameChange
+                initMediaPlayer(slug, toNameChange!!, fromNameChange!!, seekToChange!!,player!!.isPlaying, true)
             }
         }
 
@@ -154,6 +183,11 @@ class MediaPlayerForegroundService : Service()  {
         LocalBroadcastManager.getInstance(applicationContext).registerReceiver(
             broadcastMediaSeekToReceiver!!,
             IntentFilter("MediaPlayerSeekTo")
+        )
+
+        LocalBroadcastManager.getInstance(applicationContext).registerReceiver(
+            broadcastMediaChangeLangReceiver!!,
+            IntentFilter("MediaPlayerOnlyLang")
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -270,7 +304,14 @@ class MediaPlayerForegroundService : Service()  {
         LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
     }
 
-    private fun initMediaPlayer(slug: String, toName: String, fromName: String, reset: Boolean) {
+    private fun initMediaPlayer(
+        slug: String,
+        toName: String,
+        fromName: String,
+        seekTo: Int,
+        autoStart: Boolean,
+        reset: Boolean
+    ) {
         if (reset) {
             player!!.reset()
         }
@@ -282,6 +323,15 @@ class MediaPlayerForegroundService : Service()  {
             mediaSession!!.isActive = true
 
             updateNotificationSessionMetadata(slug, toName, fromName)
+
+            if (seekTo > 0) {
+                player!!.seekTo(seekTo)
+            }
+
+            if (autoStart) {
+                playerPaused = false
+                player!!.start()
+            }
         }
 
         player!!.setOnCompletionListener {
@@ -327,6 +377,11 @@ class MediaPlayerForegroundService : Service()  {
             LocalBroadcastManager.getInstance(applicationContext)
                 .unregisterReceiver(broadcastMediaSeekToReceiver!!)
             broadcastMediaSeekToReceiver = null
+        }
+        if (broadcastMediaChangeLangReceiver != null) {
+            LocalBroadcastManager.getInstance(applicationContext)
+                .unregisterReceiver(broadcastMediaChangeLangReceiver!!)
+            broadcastMediaChangeLangReceiver = null
         }
 
         if (handler != null && runnableCheck != null) {
