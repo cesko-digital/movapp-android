@@ -163,6 +163,8 @@ class AboutFragment : Fragment() {
         var langItems =
             LanguagePair.values().map { LanguageSpinnerItem(it, context.getString(it.to.accusativeStringId)) }
 
+        val defaultLang = LanguagePair.values().first { it.from == nativeLanguage }
+
         langItems = if (nativeLanguage.langCode == "uk") {
             langItems.filter { it.lang.to.langCode != nativeLanguage.langCode }
         } else {
@@ -181,7 +183,8 @@ class AboutFragment : Fragment() {
                     spinner,
                     adapter,
                     langItems,
-                    langPair
+                    langPair,
+                    defaultLang
                 )
             }
 
@@ -227,13 +230,15 @@ class AboutFragment : Fragment() {
         spinner: Spinner,
         adapter: ArrayAdapter<LanguageSpinnerItem>,
         langItems: List<LanguageSpinnerItem>,
-        selectedLangPair: LanguagePair
+        selectedLangPair: LanguagePair,
+        defaultLangPair: LanguagePair
     ) {
         spinner.setSelection(
             adapter.getPosition(
                 toLanguageSpinnerItem(
                     langItems,
-                    selectedLangPair
+                    selectedLangPair,
+                    defaultLangPair
                 )
             )
         )
@@ -249,10 +254,11 @@ class AboutFragment : Fragment() {
 
     private fun toLanguageSpinnerItem(
         langPairItems: List<LanguageSpinnerItem>,
-        restoredLang: LanguagePair?
+        restoredLang: LanguagePair?,
+        defaultLangPair: LanguagePair
     ): LanguageSpinnerItem {
         return (langPairItems.firstOrNull { it.lang == restoredLang }
-            ?: langPairItems.first { it.lang == LanguagePair.getDefault() })
+            ?: langPairItems.first { it.lang == defaultLangPair })
     }
 
     class NativeLanguageSpinnerItem(val lang: Language, val text: String) {
