@@ -43,8 +43,8 @@ class FairyTalesDatasource(private val context: Context) {
 
     init {
         if (cache == null) {
-            var res = mutableListOf<Pair<MetaFairyTale, FairyTale>>()
-            var resDrawables = mutableMapOf<String,Drawable>()
+            val res = mutableListOf<Pair<MetaFairyTale, FairyTale>>()
+            val resDrawables = mutableMapOf<String,Drawable>()
 
             var jsonString: String = ""
 
@@ -55,7 +55,7 @@ class FairyTalesDatasource(private val context: Context) {
                 ioException.printStackTrace()
             }
 
-            var metaData = Gson().fromJson<MetaFairyTales>(jsonString, MetaFairyTales::class.java)
+            val metaData = Gson().fromJson<MetaFairyTales>(jsonString, MetaFairyTales::class.java)
 
             for (metaFairyTale in metaData.stories!!) {
                 try {
@@ -65,7 +65,7 @@ class FairyTalesDatasource(private val context: Context) {
                     ioException.printStackTrace()
                 }
 
-                var fairyTale = Gson().fromJson<FairyTale>(jsonString, FairyTale::class.java)
+                val fairyTale = Gson().fromJson<FairyTale>(jsonString, FairyTale::class.java)
 
                 res.add(Pair(metaFairyTale, fairyTale))
 

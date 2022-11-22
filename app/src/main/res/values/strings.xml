@@ -53,4 +53,6 @@
     <string name="memory_game_new_game">New game</string>
     <string name="fairy_tales">Fairy tales</string>
     <string name="fairy_tales_minutes">min</string>
+    <string name="fairy_tales_czech_origin">Czech fairy tales</string>
+    <string name="fairy_tales_ukrainian_origin">Ukrainian fairy tales</string>
 </resources>

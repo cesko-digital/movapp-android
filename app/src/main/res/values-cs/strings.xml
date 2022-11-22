@@ -48,4 +48,6 @@
     <string name="memory_game_new_game">Nová hra</string>
     <string name="fairy_tales">Pohádky</string>
     <string name="fairy_tales_minutes">min</string>
+    <string name="fairy_tales_czech_origin">České lidové pohádky</string>
+    <string name="fairy_tales_ukrainian_origin">Ukrajinské lidové pohádky</string>
 </resources>

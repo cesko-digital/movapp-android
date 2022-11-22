@@ -46,4 +46,8 @@
     <string name="slovak_accusative">slovensky</string>
     <string name="memory_game">Pexeso</string>
     <string name="memory_game_new_game">Nová hra</string>
+    <string name="fairy_tales">Rozprávky</string>
+    <string name="fairy_tales_minutes">min</string>
+    <string name="fairy_tales_czech_origin">České ľudové rozprávky</string>
+    <string name="fairy_tales_ukrainian_origin">Ukrajinské ľudové rozprávky</string>
 </resources>

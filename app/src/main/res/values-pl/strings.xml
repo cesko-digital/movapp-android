@@ -46,4 +46,8 @@
     <string name="slovak_accusative">słowackiego</string>
     <string name="memory_game">Memory</string>
     <string name="memory_game_new_game">Nowa gra</string>
+    <string name="fairy_tales">Bajki</string>
+    <string name="fairy_tales_minutes">min</string>
+    <string name="fairy_tales_czech_origin">Czeskie opowieści ludowe</string>
+    <string name="fairy_tales_ukrainian_origin">Ukraińskie opowieści ludowe</string>
 </resources>
