@@ -41,18 +41,8 @@ class ChildrenFairyTalesAdapter(
                 fairyTaleImage.setImageDrawable(null)
             }
 
-            fairyTaleNameFrom.text = when (langPair.from.langCode) {
-                "cs" -> item.first.title.cs
-                "uk" -> item.first.title.uk
-                else -> {""}
-            }
-
-            fairyTaleNameTo.text = when (langPair.to.langCode) {
-                "cs" -> item.first.title.cs
-                "uk" -> item.first.title.uk
-                else -> {""}
-            }
-
+            fairyTaleNameFrom.text = item.first.title.getValue(langPair.to.langCode)
+            fairyTaleNameTo.text = item.first.title.getValue(langPair.from.langCode)
             fairyTaleTime.text = "${item.first.duration} ${context.resources.getString(R.string.fairy_tales_minutes)}"
 
             fairyTaleOrigin.setImageResource(

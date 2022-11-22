@@ -9,7 +9,13 @@ import java.io.IOException
 data class MetaFairyTaleTitle(
     @SerializedName("cs") val cs: String? = null,
     @SerializedName("uk") val uk: String? = null,
-)
+) {
+    fun getValue(lang: String): String? = when (lang) {
+        "cs" -> cs
+        "uk" -> uk
+        else -> null
+    }
+}
 
 data class MetaFairyTale(
     @SerializedName("title") val title: MetaFairyTaleTitle,
@@ -32,7 +38,13 @@ data class Column(
 data class TimeData(
     @SerializedName("cs") val cs: Column,
     @SerializedName("uk") val uk: Column,
-)
+) {
+    fun getValue(lang: String): Column? = when (lang) {
+        "cs" -> cs
+        "uk" -> uk
+        else -> null
+    }
+}
 
 data class FairyTale(
     @SerializedName("timeline") val sections: List<TimeData>? = null
@@ -74,10 +86,7 @@ class FairyTalesDatasource(private val context: Context) {
 
                 try {
                     val imageStream = context!!.assets.open("stories/${metaFairyTale.slug}/thumbnail.webp")
-                    resDrawables.put(
-                        metaFairyTale.slug,
-                        Drawable.createFromStream(imageStream, null)!!
-                    )
+                    resDrawables[metaFairyTale.slug] = Drawable.createFromStream(imageStream, null)!!
                 } catch (ioException: IOException) {
                     ioException.printStackTrace()
                 }

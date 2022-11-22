@@ -384,8 +384,8 @@ class MediaPlayerForegroundService : Service()  {
             broadcastMediaChangeLangReceiver = null
         }
 
-        if (handler != null && runnableCheck != null) {
-            handler!!.removeCallbacks(runnableCheck!!)
+        if (handler != null) {
+            handler!!.removeCallbacksAndMessages(null)
             handler = null
         }
 

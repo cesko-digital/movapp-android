@@ -144,11 +144,8 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         var i = 0
 
         for (record in fairyTale.sections!!) {
-            val recordLang = when (lang.langCode) {
-                "cs" -> record.cs
-                "uk" -> record.uk
-                else -> {null}
-            } ?: continue
+
+            val recordLang = record.getValue(lang.langCode)  ?: continue
 
             if (mediaPosition >= recordLang.start && mediaPosition <= recordLang.end) {
                 return i
@@ -163,11 +160,8 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         if (column < 0) {
             return 0F
         }
-        return when (lang.langCode) {
-            "cs" -> fairyTale.sections!![column].cs.start
-            "uk" -> fairyTale.sections!![column].uk.start
-            else -> 0F
-        }
+
+        return fairyTale.sections!![column].getValue(lang.langCode)?.start ?: 0F
     }
 
     private fun getFlagDrawable(langCode: String): Int {
@@ -225,9 +219,16 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             getBilingualFlag(langPair, bilingualState.get())
         )
 
-        when(getMediaLang().langCode) {
-            "cs" -> { toName = metaFairyTale.title.cs!!; fromName = metaFairyTale.title.uk!! }
-            "uk" -> { toName = metaFairyTale.title.uk!!; fromName = metaFairyTale.title.cs!! }
+        when (bilingualState.get()) {
+            BilingualState.TO_FROM, BilingualState.TO, null -> {
+                toName = metaFairyTale.title.getValue(langPair.to.langCode) ?: ""
+                fromName = metaFairyTale.title.getValue(langPair.from.langCode) ?: ""
+            }
+
+            BilingualState.FROM -> {
+                toName = metaFairyTale.title.getValue(langPair.from.langCode) ?: ""
+                fromName = metaFairyTale.title.getValue(langPair.to.langCode) ?: ""
+            }
         }
     }
 
@@ -416,17 +417,13 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                 childrenFairyTalesViewModel.getFairyTaleDrawable(metaFairyTale.slug)
             )
 
-            fairyTalePlayerNameFrom.text = when(mainSharedViewModel.selectedLanguage.value!!.to.langCode) {
-                "cs" -> metaFairyTale.title.cs
-                "uk" -> metaFairyTale.title.uk
-                else -> {""}
-            }
+            fairyTalePlayerNameFrom.text = metaFairyTale.title.getValue(
+                mainSharedViewModel.selectedLanguage.value!!.to.langCode
+            )
 
-            fairyTalePlayerNameTo.text = when(mainSharedViewModel.selectedLanguage.value!!.from.langCode) {
-                "cs" -> metaFairyTale.title.cs
-                "uk" -> metaFairyTale.title.uk
-                else -> {""}
-            }
+            fairyTalePlayerNameTo.text = metaFairyTale.title.getValue(
+                mainSharedViewModel.selectedLanguage.value!!.from.langCode
+            )
 
             setFairyTaleTime(
                 fairyTalePlayerCurrentTime,
@@ -557,6 +554,9 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                     fromNameChange,
                     (getFairyTaleTimestamp(fairyTale, emphasizedColumn, getMediaLang()) * 1000).toInt()
                 )
+
+                recyclerViewTo.scrollToPosition(emphasizedColumn)
+                recyclerViewFrom.scrollToPosition(emphasizedColumn)
             }
         }
 

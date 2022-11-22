@@ -43,12 +43,10 @@ class ChildrenFairyTalePlayerAdapter (
         val context = holder.binding.root.context
 
         holder.binding.apply {
-            val text = when (if (isReversed) { langPair.to.langCode } else { langPair.from.langCode }) {
-                "cs" -> item.cs.text
-                "uk" -> item.uk.text
-                else -> ""
-            }
-            fairyTaleColumnText.text = text
+            fairyTaleColumnText.text = item.getValue(
+                if (isReversed) { langPair.to.langCode } else { langPair.from.langCode }
+            )?.text ?: ""
+
             fairyTaleColumnText.setTextColor(
                 ContextCompat.getColor(
                     context, R.color.playerUnRead
