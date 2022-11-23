@@ -355,6 +355,19 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         childrenFairyTalesViewModel.fairyTales.observe(viewLifecycleOwner) {
             it.langPair = mainSharedViewModel.selectedLanguage.value!!
 
+            val columnCallback = object: (Int) -> Unit {
+                override fun invoke(column: Int) {
+                    val seekTo = (getFairyTaleTimestamp(fairyTale, column, getMediaLang()) * 1000).toInt()
+                    sendMediaPlayerOnlyChangeLang(
+                        "stories/${slug}/${getMediaLang().langCode}.mp3",
+                        toName,
+                        fromName,
+                        seekTo
+                    )
+                    binding.fairyTalePlayerSeekbar.progress = seekTo
+                }
+            }
+
             val emphasizer = object: (Int) -> EmphasizerEvaluation () {
                 override fun invoke(pos: Int): EmphasizerEvaluation {
                     val playerPos = currentTime.get() / 1000F
@@ -376,16 +389,18 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
             recyclerViewTo.adapter = childrenFairyTalesViewModel.getFairyTaleAdapter(slug, true)
             recyclerViewTo.setHasFixedSize(true)
 
-            (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter).setEmphasizer(
-                emphasizer
-            )
+            (recyclerViewTo.adapter as ChildrenFairyTalePlayerAdapter).apply {
+                setEmphasizer(emphasizer)
+                setColumnCallback(columnCallback)
+            }
 
             recyclerViewFrom.adapter = childrenFairyTalesViewModel.getFairyTaleAdapter(slug, false)
             recyclerViewFrom.setHasFixedSize(true)
 
-            (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter).setEmphasizer(
-                emphasizer
-            )
+            (recyclerViewFrom.adapter as ChildrenFairyTalePlayerAdapter).apply {
+                setEmphasizer(emphasizer)
+                setColumnCallback(columnCallback)
+            }
         }
 
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {

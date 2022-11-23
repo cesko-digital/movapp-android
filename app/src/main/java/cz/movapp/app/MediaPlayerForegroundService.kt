@@ -155,6 +155,7 @@ class MediaPlayerForegroundService : Service()  {
                 val seekToChange = intent?.getIntExtra("seekTo", 0)
 
                 if (fileNameChange == fileName) {
+                    player?.seekTo(seekToChange!!)
                     return
                 }
 
