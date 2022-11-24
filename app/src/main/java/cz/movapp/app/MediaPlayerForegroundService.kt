@@ -261,7 +261,7 @@ class MediaPlayerForegroundService : Service()  {
         return Notification.Builder(this, channelId)
             .setContentTitle(toName)
             .setContentText(fromName)
-            .setSmallIcon(R.drawable.player_play)
+            .setSmallIcon(R.drawable.movapp_bw_icon)
             .setContentIntent(pendingIntent)
             .setLargeIcon(bitmap)
             .setVisibility(Notification.VISIBILITY_PUBLIC)
