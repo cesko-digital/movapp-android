@@ -48,10 +48,10 @@ class OnBoardingInfoFragment(private val position: Int) : Fragment() {
                 binding.imageInfo.setImageResource(R.drawable.excellent)
                 binding.textInfoTitle.setText(R.string.on_boarding_info_0_title)
                 mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner) {
-                    binding.textInfoDescription.setText(String.format(
+                    binding.textInfoDescription.text = String.format(
                         resources.getString(R.string.on_boarding_info_0_description),
                         resources.getString(it.to.accusativeStringId)
-                    ))
+                    )
                 }
                 binding.textSkip.visibility = View.VISIBLE
                 binding.buttonExitOnBoarding.visibility = View.INVISIBLE
