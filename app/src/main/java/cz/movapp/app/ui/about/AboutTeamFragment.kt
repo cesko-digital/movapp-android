@@ -9,8 +9,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.divider.MaterialDivider
+import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
 import cz.movapp.app.databinding.FragmentAboutTeamBinding
+import java.util.Locale
 
 class AboutTeamFragment : Fragment() {
 
@@ -32,7 +34,7 @@ class AboutTeamFragment : Fragment() {
         for (section in teamViewModel.team.sections!!) {
             val sectionTemplateLayout = layoutInflater.inflate(R.layout.template_team_section, container, false)
 
-            sectionTemplateLayout.findViewById<TextView>(R.id.text_team_section_name).text = section.name
+            sectionTemplateLayout.findViewById<TextView>(R.id.text_team_section_name).text = section.sectionName.getValue(Locale.getDefault().language)
 
             val sectionLayout = sectionTemplateLayout.findViewById<LinearLayout>(R.id.linear_layout_section_team)
 

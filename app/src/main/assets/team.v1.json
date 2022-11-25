@@ -1,0 +1,238 @@
+{
+    "sections": [
+        {
+            "name": {
+                "cs": "Vývoj Apple aplikace",
+                "pl": "Rozwój aplikacji Apple",
+                "uk": "Розробка додатку для Apple",
+                "sk": "Vývoj Apple aplikácie",
+                "en": "iOS development"
+            },
+            "members": [
+                {
+                    "name": "Martin Kluska"
+                },
+                {
+                    "name": "Jakub Růžička"
+                },
+                {
+                    "name": "Daryna Meliš"
+                },
+                {
+                    "name": "Radek Pištělák"
+                }
+            ]
+        },
+        {
+            "name": {
+                "cs": "Vývoj Android aplikace",
+                "pl": "Rozwój aplikacji na Androida",
+                "uk": "Розробка додатку для Android",
+                "sk": "Vývoj Android aplikácie",
+                "en": "Android development"
+            },
+            "members": [
+                {
+                    "name": "Václav Chlumský"
+                },
+                {
+                    "name": "Ondřej Málek"
+                }
+            ]
+        },
+        {
+            "name": {
+                "cs": "Vývoj webu",
+                "pl": "Tworzenie stron internetowych",
+                "uk": "Веб-розробка",
+                "sk": "Vývoj webu",
+                "en": "Web development"
+            },
+            "members": [
+                {
+                    "name": "Oleg Antonyak"
+                },
+                {
+                    "name": "Juraj Uhlár"
+                },
+                {
+                    "name": "Bára Skálová"
+                },
+                {
+                    "name": "Marek Mego"
+                },
+                {
+                    "name": "Pavel Kalenský"
+                },
+                {
+                    "name": "Michael Kubín"
+                }
+            ]
+        },
+        {
+            "name": {
+                "cs": "Vedení projektu",
+                "pl": "Zarządzanie projektem",
+                "uk": "Управління проектом",
+                "sk": "Vedenie projektu",
+                "en": "Leadership"
+            },
+            "members": [
+                {
+                    "name": "Martin Hassman"
+                },
+                {
+                    "name": "Martina Krejčí"
+                },
+                {
+                    "name": "Tatiana Chytilová"
+                }
+            ]
+        },
+        {
+            "name": {
+                "cs": "Marketing",
+                "pl": "Marketing",
+                "uk": "Маркетинг",
+                "sk": "Marketing",
+                "en": "Marketing"
+            },
+            "members": [
+                {
+                    "name": "Kateřina Strakošová"
+                },
+                {
+                    "name": "Eva Došková"
+                },
+                {
+                    "name": "Stanislava Dovhunová"
+                },
+                {
+                    "name": "Lenka Kolisnyk"
+                },
+                {
+                    "name": "Monika Fabryová"
+                }
+            ]
+        },
+        {
+            "name": {
+                "cs": "Tvorba obsahu",
+                "pl": "Tworzenie treści",
+                "uk": "Створення контенту",
+                "sk": "Tvorba obsahu",
+                "en": "Content creation"
+            },
+            "members": [
+                {
+                    "name": "Tereza Javornická"
+                },
+                {
+                    "name": "Petr Illek"
+                },
+                {
+                    "name": "Alena Burneleit"
+                },
+                {
+                    "name": "Anna Lamberová"
+                },
+                {
+                    "name": "Silvia Potočná"
+                },
+                {
+                    "name": "Nikola Glatz"
+                },
+                {
+                    "name": "Roman Žydyk"
+                },
+                {
+                    "name": "Yevheniia Valova"
+                },
+                {
+                    "name": "Daniela Havrilová"
+                }
+            ]
+        },
+        {
+            "name": {
+                "cs": "UX tým",
+                "pl": "Zespół UX",
+                "uk": "Команда UX",
+                "sk": "UX tím",
+                "en": "UX team"
+            },
+            "members": [
+                {
+                    "name": "Valeriia Kuna"
+                },
+                {
+                    "name": "Martin Baránek"
+                }
+            ]
+        },
+        {
+            "name": {
+                "cs": "Testování",
+                "pl": "Testowanie",
+                "uk": "Тестування",
+                "sk": "Testovanie",
+                "en": "Testing"
+            },
+            "members": [
+                {
+                    "name": "Anna Popelková"
+                },
+                {
+                    "name": "Nina Belyavskaya"
+                },
+                {
+                    "name": "Magdaléna Morong"
+                },
+                {
+                    "name": "Milan Vachovec"
+                }
+            ]
+        },
+        {
+            "name": {
+                "cs": "Děkujeme týmu z České spořitelny",
+                "pl": "Dziękujemy zespołowi z Českiej spořitelny",
+                "uk": "Дякуємо команді банку Česká spořitelna",
+                "sk": "Ďakujeme tímu z Českej sporiteľne",
+                "en": "Thank you to the team from Česká spořitelna"
+            },
+            "members": [
+                {
+                    "name": "Ema Dolejšková"
+                },
+                {
+                    "name": "Rebeka Donné"
+                },
+                {
+                    "name": "Jan Jaroš"
+                },
+                {
+                    "name": "Filip Novák"
+                },
+                {
+                    "name": "Tomáš Selmeci"
+                },
+                {
+                    "name": "Anna Smékalová"
+                },
+                {
+                    "name": "Vlastimil Snopek"
+                },
+                {
+                    "name": "Vítězslav Studnička"
+                },
+                {
+                    "name": "Luboš Sytenský"
+                },
+                {
+                    "name": "Petr Tomášek"
+                }
+            ]
+        }
+    ]
+}
