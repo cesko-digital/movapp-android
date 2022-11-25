@@ -12,7 +12,7 @@
     <string name="about_version">Verzia: %1$s (%2$s)</string>
     <string name="country_flag">vlajka</string>
     <string name="play_transcription">prehrať zvuk</string>
-    <string name="i_want_learn">Chcem sa naučiť</string>
+    <string name="i_want_learn">Chcem sa naučiť po</string>
     <string name="settings">Nastavenia</string>
     <string name="ukrainian">ukrajinčina</string>
     <string name="czech">čeština</string>
@@ -20,11 +20,11 @@
     <string name="alphabet_czech">Česká abeceda</string>
     <string name="search_word">Hľadať slovíčko</string>
     <string name="title_settings">Nastavenia</string>
-    <string name="on_boarding_welcome">Vítajte v MOVAPP!</string>
+    <string name="on_boarding_welcome">Vitajte v MOVAPP!</string>
     <string name="on_boarding_exit">Začať sa učiť</string>
-    <string name="on_boarding_choice">Vyberte jazyk, ktorý se chcete naučit</string>
+    <string name="on_boarding_choice">Vyberte jazyk, ktorý sa chcete naučiť</string>
     <string name="on_boarding_info_1_title">Slovníček</string>
-    <string name="on_boarding_info_1_description">Naučte sa stovky základných slovíčok a frází čitaním i počúvaním. Slovíčka triedime  podľa životných situacií.</string>
+    <string name="on_boarding_info_1_description">Naučte sa stovky základných slovíčok a fráz čitaním i počúvaním. Slovíčka triedime  podľa životných situacií.</string>
     <string name="on_boarding_info_2_title">Abeceda</string>
     <string name="on_boarding_info_2_description">Naučte sa všetky znaky ukrajinskej cyriliky. Pomôžu  vám ukážkové slová.</string>
     <string name="on_boarding_info_3_title">Pre deti</string>
@@ -36,7 +36,7 @@
     <string name="alphabet_polish">Poľská abeceda</string>
     <string name="i_know">Rodný jazyk</string>
     <string name="on_boarding_info_0_title">Výborne!</string>
-    <string name="on_boarding_info_0_description">Poďme sa učiť po %1$s. Aplikáciu môžete používať aj offline pokiaľ nie ste pripojený k internetu.</string>
+    <string name="on_boarding_info_0_description">Poďme sa učiť po %1$s. Aplikáciu môžete používať aj offline, pokiaľ nie ste pripojený k internetu.</string>
     <string name="on_boarding_skip">Preskočiť</string>
     <string name="on_boarding_choice_native">Vyberte jazyk, ktorým hovoríte</string>
     <string name="on_boarding_info_3_description">Ilustrovaný dvojjazyčný slovníček s desiatkami kariet pre deti.</string>
