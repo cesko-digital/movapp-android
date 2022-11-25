@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.divider.MaterialDivider
-import cz.movapp.app.MainViewModel
 import cz.movapp.app.R
 import cz.movapp.app.databinding.FragmentAboutTeamBinding
 import java.util.Locale
@@ -30,6 +31,15 @@ class AboutTeamFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAboutTeamBinding.inflate(inflater, container, false)
+
+        binding.apply {
+            topAboutBar.navigationIcon = AppCompatResources
+                .getDrawable(requireContext(), R.drawable.ic_baseline_arrow_back_24)
+
+            topAboutBar.setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+        }
 
         for (section in teamViewModel.team.sections!!) {
             val sectionTemplateLayout = layoutInflater.inflate(R.layout.template_team_section, container, false)

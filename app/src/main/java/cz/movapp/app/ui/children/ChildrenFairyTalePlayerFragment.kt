@@ -15,6 +15,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.MediaPlayerForegroundService
@@ -424,7 +425,7 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
                 .getDrawable(requireContext(), R.drawable.ic_baseline_arrow_back_24)
 
             topPlayerBar.setNavigationOnClickListener {
-                activity?.onBackPressed()
+                findNavController().navigateUp()
             }
             topPlayerBar.title = requireContext().resources.getString(R.string.fairy_tales)
 
