@@ -50,16 +50,22 @@
             },
             "members": [
                 {
-                    "name": "Oleg Antonyak"
-                },
-                {
                     "name": "Juraj Uhlár"
                 },
                 {
-                    "name": "Bára Skálová"
+                    "name": "Marek Mego"
                 },
                 {
-                    "name": "Marek Mego"
+                    "name": "Yana Kliuchnikava"
+                },
+                {
+                    "name": "Nataliia Diak"
+                },
+                {
+                    "name": "Oleg Antonyak"
+                },
+                {
+                    "name": "Bára Skálová"
                 },
                 {
                     "name": "Pavel Kalenský"
@@ -82,10 +88,13 @@
                     "name": "Martin Hassman"
                 },
                 {
-                    "name": "Martina Krejčí"
+                    "name": "Tatiana Chytilová"
                 },
                 {
-                    "name": "Tatiana Chytilová"
+                    "name": "Lukáš Vražina"
+                },
+                {
+                    "name": "Martina Krejčí"
                 }
             ]
         },
@@ -99,16 +108,22 @@
             },
             "members": [
                 {
-                    "name": "Kateřina Strakošová"
+                    "name": "Eva Došková"
                 },
                 {
-                    "name": "Eva Došková"
+                    "name": "Lenka Kolisnyk"
+                },
+                {
+                    "name": "Veronika Uhrová"
+                },
+                {
+                    "name": "Adéla Bolváriová"
                 },
                 {
                     "name": "Stanislava Dovhunová"
                 },
                 {
-                    "name": "Lenka Kolisnyk"
+                    "name": "Kateřina Strakošová"
                 },
                 {
                     "name": "Monika Fabryová"
@@ -128,7 +143,13 @@
                     "name": "Tereza Javornická"
                 },
                 {
-                    "name": "Petr Illek"
+                    "name": "Silvia Potočná"
+                },
+                {
+                    "name": "Daniela Havrilová"
+                },
+                {
+                    "name": "Nikola Glatz"
                 },
                 {
                     "name": "Alena Burneleit"
@@ -137,19 +158,19 @@
                     "name": "Anna Lamberová"
                 },
                 {
-                    "name": "Silvia Potočná"
+                    "name": "Monika Pavlovičová"
                 },
                 {
-                    "name": "Nikola Glatz"
+                    "name": "Petra Císařová"
+                },
+                {
+                    "name": "Petr Illek"
                 },
                 {
                     "name": "Roman Žydyk"
                 },
                 {
                     "name": "Yevheniia Valova"
-                },
-                {
-                    "name": "Daniela Havrilová"
                 }
             ]
         },
@@ -162,6 +183,9 @@
                 "en": "UX team"
             },
             "members": [
+                {
+                    "name": "Marianna Babjaková"
+                },
                 {
                     "name": "Valeriia Kuna"
                 },

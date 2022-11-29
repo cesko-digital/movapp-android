@@ -434,6 +434,99 @@
 			]
 		},
 		{
+			"id": "recqnC9snZys7FgzS",
+			"name": {
+				"source": "Різдво",
+				"main": "Vianoce"
+			},
+			"description": "",
+			"phrases": [
+				"recWyob33NlCKpq10",
+				"rec68lfMAUIIJowq8",
+				"rec7kvYJNLMJFzMf1",
+				"recQj1ExpDAzBfDcy",
+				"recf4DVSB9mceTsBd",
+				"recgwGvq6m7AR99sr",
+				"recih5k6wTLD6Xv9s",
+				"recv89X7jX8Iwf09F",
+				"recs3XX0I0fDwalnv",
+				"recpK8OS5XiPEgYpd",
+				"rectbruDMuBi3Mqxz",
+				"recyVA8XPjCQIOTVi",
+				"recTkUeGYUpfJEds7",
+				"reco7brLi7RDHBau0",
+				"rec02QHQalXN9On9p",
+				"recxXgxVuH5vHaUvk",
+				"recOCIrslmLVmT2ut",
+				"receiSbxYGemRWmt7",
+				"recp8CBF01YlEc3xg",
+				"recmSyOM8Tfz77qkg",
+				"recMuV8tosHoqXy9B",
+				"recGaeJ6KiWFsSMPT",
+				"recZJsGCPzl8ni28r",
+				"recmFPxjd1UDZGiDU",
+				"recuMocfvwOmu5CHY",
+				"recJo9hzAqYUkGMLY",
+				"recKzCxlxVgPwLIhU",
+				"rec9oIhGq8IVHcsry",
+				"rec5Pj9k5N5X0Z6R1",
+				"recbyxYbbC6nLFYw3",
+				"receLQDzWWSlbS4mD",
+				"rec47cduzIxco4GRo",
+				"recWxedCvXaKw3sGO",
+				"recSSq1pZUmvqt8yq",
+				"recRsDfywFdlYYJCq",
+				"rec7KeUlBOAWIrSIR",
+				"recVGGsLWs6zWxnj1",
+				"reciZ3KZuK6EW6Xg7",
+				"recLnBOz0UA9l5cbf",
+				"recQKHUSPiHFTfd3t",
+				"reckR4dnQfouQaQbh",
+				"recRidDFfl7pFhRNZ",
+				"recVH6WAHY1j9NizB",
+				"rec8eQPt6NkUfjJpQ",
+				"reciHRsDCj5SKCBCf",
+				"recJVe5xNQwzWATi1",
+				"recRyBU0BoIYFir6j",
+				"rec7sye8VNvWXBAxA",
+				"recJPCpXwRHytsrfM",
+				"rec7vRNHL1TFnZKkU",
+				"rec5KDA9gUNE9ePpj",
+				"recVFqH8Iz7EVIlGY",
+				"recAPxu2jCA1vtIYu",
+				"rec3bSBNG8w5wVjAG",
+				"reckiq24mpjvZaOeW",
+				"recbrWSKCLV3Cyf0X",
+				"recOmNbPhx0LsbZG1",
+				"rec973z9MKRqIJk9S",
+				"reco6KQZYjez8jdcF",
+				"rec3WjJ91CUDcbksZ",
+				"rec9vGGjZMakBICoV",
+				"recxVb0gNoghbUNlt",
+				"rectta51sMjEqY1wF",
+				"recMFDORjxhHCp1xt",
+				"rec60D652cIUYyWpH",
+				"recPbB8N5bYBDwjU6",
+				"recsplDyVzQC1i3Ah",
+				"rec4GiSAYCaECyPnU",
+				"recrSSugNhBJi5W70",
+				"recE73RN1MVQUCIkU",
+				"reczm8QGLm9LFQMeD",
+				"recirBvGHGTZ1HEpS",
+				"reci5kIzVewOtAilw",
+				"recVTnorjZofO1JVQ",
+				"recou4RistdaOWEt5",
+				"reccQEgYNUGUDQhAX",
+				"rec77Ohc2JrsxZysT",
+				"recNOnjCRqPmTs6nB",
+				"recVKUfpPhZWWh0na",
+				"rec9UuGKkyoonJo2C",
+				"recV6n3zm7IWNTFYN",
+				"recewwnEEnSm3eq95",
+				"rece2wp8PVG7JdTfY"
+			]
+		},
+		{
 			"id": "rec3vxiILEpesIeUc",
 			"name": {
 				"source": "Покупки",
@@ -497,7 +590,8 @@
 				"recMWT3AseSv4vY8p",
 				"recgiVfcVlteOc8Ew",
 				"rec80iYCqDuSbPZRN",
-				"recLrOBLFkgQRGa2f"
+				"recLrOBLFkgQRGa2f",
+				"rec4KlaG8WcREnout"
 			]
 		},
 		{
@@ -1238,55 +1332,6 @@
 			]
 		},
 		{
-			"id": "recWXyM3QhgRpcGDK",
-			"name": {
-				"source": "Казки",
-				"main": "Rozprávky"
-			},
-			"description": "",
-			"phrases": [
-				"rec2SBHdtqSXECuMS",
-				"rec2qj5lal2UePof2",
-				"recCkNzYvObXmZvYP",
-				"rec0EBitb6XvVVEei",
-				"recMUstfsDnWsslnH",
-				"rec2OHQkeKpPJ688r",
-				"rec6evSrlWrjhbzKP",
-				"reclUl82kH14v46xc",
-				"recx9983KI4RZNBWA",
-				"recUpfJtSex3a93aq",
-				"recZz57fwF3pIJykq",
-				"recdiulkesef5wDqX",
-				"rec7qFn5h8IjljFuk",
-				"recLYI8wDdDQpyMqW",
-				"recBIe7fRk2F1nNpK",
-				"recLpM6ma8gvPscs5",
-				"recoUZyxDq4rQKIpP",
-				"reccKBSB1W4PR0u09",
-				"recSLXO4yz6B6Y0cW",
-				"rec5UVMOcRIIzL6tz",
-				"recdTaw25qxeHcwku",
-				"reciXHqo0DCIrudEo",
-				"recIZcZUCfpJSk2SD",
-				"recpZbiYEtkMxmvZI",
-				"recQD84m9BOiuCHeN",
-				"recrseQD8Hpqvvq1O",
-				"rec9rdUdiMGEpJovc",
-				"rec9slrSATvad8bpt",
-				"rec0BawldpimxsknB",
-				"rec3Hffm13BNJ5bMi",
-				"recXZLTBQlb3K6kiP",
-				"recqVj3Ixkr0pKgw1",
-				"recrtX2FsLn2kOw1g",
-				"recfD2aVuJ0JCG87U",
-				"recL3bfFbeyDBtzYF",
-				"recp4HJpxmQ3OpAew",
-				"recsDZBpKubRlHTnZ",
-				"recD5cEmkWxrf6Jna",
-				"recRM1iPu8yXoi6jd"
-			]
-		},
-		{
 			"id": "recLJQpwwnjeFEAGE",
 			"name": {
 				"source": "Квітковий луг",
@@ -1340,6 +1385,79 @@
 			]
 		},
 		{
+			"id": "rec0Web8t9flE9V4Y",
+			"name": {
+				"source": "Психічне здоров'я",
+				"main": "Duševné zdravie"
+			},
+			"description": "",
+			"phrases": [
+				"rec76udD04HQT4n19",
+				"recTye0pOW1G5xj3C",
+				"recmM71fYRuRRbT8L",
+				"rectHV5sIJKrfjvmq",
+				"recnta8pKQsEFAE6S",
+				"recjtbPJ90vi9Kr7B",
+				"recLPyONfRabxe4MC",
+				"rec7s40OtiUm6SZnC",
+				"recCjc39qQvsWqxQf",
+				"recuTpisPYUTHoE0d",
+				"recy7F95Ik2KEtR5K",
+				"recZMUQhakL9xovjI",
+				"recOdOx0m12THwLB4",
+				"rech506VZfFczCtfy",
+				"recjJxNHUpN7u0n0d",
+				"reczLKs3I4PCCg2Da",
+				"rec5yjm6R8xylf6ZJ",
+				"recmpPg9ZzyRPbX6Y",
+				"recajPb1fgKPSTstp",
+				"recGuSMRlD9Kc834m",
+				"recsMrMU4ILeZ0hB4",
+				"recZw87JMW1euJOVI",
+				"rec6inNKlZPSdYLif",
+				"recItgnXOmHeHsTye",
+				"recZq9m7JPNT0QljJ",
+				"rec7urHsM7c9Xq4ox",
+				"recbhKi6Lo3uOyBb1",
+				"rec0s4do2FX0Y06d0",
+				"rec1baJT4PRDkMyFP",
+				"rec3GlpUSpiUWZWxE",
+				"rec7O2mGOHf3nTyYH",
+				"rec4sFV0Ui14TKnAD",
+				"recgE9CISu87980bJ",
+				"recaQNGkCM0eB67Sk",
+				"recm6yYlLSjzlr78G",
+				"recH681qGVoRhcnhy",
+				"recR1jZanuLZZhY2o",
+				"recs5nLHQ59zRek8f",
+				"recYV5emZxrmWpxyV",
+				"recRYTayMlBcWRE5L",
+				"recAtudDA96q3ko9g",
+				"recQdOBNRIAQXtKGV",
+				"reczOo9hsUWUXIhlW",
+				"recuh8R3KPmE7Fl4i",
+				"rec672bEyrddE9iBg",
+				"reciEVzM54ONnXSvU",
+				"recyqlDAsHSjwnLyV",
+				"recs0GUt1o0UaKlLt",
+				"recRmeHxLRqkUB6OB",
+				"recmsCKRZYHwYKZhk",
+				"recahskNRpM813Wrx",
+				"recWJUZcEUgUAkPtE",
+				"recjIEC0nKlYEmNOa",
+				"recsriigWaIncboBK",
+				"recxueScWY2gqGJjL",
+				"recsLKCUmDAsRpTsT",
+				"recNLsSjGcElVfXsi",
+				"rech68C4NuNoaavQi",
+				"recvrkjniJn8A5q19",
+				"reczKeYhbv3yrlvse",
+				"recNiBDQjfVLmSgs7",
+				"recqbQLS7vmbg4Yry",
+				"recD2Bj5AjzV2i1tU"
+			]
+		},
+		{
 			"id": "rec5pSqOpMVxoSnGt",
 			"name": {
 				"source": "Слова із іншим значенням",
@@ -1390,6 +1508,55 @@
 			]
 		},
 		{
+			"id": "recWXyM3QhgRpcGDK",
+			"name": {
+				"source": "Казки",
+				"main": "Rozprávky"
+			},
+			"description": "",
+			"phrases": [
+				"rec2SBHdtqSXECuMS",
+				"rec2qj5lal2UePof2",
+				"recCkNzYvObXmZvYP",
+				"rec0EBitb6XvVVEei",
+				"recMUstfsDnWsslnH",
+				"rec2OHQkeKpPJ688r",
+				"rec6evSrlWrjhbzKP",
+				"reclUl82kH14v46xc",
+				"recx9983KI4RZNBWA",
+				"recUpfJtSex3a93aq",
+				"recZz57fwF3pIJykq",
+				"recdiulkesef5wDqX",
+				"rec7qFn5h8IjljFuk",
+				"recLYI8wDdDQpyMqW",
+				"recBIe7fRk2F1nNpK",
+				"recLpM6ma8gvPscs5",
+				"recoUZyxDq4rQKIpP",
+				"reccKBSB1W4PR0u09",
+				"recSLXO4yz6B6Y0cW",
+				"rec5UVMOcRIIzL6tz",
+				"recdTaw25qxeHcwku",
+				"reciXHqo0DCIrudEo",
+				"recIZcZUCfpJSk2SD",
+				"recpZbiYEtkMxmvZI",
+				"recQD84m9BOiuCHeN",
+				"recrseQD8Hpqvvq1O",
+				"rec9rdUdiMGEpJovc",
+				"rec9slrSATvad8bpt",
+				"rec0BawldpimxsknB",
+				"rec3Hffm13BNJ5bMi",
+				"recXZLTBQlb3K6kiP",
+				"recqVj3Ixkr0pKgw1",
+				"recrtX2FsLn2kOw1g",
+				"recfD2aVuJ0JCG87U",
+				"recL3bfFbeyDBtzYF",
+				"recp4HJpxmQ3OpAew",
+				"recsDZBpKubRlHTnZ",
+				"recD5cEmkWxrf6Jna",
+				"recRM1iPu8yXoi6jd"
+			]
+		},
+		{
 			"id": "recSHyEn6N0hAqUBp",
 			"name": {
 				"source": "Для дітей",
@@ -1437,7 +1604,31 @@
 				"rec3Hffm13BNJ5bMi",
 				"rec2OHQkeKpPJ688r",
 				"recrseQD8Hpqvvq1O",
-				"recIZcZUCfpJSk2SD"
+				"recIZcZUCfpJSk2SD",
+				"recOCIrslmLVmT2ut",
+				"recJVe5xNQwzWATi1",
+				"reco6KQZYjez8jdcF",
+				"recJ9TuZWGvww8mIp",
+				"rec3hG92mhDkULEfD",
+				"recv89X7jX8Iwf09F",
+				"recOao7pKXo04u7O1",
+				"rec60D652cIUYyWpH",
+				"recR4Vqf9KlqaqCwn",
+				"rec5Pj9k5N5X0Z6R1",
+				"recrduHLaEfSQa8CX",
+				"recp8CBF01YlEc3xg",
+				"recbyxYbbC6nLFYw3",
+				"recPbB8N5bYBDwjU6",
+				"recVFqH8Iz7EVIlGY",
+				"receLQDzWWSlbS4mD",
+				"rec6RP9wpzXXpILgH",
+				"recQ5kaqoPXEHPHuG",
+				"recnADUA1Zebi1MW0",
+				"rec7vRNHL1TFnZKkU",
+				"recnA9Gyw7cjfLP9P",
+				"recgvZcaNRhcuBrh7",
+				"recImXElgMOwRxnyu",
+				"rec68lfMAUIIJowq8"
 			]
 		}
 	],
@@ -14165,6 +14356,902 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/e/ea1151151c688354e09143de33f1fe70.mp3",
 				"translation": "словацька мова",
 				"transcription": "slovacka mova"
+			},
+			"image_url": null
+		},
+		"rec4KlaG8WcREnout": {
+			"id": "rec4KlaG8WcREnout",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/05a3fba6562baf0c13fb78e86d52c91c.mp3",
+				"translation": "tekvica",
+				"transcription": "теквіца"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/3d77e8ce728320e28586a9858a07b0a4.mp3",
+				"translation": "гарбуз",
+				"transcription": "harbuz"
+			},
+			"image_url": null
+		},
+		"rec76udD04HQT4n19": {
+			"id": "rec76udD04HQT4n19",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d152c53ef3ee93c8d8413d013583367c.mp3",
+				"translation": "psychiater",
+				"transcription": "психіатер"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b88857c247b2dd09f247242dd0fe3478.mp3",
+				"translation": "психіатр",
+				"transcription": "psychiatr"
+			},
+			"image_url": null
+		},
+		"recTye0pOW1G5xj3C": {
+			"id": "recTye0pOW1G5xj3C",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/834e08cc9bb128f6b44e36f6915908ef.mp3",
+				"translation": "psychológ",
+				"transcription": "психолоґ"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/996ec7470cb8fa7410cd7021c48b6a30.mp3",
+				"translation": "психолог",
+				"transcription": "psycholoh"
+			},
+			"image_url": null
+		},
+		"recmM71fYRuRRbT8L": {
+			"id": "recmM71fYRuRRbT8L",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/acfca8ddb9cf35a16558576e8635f402.mp3",
+				"translation": "psychoterapeut",
+				"transcription": "психотерапеут"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/ae45833aec6bd61e03b0ad55b37559eb.mp3",
+				"translation": "психотерапевт",
+				"transcription": "psychoterapevt"
+			},
+			"image_url": null
+		},
+		"rectHV5sIJKrfjvmq": {
+			"id": "rectHV5sIJKrfjvmq",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/0c52eb5df3e63771cb8d1adbb3ff7065.mp3",
+				"translation": "psychoterapia",
+				"transcription": "психотерапіа"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c97c01ac920232e73a4862d0416bf818.mp3",
+				"translation": "психотерапія",
+				"transcription": "psychoterapija"
+			},
+			"image_url": null
+		},
+		"recnta8pKQsEFAE6S": {
+			"id": "recnta8pKQsEFAE6S",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d0c7a3e43c7d940faaaba6246cb954ff.mp3",
+				"translation": "duševné zdravie",
+				"transcription": "душевне здравіе"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/128a8db9219e8099ddf5fa64f780c23d.mp3",
+				"translation": "психічне здоров'я",
+				"transcription": "psychične zdorov'ja"
+			},
+			"image_url": null
+		},
+		"recjtbPJ90vi9Kr7B": {
+			"id": "recjtbPJ90vi9Kr7B",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/46751a812e2be71608e29c9b66cbe812.mp3",
+				"translation": "terapia",
+				"transcription": "терапіа"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/8/88899644ce703636efa57e17692106fd.mp3",
+				"translation": "терапія",
+				"transcription": "terapija"
+			},
+			"image_url": null
+		},
+		"recLPyONfRabxe4MC": {
+			"id": "recLPyONfRabxe4MC",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/2d5538695d09c9a2e423a07490e47ced.mp3",
+				"translation": "depresia",
+				"transcription": "депресіа"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/ba77f5f614cae6f307e0b7949e1935be.mp3",
+				"translation": "депресія",
+				"transcription": "depresija"
+			},
+			"image_url": null
+		},
+		"rec7s40OtiUm6SZnC": {
+			"id": "rec7s40OtiUm6SZnC",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7542e714f1b622291138e0e635ca1a2d.mp3",
+				"translation": "úzkosť",
+				"transcription": "узкость"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/753cec124eed1be9b66db66cd384c8f5.mp3",
+				"translation": "тривожність",
+				"transcription": "tryvožnisť"
+			},
+			"image_url": null
+		},
+		"recCjc39qQvsWqxQf": {
+			"id": "recCjc39qQvsWqxQf",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/f/ff2ab9dbdd921c1223574e4b99a723e7.mp3",
+				"translation": "obavy",
+				"transcription": "обави"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e7e63b4786e9fc996cd966e87fa4b1b6.mp3",
+				"translation": "хвилювання",
+				"transcription": "chvyljuvannja"
+			},
+			"image_url": null
+		},
+		"recy7F95Ik2KEtR5K": {
+			"id": "recy7F95Ik2KEtR5K",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d4579d08fa6d3913581fc52a1370c7e2.mp3",
+				"translation": "nočné mory",
+				"transcription": "ночне мори"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/6b568b46d0de8f19efbd89f529f09940.mp3",
+				"translation": "нічні жахи",
+				"transcription": "nični žachy"
+			},
+			"image_url": null
+		},
+		"recZMUQhakL9xovjI": {
+			"id": "recZMUQhakL9xovjI",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/b/bb919635430dfb6d0108d7ac6adae029.mp3",
+				"translation": "samota",
+				"transcription": "самота"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/babe7b9f90e30e7d55fc3db421357030.mp3",
+				"translation": "ізоляція",
+				"transcription": "izoljacija"
+			},
+			"image_url": null
+		},
+		"recOdOx0m12THwLB4": {
+			"id": "recOdOx0m12THwLB4",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1ddd120eb8c745ae0a033ae7a179abbb.mp3",
+				"translation": "smútok",
+				"transcription": "смуток"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b64652ea9ce2a03c9467053d62e15c7f.mp3",
+				"translation": "печаль",
+				"transcription": "pečal"
+			},
+			"image_url": null
+		},
+		"rech506VZfFczCtfy": {
+			"id": "rech506VZfFczCtfy",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/508c877ca3534c25973aa6b19e37d8a7.mp3",
+				"translation": "plač",
+				"transcription": "плач"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/af6bb4e27aa4f66d22952a10e8e2e95d.mp3",
+				"translation": "плач",
+				"transcription": "plač"
+			},
+			"image_url": null
+		},
+		"recjJxNHUpN7u0n0d": {
+			"id": "recjJxNHUpN7u0n0d",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/2cade5189c8175282e45bcf1564fa260.mp3",
+				"translation": "oddych",
+				"transcription": "оддих"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/d/dcc08d9c46f97e682751cfdfc39b6337.mp3",
+				"translation": "відпочинок",
+				"transcription": "vidpočynok"
+			},
+			"image_url": null
+		},
+		"reczLKs3I4PCCg2Da": {
+			"id": "reczLKs3I4PCCg2Da",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/845b4d9f44853c97018e39a42503d49a.mp3",
+				"translation": "objať",
+				"transcription": "обять"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/20cce0f4ba1f2630c148963518de0727.mp3",
+				"translation": "обняти",
+				"transcription": "obnjaty"
+			},
+			"image_url": null
+		},
+		"rec5yjm6R8xylf6ZJ": {
+			"id": "rec5yjm6R8xylf6ZJ",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/4cfd0f42afc64d52de1a7b534714e04d.mp3",
+				"translation": "prechádzka",
+				"transcription": "прехадзка"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1b88f93e5e9d8a824d33bdddc24daf33.mp3",
+				"translation": "прогулянка",
+				"transcription": "prohuljanka"
+			},
+			"image_url": null
+		},
+		"recmpPg9ZzyRPbX6Y": {
+			"id": "recmpPg9ZzyRPbX6Y",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/a434e22da3f937db37a556b61f180a62.mp3",
+				"translation": "podpora",
+				"transcription": "подпора"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/676555262a7e118f7682d38bdf79d1e8.mp3",
+				"translation": "підтримка",
+				"transcription": "pidtrymka"
+			},
+			"image_url": null
+		},
+		"recajPb1fgKPSTstp": {
+			"id": "recajPb1fgKPSTstp",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/3fdbb1d4dc9ed84b4d43fcde2fe04c70.mp3",
+				"translation": "antidepresíva",
+				"transcription": "антідепресіва"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/59d4536471f5ae0ecfa68d28d4dbbd07.mp3",
+				"translation": "антидепресанти",
+				"transcription": "antydepresanty"
+			},
+			"image_url": null
+		},
+		"recGuSMRlD9Kc834m": {
+			"id": "recGuSMRlD9Kc834m",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/272bf96e3f33156186c65d274360c4a7.mp3",
+				"translation": "Som často smutný. Som často smutná.",
+				"transcription": "Сом часто смутни Сом часто смутна."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b1d308e40acac4150b46f08f7b340fe7.mp3",
+				"translation": "Я часто сумую.",
+				"transcription": "Ja často sumuju"
+			},
+			"image_url": null
+		},
+		"recsMrMU4ILeZ0hB4": {
+			"id": "recsMrMU4ILeZ0hB4",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/9b49dbd6ccf88e4d194ffb7acf1d65a3.mp3",
+				"translation": "Necítim sa psychicky dobre.",
+				"transcription": "Нецітім са психіцки добре"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/05b23fb843c9b338b27510632a9acca0.mp3",
+				"translation": "Погано себе почуваю психічно.",
+				"transcription": "Pohano sebe počuvaju psychično"
+			},
+			"image_url": null
+		},
+		"recZw87JMW1euJOVI": {
+			"id": "recZw87JMW1euJOVI",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/606bd1f89b51cead7ff072aa9a4c2c40.mp3",
+				"translation": "Mám nočné mory.",
+				"transcription": "Мам ночне мори"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/6b529da3a43ffe6e65f68c06756c2a8f.mp3",
+				"translation": "Маю нічні жахи.",
+				"transcription": "Maju nični žachy"
+			},
+			"image_url": null
+		},
+		"rec6inNKlZPSdYLif": {
+			"id": "rec6inNKlZPSdYLif",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/b/b0b5679a1e6cca3e6df09a90b645e2b0.mp3",
+				"translation": "Chce sa mi často plakať.",
+				"transcription": "Хце са мі часто плакать"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/756add925e00f8a4334efcce7d83a3a1.mp3",
+				"translation": "Часто мені хочеться плакати.",
+				"transcription": "Často meni chočeťsja plakaty"
+			},
+			"image_url": null
+		},
+		"recItgnXOmHeHsTye": {
+			"id": "recItgnXOmHeHsTye",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/eea140d09c4b08deab55f2ada9863d8d.mp3",
+				"translation": "Cítim úzkosť.",
+				"transcription": "Цітім узкость"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c8c1c6206a89a864a6e7247159f434cd.mp3",
+				"translation": "Відчуваю тривожність.",
+				"transcription": "Vidčuvaju tryvožnisť"
+			},
+			"image_url": null
+		},
+		"recZq9m7JPNT0QljJ": {
+			"id": "recZq9m7JPNT0QljJ",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/665f2ee38ec367149dd8e1e3550b58f1.mp3",
+				"translation": "Cítim sa osamelý. Cítim sa osamelá.",
+				"transcription": "Цітім са осамели Цітім са осамела."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/cbf5aa9eab86061b602f1dc26ad09d33.mp3",
+				"translation": "Відчуваю себе в ізоляції.",
+				"transcription": "Vidčuvaju sebe v izoljaciji"
+			},
+			"image_url": null
+		},
+		"rec7urHsM7c9Xq4ox": {
+			"id": "rec7urHsM7c9Xq4ox",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/d/d0b16fc1f6bdd606eae00a876ddf0708.mp3",
+				"translation": "Často sa mi objavujú obavy a strachy.",
+				"transcription": "Часто са мі обявую обави а страхи"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/69cf6e4f56e7e72c6439a6c0c9538329.mp3",
+				"translation": "У мене часто виникають хвилювання та страхи.",
+				"transcription": "U mene často vynykajuť chvyljuvannja ta strachy"
+			},
+			"image_url": null
+		},
+		"recbhKi6Lo3uOyBb1": {
+			"id": "recbhKi6Lo3uOyBb1",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/e245c089a07b08f95ed3442c1d9b2105.mp3",
+				"translation": "Potrebujem si odpočinúť.",
+				"transcription": "Потребуєм сі одпочінуть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7a3d8ee1dca32e9bbd0c643a08124b9c.mp3",
+				"translation": "Мені потрібно відпочити.",
+				"transcription": "Meni potribno vidpočyty"
+			},
+			"image_url": null
+		},
+		"rec0s4do2FX0Y06d0": {
+			"id": "rec0s4do2FX0Y06d0",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/36bf43f973d524d645ea458b30aca196.mp3",
+				"translation": "Mám pocit, že mi nikto nerozumie.",
+				"transcription": "Мам поціт, же мі нікто нерозуміе"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7fecb0ccaee5fde6a1238af6b03adc6d.mp3",
+				"translation": "В мене відчуття, що мене ніхто не розуміє.",
+				"transcription": "V mene vidčutťa, ščo mene nichto ne rozumije"
+			},
+			"image_url": null
+		},
+		"rec1baJT4PRDkMyFP": {
+			"id": "rec1baJT4PRDkMyFP",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/2acbf60bb12859ea112752bf3dd07ed7.mp3",
+				"translation": "Nie som šťastný. Nie som šťastná.",
+				"transcription": "Ніе сом штястни Ніе сом штястна."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/50c1f4d8bb5c68728eb3fbf4a5e04489.mp3",
+				"translation": "Я нещасний. Я нещасна.",
+				"transcription": "Ja neščasnyj Ja neščasna."
+			},
+			"image_url": null
+		},
+		"rec3GlpUSpiUWZWxE": {
+			"id": "rec3GlpUSpiUWZWxE",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/68533306c89748dd947fc36aacc6b8ba.mp3",
+				"translation": "Nemôžem spať.",
+				"transcription": "Немyoжем спать"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7956ce2c6e13de353ac6222e5207f63f.mp3",
+				"translation": "Не можу спати",
+				"transcription": "Ne možu spaty"
+			},
+			"image_url": null
+		},
+		"rec7O2mGOHf3nTyYH": {
+			"id": "rec7O2mGOHf3nTyYH",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/9cf528db273f9d55a04d03d80aec7fd6.mp3",
+				"translation": "Nemôžem plakať.",
+				"transcription": "Немyoжем плакать"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/44d9897ba0a9a81c8c55177e4a649448.mp3",
+				"translation": "Не можу плакати",
+				"transcription": "Ne možu plakaty"
+			},
+			"image_url": null
+		},
+		"rec4sFV0Ui14TKnAD": {
+			"id": "rec4sFV0Ui14TKnAD",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/4b5512c3b9a1e0d559db02ba4e7c4c09.mp3",
+				"translation": "Nemám chuť do jedla.",
+				"transcription": "Немам хуть до єдла"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1ab79ac0f4756a33b4d4849d88c230fa.mp3",
+				"translation": "У мене немає апетиту",
+				"transcription": "U mene nemaje apetytu"
+			},
+			"image_url": null
+		},
+		"recgE9CISu87980bJ": {
+			"id": "recgE9CISu87980bJ",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1624b71cd72b4c85f316bfaf8da05c3c.mp3",
+				"translation": "Nechcem o tom hovoriť.",
+				"transcription": "Нехцем о том говоріть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/cce4771fd17a678b4a456e0699075926.mp3",
+				"translation": "Не хочу про це говорити",
+				"transcription": "Ne choču pro ce hovoryty"
+			},
+			"image_url": null
+		},
+		"recaQNGkCM0eB67Sk": {
+			"id": "recaQNGkCM0eB67Sk",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/3bd69c87e17a14aeaf7c1eb0e57a53d3.mp3",
+				"translation": "Potrebujem objať.",
+				"transcription": "Потребуєм обять"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/9e216b4745835a609e8c204fe52b3c08.mp3",
+				"translation": "Мені потрібні обійми.",
+				"transcription": "Meni potribni obijmy"
+			},
+			"image_url": null
+		},
+		"recm6yYlLSjzlr78G": {
+			"id": "recm6yYlLSjzlr78G",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/194c3683c65792bf19784860ae2328a2.mp3",
+				"translation": "Nemusíš byť na to sám. Nemusíš na to byť sama.",
+				"transcription": "Немусіш бить на то сам Немусіш на то бить сама."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/cdf4ac8c71ad9a06111c745d6c35a3e1.mp3",
+				"translation": "Не обов'язково бути на самоті.",
+				"transcription": "Ne obov'jazkovo buty na samoti"
+			},
+			"image_url": null
+		},
+		"recH681qGVoRhcnhy": {
+			"id": "recH681qGVoRhcnhy",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c9c751250e17078e1c2c92be37b34e29.mp3",
+				"translation": "Chceš sa porozprávať o tom, čo cítiš?",
+				"transcription": "Хцеш са порозправать о том, чо цітіш"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e553fedd40621435e20cb32f529ea232.mp3",
+				"translation": "Хочеш поговорити про те, що відчуваєш?",
+				"transcription": "Chočeš pohovoryty pro te, ščo vidčuvaješ"
+			},
+			"image_url": null
+		},
+		"recR1jZanuLZZhY2o": {
+			"id": "recR1jZanuLZZhY2o",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/8b0209765e852ab17eb2fd3b1aa1fd04.mp3",
+				"translation": "Som tu pre teba.",
+				"transcription": "Сом ту пре теба"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/11d77a95c04c4a32cdac890d595f84fa.mp3",
+				"translation": "Я тут для тебе.",
+				"transcription": "Ja tut dlja tebe"
+			},
+			"image_url": null
+		},
+		"recs5nLHQ59zRek8f": {
+			"id": "recs5nLHQ59zRek8f",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/cc1b0202816164e05d716da84bc07fd2.mp3",
+				"translation": "Môžeš si skúsiť nájsť odbornú pomoc.",
+				"transcription": "Мyoжеш сі скусіть найсть одборну помоц"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a33207b220f5f064043ce02058086c81.mp3",
+				"translation": "Можеш спробувати знайти професійну допомогу.",
+				"transcription": "Možeš sprobuvaty znajty profesijnu dopomohu"
+			},
+			"image_url": null
+		},
+		"recYV5emZxrmWpxyV": {
+			"id": "recYV5emZxrmWpxyV",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/87c83b76b97001ae067b664a1db8408a.mp3",
+				"translation": "ísť na prechádzku",
+				"transcription": "ість на прехадзку"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1c4691c9fce71c60f87f6fcf3003e628.mp3",
+				"translation": "йти на прогулянку",
+				"transcription": "jty na prohuljanku"
+			},
+			"image_url": null
+		},
+		"recRYTayMlBcWRE5L": {
+			"id": "recRYTayMlBcWRE5L",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/19831a7c6849035c90efcf49c6d65f4d.mp3",
+				"translation": "písať si denník",
+				"transcription": "пісать сі деннік"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/8/857f15896aef39584f8835709149bdad.mp3",
+				"translation": "вести щоденник",
+				"transcription": "vesty ščodennyk"
+			},
+			"image_url": null
+		},
+		"recAtudDA96q3ko9g": {
+			"id": "recAtudDA96q3ko9g",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/8970f44d71f11d5ea79a90fb253ba01c.mp3",
+				"translation": "radosť",
+				"transcription": "радость"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/07fce4a660615d034ead5e6ea1c92c9c.mp3",
+				"translation": "радість",
+				"transcription": "radisť"
+			},
+			"image_url": null
+		},
+		"recQdOBNRIAQXtKGV": {
+			"id": "recQdOBNRIAQXtKGV",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1b2f6ee52397ed153a2a2bcdbe1cc09d.mp3",
+				"translation": "pochopenie",
+				"transcription": "похопеніе"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/69ace01eaf25f4bd8bbd3d66d42ab494.mp3",
+				"translation": "розуміння",
+				"transcription": "rozuminnja"
+			},
+			"image_url": null
+		},
+		"reczOo9hsUWUXIhlW": {
+			"id": "reczOo9hsUWUXIhlW",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/10fc49a60d4efbbb1776b972353e7a67.mp3",
+				"translation": "starostlivosť",
+				"transcription": "старостлівость"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/49e87d87ded27edff6617189cf0340b5.mp3",
+				"translation": "догляд",
+				"transcription": "dohljad"
+			},
+			"image_url": null
+		},
+		"recuh8R3KPmE7Fl4i": {
+			"id": "recuh8R3KPmE7Fl4i",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/a/ab2b0766cb8a1d46c72cabb618a963af.mp3",
+				"translation": "rada",
+				"transcription": "рада"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/5097f7f4b1da9ebd5e945e028c5df3de.mp3",
+				"translation": "порада",
+				"transcription": "porada"
+			},
+			"image_url": null
+		},
+		"rec672bEyrddE9iBg": {
+			"id": "rec672bEyrddE9iBg",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/59c6d918396b9782ea72f3414bc7615f.mp3",
+				"translation": "poradiť",
+				"transcription": "порадіть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/4ff4af1d887916555b5cfd9edcaf391e.mp3",
+				"translation": "дати пораду",
+				"transcription": "daty poradu"
+			},
+			"image_url": null
+		},
+		"reciEVzM54ONnXSvU": {
+			"id": "reciEVzM54ONnXSvU",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/eb7412a83f0d44081865baed05dde39e.mp3",
+				"translation": "zdieľať",
+				"transcription": "здіельать"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a24b833b9ab1b1220b19ae28d055b286.mp3",
+				"translation": "поділитися",
+				"transcription": "podilytysja"
+			},
+			"image_url": null
+		},
+		"recyqlDAsHSjwnLyV": {
+			"id": "recyqlDAsHSjwnLyV",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/4d8bdf6a51c2e03fbb941a6d213af6c2.mp3",
+				"translation": "zdieľanie",
+				"transcription": "здіельаніе"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a7a8139b92bc1cf6e6740e8f5e887441.mp3",
+				"translation": "обмін (думками)",
+				"transcription": "obmin (dumkamy)"
+			},
+			"image_url": null
+		},
+		"recs0GUt1o0UaKlLt": {
+			"id": "recs0GUt1o0UaKlLt",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/254a25b0091183f7079046e4d50cc587.mp3",
+				"translation": "Som šťastný. Som šťastná.",
+				"transcription": "Сом штястни Сом штястна."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/65bfaa6d878dbe9a8babb9a6c0040e7e.mp3",
+				"translation": "Я щасливий. Я щаслива.",
+				"transcription": "Ja ščaslyvyj Ja ščaslyva."
+			},
+			"image_url": null
+		},
+		"recRmeHxLRqkUB6OB": {
+			"id": "recRmeHxLRqkUB6OB",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/9/9be5732fda87c5b964e2171334ab170e.mp3",
+				"translation": "Mám rád... Mám rada...",
+				"transcription": "Мам рад.. Мам рада..."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1a8be98f8790f72c63e9e4710c002e88.mp3",
+				"translation": "Мені подобається...",
+				"transcription": "Meni podobajeťsja.."
+			},
+			"image_url": null
+		},
+		"recmsCKRZYHwYKZhk": {
+			"id": "recmsCKRZYHwYKZhk",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/8a5cc8223578ef1703fb2c87d3b91d7e.mp3",
+				"translation": "Co Ti udělá radost?",
+				"transcription": "Цо Ті удєла радост"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/cd4d47586e23b15ba57e17c8c5042e8c.mp3",
+				"translation": "Що тобі принесе радість?",
+				"transcription": "Ščo tobi prynese radisť"
+			},
+			"image_url": null
+		},
+		"recahskNRpM813Wrx": {
+			"id": "recahskNRpM813Wrx",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/68c3e778b1bc4334fad1044b1288e953.mp3",
+				"translation": "Rozumiem ti!",
+				"transcription": "Розуміем ті"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/5a09722e10738fecb1b6a69a1f8715b8.mp3",
+				"translation": "Я тебе розумію!",
+				"transcription": "Ja tebe rozumiju"
+			},
+			"image_url": null
+		},
+		"recWJUZcEUgUAkPtE": {
+			"id": "recWJUZcEUgUAkPtE",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/7c707ea83b359fd531be0109b3201c65.mp3",
+				"translation": "Čo máš rád? Čo máš rada?",
+				"transcription": "Чо маш рад Чо маш рада?"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/5fe3c0777770eccc3503217e5ce2b8b1.mp3",
+				"translation": "Що тобі подобається?",
+				"transcription": "Ščo tobi podobajeťsja"
+			},
+			"image_url": null
+		},
+		"recjIEC0nKlYEmNOa": {
+			"id": "recjIEC0nKlYEmNOa",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/071de35dcce625c56ecc588a0766d60a.mp3",
+				"translation": "Kedy sa cítiš šťastný? Kedy se cítiš šťastná?",
+				"transcription": "Кеди са цітіш штястни Кеди се цітіш штястна?"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b314bc8f173da40ade3e5ed2a276f992.mp3",
+				"translation": "Коли ти почуваєш себе щасливим? Коли ти почуваєш себе щасливою?",
+				"transcription": "Koly ty počuvaješ sebe ščaslyvym Koly ty počuvaješ sebe ščaslyvoju?"
+			},
+			"image_url": null
+		},
+		"recsriigWaIncboBK": {
+			"id": "recsriigWaIncboBK",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/ce9ebd9139da27bf29b53865b65af04d.mp3",
+				"translation": "Aké slová ti prídu na um, keď poviem...",
+				"transcription": "Аке слова ті пріду на ум, кедь повіем.."
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/d/d57136014778fa65b3729fddb98ac49e.mp3",
+				"translation": "Які слова тобі спадають на думку, коли я кажу...",
+				"transcription": "Jaki slova tobi spadajuť na dumku, koly ja kažu.."
+			},
+			"image_url": null
+		},
+		"recxueScWY2gqGJjL": {
+			"id": "recxueScWY2gqGJjL",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/2a6096148e105f0168795da66e998499.mp3",
+				"translation": "Po kom sa ti cnie?",
+				"transcription": "По ком са ті цніе"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/52ea20c99e8aca02baba42adb8af5479.mp3",
+				"translation": "За ким ти сумуєш?",
+				"transcription": "Za kym ty sumuješ"
+			},
+			"image_url": null
+		},
+		"recsLKCUmDAsRpTsT": {
+			"id": "recsLKCUmDAsRpTsT",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/3a6c2714dabe58a28cec3c2cb055132c.mp3",
+				"translation": "Po čom sa ti cnie?",
+				"transcription": "По чом са ті цніе"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/cd28c95fb989bee9eb8e52ba6cf53013.mp3",
+				"translation": "За чим ти сумуєш?",
+				"transcription": "Za čym ty sumuješ"
+			},
+			"image_url": null
+		},
+		"recNLsSjGcElVfXsi": {
+			"id": "recNLsSjGcElVfXsi",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/5/5e904ecc10232b2fa54722ccd93b1722.mp3",
+				"translation": "Koho máš tu?",
+				"transcription": "Кого маш ту"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/56474cf97aaca445a4f6c8e02274f52c.mp3",
+				"translation": "Хто у тебе тут є?",
+				"transcription": "Chto u tebe tut je"
+			},
+			"image_url": null
+		},
+		"rech68C4NuNoaavQi": {
+			"id": "rech68C4NuNoaavQi",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/2/209b59985550db50efb22bbdff279022.mp3",
+				"translation": "Čo máš tu?",
+				"transcription": "Чо маш ту"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/d/d8b12ceb6fa05956b1a60f552c50b852.mp3",
+				"translation": "Що у тебе тут є?",
+				"transcription": "Ščo u tebe tut je"
+			},
+			"image_url": null
+		},
+		"recvrkjniJn8A5q19": {
+			"id": "recvrkjniJn8A5q19",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/b/bcdb4d49dd14c37661ff195ed0b1028a.mp3",
+				"translation": "Čo pekné sa ti dnes stalo?",
+				"transcription": "Чо пекне са ті днес стало"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/3fc3408483f31b064fe997f84d945bfc.mp3",
+				"translation": "Що у тебе сьогодні відбулося гарного?",
+				"transcription": "Ščo u tebe sohodni vidbulosja harnoho"
+			},
+			"image_url": null
+		},
+		"reczKeYhbv3yrlvse": {
+			"id": "reczKeYhbv3yrlvse",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/e/e3d29f20d6751c530f8dcba197d6d6d4.mp3",
+				"translation": "Čo pre teba môžem spraviť?",
+				"transcription": "Чо пре теба мyoжем справіть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/3a57e999fe2712d9a4bb22220f628a29.mp3",
+				"translation": "Що я для тебе можу зробити?",
+				"transcription": "Ščo ja dlja tebe možu zrobyty"
+			},
+			"image_url": null
+		},
+		"recNiBDQjfVLmSgs7": {
+			"id": "recNiBDQjfVLmSgs7",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/42c469b32ceadcd25e3073fcfee445e8.mp3",
+				"translation": "Môžem ti nejako pomôcť?",
+				"transcription": "Мyoжем ті неяко помyoцть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/ecbefe811bc12efecdf7fc4a442ba0e9.mp3",
+				"translation": "Можу тобі якось допомогти?",
+				"transcription": "Možu tobi jakos dopomohty"
+			},
+			"image_url": null
+		},
+		"recqbQLS7vmbg4Yry": {
+			"id": "recqbQLS7vmbg4Yry",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/42a7b9c2e268533912afeea8237aad97.mp3",
+				"translation": "Čo potrebuješ, aby si sa cítil lepšie? Čo potrebuješ, aby si sa cítila lepšie?",
+				"transcription": "Чо потребуєш, аби сі са цітіл лепшіе Чо потребуєш, аби сі са цітіла лепшіе?"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/4d1b5b79421ea05ba6583b5ea887380a.mp3",
+				"translation": "Що тобі потрібно, щоб відчути себе краще?",
+				"transcription": "Ščo tobi potribno, ščob vidčuty sebe krašče"
+			},
+			"image_url": null
+		},
+		"recD2Bj5AjzV2i1tU": {
+			"id": "recD2Bj5AjzV2i1tU",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/0c202a3425f991071195090e9f28b9a2.mp3",
+				"translation": "Za čo sa dnes môžeš oceniť?",
+				"transcription": "За чо са днес мyoжеш оценіть"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/4/4b5b8c6d560d8c39dd256fc1ca191887.mp3",
+				"translation": "За що ти можеш сьогодні себе оцінити?",
+				"transcription": "Za ščo ty možeš sohodni sebe ocinyty"
+			},
+			"image_url": null
+		},
+		"recuTpisPYUTHoE0d": {
+			"id": "recuTpisPYUTHoE0d",
+			"main": {
+				"sound_url": "https://data.movapp.eu/sk-sounds/f/f5a6c14fea50a81c0b285b8101b2c54e.mp3",
+				"translation": "strach",
+				"transcription": "страх"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7ccc4fe924f40af94012ff6600d0b917.mp3",
+				"translation": "страх",
+				"transcription": "strach"
 			},
 			"image_url": null
 		}
