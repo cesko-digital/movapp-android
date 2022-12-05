@@ -1,6 +1,9 @@
 Details about this file’s format at <http://keepachangelog.com/>. 
 TODO: The change log is parsed automatically when minting releases through Fastlane, see `Fastlane/Fastfile`.
 
+## [1.4.0] - 2022-12-05Z
+- Aktualizace dat
+
 ## [1.3.3] - 2022-11-29Z
 - Vanocni obsah
 - Opravy chyb a vylepseni pohadek
