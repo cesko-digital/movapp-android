@@ -210,7 +210,7 @@ class MediaPlayerForegroundService : Service()  {
             val serviceChannel = NotificationChannel(
                 channelId,
                 "Movapp fairy tale notification Channel",
-                NotificationManager.IMPORTANCE_DEFAULT
+                NotificationManager.IMPORTANCE_LOW
             )
             serviceChannel.setSound(null,null)
             val manager = getSystemService(
