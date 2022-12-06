@@ -1,0 +1,22 @@
+name: Data update
+
+on:
+  workflow_dispatch:
+
+jobs:
+  DataUpdate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: DataUpdate
+        run: ruby update-data.rb
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: Automatically updated data
+          branch: data-update
+          base: main
+          delete-branch: true
+          title: '[Automatically created] updated data'
+          reviewers: vchlum,met
