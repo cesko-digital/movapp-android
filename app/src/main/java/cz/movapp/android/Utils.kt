@@ -7,6 +7,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.FragmentActivity
 import cz.movapp.app.data.LanguagePair
+import java.text.Normalizer
 
 
 /**
@@ -44,4 +45,9 @@ fun createLangAssetsString(langPair: LanguagePair): String {
     } else {
         "${langPair.to.langCode}-${langPair.from.langCode}"
     }
+}
+
+fun stripDiacritics(input: String): String {
+    var output = Normalizer.normalize(input, Normalizer.Form.NFD)
+    return output.replace(Regex("\\p{InCombiningDiacriticalMarks}+"), "")
 }

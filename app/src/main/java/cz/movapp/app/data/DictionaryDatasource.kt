@@ -2,11 +2,11 @@ package cz.movapp.app.data
 
 import android.content.Context
 import cz.movapp.android.createLangAssetsString
+import cz.movapp.android.stripDiacritics
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import org.json.JSONObject
 import java.io.IOException
-import java.text.Normalizer
 import java.util.*
 
 class DictionaryDatasource {
@@ -73,13 +73,13 @@ class DictionaryDatasource {
 
                     jsonObjMainItem.getString("translation"),
                     jsonObjMainItem.getString("transcription"),
-                    stripAccents(jsonObjMainItem.getString("translation").toString().lowercase(Locale.getDefault())),
+                    stripDiacritics(jsonObjMainItem.getString("translation").lowercase(Locale.getDefault())),
                     jsonObjMainItem.getString("sound_url"),
                     jsonObjMainItem.getString("sound_url").replace("https://data.movapp.eu/", ""),
 
                     jsonObjSourceItem.getString("translation"),
                     jsonObjSourceItem.getString("transcription"),
-                    jsonObjSourceItem.getString("translation").lowercase(Locale.getDefault()),
+                    stripDiacritics(jsonObjSourceItem.getString("translation").lowercase(Locale.getDefault())),
                     jsonObjSourceItem.getString("sound_url"),
                     jsonObjSourceItem.getString("sound_url").replace("https://data.movapp.eu/", "")
                 )
@@ -119,10 +119,5 @@ class DictionaryDatasource {
         } else {
             selected
         }
-    }
-
-    private fun stripAccents(input: String): String {
-        var output = Normalizer.normalize(input, Normalizer.Form.NFD)
-        return output.replace(Regex("[^\\p{ASCII}]"), "")
     }
 }

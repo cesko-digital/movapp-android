@@ -1,6 +1,7 @@
 package cz.movapp.app.ui.dictionary
 
 import android.content.Context
+import cz.movapp.android.stripDiacritics
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.data.LanguagePair
 import java.util.*
@@ -18,7 +19,7 @@ class DictionaryPhrasesSearchAllAdapter(
     }
 
     fun search(constraint: String, isFavorites : Boolean = false) {
-        val searchString = constraint.lowercase(Locale.getDefault())
+        val searchString = stripDiacritics(constraint.lowercase(Locale.getDefault()).trim())
         var result = if (searchString.isEmpty()) {
             wholeDataset
         } else {
