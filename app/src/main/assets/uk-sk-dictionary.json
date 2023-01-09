@@ -463,7 +463,9 @@
 				"recmSyOM8Tfz77qkg",
 				"recMuV8tosHoqXy9B",
 				"recGaeJ6KiWFsSMPT",
+				"recRYIaIXBxYdt0gJ",
 				"recZJsGCPzl8ni28r",
+				"recldlhhWD7qSKU4g",
 				"recmFPxjd1UDZGiDU",
 				"recuMocfvwOmu5CHY",
 				"recJo9hzAqYUkGMLY",
@@ -555,6 +557,7 @@
 				"recCm8C38xxHCJl3p",
 				"recTQixHCPSvXmpQt",
 				"recGALmcoVguwvP7D",
+				"recev9jPD7cUv1J6a",
 				"recGusyAdjV3yQvDC",
 				"recdf3KFLMoXP8a9A",
 				"recGHJtueUVDbO9Xm",
@@ -587,6 +590,7 @@
 				"recJYgkUm4dAAWDzt",
 				"recOLpVL1KjSVdH64",
 				"recKLvXZJhk54hJWM",
+				"recXStF57ocuMV4Xs",
 				"recgv5Gn1n6k2ikD6",
 				"recBjRNjKwrIbvEK4",
 				"recdiDhvc6nPyTF9t",
@@ -9019,9 +9023,9 @@
 		"recjdgAxkvselkjWB": {
 			"id": "recjdgAxkvselkjWB",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/2/2dd7dfcd1ec0a45e4d71699d89efa63f.mp3",
-				"translation": "sedemnásť",
-				"transcription": "седемнасть"
+				"sound_url": "https://data.movapp.eu/sk-sounds/8/881360323f51a608fffea9f0efcf12f6.mp3",
+				"translation": "sedemdesiat",
+				"transcription": "седемдесіат"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/a/a8a27715696bcb0c6734f02382c44ad9.mp3",
@@ -16061,9 +16065,9 @@
 		"recbrWSKCLV3Cyf0X": {
 			"id": "recbrWSKCLV3Cyf0X",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/7/793282ac9bc56d646dda121c5a392571.mp3",
-				"translation": "Prvá adventná nedeľa",
-				"transcription": "Прва адвентна недельа"
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/12e8bb741d131ab4ab3e897dfb00806f.mp3",
+				"translation": "adventná nedeľa",
+				"transcription": "адвентна недельа"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/8/8a34b6378e01bbb6ed928f633ab42264.mp3",
@@ -17349,8 +17353,8 @@
 		"recv89X7jX8Iwf09F": {
 			"id": "recv89X7jX8Iwf09F",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/8/8b0e9373dd19bda5706e67fa4eb820fd.mp3",
-				"translation": "mandarinky",
+				"sound_url": "https://data.movapp.eu/sk-sounds/7/717647d1a91af8321bfbe92a014b2407.mp3",
+				"translation": "mandarínky",
 				"transcription": "мандарінки"
 			},
 			"source": {
