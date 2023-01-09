@@ -463,7 +463,9 @@
 				"recmSyOM8Tfz77qkg",
 				"recMuV8tosHoqXy9B",
 				"recGaeJ6KiWFsSMPT",
+				"recRYIaIXBxYdt0gJ",
 				"recZJsGCPzl8ni28r",
+				"recldlhhWD7qSKU4g",
 				"recmFPxjd1UDZGiDU",
 				"recuMocfvwOmu5CHY",
 				"recJo9hzAqYUkGMLY",
@@ -555,6 +557,7 @@
 				"recCm8C38xxHCJl3p",
 				"recTQixHCPSvXmpQt",
 				"recGALmcoVguwvP7D",
+				"recev9jPD7cUv1J6a",
 				"recGusyAdjV3yQvDC",
 				"recdf3KFLMoXP8a9A",
 				"recGHJtueUVDbO9Xm",
@@ -587,6 +590,7 @@
 				"recJYgkUm4dAAWDzt",
 				"recOLpVL1KjSVdH64",
 				"recKLvXZJhk54hJWM",
+				"recXStF57ocuMV4Xs",
 				"recgv5Gn1n6k2ikD6",
 				"recBjRNjKwrIbvEK4",
 				"recdiDhvc6nPyTF9t",
@@ -4302,7 +4306,7 @@
 		"recywwcUCr9sFgzMD": {
 			"id": "recywwcUCr9sFgzMD",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/2/27918cf6623843b01983e1bdd866d90f.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/e/ea61037ffbc27c21d2087b9ca00f7f11.mp3",
 				"translation": "Bolí ji... Bolí ho...",
 				"transcription": "Болі ї Болі го"
 			},
@@ -21032,9 +21036,9 @@
 		"recCm8C38xxHCJl3p": {
 			"id": "recCm8C38xxHCJl3p",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/8/83ad07ad1ac3c6d20ec9d6a281813779.mp3",
-				"translation": "Jezdíte v zime na hory?",
-				"transcription": "Єздіте в зіме на гори"
+				"sound_url": "https://data.movapp.eu/cs-sounds/4/4c43cafbad239e851a7f8e7b2e383155.mp3",
+				"translation": "Jezdíte v zimě na hory?",
+				"transcription": "Єздіте в зімнє на гори"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/d/d7aa20c8f5274a8c93609abe52ff84b1.mp3",
