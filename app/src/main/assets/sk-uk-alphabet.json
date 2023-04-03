@@ -244,9 +244,14 @@
 			],
 			"examples": [
 				{
-					"sound_url": "https://data.movapp.eu/sk-sounds/9/98258caa416b98664154e2b8d7b9ee49.mp3",
-					"translation": "džem. džús",
-					"transcription": "джем джус"
+					"sound_url": "https://data.movapp.eu/sk-sounds/7/7fefdb45933c1ee888a2b08a6ba04684.mp3",
+					"translation": "džem",
+					"transcription": "джем"
+				},
+				{
+					"sound_url": "https://data.movapp.eu/sk-sounds/c/c47a135407c35ca4333a80d7b24a9237.mp3",
+					"translation": "džús",
+					"transcription": "джус"
 				},
 				{
 					"sound_url": "https://data.movapp.eu/sk-sounds/1/1b0332e6115280adbbb01a964370a7bd.mp3",
@@ -291,19 +296,19 @@
 			],
 			"examples": [
 				{
-					"sound_url": "https://data.movapp.eu/sk-sounds/e/e4dde7c303730b37e4e3ad80cb0966bc.mp3",
-					"translation": "lékárna",
-					"transcription": "лекарна"
+					"sound_url": "https://data.movapp.eu/sk-sounds/7/7074d8eb383e942f5c4fc9f44def8fe4.mp3",
+					"translation": "pekné",
+					"transcription": "пекне"
 				},
 				{
-					"sound_url": "https://data.movapp.eu/sk-sounds/b/b8e6b611bba846b5cd4d665b049fb0d2.mp3",
-					"translation": "jméno",
-					"transcription": "ймено"
+					"sound_url": "https://data.movapp.eu/sk-sounds/e/efb05e3c36544ebe196c87236427ff6a.mp3",
+					"translation": "moderné",
+					"transcription": "модерне"
 				},
 				{
-					"sound_url": "https://data.movapp.eu/sk-sounds/7/782983df68edf61b6728ebad9797e362.mp3",
-					"translation": "létat",
-					"transcription": "летат"
+					"sound_url": "https://data.movapp.eu/sk-sounds/8/87ce547460d49bd4830540d7c0abf984.mp3",
+					"translation": "dobré",
+					"transcription": "добре"
 				}
 			],
 			"sound_url": "https://data.movapp.eu/sk-alphabet/recpIeGlaNirLi1ef.mp3",
@@ -499,9 +504,9 @@
 			],
 			"examples": [
 				{
-					"sound_url": "https://data.movapp.eu/sk-sounds/c/ce26e462832030438a05877aa0579e8d.mp3",
-					"translation": "kôň",
-					"transcription": "кyoнь"
+					"sound_url": "https://data.movapp.eu/sk-sounds/3/386c7ba0ad4d2fdcf4c7e1cee80f32c2.mp3",
+					"translation": "kobyla",
+					"transcription": "кобила"
 				},
 				{
 					"sound_url": "https://data.movapp.eu/sk-sounds/6/63954d2707c13cf25472551ea783ae1f.mp3",
@@ -733,9 +738,9 @@
 			],
 			"examples": [
 				{
-					"sound_url": "https://data.movapp.eu/sk-sounds/c/ce26e462832030438a05877aa0579e8d.mp3",
-					"translation": "kôň",
-					"transcription": "кyoнь"
+					"sound_url": "https://data.movapp.eu/sk-sounds/2/24c455e5dd9a96459370e091f6baca62.mp3",
+					"translation": "vôňa",
+					"transcription": "вyoня"
 				},
 				{
 					"sound_url": "https://data.movapp.eu/sk-sounds/2/2aa3ec6ece98ab631f64253b4a592d1a.mp3",
@@ -743,9 +748,9 @@
 					"transcription": "стyoл"
 				},
 				{
-					"sound_url": "https://data.movapp.eu/sk-sounds/3/347f8352156997fb90ec3a7b4d6093aa.mp3",
-					"translation": "kôš",
-					"transcription": "кyoш"
+					"sound_url": "https://data.movapp.eu/sk-sounds/7/72afdb4cf3c2575b3dc5b87dab751685.mp3",
+					"translation": "vôl",
+					"transcription": "вyoл"
 				}
 			],
 			"sound_url": "https://data.movapp.eu/sk-alphabet/rec75EUFFfb4vIY8R.mp3",
@@ -787,17 +792,17 @@
 				{
 					"sound_url": "https://data.movapp.eu/sk-sounds/c/cf7647252c053c310271d10300e6c153.mp3",
 					"translation": "Quido",
-					"transcription": "Qуідо"
+					"transcription": "КВуідо"
 				},
 				{
 					"sound_url": "https://data.movapp.eu/sk-sounds/6/6701b56ab3ff30bb18225de93c864367.mp3",
 					"translation": "squat",
-					"transcription": "сqуат"
+					"transcription": "сквуат"
 				},
 				{
 					"sound_url": "https://data.movapp.eu/sk-sounds/3/399b2839b6153083a038c1a617637404.mp3",
 					"translation": "aquapark",
-					"transcription": "аqуапарк"
+					"transcription": "аквуапарк"
 				}
 			],
 			"sound_url": "https://data.movapp.eu/sk-alphabet/recFaZ11KDavMyqhP.mp3",
@@ -1072,17 +1077,17 @@
 				{
 					"sound_url": "https://data.movapp.eu/sk-sounds/d/d877c55797fd430ce8150363cd86058f.mp3",
 					"translation": "lux",
-					"transcription": "луkц"
+					"transcription": "лукс"
 				},
 				{
 					"sound_url": "https://data.movapp.eu/sk-sounds/0/0aac16330f9a907665ec2fad88f2e8dc.mp3",
 					"translation": "boxer",
-					"transcription": "боkцер"
+					"transcription": "боксер"
 				},
 				{
-					"sound_url": "https://data.movapp.eu/sk-sounds/0/00e023f5b4167575e0903fb96f26d636.mp3",
-					"translation": "xylofon",
-					"transcription": "kцилофон"
+					"sound_url": "https://data.movapp.eu/sk-sounds/2/2a0221000a2846353b262b2834abbe18.mp3",
+					"translation": "xylofón",
+					"transcription": "ксилофон"
 				}
 			],
 			"sound_url": "https://data.movapp.eu/sk-alphabet/rec8LFg1lQOuxqSqL.mp3",
