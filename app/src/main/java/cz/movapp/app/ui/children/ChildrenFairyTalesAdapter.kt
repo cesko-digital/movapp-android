@@ -34,7 +34,7 @@ class ChildrenFairyTalesAdapter(
 
         holder.binding.apply {
             try {
-                val imageStream = context.assets.open("stories/${item.first.slug}/thumbnail.webp")
+                val imageStream = context.assets.open("images/android/${item.first.slug}/${item.first.slug}.webp")
                 fairyTaleImage.setImageDrawable(Drawable.createFromStream(imageStream, null))
             } catch (ioException: IOException) {
                 ioException.printStackTrace()

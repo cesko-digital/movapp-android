@@ -223,7 +223,7 @@ class MediaPlayerForegroundService : Service()  {
     private fun updateNotificationSessionMetadata(slug: String, toName: String, fromName: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val bitmap = try {
-                val imageStream = applicationContext.assets.open("stories/${slug}/thumbnail.webp")
+                val imageStream = applicationContext.assets.open("images/android/${slug}/${slug}.webp")
                 BitmapFactory.decodeStream(imageStream)
             } catch (ioException: IOException) {
                 ioException.printStackTrace()
@@ -251,7 +251,7 @@ class MediaPlayerForegroundService : Service()  {
         )
 
         val bitmap = try {
-            val imageStream = applicationContext.assets.open("stories/${slug}/thumbnail.webp")
+            val imageStream = applicationContext.assets.open("images/android/${slug}/${slug}.webp")
             BitmapFactory.decodeStream(imageStream)
         } catch (ioException: IOException) {
             ioException.printStackTrace()

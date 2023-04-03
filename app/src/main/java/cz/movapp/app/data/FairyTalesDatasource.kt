@@ -85,7 +85,7 @@ class FairyTalesDatasource(private val context: Context) {
 
 
                 try {
-                    val imageStream = context!!.assets.open("stories/${metaFairyTale.slug}/thumbnail.webp")
+                    val imageStream = context!!.assets.open("images/android/${metaFairyTale.slug}/${metaFairyTale.slug}.webp")
                     resDrawables[metaFairyTale.slug] = Drawable.createFromStream(imageStream, null)!!
                 } catch (ioException: IOException) {
                     ioException.printStackTrace()
