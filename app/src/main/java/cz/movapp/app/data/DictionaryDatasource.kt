@@ -29,6 +29,12 @@ class DictionaryDatasource {
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
 
+            try {
+                if (jsonObj.getBoolean("hidden")) {
+                    continue
+                }
+            } catch (_: Exception) {}
+
             var phrases = mutableListOf<String>()
 
             val jsonPhrasesArr = jsonObj.getJSONArray("phrases")
