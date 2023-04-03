@@ -51,6 +51,11 @@ def main
       replace_dir(filename, ASSETS_FOLDER)
     end
 
+    Dir.glob("#{ORIGIN_FOLDER}/stories") do |filename|
+      next if filename == '.' or filename == '..'
+      replace_dir(filename, ASSETS_FOLDER)
+    end
+
     replace_file("#{ORIGIN_FOLDER}/team.v1.json", ASSETS_FOLDER)
 
     puts "data ✅"
