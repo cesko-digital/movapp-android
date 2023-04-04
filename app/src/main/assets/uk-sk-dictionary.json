@@ -4681,9 +4681,9 @@
 		"rec7FZ7X9wjPBFNLm": {
 			"id": "rec7FZ7X9wjPBFNLm",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/d/daeaf5de4f287a9aab169d72687c007d.mp3",
-				"translation": "paža",
-				"transcription": "пажа"
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/4bda0ff402352f927160948bb7bbe921.mp3",
+				"translation": "ruka",
+				"transcription": "рука"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/3/3897a77cb0c0bae3afe395cb3ec098e0.mp3",
@@ -6935,7 +6935,7 @@
 		"rec55uHt5GFiEuJQl": {
 			"id": "rec55uHt5GFiEuJQl",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/4/4b155b97b280740b0079c4fd85370b4c.mp3",
+				"sound_url": "https://data.movapp.eu/sk-sounds/b/bf2adef39de4c540d79e311e1c45eb4c.mp3",
 				"translation": "úrad",
 				"transcription": "урад"
 			},
@@ -7201,7 +7201,7 @@
 		"recQoAbChCszF5rYQ": {
 			"id": "recQoAbChCszF5rYQ",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/3/34296bd84bdf1079426edd39ed1e1b37.mp3",
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/68b394f557118b6cca1c3a5b52d8374c.mp3",
 				"translation": "e-mailová adresa",
 				"transcription": "е-маілова адреса"
 			},
@@ -9049,7 +9049,7 @@
 		"recPdKKW2tllmOZEl": {
 			"id": "recPdKKW2tllmOZEl",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/3/3d4537797b39021a5fa05c016e4ca790.mp3",
+				"sound_url": "https://data.movapp.eu/sk-sounds/6/6d67ad3e9bf295a1aa0bf1593fc9a4cf.mp3",
 				"translation": "nevädza",
 				"transcription": "неведза"
 			},
@@ -11709,7 +11709,7 @@
 		"rec2ZGG4hxL7nAtXn": {
 			"id": "rec2ZGG4hxL7nAtXn",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/a/aa3ef5b6ebb78d184429cab1ec2ab521.mp3",
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/47c9396c6d0a67d59fae08ffd75558ff.mp3",
 				"translation": "cop",
 				"transcription": "цоп"
 			},
@@ -13669,7 +13669,7 @@
 		"recSVQx3TENUwxd8k": {
 			"id": "recSVQx3TENUwxd8k",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/b/b2cddf6a0a4709c9e98b8621b599b4e4.mp3",
+				"sound_url": "https://data.movapp.eu/sk-sounds/c/c6ac8200d46e1a40a71df08cae91b8c1.mp3",
 				"translation": "nákup",
 				"transcription": "накуп"
 			},
@@ -13893,7 +13893,7 @@
 		"recGkb1ENeDG0Otqr": {
 			"id": "recGkb1ENeDG0Otqr",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/c/c47a135407c35ca4333a80d7b24a9237.mp3",
+				"sound_url": "https://data.movapp.eu/sk-sounds/0/0da92a6b43c04cc81596356c65c45364.mp3",
 				"translation": "džús",
 				"transcription": "джус"
 			},
@@ -14495,8 +14495,8 @@
 		"recThwU8eTdLh2wB2": {
 			"id": "recThwU8eTdLh2wB2",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/a/ac494d4607573e53b18a544a7b3e76b9.mp3",
-				"translation": "Je štvrť na peť.",
+				"sound_url": "https://data.movapp.eu/sk-sounds/f/f6e4508a7b12bc06c4d944a8178cd8d7.mp3",
+				"translation": "Je štvrť na päť.",
 				"transcription": "Є штврть на петь"
 			},
 			"source": {
@@ -18401,9 +18401,9 @@
 		"recI1iABu3eiVBrM2": {
 			"id": "recI1iABu3eiVBrM2",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/f/fcc50ad61a8be29b736a2b62eee489a2.mp3",
-				"translation": "Ideme do ZOO.",
-				"transcription": "Ідеме до ЗОО"
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/342ba74621351dd8c8b5521e551da2d8.mp3",
+				"translation": "Ideme do ZOO (autom).",
+				"transcription": "Ідеме до ЗОО (аутом)"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/f/f0e7e801baa0b4247ad440b33f8d0a86.mp3",
@@ -18429,9 +18429,9 @@
 		"rec2NFZ9Wl88P0CB6": {
 			"id": "rec2NFZ9Wl88P0CB6",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/f/fcc50ad61a8be29b736a2b62eee489a2.mp3",
-				"translation": "Ideme do ZOO.",
-				"transcription": "Ідеме до ЗОО"
+				"sound_url": "https://data.movapp.eu/sk-sounds/1/1435d9f69047f6b5539fbeef96a3f4b4.mp3",
+				"translation": "Ideme do ZOO (pešo).",
+				"transcription": "Ідеме до ЗОО (пешо)"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/1/129584e017f661c246c4e865f905757e.mp3",
@@ -20445,7 +20445,7 @@
 		"recsplDyVzQC1i3Ah": {
 			"id": "recsplDyVzQC1i3Ah",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/6/62fe02a8babe039c7b8f062d21a9a78e.mp3",
+				"sound_url": "https://data.movapp.eu/sk-sounds/4/431eaf75cdeae1c007f161ee706a5bc2.mp3",
 				"translation": "zvon/zvonček",
 				"transcription": "звон/звончек"
 			},
