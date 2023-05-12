@@ -35,6 +35,12 @@ class DictionaryDatasource {
                 }
             } catch (_: Exception) {}
 
+            try {
+                if (jsonObj.getBoolean("metaOnly")) {
+                    continue
+                }
+            } catch (_: Exception) {}
+
             var phrases = mutableListOf<String>()
 
             val jsonPhrasesArr = jsonObj.getJSONArray("phrases")
