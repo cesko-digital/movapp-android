@@ -39,6 +39,7 @@ class AboutFragment : Fragment() {
         const val HTTP_MOVAPP_LICENCE =
             "https://github.com/cesko-digital/movapp-android/blob/main/LICENSE"
         const val HTTP_MOVAPP_LINKEDIN = "https://www.linkedin.com/company/movapp-cz"
+        const val HTTP_MOVAPP_TELEGRAM = "https://t.me/movappcz"
         const val HTTP_MOVAPP_FACEBOOK = "https://www.facebook.com/movappcz"
         const val HTTP_MOVAPP_STAND_BY_UKRAINE =
             "https://www.stojimezaukrajinou.cz"
@@ -97,6 +98,10 @@ class AboutFragment : Fragment() {
 
         binding.textAboutFacebook.setOnClickListener {
             openUri(context, HTTP_MOVAPP_FACEBOOK)
+        }
+
+        binding.textAboutTelegram.setOnClickListener {
+            openUri(context, HTTP_MOVAPP_TELEGRAM)
         }
 
         binding.textAboutStandByUkraine.setOnClickListener {

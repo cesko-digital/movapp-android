@@ -17,6 +17,7 @@
     <string name="about_umapa" translatable="false">Umapa</string>
     <string name="facebook" translatable="false">Facebook</string>
     <string name="linkedin" translatable="false">LinkedIn</string>
+    <string name="telegram" translatable="false">Telegram</string>
     <string name="country_flag">country flag</string>
     <string name="play_transcription">play transcription</string>
     <string name="i_know">Native language</string>
