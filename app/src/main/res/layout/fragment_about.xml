@@ -224,6 +224,11 @@
                         android:drawableRight="@drawable/ic_chevron_right_remote"
                         android:text="@string/linkedin" />
 
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dividerColor" />
+
                     <TextView
                         android:id="@+id/text_about_telegram"
                         style="@style/AboutClickable"
