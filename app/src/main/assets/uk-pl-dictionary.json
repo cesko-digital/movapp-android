@@ -1649,6 +1649,34 @@
 			"metaOnly": true
 		},
 		{
+			"id": "rec3PjGjNinujiOjc",
+			"name": {
+				"source": "Освіта",
+				"main": "Edukacja"
+			},
+			"description": "",
+			"phrases": [],
+			"metacategories": [
+				"recO2uaSglx7nq8O8",
+				"recZ6Kit2fVBf4LmR"
+			],
+			"metaOnly": true
+		},
+		{
+			"id": "rec5CyU5OvVOmnXuB",
+			"name": {
+				"source": "Здоров'я",
+				"main": "Zdrowie"
+			},
+			"description": "",
+			"phrases": [],
+			"metacategories": [
+				"recyhAgynSzxiasGt",
+				"rec0Web8t9flE9V4Y"
+			],
+			"metaOnly": true
+		},
+		{
 			"id": "recf0uqwveprzjeBc",
 			"name": {
 				"source": "Робота",
@@ -2693,7 +2721,7 @@
 				"transcription": "цєнкі, цєнка"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/b/b979dae1f0d96666a75874d61be8fc13.mp3",
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/71dab2ba83ebf904262e5464219046bc.mp3",
 				"translation": "тонкий, тонка",
 				"transcription": "tonkyj, tonka"
 			},
@@ -5824,7 +5852,7 @@
 		"recaVt57fTgXahd1C": {
 			"id": "recaVt57fTgXahd1C",
 			"main": {
-				"sound_url": "https://data.movapp.eu/pl-sounds/2/2d8aa42a0347c2d66cc86a0138dc9664.mp3",
+				"sound_url": "https://data.movapp.eu/pl-sounds/3/30b5dde69d2c2f086a3286a546ee34b6.mp3",
 				"translation": "puzzle",
 				"transcription": "пуззлє"
 			},
@@ -5913,7 +5941,7 @@
 				"transcription": "вдовєц, вдова"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/5/57ce6e7f853202b7e43361e84de3e225.mp3",
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1687c17528b861469d134f0396063368.mp3",
 				"translation": "вдівець, вдова",
 				"transcription": "wdiwec, wdowa"
 			},
@@ -6459,7 +6487,7 @@
 				"transcription": "древняна уижка"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/2/2cc32bac1761c10c980129c834c2e2d0.mp3",
+				"sound_url": "https://data.movapp.eu/uk-sounds/0/0263c368067ffd2f22a3dcdae994a6cf.mp3",
 				"translation": "мішалка, лопатка",
 				"transcription": "miszalka, lopatka"
 			},
@@ -9693,9 +9721,9 @@
 				"transcription": "осємсет"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/3/315912f28a1a88c869f845601893f26d.mp3",
-				"translation": "Вісім сотень",
-				"transcription": "Wisim soteń"
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c7be96ab04467c5dbf4f5f5520a11fe0.mp3",
+				"translation": "вісім сотень",
+				"transcription": "wisim soteń"
 			},
 			"image_url": null
 		},
@@ -11060,14 +11088,14 @@
 		"recCRFgA81DeVtmeU": {
 			"id": "recCRFgA81DeVtmeU",
 			"main": {
-				"sound_url": "https://data.movapp.eu/pl-sounds/5/528fba1f297c2a14a7be3944674c93cc.mp3",
-				"translation": "Plastyka",
-				"transcription": "Плястика"
+				"sound_url": "https://data.movapp.eu/pl-sounds/7/7491b9656c7bac17133be876fafee26e.mp3",
+				"translation": "plastyka",
+				"transcription": "плястика"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/8/87e249bd3300de61da5142469c88cf79.mp3",
-				"translation": "Малювання. Художнє виховання.",
-				"transcription": "Maljuwannja Chudożnje wychowannja"
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/eb7b4a7236ccc7d55d02241c950ab546.mp3",
+				"translation": "малювання, художнє виховання",
+				"transcription": "maljuwannja, chudożnje wychowannja"
 			},
 			"image_url": null
 		},
@@ -11149,7 +11177,7 @@
 				"transcription": "вихованє фізичне, ВФ"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/2/20ba0dea32ee9f5dbade8fe42ae00b45.mp3",
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/2dc76f11e064fe30adc6833cc2c41d08.mp3",
 				"translation": "фізична культура, фіз-ра",
 				"transcription": "fizyczna kultura, fiz-ra"
 			},
@@ -12152,8 +12180,8 @@
 		"rec3VwXRoRD4erUPh": {
 			"id": "rec3VwXRoRD4erUPh",
 			"main": {
-				"sound_url": "https://data.movapp.eu/pl-sounds/d/d54fe0114ea1883f30c147f684a40547.mp3",
-				"translation": "Dwieście gram sera poproszę",
+				"sound_url": "https://data.movapp.eu/pl-sounds/0/0a9949fcb38059971ea326f67fbb969d.mp3",
+				"translation": "Dwieście gram sera poproszę.",
 				"transcription": "Двєсьцє ґрам сера попрошен"
 			},
 			"source": {
@@ -12180,8 +12208,8 @@
 		"rec9ZXVNmHpVz4haJ": {
 			"id": "rec9ZXVNmHpVz4haJ",
 			"main": {
-				"sound_url": "https://data.movapp.eu/pl-sounds/2/2f248824d31d52a226e8962290d44487.mp3",
-				"translation": "Sto gramów salami poproszę",
+				"sound_url": "https://data.movapp.eu/pl-sounds/6/6e2b43b5145883df2a3e7f651ca36d8b.mp3",
+				"translation": "Sto gramów salami poproszę.",
 				"transcription": "Сто ґрамув салямі попрошен"
 			},
 			"source": {
@@ -14971,7 +14999,7 @@
 				"transcription": "фреелянцінґ"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/c/c470d8edb64d4495f8fcafbd954a187c.mp3",
+				"sound_url": "https://data.movapp.eu/uk-sounds/f/f70d3580d853c9e8d40cdf9eccb76474.mp3",
 				"translation": "фріланс, робота поза штатом",
 				"transcription": "frilans, robota poza sztatom"
 			},
@@ -17729,9 +17757,9 @@
 				"transcription": "пастерка"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/c/c21626b39583d268d6543f91ca67b751.mp3",
-				"translation": "Різдвяна служба",
-				"transcription": "Rizdwjana slużba"
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/5477fdee8b73ec9a4d5b289d14976a4c.mp3",
+				"translation": "різдвяна служба",
+				"transcription": "rizdwjana slużba"
 			},
 			"image_url": null
 		},
@@ -17757,9 +17785,9 @@
 				"transcription": "Ідзєцє на пастеркен"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/b/b00b654dc1dfb9b83077889fcf4873a8.mp3",
-				"translation": "Ви йдете до костелу на Різдвяну службу?",
-				"transcription": "Wy jdete do kostelu na Rizdwjanu slużbu"
+				"sound_url": "https://data.movapp.eu/uk-sounds/f/f5b2278dac562c4724936a282d2b3297.mp3",
+				"translation": "Ви йдете до костелу на різдвяну службу?",
+				"transcription": "Wy jdete do kostelu na rizdwjanu slużbu"
 			},
 			"image_url": null
 		},
@@ -18863,9 +18891,9 @@
 				"transcription": "Я мажнен"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/8/8531fdf76855cae59f20f659db72fae9.mp3",
-				"translation": "я мерзну",
-				"transcription": "ja merznu"
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/97862da4c19341f29e3041a7db3fe089.mp3",
+				"translation": "Я мерзну.",
+				"transcription": "Ja merznu"
 			},
 			"image_url": null
 		},
