@@ -8,8 +8,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayoutMediator
-import cz.movapp.app.ui.onboarding.OnBoardingFragmentAdapter
 import cz.movapp.app.databinding.ActivityOnBoardingBinding
+import cz.movapp.app.ui.onboarding.OnBoardingFragmentAdapter
 
 val ONBOARDING_PASSED_RESULT_CODE = 1
 val ONBOARDING_LEFT_RESULT_CODE = 2

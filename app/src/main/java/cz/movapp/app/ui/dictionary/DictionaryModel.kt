@@ -1,6 +1,11 @@
 package cz.movapp.app.ui.dictionary
 
-data class DictionarySectionsData(val id: String, val main: String, val source: String, val phrases_ids: List<String>)
+data class DictionarySectionsData(
+    val id: String,
+    val main: String,
+    val source: String,
+    val phrases_ids: List<String>
+)
 
 data class DictionaryTranslationsData(
     val id: String,
@@ -16,4 +21,11 @@ data class DictionaryTranslationsData(
     val source_stripped: String,
     val source_sound_url: String,
     val source_sound_local: String
+)
+
+data class DictionaryMetaCategoryData(
+    val id: String,
+    val nameSource: String,
+    val nameMain: String,
+    val metaCategories: MutableList<String>
 )

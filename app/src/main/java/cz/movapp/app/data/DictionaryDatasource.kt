@@ -3,16 +3,18 @@ package cz.movapp.app.data
 import android.content.Context
 import cz.movapp.android.createLangAssetsString
 import cz.movapp.android.stripDiacritics
+import cz.movapp.app.ui.dictionary.DictionaryMetaCategoryData
 import cz.movapp.app.ui.dictionary.DictionarySectionsData
 import cz.movapp.app.ui.dictionary.DictionaryTranslationsData
 import org.json.JSONObject
 import java.io.IOException
-import java.util.*
+import java.util.Locale
 
-class DictionaryDatasource {
+object DictionaryDatasource {
 
     private val sectionsCache = mutableMapOf<String,List<DictionarySectionsData>>()
     private val translationsCache = mutableMapOf<String,List<DictionaryTranslationsData>>()
+    private val metaCategoriesCache = mutableMapOf<String,List<DictionaryMetaCategoryData>>()
 
     private fun loadSectionsFromAssets(context: Context, langStorageString: String): List<DictionarySectionsData> {
         var jsonString: String = ""
@@ -101,14 +103,55 @@ class DictionaryDatasource {
         return translations
     }
 
+    private fun loadMetaCategoriesFromAssets(context: Context, langStorageString: String): List<DictionaryMetaCategoryData> {
+        var jsonString = ""
+        var dict = mutableListOf<DictionaryMetaCategoryData>()
+
+        try {
+            jsonString = context.assets.open("${langStorageString}-dictionary.json").bufferedReader().use { it.readText() }
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+        }
+
+        val jsonArr = JSONObject(jsonString).getJSONArray("categories")
+
+        for (i in 0 until jsonArr.length()) {
+            val jsonObj = jsonArr.getJSONObject(i)
+
+            if (!jsonObj.optBoolean("metaOnly", false)) {
+                continue
+            }
+
+            val id = jsonObj.getString("id")
+            val jsonNameObj = jsonObj.getJSONObject("name")
+
+            val metaCategories = mutableListOf<String>()
+            val jsonMetaCatsArr = jsonObj.getJSONArray("metacategories")
+            for (j in 0 until jsonMetaCatsArr.length()) {
+                metaCategories.add(jsonMetaCatsArr.getString(j))
+            }
+
+            dict.add(DictionaryMetaCategoryData(
+                id,
+                jsonNameObj.getString("main"),
+                jsonNameObj.getString("source"),
+                metaCategories)
+            )
+        }
+
+        return dict
+    }
+
     fun loadSections(context: Context, langPair: LanguagePair): List<DictionarySectionsData> {
-        var langStorageString = createLangAssetsString(langPair)
-        return lazySectionsCacheLoad(context, langStorageString)
+        return lazySectionsCacheLoad(context, createLangAssetsString(langPair))
     }
 
     fun loadTranslations(context: Context, langPair: LanguagePair): List<DictionaryTranslationsData> {
-        var langStorageString = createLangAssetsString(langPair)
-        return lazyTranslationsCacheLoad(context, langStorageString)
+        return lazyTranslationsCacheLoad(context, createLangAssetsString(langPair))
+    }
+
+    fun loadMetaCategories(context: Context, langPair: LanguagePair): List<DictionaryMetaCategoryData> {
+        return lazyMetaCategoriesCacheLoad(context, createLangAssetsString(langPair))
     }
 
     private fun lazySectionsCacheLoad(context: Context, langStorageString: String): List<DictionarySectionsData> {
@@ -127,6 +170,17 @@ class DictionaryDatasource {
         return if (selected == null) {
             selected = loadTranslationsFromAssets(context, langStorageString)
             translationsCache[langStorageString] = selected
+            selected
+        } else {
+            selected
+        }
+    }
+
+    private fun lazyMetaCategoriesCacheLoad(context: Context, langStorageString: String): List<DictionaryMetaCategoryData> {
+        var selected = metaCategoriesCache[langStorageString]
+        return if (selected == null) {
+            selected = loadMetaCategoriesFromAssets(context, langStorageString)
+            metaCategoriesCache[langStorageString] = selected
             selected
         } else {
             selected

@@ -20,4 +20,6 @@
     <dimen name="dictionary_translation_padding_bottom">8dp</dimen>
     <dimen name="list_items_inline_with_searchbar_padding_sides">16dp</dimen>
     <dimen name="list_items_inline_with_searchbar_half_padding_sides">8dp</dimen>
+    <dimen name="exercise_button_min_width">140dp</dimen>
+    <dimen name="play_button_size">48dp</dimen>
 </resources>

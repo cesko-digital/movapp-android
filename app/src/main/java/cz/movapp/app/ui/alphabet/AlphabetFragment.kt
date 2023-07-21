@@ -11,7 +11,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import cz.movapp.android.getSavableScrollState
-import cz.movapp.android.restoreSavableScrollState
 import cz.movapp.app.App
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.databinding.FragmentAlphabetBinding

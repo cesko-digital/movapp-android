@@ -19,7 +19,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.onStart
-import java.util.*
+import java.util.Locale
 
 fun RecyclerView.getSavableScrollState(): Int {
     return when (this.layoutManager) {

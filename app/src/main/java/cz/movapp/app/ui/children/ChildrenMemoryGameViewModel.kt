@@ -2,7 +2,9 @@ package cz.movapp.app.ui.children
 
 import android.app.Application
 import android.graphics.drawable.Drawable
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import cz.movapp.app.App
 import cz.movapp.app.appModule
 import cz.movapp.app.data.ChildrenDatasource

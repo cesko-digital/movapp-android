@@ -9,10 +9,12 @@ import java.io.IOException
 data class MetaFairyTaleTitle(
     @SerializedName("cs") val cs: String? = null,
     @SerializedName("uk") val uk: String? = null,
+    @SerializedName("sk") val sk: String? = null,
 ) {
     fun getValue(lang: String): String? = when (lang) {
         "cs" -> cs
         "uk" -> uk
+        "sk" -> sk
         else -> null
     }
 }
@@ -38,10 +40,12 @@ data class Column(
 data class TimeData(
     @SerializedName("cs") val cs: Column,
     @SerializedName("uk") val uk: Column,
+    @SerializedName("sk") val sk: Column,
 ) {
     fun getValue(lang: String): Column? = when (lang) {
         "cs" -> cs
         "uk" -> uk
+        "sk" -> sk
         else -> null
     }
 }

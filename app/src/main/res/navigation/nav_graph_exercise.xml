@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_exercise"
+    android:label="nav_graph_exercise"
+    app:startDestination="@id/nav_exercise_setup">
+
+
+    <fragment
+        android:id="@+id/nav_exercise_setup"
+        android:name="cz.movapp.app.ui.exercise.setup.ExerciseSetupFragment"
+        tools:layout="@layout/fragment_exercise_setup" >
+
+        <action
+            android:id="@+id/to_play"
+            app:destination="@id/nav_exercise_play"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_exercise_play"
+        android:name="cz.movapp.app.ui.exercise.play.ExercisePlayFragment"
+        tools:layout="@layout/fragment_exercise_play"
+        >
+
+        <action
+            android:id="@+id/to_finish"
+            app:destination="@id/nav_exercise_finish" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_exercise_finish"
+        android:name="cz.movapp.app.ui.exercise.finish.ExerciseFinishFragment"
+        tools:layout="@layout/fragment_exercise_finish"
+        >
+
+    </fragment>
+
+
+</navigation>

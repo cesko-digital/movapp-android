@@ -1,0 +1,256 @@
+{
+    "timeline": [
+        {
+            "cs": {
+                "text": "Na zámku žili král s královnou. Měli tři dcery. Dvě starší už byly dávno vdané a ta třetí, nejmladší, byla ještě pořád doma.",
+                "start": 13.9455,
+                "end": 27.133
+            },
+            "uk": {
+                "text": "У замку жили король і королева. Було у них три доньки. Дві старші вже давно були заміжні, а найменша донька ще жила з батьками.",
+                "start": 14.2955,
+                "end": 25.733
+            }
+        },
+        {
+            "cs": {
+                "text": "Ráda si v zámecké zahradě hrála se svojí skleněnou koulí. Házela ji do výšky a pak ji zase chytala, u toho si zpívala a tančila. ",
+                "start": 27.133,
+                "end": 38.433
+            },
+            "uk": {
+                "text": "Вона любила гратися зі своєю скляною кулькою в саду біля замку. Співаючи та пританцьовуючи, принцеса підкидала кульку високо вгору й ловила.",
+                "start": 25.733,
+                "end": 37.3955
+            }
+        },
+        {
+            "cs": {
+                "text": "Jednou jí ale spadla přímo do hluboké studny. Sedla si na její okraj a rozplakala se.",
+                "start": 38.433,
+                "end": 46.733
+            },
+            "uk": {
+                "text": "Одного разу та кулька впала в глибокий колодязь. Принцеса сіла на край і заплакала.",
+                "start": 37.3955,
+                "end": 45.283
+            }
+        },
+        {
+            "cs": {
+                "text": "„Proč pláčeš, princezno?“ ozvalo se. Rozhlédla se kolem sebe, ale kromě tlustého žabáka v trávě nikoho neviděla.",
+                "start": 46.733,
+                "end": 58.183
+            },
+            "uk": {
+                "text": "„Чому ти плачеш, принцесо?“, – хтось озвався до неї. Принцеса озирнулася, але окрім товстої жаби в траві нікого не побачила.",
+                "start": 45.283,
+                "end": 56.033
+            }
+        },
+        {
+            "cs": {
+                "text": "„To ses ptal ty, žabáčku?“ divila se.",
+                "start": 58.183,
+                "end": 63.583
+            },
+            "uk": {
+                "text": "„Жабеня, це ти питаєш?“, — здивувалася вона.",
+                "start": 56.033,
+                "end": 60.908
+            }
+        },
+        {
+            "cs": {
+                "text": "„Ano, to jsem se ptal já! Proč pláčeš princezno?“ „Moje skleněná koule spadla do hluboké studny.“  řekla smutně.",
+                "start": 63.583,
+                "end": 76.5955
+            },
+            "uk": {
+                "text": "„Так, це я питаю! Чому ти плачеш, принцесо?“ „Моя скляна кулька впала в глибокий колодязь.“ — відповіла вона сумно.",
+                "start": 60.908,
+                "end": 73.0955
+            }
+        },
+        {
+            "cs": {
+                "text": " „Já ti ji přinesu, když mi slíbíš, že mě necháš jíst s tebou u stolu a spát ve své postýlce.“ Dívka hned souhlasila.",
+                "start": 76.5955,
+                "end": 87.7955
+            },
+            "uk": {
+                "text": "„Я принесу її тобі, якщо ти пообіцяєш, що дозволиш мені їсти з тобою за одним столом і спати у твоєму ліжечку.“ Принцеса одразу ж погодилася.",
+                "start": 73.0955,
+                "end": 85.2705
+            }
+        },
+        {
+            "cs": {
+                "text": "Žabák skočil do studny a za chvíli jí kouli podal. Měla takovou radost, že mu ani nepoděkovala a utíkala domů.",
+                "start": 87.7955,
+                "end": 97.9455
+            },
+            "uk": {
+                "text": "Жабеня стрибнуло в колодязь і через деякий час віддало їй кульку. Принцеса так зраділа, що навіть не подякувала і побігла додому.",
+                "start": 85.2705,
+                "end": 95.983
+            }
+        },
+        {
+            "cs": {
+                "text": "„Počkej!“ volal za ní žabák. „Něco jsi mi slíbila!“ Ale princezna už ho neslyšela.",
+                "start": 97.9455,
+                "end": 108.0205
+            },
+            "uk": {
+                "text": "„Зачекай!“ – жабеня гукнуло їй услід. – „Ти мені дещо обіцяла!“ – але принцеса вже не чула його.",
+                "start": 95.983,
+                "end": 106.5955
+            }
+        },
+        {
+            "cs": {
+                "text": "Doma už na ni čekali s večeří. Najednou se ozvalo klepání na dveře.",
+                "start": 108.0205,
+                "end": 115.3205
+            },
+            "uk": {
+                "text": "Вдома на неї вже чекали з вечерею. Раптом у двері постукали.",
+                "start": 106.5955,
+                "end": 113.1955
+            }
+        },
+        {
+            "cs": {
+                "text": "Princezna je otevřela. Za nimi seděl známý žabák. Byl upravený, čistý, voněl a na hlavě měl klobouk.",
+                "start": 115.3205,
+                "end": 126.858
+            },
+            "uk": {
+                "text": "Принцеса відчинила двері. За ними сиділо те саме жабеня. Воно було охайним, чистеньким, гарно пахло і носило капелюшок.",
+                "start": 113.1955,
+                "end": 124.9455
+            }
+        },
+        {
+            "cs": {
+                "text": "Lekla se a rychle zabouchla dveře. Tatínka krále však zajímalo, co ji tak vystrašilo.",
+                "start": 126.858,
+                "end": 135.183
+            },
+            "uk": {
+                "text": "Вона злякалася і швидко грюкнула дверима. Але король поцікавився, що її так налякало.",
+                "start": 124.9455,
+                "end": 133.2705
+            }
+        },
+        {
+            "cs": {
+                "text": "Začala tedy rodičům vyprávět, jak jí spadla koule do studny, že ji žabák vytáhnul a co mu za to slíbila.",
+                "start": 135.183,
+                "end": 143.908
+            },
+            "uk": {
+                "text": "Тож вона почала розповідати батькам, як кулька впала в колодязь, як жабеня його витягло і що вона пообіцяла йому натомість.",
+                "start": 133.2705,
+                "end": 142.7955
+            }
+        },
+        {
+            "cs": {
+                "text": "Moudrý král jí vysvětlil, že musí splnit vše, co mu řekla.",
+                "start": 143.908,
+                "end": 150.058
+            },
+            "uk": {
+                "text": "Мудрий король пояснив принцесі, що вона повинна виконати все, що пообіцяла жабеняті.",
+                "start": 142.7955,
+                "end": 150.2455
+            }
+        },
+        {
+            "cs": {
+                "text": "Princezna žabáka pustila dál. Ten doskákal k židli a požádal ji, aby ho na ni vysadila. Protože ze židle na jídlo nedosáhl, musela ho posadit až na stůl.",
+                "start": 150.058,
+                "end": 164.3205
+            },
+            "uk": {
+                "text": "Принцеса впустила жабеня до замку. Жабеня дострибало до стільця й попросило посадити його на нього. Оскільки жабеня не могло дотягнутися до їжі зі стільця, принцесі довелося посадити його на стіл.",
+                "start": 150.2455,
+                "end": 165.558
+            }
+        },
+        {
+            "cs": {
+                "text": "„Podej mi svůj talíř,“ požádal žabák. Dívka ho poslechla. Poděkoval za jídlo, ale po chutné večeři byl unavený.",
+                "start": 164.3205,
+                "end": 176.4955
+            },
+            "uk": {
+                "text": "„Дай мені свою тарілку“, – попросило жабеня. Принцеса послухалася. Жабеня подякувало їй за їжу, але було втомлене після смачної вечері.",
+                "start": 165.558,
+                "end": 178.108
+            }
+        },
+        {
+            "cs": {
+                "text": "„Vezmi mě do postýlky,“ povídá žabák po chvíli. Princezně se to nelíbilo, ale poslechla ho.  ",
+                "start": 176.4955,
+                "end": 186.033
+            },
+            "uk": {
+                "text": "„Віднеси мене до ліжечка“, – каже жабеня через деякий час. Принцесі це не сподобалося, але вона послухалася.",
+                "start": 178.108,
+                "end": 187.7705
+            }
+        },
+        {
+            "cs": {
+                "text": "„Ještě pusinku na dobrou noc,“ zakvákal žabák. Dívka se polekala, ale když uviděla, jak se na ni smutně kouká, zavřela oči a políbila ho.",
+                "start": 186.033,
+                "end": 199.3705
+            },
+            "uk": {
+                "text": "„Ще поцілуй мене на добраніч“, – квакнуло жабеня. Дівчина злякалася, але коли побачила, що жабеня сумно дивиться на неї, заплющила очі й поцілувала його.",
+                "start": 187.7705,
+                "end": 200.5205
+            }
+        },
+        {
+            "cs": {
+                "text": "Když oči opět otevřela, byla překvapená. Na posteli vedle ní seděl mladý a krásný muž. Řekl, že je princ a vyprávěl jí o tom, jak ho kdysi zaklela čarodějnice. ",
+                "start": 199.3705,
+                "end": 214.583
+            },
+            "uk": {
+                "text": "Коли вона знову розплющила очі, то була здивована. На ліжку біля неї сидів молодий і вродливий парубок. Він назвався королевичем і розповів їй про те, як його колись прокляла відьма.",
+                "start": 200.5205,
+                "end": 215.5705
+            }
+        },
+        {
+            "cs": {
+                "text": "Princezna se do něho na první pohled zamilovala.",
+                "start": 214.583,
+                "end": 219.4455
+            },
+            "uk": {
+                "text": "Принцеса закохалася в нього з першого погляду.",
+                "start": 215.5705,
+                "end": 220.183
+            }
+        },
+		{
+            "cs": {
+                "text": "Brzy byla velká svatba a princezna odjela s princem do jeho království.",
+                "start": 219.4455,
+                "end": 224.433
+            },
+            "uk": {
+                "text": "Незабаром відбулося велике весілля, і принцеса поїхала з королевичем до його королівства.",
+                "start": 220.183,
+                "end": 225.7705
+            }
+        }
+    ]
+}

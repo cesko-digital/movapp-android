@@ -3,7 +3,7 @@ package cz.movapp.app.data
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import cz.movapp.app.R
-import java.util.*
+import java.util.Locale
 
 /**
  * @param isReversed whether translation is reverse to data of json see cs-uk-dictionary.json
