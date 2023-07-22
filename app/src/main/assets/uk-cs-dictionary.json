@@ -612,12 +612,18 @@
 			},
 			"description": "",
 			"phrases": [
+				"recJCkmyScx18QrsQ",
+				"recwZkGr0cQFFopbT",
 				"recpnBktx9w2THhEM",
 				"reci2BpzmAFkxrF0j",
 				"recGkb1ENeDG0Otqr",
 				"recW28N5pffExnwlh",
 				"rec4fKJpPLZxl9TGA",
 				"reckv91vFnAOQC6SV",
+				"recxruyO0fUJSnJ7O",
+				"rechMGvwhrVObqeoT",
+				"recypow2LsCS7rvpI",
+				"recP5jHerqLVlYYL9",
 				"recENnyksYXRQUv6T",
 				"recfHvexcBd0FSigS",
 				"recV9wQcJ5wvEjs4e",
@@ -631,7 +637,6 @@
 				"rec8KWZajw59opoQD",
 				"recmutb4BDiXI1vhm",
 				"recNYp2AYK5DBk6LP",
-				"recmcj7HSP8sodYqf",
 				"recNKCYKeZz7IUh3g",
 				"reccZVRBHbLpCbWRq",
 				"recdnuGSFhJJfXyx5",
@@ -654,11 +659,10 @@
 				"reclqrp7UYWImjN8E",
 				"recSVQx3TENUwxd8k",
 				"recPVKRzFzVWnBZff",
-				"recwZkGr0cQFFopbT",
+				"recmcj7HSP8sodYqf",
 				"recF6qo2rsnYxBh8b",
 				"recBczPYbEpyxoBjD",
 				"reckhEPVn8gy7nbK5",
-				"recJCkmyScx18QrsQ",
 				"recdvUiknMokjdeUH",
 				"recMQepGvvWeROQMr",
 				"recPBcnp12eKSjdo3",
@@ -669,7 +673,10 @@
 				"recgiVfcVlteOc8Ew",
 				"rec80iYCqDuSbPZRN",
 				"recLrOBLFkgQRGa2f",
-				"rec4KlaG8WcREnout"
+				"rec4KlaG8WcREnout",
+				"recnzVuJACiN44uE9",
+				"recwhGN3MxrEh1Kwr",
+				"recqNXeVovJNBkznK"
 			],
 			"metacategories": []
 		},
@@ -23094,6 +23101,104 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/9/909e05d74b8f7157644ca783f4f5f52d.mp3",
 				"translation": "Підемо гуляти?",
 				"transcription": "Pidemo huljaty"
+			},
+			"image_url": null
+		},
+		"recxruyO0fUJSnJ7O": {
+			"id": "recxruyO0fUJSnJ7O",
+			"main": {
+				"sound_url": "https://data.movapp.eu/cs-sounds/c/c5c37f472bd663005b78ed86305f6113.mp3",
+				"translation": "čerstvý chléb",
+				"transcription": "черстви хлеб"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/ba9d513292c7e4c1f2f03bde74d827fa.mp3",
+				"translation": "свіжий хліб",
+				"transcription": "svižyj chlib"
+			},
+			"image_url": null
+		},
+		"rechMGvwhrVObqeoT": {
+			"id": "rechMGvwhrVObqeoT",
+			"main": {
+				"sound_url": "https://data.movapp.eu/cs-sounds/8/8a29c5816ae8a3e6912cd281556b0089.mp3",
+				"translation": "Máte čerstvý chléb?",
+				"transcription": "Мате черстви хлеб"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/2d0223ff1ff136f2d627ac9a72971631.mp3",
+				"translation": "Маєте свіжий хліб?",
+				"transcription": "Majete svižyj chlib"
+			},
+			"image_url": null
+		},
+		"recypow2LsCS7rvpI": {
+			"id": "recypow2LsCS7rvpI",
+			"main": {
+				"sound_url": "https://data.movapp.eu/cs-sounds/9/9defa5f6f6f2b7be99e20fa0599f3505.mp3",
+				"translation": "tvrdý chléb",
+				"transcription": "тврди хлеб"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/2a78e9dc9098c32c058f56896b651a0c.mp3",
+				"translation": "твердий хліб",
+				"transcription": "tverdyj chlib"
+			},
+			"image_url": null
+		},
+		"recP5jHerqLVlYYL9": {
+			"id": "recP5jHerqLVlYYL9",
+			"main": {
+				"sound_url": "https://data.movapp.eu/cs-sounds/7/7c93686b05e70b596fcc5a94d42814d7.mp3",
+				"translation": "Včerejší chléb je tvrdý.",
+				"transcription": "Вчерейші хлеб є тврди"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/b/b27cf2cbdf594f636510abef50033ebf.mp3",
+				"translation": "Вчорашній хліб твердий.",
+				"transcription": "Včorašnij chlib tverdyj"
+			},
+			"image_url": null
+		},
+		"recnzVuJACiN44uE9": {
+			"id": "recnzVuJACiN44uE9",
+			"main": {
+				"sound_url": "https://data.movapp.eu/cs-sounds/4/46dad5d3052c94278ce46c45916901dc.mp3",
+				"translation": "olej",
+				"transcription": "олей"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/7e1454a9d4e7ad407ec195293709d8b4.mp3",
+				"translation": "олія",
+				"transcription": "olija"
+			},
+			"image_url": null
+		},
+		"recwhGN3MxrEh1Kwr": {
+			"id": "recwhGN3MxrEh1Kwr",
+			"main": {
+				"sound_url": "https://data.movapp.eu/cs-sounds/3/329e8bc2d95d5eee4c45677f8f5fdb53.mp3",
+				"translation": "slunečnicový olej",
+				"transcription": "слунечніцови олей"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/f/fbdc6adb2a65c9e02fc2b0f6ae1896a9.mp3",
+				"translation": "соняшникова олія",
+				"transcription": "sonjašnykova olija"
+			},
+			"image_url": null
+		},
+		"recqNXeVovJNBkznK": {
+			"id": "recqNXeVovJNBkznK",
+			"main": {
+				"sound_url": "https://data.movapp.eu/cs-sounds/0/0f51a1b7b486de0b218f11e34415d509.mp3",
+				"translation": "olivový olej",
+				"transcription": "олівови олей"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a285b850cf96f9c869cb94682a182dcc.mp3",
+				"translation": "оливкова олія",
+				"transcription": "olyvkova olija"
 			},
 			"image_url": null
 		}
