@@ -11,7 +11,8 @@ class ChildrenFragmentAdapter(fragment: Fragment) : FragmentStateAdapter(fragmen
     override fun getItemCount(): Int {
         var numFragments: Int = 2
 
-        if (langPair.from == Language.Czech || langPair.to == Language.Czech) {
+        if (langPair.from == Language.Czech || langPair.to == Language.Czech ||
+            langPair.from == Language.Slovak || langPair.to == Language.Slovak ) {
             numFragments ++ /* +1 for fairy tales */
         }
 

@@ -31,6 +31,7 @@ class ChildrenFairyTalesFragment : Fragment() {
 
         childrenFairyTalesViewModel.fairyTales.observe(viewLifecycleOwner) {
             it.langPair = mainSharedViewModel.selectedLanguage.value!!
+            it.setSupportedDataset()
             recyclerView.adapter = it
             recyclerView.setHasFixedSize(true)
 

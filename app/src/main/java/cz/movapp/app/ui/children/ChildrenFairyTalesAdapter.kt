@@ -16,7 +16,7 @@ class ChildrenFairyTalesAdapter(
     var onItemClicked: (String) -> Unit = {},
 ): RecyclerView.Adapter<ChildrenFairyTalesAdapter.ItemViewHolder>() {
     var langPair = LanguagePair.getDefault()
-
+    var supportedDataset: List<Pair<MetaFairyTale, FairyTale>> = dataset
     class ItemViewHolder(val binding: FairyTaleItemBinding) : RecyclerView.ViewHolder(binding.root) {
     }
 
@@ -24,12 +24,19 @@ class ChildrenFairyTalesAdapter(
         return ItemViewHolder(FairyTaleItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
+    fun setSupportedDataset() {
+        supportedDataset = dataset.filter {
+            it.first.supportedLanguages.contains(langPair.from.langCode) &&
+            it.first.supportedLanguages.contains(langPair.from.langCode)
+        }
+    }
+
     override fun getItemCount(): Int {
-        return dataset.size
+        return supportedDataset.size
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
+        val item = supportedDataset[position]
         val context = holder.binding.root.context
 
         holder.binding.apply {
@@ -49,6 +56,7 @@ class ChildrenFairyTalesAdapter(
                 when(item.first.origin) {
                     "UA" -> R.drawable.ua
                     "CZ" -> R.drawable.cz
+                    "SK" -> R.drawable.sk
                     else -> R.drawable.ua
                 }
             )

@@ -169,8 +169,11 @@ class ChildrenFairyTalePlayerFragment : Fragment() {
         return when (langCode) {
             "uk" -> R.drawable.ua
             "cs" -> R.drawable.cz
+            "sk" -> R.drawable.sk
             "uk_cs" -> R.drawable.ua_cz
             "cs_uk" -> R.drawable.cz_ua
+            "uk_sk" -> R.drawable.ua_sk
+            "sk_uk" -> R.drawable.sk_ua
             else -> R.drawable.ua
         }
     }
