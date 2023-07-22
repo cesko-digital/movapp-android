@@ -612,6 +612,8 @@
 			},
 			"description": "",
 			"phrases": [
+				"recJCkmyScx18QrsQ",
+				"recwZkGr0cQFFopbT",
 				"recpnBktx9w2THhEM",
 				"reci2BpzmAFkxrF0j",
 				"recGkb1ENeDG0Otqr",
@@ -631,7 +633,6 @@
 				"rec8KWZajw59opoQD",
 				"recmutb4BDiXI1vhm",
 				"recNYp2AYK5DBk6LP",
-				"recmcj7HSP8sodYqf",
 				"recNKCYKeZz7IUh3g",
 				"reccZVRBHbLpCbWRq",
 				"recdnuGSFhJJfXyx5",
@@ -654,11 +655,10 @@
 				"reclqrp7UYWImjN8E",
 				"recSVQx3TENUwxd8k",
 				"recPVKRzFzVWnBZff",
-				"recwZkGr0cQFFopbT",
+				"recmcj7HSP8sodYqf",
 				"recF6qo2rsnYxBh8b",
 				"recBczPYbEpyxoBjD",
 				"reckhEPVn8gy7nbK5",
-				"recJCkmyScx18QrsQ",
 				"recdvUiknMokjdeUH",
 				"recMQepGvvWeROQMr",
 				"recPBcnp12eKSjdo3",
@@ -19522,9 +19522,9 @@
 		"recmsCKRZYHwYKZhk": {
 			"id": "recmsCKRZYHwYKZhk",
 			"main": {
-				"sound_url": "https://data.movapp.eu/sk-sounds/8/8a5cc8223578ef1703fb2c87d3b91d7e.mp3",
-				"translation": "Co Ti udělá radost?",
-				"transcription": "Цо Ті удєла радост"
+				"sound_url": "https://data.movapp.eu/sk-sounds/3/38fcb287b6b5cbbc2f86f04f59acba70.mp3",
+				"translation": "Čo Ti urobí radosť?",
+				"transcription": "Чо Ті уробі радость"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/c/cd4d47586e23b15ba57e17c8c5042e8c.mp3",

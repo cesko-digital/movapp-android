@@ -16,14 +16,16 @@
         {
             "title": {
                 "cs": "O dvanácti měsíčkách",
-                "uk": "Дванадцять місяців"
+                "uk": "Дванадцять місяців",
+                "sk": "O dvanástich mesiačikoch"
             },
             "slug": "dvanact-mesicku",
             "duration": "3",
             "origin": "CZ",
             "supportedLanguages": [
                 "cs",
-                "uk"
+                "uk",
+                "sk"
             ]
         },
         {
@@ -73,6 +75,32 @@
             "slug": "husy-lebedi",
             "duration": "3",
             "origin": "UA",
+            "supportedLanguages": [
+                "cs",
+                "uk"
+            ]
+        },
+        {
+            "title": {
+                "cs": "O veliké řepě",
+                "uk": "Про велику ріпку"
+            },
+            "slug": "velika-repa",
+            "duration": "3",
+            "origin": "CZ",
+            "supportedLanguages": [
+                "cs",
+                "uk"
+            ]
+        },
+        {
+            "title": {
+                "cs": "O třech prasátkách",
+                "uk": "Троє поросят"
+            },
+            "slug": "tri-prasatka",
+            "duration": "4",
+            "origin": "CZ",
             "supportedLanguages": [
                 "cs",
                 "uk"

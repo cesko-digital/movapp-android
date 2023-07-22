@@ -1,0 +1,172 @@
+{
+    "timeline": [
+        {
+            "cs": {
+                "text": "V chaloupce spolu žili dědeček, babička a vnučka.",
+                "start": 13.971,
+                "end": 19.383
+            },
+            "uk": {
+                "text": "Жили собі разом в хатинці дідусь, бабуся та онука.",
+                "start": 14.021,
+                "end": 19.208
+            }
+        },
+        {
+            "cs": {
+                "text": "Měli malé pole a několik zvířat – husy, králíky, slepice, pejska, kočku a myšku.",
+                "start": 19.383,
+                "end": 28.746
+            },
+            "uk": {
+                "text": "Було у них невелике поле і кілька домашніх тварин – гуси, кролики, кури, песик, кішка та мишка.",
+                "start": 19.208,
+                "end": 28.358
+            }
+        },
+        {
+            "cs": {
+                "text": "Jednoho dne šel dědeček na pole, udělal jamku a do ní zasel řepu.",
+                "start": 28.746,
+                "end": 35.096
+            },
+            "uk": {
+                "text": "Одного разу дідусь пішов у поле, зробив ямку і посіяв у неї ріпку.",
+                "start": 28.358,
+                "end": 34.796
+            }
+        },
+        {
+            "cs": {
+                "text": "Dobře se o ni staral a zaléval ji.",
+                "start": 35.096,
+                "end": 39.383
+            },
+            "uk": {
+                "text": "Дбайливо доглядав її та поливав.",
+                "start": 34.796,
+                "end": 38.796
+            }
+        },
+        {
+            "cs": {
+                "text": "Řepa rychle rostla. Až vyrostla veliká jako půl pole, bylo potřeba ji vytáhnout.",
+                "start": 39.383,
+                "end": 47.458
+            },
+            "uk": {
+                "text": "Ріпка швидко росла. Коли вона стала завбільшки з півполя, треба було її висмикнути.",
+                "start": 38.796,
+                "end": 46.996
+            }
+        },
+        {
+            "cs": {
+                "text": "Dědeček to zpočátku zkoušel sám. Chytil se řepy. Táhl, táhl, ale nevytáhl ji.",
+                "start": 47.458,
+                "end": 57.833
+            },
+            "uk": {
+                "text": "Дідусь спочатку спробував сам. Вхопив ріпку. Тягнув, тягнув, але не витягнув.",
+                "start": 46.996,
+                "end": 56.146
+            }
+        },
+        {
+            "cs": {
+                "text": "Zavolal na pomoc babičku. Babička se chytla dědečka a dědeček řepy. Táhli, táhli, ale řepu nevytáhli.",
+                "start": 57.833,
+                "end": 69.146
+            },
+            "uk": {
+                "text": "Покликав на допомогу бабусю. Бабуся вхопилася за дідуся, а дідусь за ріпку. Тягнули, тягнули, але ріпку не витягли.",
+                "start": 56.146,
+                "end": 67.708
+            }
+        },
+        {
+            "cs": {
+                "text": "Babička zavolala vnučku. Vnučka se chytla babičky, babička dědečka a dědeček řepy. Táhli, táhli, ale řepu nevytáhli.",
+                "start": 69.146,
+                "end": 81.721
+            },
+            "uk": {
+                "text": "Бабуся покликала онуку. Онука вхопилася за бабусю, бабуся за дідуся, дідусь за ріпку. Тягнули, тягнули, але ріпку не витягли.",
+                "start": 67.708,
+                "end": 80.358
+            }
+        },
+        {
+            "cs": {
+                "text": "Vnučka zavolala pejska. Pejsek se chytl vnučky, vnučka babičky, babička dědečka a dědeček řepy. Táhli, táhli, ale vytáhnout nemohli.",
+                "start": 81.721,
+                "end": 95.546
+            },
+            "uk": {
+                "text": "Онука покликала песика. Песик вхопився за онуку, онука за бабусю, бабуся за дідуся, дідусь за ріпку. Тягнули, тягнули, але не витягли.",
+                "start": 80.358,
+                "end": 93.733
+            }
+        },
+        {
+            "cs": {
+                "text": "Pejsek zavolal na kočičku. Kočička se chytla pejska, pejsek vnučky, vnučka babičky, babička dědečka a dědeček řepy. Táhli, táhli, ale řepu nevytáhli.",
+                "start": 95.546,
+                "end": 110.783
+            },
+            "uk": {
+                "text": "Песик покликав кішку. Кішка вхопилася за песика, песик за онуку, онука за бабусю, бабуся за дідуся, дідусь за ріпку. Тягнули, тягнули, але ріпку не витягли.",
+                "start": 93.733,
+                "end": 108.833
+            }
+        },
+        {
+            "cs": {
+                "text": "Kočička zavolala myšku. Myška chytla kočičku, kočička pejska, pejsek vnučku, vnučka babičku, babička dědečka a dědeček řepu. Táhli, táhli -  a najednou byla řepa venku!",
+                "start": 110.783,
+                "end": 127.233
+            },
+            "uk": {
+                "text": "Кішка покликала мишку. Мишка вхопилася за кішку, кішка за песика, песик за онуку, онука за бабусю, бабуся за дідуся, дідусь за ріпку. Тягнули, тягнули аж раптом ріпка вилізла! ",
+                "start": 108.833,
+                "end": 125.296
+            }
+        },
+        {
+            "cs": {
+                "text": "Všichni spadli na jednu hromadu. Řepa na dědečka, dědeček na babičku, babička na vnučku, vnučka na pejska, pejsek na kočičku a kočička na zem.",
+                "start": 127.233,
+                "end": 140.221
+            },
+            "uk": {
+                "text": "Всі попадали в одну купу. Ріпка на дідуся, дідусь на бабусю, бабуся на онуку, онука на песика, песик на кішку, а кішка на землю.",
+                "start": 125.296,
+                "end": 137.383
+            }
+        },
+        {
+            "cs": {
+                "text": "Myška stihla rychle utéct a schovat se.",
+                "start": 140.221,
+                "end": 144.733
+            },
+            "uk": {
+                "text": "Мишці вдалося швидко втекти та сховатися.",
+                "start": 137.383,
+                "end": 141.833
+            }
+        },
+        {
+            "cs": {
+                "text": "Na poli po řepě zůstala jen velká jáma.   Všichni se radovali, že pomohli dědečkovi řepu vytáhnout.",
+                "start": 144.733,
+                "end": 152.908
+            },
+            "uk": {
+                "text": "На полі від ріпки залишилася лише велика яма, і всі раділи, що допомогли дідусеві витягнути ріпку.",
+                "start": 141.833,
+                "end": 148.146
+            }
+        }
+    ]
+}
