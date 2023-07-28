@@ -2,21 +2,32 @@ name: Data update
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - data-update
+
+concurrency:
+  group: movapp-android-data-update-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   DataUpdate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+
       - name: DataUpdate
         run: ruby update-data.rb
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: Automatically updated data
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          commit-message: "Update data to latest version (from movapp-data repository)"
+          committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           branch: data-update
           base: main
           delete-branch: true
-          title: '[Automatically created] updated data'
+          title: "Update data to latest version (from movapp-data repository)"
           reviewers: vchlum,met
