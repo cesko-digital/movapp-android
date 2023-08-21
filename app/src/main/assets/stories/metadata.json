@@ -31,14 +31,16 @@
         {
             "title": {
                 "cs": "O červené Karkulce",
-                "uk": "Червона Шапочка"
+                "uk": "Червона Шапочка",
+                "sk": "O Červenej čiapočke"
             },
             "slug": "cervena-karkulka",
             "duration": "3",
             "origin": "CZ",
             "supportedLanguages": [
                 "cs",
-                "uk"
+                "uk",
+                "sk"
             ]
         },
         {
