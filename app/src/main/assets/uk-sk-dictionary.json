@@ -12470,9 +12470,9 @@
 				"transcription": "Звоні"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/6/6cfb2694b8f6e39fac2a82d51d510435.mp3",
-				"translation": "Дзвоник.",
-				"transcription": "Dzvonyk"
+				"sound_url": "https://data.movapp.eu/uk-sounds/5/51e4376af4a7e839c9b6e67ed90c0c33.mp3",
+				"translation": "Лунає дзвоник.",
+				"transcription": "Lunaje dzvonyk"
 			},
 			"image_url": null
 		},
