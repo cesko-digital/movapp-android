@@ -5622,9 +5622,9 @@
 		"recLYI8wDdDQpyMqW": {
 			"id": "recLYI8wDdDQpyMqW",
 			"main": {
-				"sound_url": "https://data.movapp.eu/pl-sounds/0/0c5f39c23415f9095359314381ad046b.mp3",
-				"translation": "Za siedmioma górami, za siedmioma lasami...",
-				"transcription": "За сєдмьома ґурамі, за сєдмьома лясамі"
+				"sound_url": "https://data.movapp.eu/pl-sounds/8/857d4c41d4a0147fcc222cfa10712193.mp3",
+				"translation": "Za dziewięcioma górami, za siedmioma lasami...",
+				"transcription": "За дзєвєнцьома ґурамі, за сєдмьома лясамі"
 			},
 			"source": {
 				"sound_url": "https://data.movapp.eu/uk-sounds/d/d506adc18b83136421e1a97fd1f5816d.mp3",
@@ -23617,7 +23617,7 @@
 				"transcription": "рувнік"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/6/670bc3ecdcb2a89b632df664a637b052.mp3",
+				"sound_url": "https://data.movapp.eu/uk-sounds/6/633970ee0ed1246c4ab71514b8c22f5c.mp3",
 				"translation": "екватор",
 				"transcription": "ekwator"
 			},
