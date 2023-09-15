@@ -27,7 +27,7 @@ class ChildrenFairyTalesAdapter(
     fun setSupportedDataset() {
         supportedDataset = dataset.filter {
             it.first.supportedLanguages.contains(langPair.from.langCode) &&
-            it.first.supportedLanguages.contains(langPair.from.langCode)
+            it.first.supportedLanguages.contains(langPair.to.langCode)
         }
     }
 
