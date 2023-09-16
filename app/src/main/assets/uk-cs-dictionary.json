@@ -251,6 +251,7 @@
 				"rec1zpONbihZvF8wa",
 				"recUqgfUaOg2ypOul",
 				"recnwtVjywSMjJN1Z",
+				"recW45bbrXBnJOgxa",
 				"recJPgBJxIoQAtrgf",
 				"recWCJMmEXaD4qTtG",
 				"recAzS51hv7jkGTWE",
@@ -3917,9 +3918,9 @@
 				"transcription": "тмавє зелени"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/7/7066b8507ddac4cb6cf02541dafe2aba.mp3",
-				"translation": "зелений",
-				"transcription": "zelenyj"
+				"sound_url": "https://data.movapp.eu/uk-sounds/f/fd86a34a484ffd37dd95d28ade85e82f.mp3",
+				"translation": "темно-зелений",
+				"transcription": "temno-zelenyj"
 			},
 			"image_url": null
 		},
@@ -3945,9 +3946,9 @@
 				"transcription": "свєтле зелени"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/3/3c248849a108e90e21f8c52308d784be.mp3",
-				"translation": "салатовий",
-				"transcription": "salatovyj"
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/756935233317065e117d7d890b1739c0.mp3",
+				"translation": "світло-зелений",
+				"transcription": "svitlo-zelenyj"
 			},
 			"image_url": null
 		},
@@ -3959,9 +3960,9 @@
 				"transcription": "тмавє зелена"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/2/2822cdd9458ffa2dc9e81492da944f0a.mp3",
-				"translation": "зелена",
-				"transcription": "zelena"
+				"sound_url": "https://data.movapp.eu/uk-sounds/c/c005cbf5ae6d56768850cab96f08a90c.mp3",
+				"translation": "темно-зелена",
+				"transcription": "temno-zelena"
 			},
 			"image_url": null
 		},
@@ -3973,9 +3974,9 @@
 				"transcription": "свєтле зелена"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/8/87148ecfb59cc9d9cbc975df65a2f1b2.mp3",
-				"translation": "салатова",
-				"transcription": "salatova"
+				"sound_url": "https://data.movapp.eu/uk-sounds/1/1d403e110d45b3ac585e108d8110020e.mp3",
+				"translation": "світло-зелена",
+				"transcription": "svitlo-zelena"
 			},
 			"image_url": null
 		},
@@ -24724,6 +24725,20 @@
 				"sound_url": "https://data.movapp.eu/uk-sounds/e/eb77393d23a0893368887e825eea36f3.mp3",
 				"translation": "відстань від Сонця",
 				"transcription": "vidstaň vid Soncja"
+			},
+			"image_url": null
+		},
+		"recW45bbrXBnJOgxa": {
+			"id": "recW45bbrXBnJOgxa",
+			"main": {
+				"sound_url": "https://data.movapp.eu/cs-sounds/7/766b09a09d60198d129ef38407726f9f.mp3",
+				"translation": "zelená",
+				"transcription": "зелена"
+			},
+			"source": {
+				"sound_url": "https://data.movapp.eu/uk-sounds/2/2822cdd9458ffa2dc9e81492da944f0a.mp3",
+				"translation": "зелена",
+				"transcription": "zelena"
 			},
 			"image_url": null
 		}
