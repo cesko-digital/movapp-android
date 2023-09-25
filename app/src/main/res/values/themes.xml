@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
         <item name="android:textColor">@color/secondaryTextColor</item>
@@ -37,7 +37,7 @@
     </style>
 
     <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
-<!--        fot tab layout -->
+        <!--        fot tab layout -->
         <item name="fontFamily">@font/source_sans_pro_semi_bold</item>
         <item name="android:fontFamily">@font/source_sans_pro_semi_bold</item>
 
