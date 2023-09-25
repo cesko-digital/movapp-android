@@ -95,29 +95,35 @@ open class DictionaryPhraseSectionDetailAdapter(
         }
 
 
-
-        fun brackets(s: String): CharSequence? {
+        private fun brackets(s: String): CharSequence {
             return "[${s}]"
         }
 
-        val Context.favouritesIconSet by lazy { AppCompatResources.getDrawable(App.ctx, R.drawable.ic_baseline_star_24) }
-        val Context.favouritesIconNotSet by lazy { AppCompatResources.getDrawable(App.ctx, R.drawable.ic_baseline_star_outline_24) }
 
-
-        fun setFavoriteStar(
+        private fun setFavoriteStar(
             context: Context,
             binding: DictionaryTranslationItemBinding,
             isSet: Boolean
         ) {
             if (isSet) {
-                binding.imageFavorites.setImageDrawable(context.favouritesIconSet)
+                binding.imageFavorites.setImageDrawable(
+                    AppCompatResources.getDrawable(
+                        context,
+                        R.drawable.ic_baseline_star_24
+                    )
+                )
                 binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                     ContextCompat.getColor(
                         context, R.color.primaryTextColor
                     )
                 )
             } else {
-                binding.imageFavorites.setImageDrawable(context.favouritesIconNotSet)
+                binding.imageFavorites.setImageDrawable(
+                    AppCompatResources.getDrawable(
+                        context,
+                        R.drawable.ic_baseline_star_outline_24
+                    )
+                )
                 binding.imageFavorites.imageTintList = ColorStateList.valueOf(
                     ContextCompat.getColor(
                         context, R.color.primaryTextColor
@@ -152,7 +158,8 @@ open class DictionaryPhraseSectionDetailAdapter(
 
     fun selectTranslations(translationsIds: List<String>) {
         submitList(
-            wholeDataset.filter { translationsIds.contains(it.id) }.sortedBy { translationsIds.indexOf(it.id) }
+            wholeDataset.filter { translationsIds.contains(it.id) }
+                .sortedBy { translationsIds.indexOf(it.id) }
         )
     }
 }
