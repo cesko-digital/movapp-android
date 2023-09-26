@@ -104,6 +104,8 @@ dependencies {
     //Json de/serialization
     implementation 'com.google.code.gson:gson:2.8.9'
 
+    implementation "io.insert-koin:koin-android:3.5.0"
+
     //Mocking framework
     testImplementation "org.mockito:mockito-core:4.5.1"
     testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
