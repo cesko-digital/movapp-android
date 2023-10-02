@@ -46,7 +46,7 @@ android {
             debuggable false
         }
 
-        debug{
+        debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
             resValue 'string', 'app_name', "Movapp.D"
@@ -69,17 +69,15 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    def lifecycle = '2.5.1'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
 
-    def nav_version = "2.5.3"
+    // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
@@ -87,12 +85,11 @@ dependencies {
 
     implementation 'androidx.webkit:webkit:1.5.0'
 
-    def room_version = '2.4.3'
+    // Room
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
-    def coroutines = '1.6.1'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines"
     testImplementation "com.google.truth:truth:1.0.1"
@@ -104,7 +101,8 @@ dependencies {
     //Json de/serialization
     implementation 'com.google.code.gson:gson:2.8.9'
 
-    implementation "io.insert-koin:koin-android:3.5.0"
+    // koin for dependency injection
+    implementation "io.insert-koin:koin-android:$koin_version"
 
     //Mocking framework
     testImplementation "org.mockito:mockito-core:4.5.1"
@@ -113,6 +111,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    // Koin Tests
+    testImplementation "io.insert-koin:koin-test:$koin_version"
+    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
 
     //Leak detection lib
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
