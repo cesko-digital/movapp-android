@@ -22,7 +22,7 @@ class ExerciseViewModel : ViewModel() {
 
     private val level: Level = levels[0]
 
-    private lateinit var exercise : ExerciseData
+    private lateinit var exercise: ExerciseData
 
     private var currentExerciseIndex: Int = 0
     private var currentExerciseType: ExerciseType = ExerciseType.random()
@@ -49,23 +49,23 @@ class ExerciseViewModel : ViewModel() {
         val translations = DictionaryDatasource.loadTranslations(App.ctx, LanguagePair.getDefault())
 
         val phrases = mutableListOf<DictionaryTranslationsData>()
-        section?.phrases_ids?.forEach { phraseId ->
-            translations.find {
-                phraseId.contentEquals(it.id)
-            }?.let {
-                val numWords = it.main_translation.trim().count { it == ' ' } + 1
-                if (numWords >= level.wordLimitMin && numWords <= level.wordLimitMax) {
-                    phrases.add(it)
-                }
-            }
-        }
+        fillPhrases(phrases, section?.phrases_ids, translations)
 
         Timber.d("numPhrases matching word limit ${phrases.size}")
 
         val numRequiredPhrases = level.choiceLimit * numQuestions
         if (phrases.size < numRequiredPhrases) {
-            // FIXME out of required phrases count
-            throw IllegalStateException("out of required phrases count ${phrases.size} < $numRequiredPhrases")
+            Timber.i("out of required phrases count ${phrases.size} < $numRequiredPhrases")
+
+            val numberOfPhrasesToFill = numRequiredPhrases - phrases.size
+
+            val fillPhrasesIDs = sections
+                .filter { selectedCategories.contains(it.id) && it.id != category }
+                .map { it.phrases_ids }
+                .flatten()
+                .shuffled()
+
+            fillPhrases(phrases, fillPhrasesIDs, translations, numberOfPhrasesToFill)
         }
 
         val questions = mutableListOf<Question>()
@@ -85,17 +85,33 @@ class ExerciseViewModel : ViewModel() {
                     selectedPhrases
                 )
             )
-
-            if (BuildConfig.DEBUG) {
-                //Timber.d("section: $section")
-                //Timber.d("selectedPhrases\n${selectedPhrases.joinToString("\n")}")
-            }
         }
 
         exercise = ExerciseData(
             numQuestions,
             questions
         )
+    }
+
+    private fun fillPhrases(phrases: MutableList<DictionaryTranslationsData>, phrasesIds: List<String>?, translations: List<DictionaryTranslationsData>, limit: Int? = null) {
+        var addedPhrases = 0
+        run loop@{
+            phrasesIds?.forEach { phraseId ->
+                translations.find {
+                    phraseId.contentEquals(it.id)
+                }?.let {
+                    val numWords = it.main_translation.trim().count { it == ' ' } + 1
+                    if (numWords >= level.wordLimitMin && numWords <= level.wordLimitMax) {
+                        phrases.add(it)
+                        addedPhrases++
+                    }
+                }
+
+                limit?.takeIf { addedPhrases >= it }?.let {
+                    return@loop
+                }
+            }
+        }
     }
 
     fun startNewExercise() {
@@ -127,8 +143,7 @@ class ExerciseViewModel : ViewModel() {
         if (currentExerciseIndex >= exercise.numExercises) {
             // end of game
             _exerciseState.value = ExerciseState.End
-        }
-        else {
+        } else {
             _exerciseState.value = ExerciseState.Exercise(
                 currentExerciseType,
                 exercise.questions[currentExerciseIndex]

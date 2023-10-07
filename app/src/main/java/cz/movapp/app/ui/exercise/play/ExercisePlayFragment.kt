@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -20,6 +21,10 @@ class ExercisePlayFragment : Fragment() {
 
     private val exerciseViewModel: ExerciseViewModel by activityViewModels()
 
+    companion object {
+        private const val PLAYBACK_SPEED_75_PERCENT = 0.75f
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +32,7 @@ class ExercisePlayFragment : Fragment() {
         exerciseViewModel.exerciseState.observe(this) { exerciseState ->
             when (exerciseState) {
                 is ExerciseState.Exercise -> {
-                    binding.next.visibility = View.GONE
+                    binding.next.isVisible = false
                     val question = exerciseState.question
                     binding.word.text = question.phrases[question.phraseCorrectIndex].source_translation
 
@@ -46,7 +51,7 @@ class ExercisePlayFragment : Fragment() {
                     adapter.setData(phrases)
                 }
                 is ExerciseState.Complete -> {
-                    binding.next.visibility = View.VISIBLE
+                    binding.next.isVisible = true
                 }
                 is ExerciseState.End -> {
                     findNavController().navigate(R.id.nav_exercise_finish)
@@ -76,7 +81,7 @@ class ExercisePlayFragment : Fragment() {
 
                 },
                 onPlaySlow = { answer ->
-                    exerciseViewModel.playLocalSound(requireContext(), answer.id, 0.75f)
+                    exerciseViewModel.playLocalSound(requireContext(), answer.id, PLAYBACK_SPEED_75_PERCENT)
                 }
             )
             recyclerViewExercise.adapter = adapter

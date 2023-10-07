@@ -8,13 +8,24 @@
     android:paddingVertical="@dimen/activity_vertical_margin"
     tools:context=".ui.exercise.setup.ExerciseSetupFragment">
 
+    <ImageView
+        android:id="@+id/img_beta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_beta"
+        android:contentDescription="@string/cd_img_beta_flag" />
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/exercise_setup_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/img_beta"
+        android:layout_marginTop="16dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_exercise"
@@ -49,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
-            android:text="1"
+            android:text="@string/one"
             android:theme="@style/ExerciseRadioButton" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -57,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
-            android:text="5"
+            android:text="@string/five"
             android:theme="@style/ExerciseRadioButton" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -65,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
-            android:text="10"
+            android:text="@string/ten"
             android:theme="@style/ExerciseRadioButton" />
     </RadioGroup>
 

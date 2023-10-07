@@ -41,8 +41,7 @@ class ExerciseSetupAdapter(
 
     class ViewHolder(
         val binding: ExerciseSetupItemBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
-    }
+    ) : RecyclerView.ViewHolder(binding.root)
 
     data class Item(
         val name: String,

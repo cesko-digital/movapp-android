@@ -58,8 +58,8 @@
     <string name="fairy_tales_ukrainian_origin">Ukrainian fairy tales</string>
 
     <string name="title_exercise">Procvičování</string>
-    <string name="exercise_finish_title">GRATULUJEME!</string>
-    <string name="exercise_finish_subtitle">Cvičení jste úspěšně zvládli.\\n\\nNyní můžete pokračovat v procvičování, nebo se vrátit zpět na hlavní stránku.</string>
+    <string name="exercise_finish_title">Gratulujeme!</string>
+    <string name="exercise_finish_subtitle">Cvičení jste úspěšně zvládli.\n\nNyní můžete pokračovat v procvičování, nebo se vrátit zpět na hlavní stránku.</string>
     <string name="exercise_finish_button_restart">Spustit znovu</string>
     <string name="exercise_finish_button_setup">Změnit nastavení</string>
     <string name="exercise_play_title">Označte, co znamená</string>
@@ -70,4 +70,9 @@
     <string name="exercise_setup_button_start">Začít</string>
     <string name="exercise_setup_error_select_categories">Vyber si tématické okruhy</string>
     <string name="exercise_setup_error_select_length">Vyberte délku cvičení</string>
+
+    <string name="one" translatable="false">1</string>
+    <string name="five" translatable="false">5</string>
+    <string name="ten" translatable="false">10</string>
+    <string name="cd_img_beta_flag" translatable="false">beta flag</string>
 </resources>

@@ -105,7 +105,7 @@ object DictionaryDatasource {
 
     private fun loadMetaCategoriesFromAssets(context: Context, langStorageString: String): List<DictionaryMetaCategoryData> {
         var jsonString = ""
-        var dict = mutableListOf<DictionaryMetaCategoryData>()
+        val dict = mutableListOf<DictionaryMetaCategoryData>()
 
         try {
             jsonString = context.assets.open("${langStorageString}-dictionary.json").bufferedReader().use { it.readText() }

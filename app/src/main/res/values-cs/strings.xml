@@ -50,5 +50,19 @@
     <string name="fairy_tales_minutes">min</string>
     <string name="fairy_tales_czech_origin">České lidové pohádky</string>
     <string name="fairy_tales_ukrainian_origin">Ukrajinské lidové pohádky</string>
+
     <string name="title_exercise">Procvičování</string>
+    <string name="exercise_finish_title">Gratulujeme!</string>
+    <string name="exercise_finish_subtitle">Cvičení jste úspěšně zvládli.\n\nNyní můžete pokračovat v procvičování, nebo se vrátit zpět na hlavní stránku.</string>
+    <string name="exercise_finish_button_restart">Spustit znovu</string>
+    <string name="exercise_finish_button_setup">Změnit nastavení</string>
+    <string name="exercise_play_title">Označte, co znamená</string>
+    <string name="exercise_play_button_home">Domů</string>
+    <string name="exercise_play_button_next">Pokračovat</string>
+    <string name="exercise_setup_title">Nejprve si vyberte jeden nebo více tematických okruhů a můžete začít.</string>
+    <string name="exercise_setup_length">Nastavte si délku cvičení:</string>
+    <string name="exercise_setup_button_start">Začít</string>
+    <string name="exercise_setup_error_select_categories">Vyber si tématické okruhy</string>
+    <string name="exercise_setup_error_select_length">Vyberte délku cvičení</string>
+
 </resources>
