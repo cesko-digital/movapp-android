@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.StrictMode
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import timber.log.Timber
 
 const val TAG = "MOVAPP"
 
@@ -23,6 +24,7 @@ class App : Application() {
         super.onCreate()
         if (BuildConfig.DEBUG) {
             StrictMode.enableDefaults()
+            Timber.plant(Timber.DebugTree())
         }
         instance = this
         ctx = applicationContext

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="4dp">
+
+    <ImageView
+        android:layout_width="@dimen/play_button_size"
+        android:layout_height="@dimen/play_button_size"
+        android:src="@drawable/ic_speaker"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/play_normal"
+        android:layout_width="@dimen/play_button_size"
+        android:layout_height="@dimen/play_button_size"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_playicon"
+        android:scaleType="centerInside"
+        android:tint="@color/white"
+        android:backgroundTint="@color/primaryColor"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/play_slow"
+        android:layout_width="@dimen/play_button_size"
+        android:layout_height="@dimen/play_button_size"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_slowplay"
+        android:scaleType="centerInside"
+        android:tint="@color/white"
+        android:backgroundTint="@color/primaryColor"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/check"
+        android:layout_width="@dimen/play_button_size"
+        android:layout_height="@dimen/play_button_size"
+        android:layout_marginStart="4dp"
+        android:src="@android:drawable/ic_menu_send"
+        android:scaleType="centerInside"
+        android:background="@drawable/exercise_play_item_selector"
+        />
+
+</LinearLayout>

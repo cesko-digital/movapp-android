@@ -15,6 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,7 +49,12 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        binding.bottomNavigation.setupWithNavController(navController)
+        binding.bottomNavigation.apply {
+            setupWithNavController(navController)
+            setOnItemReselectedListener {
+                Timber.d("menuItem $it")
+            }
+        }
     }
 
 

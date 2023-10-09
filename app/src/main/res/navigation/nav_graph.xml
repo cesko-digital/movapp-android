@@ -7,9 +7,9 @@
     app:startDestination="@id/nav_dictionary"
     >
 
-    <include
-        app:graph="@navigation/nav_graph_dictonary"
-        />
+    <include app:graph="@navigation/nav_graph_dictonary" />
+    <include app:graph="@navigation/nav_graph_exercise" />
+
 <!-- ids must be same as in bottom navigation mnu - bottom_nav_menu.xml-->
     <fragment
         android:id="@+id/nav_dictionary"
@@ -23,6 +23,15 @@
     </fragment>
 
 
+    <fragment
+        android:id="@+id/nav_exercise"
+        android:name="cz.movapp.app.ui.exercise.setup.ExerciseSetupFragment"
+        tools:layout="@layout/fragment_exercise_setup" >
+
+        <action
+            android:id="@+id/to_nav_graph_exercise"
+            app:destination="@id/nav_graph_exercise" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_alphabet"

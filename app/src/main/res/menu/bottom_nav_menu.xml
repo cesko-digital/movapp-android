@@ -8,6 +8,11 @@
         android:title="@string/title_dictionary" />
 
     <item
+        android:id="@id/nav_graph_exercise"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="@string/title_exercise" />
+
+    <item
         android:id="@+id/nav_alphabet"
         android:icon="@drawable/alphabet"
         android:title="@string/title_alphabet" />

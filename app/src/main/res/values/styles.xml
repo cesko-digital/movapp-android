@@ -21,4 +21,8 @@
         <item name="android:fontFamily">@font/source_sans_pro_semi_bold</item>
         <item name="android:textSize">@dimen/about_item_text_standard</item>
     </style>
+
+    <style name="ExerciseRadioButton">
+        <item name="colorControlActivated">@color/primaryColor</item>
+    </style>
 </resources>

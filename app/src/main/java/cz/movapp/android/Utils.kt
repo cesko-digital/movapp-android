@@ -3,6 +3,7 @@ package cz.movapp.android
 import android.content.Context
 import android.content.res.AssetFileDescriptor
 import android.media.MediaPlayer
+import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.FragmentActivity
@@ -15,7 +16,8 @@ import java.text.Normalizer
  */
 fun playSound(
     context: Context,
-    assetFileName: String
+    assetFileName: String,
+    playbackSpeed: Float = 1.0f
 ): MediaPlayer? {
     val afd: AssetFileDescriptor = context.assets.openFd(assetFileName)
     var player: MediaPlayer? = MediaPlayer()
@@ -28,6 +30,13 @@ fun playSound(
         player = null
     }
     player?.prepare()
+    // FIXME will not work on lower Android versions
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        player?.playbackParams?.apply {
+            speed = playbackSpeed
+            player?.playbackParams = this
+        }
+    }
     player?.start()
 
     return player

@@ -4,7 +4,7 @@ import android.content.Context
 import cz.movapp.android.stripDiacritics
 import cz.movapp.app.FavoritesViewModel
 import cz.movapp.app.data.LanguagePair
-import java.util.*
+import java.util.Locale
 
 class DictionaryPhrasesSearchAllAdapter(
     private val context: Context,

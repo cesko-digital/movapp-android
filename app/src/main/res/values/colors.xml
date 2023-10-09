@@ -40,4 +40,9 @@
     <color name="playerRead">#CAC0C0</color>
     <color name="playerReading">#ffd500</color>
     <color name="playerUnRead">#FFFFFF</color>
+
+    <color name="exerciseAnswerWrong">#CCCCCC</color>
+    <color name="exerciseAnswerCorrect">#91FF00</color>
+    <color name="exerciseAnswerUnanswered">#FFFFFF</color>
+
 </resources>

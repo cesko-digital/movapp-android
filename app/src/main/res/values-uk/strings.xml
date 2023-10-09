@@ -50,4 +50,19 @@
     <string name="fairy_tales_minutes">хв.</string>
     <string name="fairy_tales_czech_origin">Чеські народні казки</string>
     <string name="fairy_tales_ukrainian_origin">Українські народні казки</string>
+
+    <string name="title_exercise">Практикували</string>
+    <string name="exercise_finish_title">Вітаємо!</string>
+    <string name="exercise_finish_subtitle">Ви успішно освоїли вправу.\n\nТепер можете продовжити практику або повернутися на головну сторінку.</string>
+    <string name="exercise_finish_button_restart">Відтворити знову</string>
+    <string name="exercise_finish_button_setup">Змінити налаштування</string>
+    <string name="exercise_play_title">Виберіть, що означає фраза</string>
+    <string name="exercise_play_button_home">Додому</string>
+    <string name="exercise_play_button_next">Продовжити</string>
+    <string name="exercise_setup_title">Спочатку виберіть одну або кілька тем, та можете розпочати.</string>
+    <string name="exercise_setup_length">Встановіть тривалість вправи:</string>
+    <string name="exercise_setup_button_start">Почати</string>
+    <string name="exercise_setup_error_select_categories">Vyber si tématické okruhy</string>
+    <string name="exercise_setup_error_select_length">Vyberte délku cvičení</string>
+
 </resources>

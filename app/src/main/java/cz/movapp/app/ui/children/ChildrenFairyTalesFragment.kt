@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import cz.movapp.app.MainViewModel
 import cz.movapp.app.databinding.FragmentChildrenFairyTalesSelectionBinding
 
