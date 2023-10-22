@@ -5,7 +5,7 @@
     <solid android:color="@color/exerciseAnswerUnanswered" />
 
     <stroke
-        android:color="@color/primaryColor"
+        android:color="@color/exercise_border_default"
         android:width="1dp"
         />
 

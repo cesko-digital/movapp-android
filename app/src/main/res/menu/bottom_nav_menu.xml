@@ -9,7 +9,7 @@
 
     <item
         android:id="@id/nav_graph_exercise"
-        android:icon="@android:drawable/ic_menu_view"
+        android:icon="@drawable/ic_exercise"
         android:title="@string/title_exercise" />
 
     <item
