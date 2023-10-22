@@ -23,6 +23,11 @@
     </style>
 
     <style name="ExerciseRadioButton">
-        <item name="colorControlActivated">@color/primaryColor</item>
+        <item name="colorControlActivated">@color/exercise_radio_button</item>
+    </style>
+
+    <style name="ExerciseButton">
+        <item name="android:textColor">@color/exercise_button_text</item>
+        <item name="android:backgroundTint">@color/exercise_button_background</item>
     </style>
 </resources>

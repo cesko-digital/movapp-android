@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center_vertical"
+    android:gravity="center"
     android:paddingVertical="4dp">
 
     <ImageView
         android:layout_width="@dimen/play_button_size"
         android:layout_height="@dimen/play_button_size"
         android:src="@drawable/ic_speaker"
+        android:tint="@color/exercise_image_tint"
         />
 
     <androidx.appcompat.widget.AppCompatImageButton
@@ -19,8 +20,8 @@
         android:layout_marginStart="4dp"
         android:src="@drawable/ic_playicon"
         android:scaleType="centerInside"
-        android:tint="@color/white"
-        android:backgroundTint="@color/primaryColor"
+        android:tint="@color/exercise_image_tint_reverse"
+        android:backgroundTint="@color/exercise_button_background"
         />
 
     <androidx.appcompat.widget.AppCompatImageButton
@@ -30,8 +31,8 @@
         android:layout_marginStart="4dp"
         android:src="@drawable/ic_slowplay"
         android:scaleType="centerInside"
-        android:tint="@color/white"
-        android:backgroundTint="@color/primaryColor"
+        android:tint="@color/exercise_image_tint_reverse"
+        android:backgroundTint="@color/exercise_button_background"
         />
 
     <androidx.appcompat.widget.AppCompatImageButton

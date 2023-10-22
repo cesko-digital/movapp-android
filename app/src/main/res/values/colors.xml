@@ -44,5 +44,14 @@
     <color name="exerciseAnswerWrong">#CCCCCC</color>
     <color name="exerciseAnswerCorrect">#91FF00</color>
     <color name="exerciseAnswerUnanswered">#FFFFFF</color>
+    <color name="exercise_border_default">@color/primaryColor</color>
+    <color name="exercise_border_selected">@color/primaryColor</color>
+    <color name="exercise_text_default">@color/primaryColor</color>
+    <color name="exercise_text_selected">@color/white</color>
+    <color name="exercise_radio_button">@color/primaryColor</color>
+    <color name="exercise_button_text">@color/white</color>
+    <color name="exercise_button_background">@color/primaryColor</color>
+    <color name="exercise_image_tint">@color/black</color>
+    <color name="exercise_image_tint_reverse">@color/white</color>
 
 </resources>

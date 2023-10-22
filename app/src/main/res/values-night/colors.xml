@@ -34,4 +34,13 @@
     <color name="playerRead">#CAC0C0</color>
     <color name="playerReading">#ffd500</color>
     <color name="playerUnRead">#FFFFFF</color>
+    <color name="exercise_border_default">@color/primaryColor</color>
+    <color name="exercise_border_selected">@color/secondaryColor</color>
+    <color name="exercise_text_default">@color/primaryColor</color>
+    <color name="exercise_text_selected">@color/black</color>
+    <color name="exercise_radio_button">@color/secondaryColor</color>
+    <color name="exercise_button_text">@color/black</color>
+    <color name="exercise_button_background">@color/secondaryColor</color>
+    <color name="exercise_image_tint">@color/white</color>
+    <color name="exercise_image_tint_reverse">@color/black</color>
 </resources>

@@ -8,11 +8,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import cz.movapp.app.R
 import cz.movapp.app.databinding.FragmentExercisePlayBinding
 import cz.movapp.app.ui.exercise.ExerciseState
 import cz.movapp.app.ui.exercise.ExerciseType
 import cz.movapp.app.ui.exercise.ExerciseViewModel
+import timber.log.Timber
 
 class ExercisePlayFragment : Fragment() {
 
@@ -49,6 +51,11 @@ class ExercisePlayFragment : Fragment() {
                         }
                     }
                     adapter.setData(phrases)
+                    val manager = binding.recyclerViewExercise.layoutManager
+                    if (manager is GridLayoutManager) {
+                        manager.spanCount =
+                            if (exerciseState.exerciseType == ExerciseType.AUDIO_IDENTIFICATION) 1 else 2
+                    }
                 }
                 is ExerciseState.Complete -> {
                     binding.next.isVisible = true

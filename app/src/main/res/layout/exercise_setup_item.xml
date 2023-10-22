@@ -12,7 +12,9 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
-    android:padding="@dimen/list_items_inline_with_searchbar_padding_sides">
+    android:paddingVertical="@dimen/list_items_inline_with_searchbar_padding_sides"
+    android:paddingHorizontal="@dimen/list_items_inline_with_searchbar_half_padding_sides"
+    >
 
     <TextView
         android:id="@+id/text_exercise_name"
@@ -21,7 +23,11 @@
         android:fontFamily="@font/source_sans_pro_semi_bold"
         android:gravity="center"
         android:textColor="@color/exercise_setup_selector"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="20sp"
+        android:autoSizeMinTextSize="18sp"
         android:textSize="20sp"
+        android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
