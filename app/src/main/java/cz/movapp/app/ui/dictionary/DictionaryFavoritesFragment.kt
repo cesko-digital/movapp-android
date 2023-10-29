@@ -23,6 +23,8 @@ class DictionaryFavoritesFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    private var forceFavoritesReload = true
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,7 +47,7 @@ class DictionaryFavoritesFragment : Fragment() {
         mainSharedViewModel.selectedLanguage.observe(viewLifecycleOwner, Observer { lang ->
             val adapter = getRVAdapter()
 
-            if(adapter.langPair != lang){
+            if (adapter.langPair != lang) {
                 dictionarySharedViewModel.onLanguageChanged(lang)
 
                 if (favoritesViewModel.favorites.value != null) {
@@ -72,8 +74,9 @@ class DictionaryFavoritesFragment : Fragment() {
         val adapter = getRVAdapter()
 
         adapter.favoritesIds = favoritesIds.map { it.translationId } as MutableList
+        adapter.setFavorites(forceFavoritesReload)
 
-        adapter.setFavorites()
+        forceFavoritesReload = false
     }
 
     private fun getRVAdapter(): DictionaryPhrasesSearchAllAdapter {
@@ -91,6 +94,7 @@ class DictionaryFavoritesFragment : Fragment() {
 
         binding.recyclerViewDictionaryFavorites.adapter = null
         _binding = null
+        forceFavoritesReload = true
     }
 
 }
