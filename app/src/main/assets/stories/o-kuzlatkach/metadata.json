@@ -1,0 +1,276 @@
+{
+    "timeline": [
+        {
+            "sk": {
+                "text": "V chalúpke žila mama koza so svojimi tromi kozliatkami.",
+                "start": 14.783,
+                "end": 19.7955
+            },
+            "cs": {
+                "text": "V chaloupce žila máma koza se svými třemi kůzlaty.",
+                "start": 14.983,
+                "end": 20.083
+            },
+            "uk": {
+                "text": "Жила собі в хатинці мати-коза з козенятами.",
+                "start": 14.1955,
+                "end": 18.6705
+            }
+        },
+        {
+            "sk": {
+                "text": "Raz išla koza do mesta na trh.",
+                "start": 19.7955,
+                "end": 23.5205
+            },
+            "cs": {
+                "text": "Jednou šla koza do města na trh.",
+                "start": 20.083,
+                "end": 24.0955
+            },
+            "uk": {
+                "text": "От якось надумала вона піти до міста на базар.",
+                "start": 18.6705,
+                "end": 23.2705
+            }
+        },
+        {
+            "sk": {
+                "text": "„Nikomu neotvárajte,“ prikázala.",
+                "start": 23.5205,
+                "end": 27.608
+            },
+            "cs": {
+                "text": "„Nikomu neotvírejte“, přikázala.",
+                "start": 24.0955,
+                "end": 28.8205
+            },
+            "uk": {
+                "text": "Покликала козенят і каже: „Добре замкніться й нікому не відчиняйте“.",
+                "start": 23.2705,
+                "end": 29.3705
+            }
+        },
+        {
+            "sk": {
+                "text": "Len čo odišla, niekto ťukal na dvere.",
+                "start": 27.608,
+                "end": 32.0455
+            },
+            "cs": {
+                "text": "Jen co odešla, někdo ťukal na dveře.",
+                "start": 28.8205,
+                "end": 33.458
+            },
+            "uk": {
+                "text": "Тільки-но вона відійшла, як хтось постукав у двері:",
+                "start": 29.3705,
+                "end": 33.6205
+            }
+        },
+        {
+            "sk": {
+                "text": "„Otvorte, to som ja, vaša maminka!“",
+                "start": 32.0455,
+                "end": 36.3705
+            },
+            "cs": {
+                "text": "„Otevřete, to jsem já, vaše maminka!“",
+                "start": 33.458,
+                "end": 38.458
+            },
+            "uk": {
+                "text": "„Відчиняйте! Це я, ваша матуся!“",
+                "start": 33.6205,
+                "end": 39.083
+            }
+        },
+        {
+            "sk": {
+                "text": "Ale kozliatka sa začali smiať. „Nie, ty nie si naša maminka, ty si vlk. Naša maminka nemá taký hlboký hlas.“",
+                "start": 36.3705,
+                "end": 47.108
+            },
+            "cs": {
+                "text": "Kůzlátka se ale začala smát. „Nene, ty nejsi naše maminka, ty jsi vlk. Naše maminka nemá tak hluboký hlas.“",
+                "start": 38.458,
+                "end": 50.033
+            },
+            "uk": {
+                "text": "Козенята, як почули це, розсміялися: „Ти не наша матуся! У неї голос тоненький, а в тебе грубий! Ти вовчисько!“",
+                "start": 39.083,
+                "end": 51.1705
+            }
+        },
+        {
+            "sk": {
+                "text": "Vlk bežal ku kováčovi, aby mu vykoval jazyk. O chvíľu bol späť.",
+                "start": 47.108,
+                "end": 53.9455
+            },
+            "cs": {
+                "text": "Vlk běžel ke kováři, aby mu vykoval jazyk. Za chvíli byl zpět.",
+                "start": 50.033,
+                "end": 57.258
+            },
+            "uk": {
+                "text": "Вовк тоді пішов до коваля, щоб той виковав йому язика, і повернувся згодом.",
+                "start": 51.1705,
+                "end": 58.0455
+            }
+        },
+        {
+            "sk": {
+                "text": "Zaklopal na dvere a tenkým hláskom hovorí: „Otvorte kozliatka, ja som vaša maminka.“",
+                "start": 53.9455,
+                "end": 61.4455
+            },
+            "cs": {
+                "text": "Zaklepal na dveře a tenkým hláskem říká:  „Otevřete kůzlátka, já jsem vaše maminka.“",
+                "start": 57.258,
+                "end": 66.358
+            },
+            "uk": {
+                "text": "Постукав у двері й тоненьким голоском сказав: „Відкрийте, козенята! Це я, ваша матуся!“",
+                "start": 58.0455,
+                "end": 67.433
+            }
+        },
+        {
+            "sk": {
+                "text": "Hlas mal ako mama koza, ale kozliatka boli múdre. Povedali vlkovi, aby im do okna ukázal svoju nohu.",
+                "start": 61.4455,
+                "end": 70.733
+            },
+            "cs": {
+                "text": "Hlas měl jako maminka koza, ale kůzlátka byla chytrá. Řekla vlkovi, aby jim do okna ukázal svoji nožičku. ",
+                "start": 66.358,
+                "end": 76.6705
+            },
+            "uk": {
+                "text": "Голос у нього був точнісінько як у мати-кози. Але козенята були розумними й попросили, аби вовк показав їм у вікні свою лапу.",
+                "start": 67.433,
+                "end": 78.308
+            }
+        },
+        {
+            "sk": {
+                "text": "Vlk strčil svoju špinavú šedú tlapu do okna.",
+                "start": 70.733,
+                "end": 75.4455
+            },
+            "cs": {
+                "text": "Vlk strčil svoji špinavou šedou tlapu do okna.",
+                "start": 76.6705,
+                "end": 81.3955
+            },
+            "uk": {
+                "text": "Вовк і висунув свою сіру, брудну лапу до вікна.",
+                "start": 78.308,
+                "end": 83.408
+            }
+        },
+        {
+            "sk": {
+                "text": "Kozliatka sa smiali. „Nie, ty nie si naša maminka, ty si vlk. Naša maminka má nohu čistú a krásne bielu.“",
+                "start": 75.4455,
+                "end": 86.058
+            },
+            "cs": {
+                "text": "Kůzlátka se smála.  „Nene, ty nejsi naše maminka, ty jsi vlk. Naše maminka má nožičku čistou a krásně bílou.“",
+                "start": 81.3955,
+                "end": 93.2455
+            },
+            "uk": {
+                "text": "Козенята, як побачили її, розсміялися: „Ні-ні, ти не наша матуся, ти вовк! У нашої матусі лапка біленька й чистенька!“",
+                "start": 83.408,
+                "end": 95.5455
+            }
+        },
+        {
+            "sk": {
+                "text": "Vlk bežal do mlyna a strčil tlapu do múky - mal ju celú bielu. A utekal späť k chalúpke.",
+                "start": 86.058,
+                "end": 94.6205
+            },
+            "cs": {
+                "text": "Vlk běžel do mlýna a strčil tlapku do mouky - měl ji celou bílou. A utíkal zpět k chaloupce.",
+                "start": 93.2455,
+                "end": 102.6955
+            },
+            "uk": {
+                "text": "Вовк побіг до млина й засунув лапу в муку, аби вона стала білою, і знову повернувся до хатинки.",
+                "start": 95.5455,
+                "end": 103.658
+            }
+        },
+        {
+            "sk": {
+                "text": "To už sa ale maminka vracala z trhu.",
+                "start": 94.6205,
+                "end": 98.683
+            },
+            "cs": {
+                "text": "To už se ale vracela maminka z trhu.",
+                "start": 102.6955,
+                "end": 106.758
+            },
+            "uk": {
+                "text": "Як раз у цю мить мати-коза повернулася з міста.",
+                "start": 103.658,
+                "end": 108.3955
+            }
+        },
+        {
+            "sk": {
+                "text": "Keď videla vlka pred dverami chalúpky, odložila nákup, sklonila hlavu, rozbehla sa a nabrala vlka na rohy. ",
+                "start": 98.683,
+                "end": 107.483
+            },
+            "cs": {
+                "text": "Když viděla vlka přede dveřmi chaloupky, odložila nákup, sklonila hlavu, rozběhla se a nabrala vlka na rohy.",
+                "start": 106.758,
+                "end": 115.9205
+            },
+            "uk": {
+                "text": "А як побачила вовка перед дверима хатинки, відклала всі торбинки, нахилила голову та як розженеться й підчепить вовка рогами.",
+                "start": 108.3955,
+                "end": 118.2205
+            }
+        },
+        {
+            "sk": {
+                "text": "Vlk odletel do krovia a rýchlo utekal preč.",
+                "start": 107.483,
+                "end": 112.1955
+            },
+            "cs": {
+                "text": "Vlk odletěl do křoví a rychle utekl pryč.",
+                "start": 115.9205,
+                "end": 120.6205
+            },
+            "uk": {
+                "text": "Вовк відлетів у кущі та хутко втік.",
+                "start": 118.2205,
+                "end": 122.5705
+            }
+        },
+        {
+            "sk": {
+                "text": "Mama koza odomkla dvere a svojim múdrym a poslušným kozliatkam dala za odmenu sladkú mrkvu.",
+                "start": 112.1955,
+                "end": 117.9705
+            },
+            "cs": {
+                "text": "Maminka koza odemkla dveře a svým chytrým a poslušným kůzlátkům dala za odměnu sladkou mrkev.",
+                "start": 120.6205,
+                "end": 127.5705
+            },
+            "uk": {
+                "text": "Мати-коза відчинила двері й дала своїм розумним і слухняним козенятам солодку морквинку в нагороду.",
+                "start": 122.5705,
+                "end": 128.5705
+            }
+        }
+    ]
+}
