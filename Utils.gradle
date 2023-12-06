@@ -8,7 +8,7 @@ ext.getGitVersionCode = { ->
             commandLine 'git', 'rev-list', '--count', 'HEAD'
             standardOutput = stdout
         }
-        return Integer.parseInt(stdout.toString().trim())
+        return (Integer.parseInt(stdout.toString().trim()) + 5)
     }
     catch (ignored) {
         return -1;
