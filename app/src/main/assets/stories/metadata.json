@@ -2,6 +2,21 @@
     "stories": [
         {
             "title": {
+                "cs": "O kůzlátkách",
+                "uk": "Казка про козенят",
+                "sk": "O kozliatkach"
+            },
+            "slug": "o-kuzlatkach",
+            "duration": "3",
+            "origin": "CZ",
+            "supportedLanguages": [
+                "cs",
+                "uk",
+                "sk"
+            ]
+        },
+        {
+            "title": {
                 "cs": "Žabí princ",
                 "uk": "Королевич-жабеня"
             },
