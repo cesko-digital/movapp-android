@@ -1,10 +1,15 @@
-{
+﻿{
     "timeline": [
         {
             "cs": {
                 "text": "Žili byli dědeček a babička. Dědeček babičku poprosil, aby upekla koblížek.",
                 "start": 13.883,
                 "end": 22.108
+            },
+            "sk": {
+                "text": "Bol raz jeden deduško a babička. Deduško babičku poprosil, aby mu upiekla pampúšik.",
+                "start": 14.008,
+                "end": 22.258
             },
             "uk": {
                 "text": "Жили-були дід і баба, і попросив дід бабу спекти колобок.",
@@ -18,6 +23,11 @@
                 "start": 22.108,
                 "end": 27.9955
             },
+            "sk": {
+                "text": "Babička našla múku, zamiesila cesto a upiekla pampúšik.",
+                "start": 22.258,
+                "end": 28.2205
+            },
             "uk": {
                 "text": "Баба знайшла борошно, намісила тісто і спекла колобок.",
                 "start": 19.1955,
@@ -29,6 +39,11 @@
                 "text": "Vytáhla ho z pece a postavila na okno, aby vychladl.",
                 "start": 27.9955,
                 "end": 33.558
+            },
+            "sk": {
+                "text": "Vybrala ho z pece a dala ho vychladnúť na okno.",
+                "start": 28.2205,
+                "end": 33.008
             },
             "uk": {
                 "text": "Вона витягла його з печі і поставила на вікні, щоб вичахав.",
@@ -42,6 +57,11 @@
                 "start": 33.558,
                 "end": 40.4705
             },
+            "sk": {
+                "text": "Pampúšik ležal a ležal na okne a zrazu zoskočil a kotúľal sa po cestičke.",
+                "start": 33.008,
+                "end": 39.8705
+            },
             "uk": {
                 "text": "Колобок лежав-лежав на вікні, а тоді зістрибнув і покотився доріжкою.",
                 "start": 30.3955,
@@ -53,6 +73,11 @@
                 "text": "Kutálí se po cestičce, když tu před ním stojí zajíček. A říká, že ho sní.",
                 "start": 40.4705,
                 "end": 48.608
+            },
+            "sk": {
+                "text": "Kotúľa sa po cestičke, keď tu zrazu sa pred ním zjaví zajačik a vraví, že ho zje.",
+                "start": 39.8705,
+                "end": 47.208
             },
             "uk": {
                 "text": "Котиться він доріжкою, а назустріч йому зайчик. І каже, що його з'їсть.",
@@ -66,6 +91,11 @@
                 "start": 48.608,
                 "end": 56.733
             },
+            "sk": {
+                "text": "Pampúšik poprosil zajačika, aby ho nezjedol. Namiesto toho mu zaspieval pesničku a utiekol.",
+                "start": 47.208,
+                "end": 56.033
+            },
             "uk": {
                 "text": "Колобок попросив зайчика, щоб він його не їв, а натомість заспівав йому пісеньку і втік.",
                 "start": 44.408,
@@ -77,6 +107,11 @@
                 "text": "Kutálí se koblížek dál po cestičce, když tu před ním stojí vlk. A taky říká, že ho sní.",
                 "start": 56.733,
                 "end": 65.7455
+            },
+            "sk": {
+                "text": "Kotúľa sa pampúšik po cestičke ďalej, keď tu zrazu sa pred ním zjaví vlk. A tiež hovorí, že ho zje.",
+                "start": 56.033,
+                "end": 65.0455
             },
             "uk": {
                 "text": "Котиться далі колобок доріжкою, аж назустріч йому вовк. І теж каже, що його з'їсть.",
@@ -90,10 +125,15 @@
                 "start": 65.7455,
                 "end": 73.2455
             },
+            "sk": {
+                "text": "Pampúšik poprosil vlka, aby ho nezjedol a ponúkol sa, že mu zaspieva pesničku.",
+                "start": 65.0455,
+                "end": 72.108
+            },
             "uk": {
                 "text": "Колобок благав вовка не їсти його і запропонував і йому заспівати пісеньку.",
                 "start": 60.3205,
-                "end": 67.2955
+                "end": 66.8455
             }
         },
         {
@@ -102,9 +142,14 @@
                 "start": 73.2455,
                 "end": 80.083
             },
+            "sk": {
+                "text": "Vlk súhlasil a pampúšik počas spievania utiekol.",
+                "start": 72.108,
+                "end": 77.3705
+            },
             "uk": {
                 "text": "Вовк погодився, а колобок поки співав свою пісеньку, то і втік.",
-                "start": 67.2955,
+                "start": 66.8455,
                 "end": 73.1955
             }
         },
@@ -113,6 +158,11 @@
                 "text": "Kutálí se koblížek dál po cestičce, když tu před ním stojí medvěd. A také slibuje, že ho sní.",
                 "start": 80.083,
                 "end": 89.3205
+            },
+            "sk": {
+                "text": "Kotúľa sa pampúšik po cestičke ďalej, keď tu zrazu sa pred ním zjaví medveď. A tiež hovorí, že ho zje.",
+                "start": 77.3705,
+                "end": 86.4955
             },
             "uk": {
                 "text": "Котиться далі колобок доріжкою, аж назустріч йому ведмідь. І теж обіцяє його з'їсти.",
@@ -126,6 +176,11 @@
                 "start": 89.3205,
                 "end": 98.2205
             },
+            "sk": {
+                "text": "Pampúšik však poprosil medveďa, aby ho nezjedol, a aby si radšej vypočul pesničku o pampúšikovom dobrodružstve.",
+                "start": 86.4955,
+                "end": 95.4455
+            },
             "uk": {
                 "text": "Але колобок попросив ведмедя не їсти його, а послухати пісеньку про пригоди колобка.",
                 "start": 81.3205,
@@ -137,6 +192,11 @@
                 "text": "A znovu, zatímco koblížek zpíval, podařilo se mu utéct medvědovi.",
                 "start": 98.2205,
                 "end": 104.8705
+            },
+            "sk": {
+                "text": "A znovu, kým pampúšik spieval, podarilo sa mu ujsť od medveďa.",
+                "start": 95.4455,
+                "end": 101.408
             },
             "uk": {
                 "text": "І знову поки колобок співав, йому вдалося втекти від ведмедя.",
@@ -150,6 +210,11 @@
                 "start": 104.8705,
                 "end": 114.8205
             },
+            "sk": {
+                "text": "A tak sa pampúšik kotúľa ďalej po cestičke, keď tu zrazu sa pred ním zjaví líštička. Aj ona si chce pochutnať na pampúšikovi.",
+                "start": 101.408,
+                "end": 111.7705
+            },
             "uk": {
                 "text": "Тож покотився колобок далі доріжкою, аж назустріч йому лисичка. Вона теж хоче поласувати колобком.",
                 "start": 94.3455,
@@ -161,6 +226,11 @@
                 "text": "Ale koblížek zase - prosí, aby ho nejedla a místo toho si poslechla písničku.",
                 "start": 114.8205,
                 "end": 121.9455
+            },
+            "sk": {
+                "text": "Ale pampúšik znova - prosí, aby ho nezjedla a radšej si vypočula pesničku.",
+                "start": 111.7705,
+                "end": 118.508
             },
             "uk": {
                 "text": "Але колобок знову за своє - просить не їсти його, а послухати пісеньку.",
@@ -174,6 +244,11 @@
                 "start": 121.9455,
                 "end": 127.8205
             },
+            "sk": {
+                "text": "Líštička súhlasila, a tak pampúšik zasa začal spievať.",
+                "start": 118.508,
+                "end": 124.158
+            },
             "uk": {
                 "text": "Лисичка погодилась, тож колобок вкотре заспівав.",
                 "start": 109.8705,
@@ -185,6 +260,11 @@
                 "text": "Ale když písnička skončila, poprosila lištička, aby znovu zazpíval nádhernou písničku, která se jí moc líbila.",
                 "start": 127.8205,
                 "end": 137.3705
+            },
+            "sk": {
+                "text": "Keď však pesnička skončila, poprosila líštička, aby jej tú krásnu pesničku, ktorá sa jej veľmi páčila, zaspieval ešte raz.",
+                "start": 124.158,
+                "end": 134.3205
             },
             "uk": {
                 "text": "Але коли пісенька скінчилась, лисичка попросила повторити чудову пісеньку, яка їй дуже сподобалась.",
@@ -198,6 +278,11 @@
                 "start": 137.3705,
                 "end": 146.408
             },
+            "sk": {
+                "text": "Sťažovala sa však, že zle počuje, a požiadala pampúšika, aby si jej sadol na jazyk, aby ho lepšie počula.",
+                "start": 134.3205,
+                "end": 142.833
+            },
             "uk": {
                 "text": "Однак вона поскаржилась, що недочуває і попрохала колобка сісти їй на язик, щоб було краще чути. ",
                 "start": 123.358,
@@ -210,6 +295,11 @@
                 "start": 146.408,
                 "end": 152.408
             },
+            "sk": {
+                "text": "Pampúšik s radosťou skočil líštičke na jazyk a začal spievať...",
+                "start": 142.833,
+                "end": 148.708
+            },
             "uk": {
                 "text": "Колобок радісно застрибнув лисичці на язик і почав співати...",
                 "start": 131.5705,
@@ -221,6 +311,11 @@
                 "text": "A liška ho - chramst - snědla!",
                 "start": 152.408,
                 "end": 155.083
+            },
+            "sk": {
+                "text": "A líška? Ham. Zjedla ho!",
+                "start": 148.708,
+                "end": 152.1205
             },
             "uk": {
                 "text": "А лисичка його - гам - і з'їла!",

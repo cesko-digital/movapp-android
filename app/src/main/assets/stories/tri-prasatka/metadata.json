@@ -1,10 +1,15 @@
-{
+﻿{
     "timeline": [
         {
             "cs": {
                 "text": "Na jednom statku žila prasečí maminka se svými třemi malými prasátky.",
                 "start": 14.2955,
                 "end": 20.4455
+            },
+            "sk": {
+                "text": "Na jednom statku žila prasačia mamička so svojimi tromi malými prasiatkami.",
+                "start": 14.083,
+                "end": 20.2705
             },
             "uk": {
                 "text": "На одній фермі жила мама-свинка з трьома поросятами.",
@@ -18,6 +23,11 @@
                 "start": 20.4455,
                 "end": 29.1705
             },
+            "sk": {
+                "text": "Jedno mamičke vždy pomáhalo a bolo šikovné, ale ďalšie dve boli lenivé a nikdy neurobili nič poriadne.",
+                "start": 20.2705,
+                "end": 28.783
+            },
             "uk": {
                 "text": "Старше порося було старанним і завжди допомагало мамі, а двоє інших були ледачими й ніколи нічого не робили так, як треба.",
                 "start": 18.7205,
@@ -29,6 +39,11 @@
                 "text": "Když prasátka vyrostla, vydala se do světa.",
                 "start": 29.1705,
                 "end": 34.183
+            },
+            "sk": {
+                "text": "Keď prasiatka vyrástli, vydali sa do sveta.",
+                "start": 28.783,
+                "end": 33.4455
             },
             "uk": {
                 "text": "Коли поросята підросли, вони пішли у світ.",
@@ -42,6 +57,11 @@
                 "start": 34.183,
                 "end": 41.433
             },
+            "sk": {
+                "text": "Než odišli, mamička im pripomínala, že si musia dať dobrý pozor na zlého vlka.",
+                "start": 33.4455,
+                "end": 40.4455
+            },
             "uk": {
                 "text": "Але перед цим мама їм нагадала, що слід остерігатися злого вовка.",
                 "start": 35.5205,
@@ -53,6 +73,11 @@
                 "text": "Prasátka se toulala po loukách, lesích a mezi poli, hrála si a dováděla. Uběhlo jaro, léto a začal chladný a deštivý podzim.",
                 "start": 41.433,
                 "end": 53.708
+            },
+            "sk": {
+                "text": "Prasiatka sa túlali po lúkach, lesoch a medzi poliami, hrali sa a vyvádzali. Ubehla jar, leto a začala chladná a daždivá jeseň.",
+                "start": 40.4455,
+                "end": 51.983
             },
             "uk": {
                 "text": "Поросята бродили по полонинах, лісах і полях, граючись і пустуючи. Минули весна та літо, настала холодна й дощова осінь.",
@@ -66,6 +91,11 @@
                 "start": 53.708,
                 "end": 58.808
             },
+            "sk": {
+                "text": "Preto sa prasiatka rozhodli, že si postavia domčeky.",
+                "start": 51.983,
+                "end": 56.958
+            },
             "uk": {
                 "text": "Тож поросята вирішили побудувати хатинки.",
                 "start": 52.5955,
@@ -77,6 +107,11 @@
                 "text": "Všechna tři prasátka si našla místo na jedné pasece nedaleko od sebe. Připravila si pilu, kladivo, hřebíky, prkna, kbelík, sekeru, lopatu, metr a další nářadí a začala stavět.",
                 "start": 58.808,
                 "end": 74.908
+            },
+            "sk": {
+                "text": "Všetky tri prasiatka si našli miesto na jednej čistinke neďaleko od seba. Pripravili si pílu, kladivo, klince, dosky, vedro, sekeru, lopatu, meter  a ďalšie náradie a začali stavať.",
+                "start": 56.958,
+                "end": 73.408
             },
             "uk": {
                 "text": "Усі троє знайшли місце на одному пасовищі неподалік одне від одного. Вони приготували пилку, молоток, цвяхи, дошки, відро, сокиру, лопату, рулетку та інші інструменти й почали будувати.",
@@ -90,6 +125,11 @@
                 "start": 74.908,
                 "end": 84.683
             },
+            "sk": {
+                "text": "Prvé prasiatko bolo lenivé a nechcelo sa mu ťahať drevo a kamene na stavbu domčeka, preto si rýchlo postavilo domček zo slamy.",
+                "start": 73.408,
+                "end": 82.8705
+            },
             "uk": {
                 "text": "Перше поросятко було ледачим й не хотіло носити деревину та каміння, щоб побудувати будиночок, тому швидко збудувало солом’яну хатинку.",
                 "start": 74.008,
@@ -101,6 +141,11 @@
                 "text": "Ani druhému prasátku se nechtělo tahat s kameny a cihlami, tak si postavilo domeček ze dřeva.",
                 "start": 84.683,
                 "end": 92.458
+            },
+            "sk": {
+                "text": "Ani druhému prasiatku sa nechcelo ťahať kamene a tehly, tak si postavilo domček z dreva.",
+                "start": 82.8705,
+                "end": 90.133
             },
             "uk": {
                 "text": "І друге порося не захотіло носити каміння та цеглу, тому побудувало собі хатинку з дерева.",
@@ -114,6 +159,11 @@
                 "start": 92.458,
                 "end": 105.5455
             },
+            "sk": {
+                "text": "Tretiemu prasiatku dala stavba najviac zabrať. Nanosilo si tehly a pustilo sa s chuťou do stavania. Vedelo, že tehlový domček je najbezpečnejší.",
+                "start": 90.133,
+                "end": 102.6955
+            },
             "uk": {
                 "text": "Третє  порося було більш охочим до будівництва. Воно наносило цегли й почало завзято будувати. Порося знало, що цегляна хатинка найбільш надійна.",
                 "start": 91.6205,
@@ -125,6 +175,11 @@
                 "text": "Jeho dva bratři se mu posmívali: „Kdybys stavěl jako my, domeček by byl dávno hotový!“",
                 "start": 105.5455,
                 "end": 113.5705
+            },
+            "sk": {
+                "text": "Jeho dvaja bratia sa mu posmievali: „Keby si staval ako my, domček by bol dávno hotový!“",
+                "start": 102.6955,
+                "end": 110.458
             },
             "uk": {
                 "text": "Двоє його братів насміхалися над ним: „Якби ти будував, як ми, то хатинка вже давно була б готова!“",
@@ -138,6 +193,11 @@
                 "start": 113.5705,
                 "end": 122.3955
             },
+            "sk": {
+                "text": "Netrvalo dlho a po čistinke sa túlal hladný vlk. Prasiatka sa zľakli a schovali sa do svojich domčekov.",
+                "start": 110.458,
+                "end": 119.508
+            },
             "uk": {
                 "text": "Не минуло багато часу, як на галявині з’явився голодний і злий вовк. Поросята злякалися й поховалися по своїх хатинках.",
                 "start": 113.1205,
@@ -149,6 +209,11 @@
                 "text": "Vlk přišel k domečku ze slámy a volal na prasátko. Protože nevyšlo ven, nadechl se a foukl do domečku. Všechna sláma odletěla a domeček byl pryč.",
                 "start": 122.3955,
                 "end": 136.108
+            },
+            "sk": {
+                "text": "Vlk prišiel k domčeku zo slamy a volal na prasiatko. Pretože nevyšlo von, nadýchol sa a fúkol do domčeka. Všetka slama odletela a domček bol preč.",
+                "start": 119.508,
+                "end": 132.5205
             },
             "uk": {
                 "text": "Вовк прийшов до солом’яної хатинки й покликав порося. Коли воно не вийшло, він набрав повітря й дмухнув на хатинку. Уся солома розлетілась, а хатинки як і не було.",
@@ -162,6 +227,11 @@
                 "start": 136.108,
                 "end": 145.9455
             },
+            "sk": {
+                "text": "Našťastie sa prvé prasiatko stihlo schovať v drevenom domčeku svojho bračeka.",
+                "start": 132.5205,
+                "end": 138.808
+            },
             "uk": {
                 "text": "На щастя, перше порося встигло сховатися в дерев’яній хатинці свого брата.",
                 "start": 137.5455,
@@ -173,6 +243,11 @@
                 "text": "Vlk přišel k domečku ze dřeva. „Nebojte se, prasátka, pojďte ven, budeme si hrát!“",
                 "start": 145.9455,
                 "end": 151.983
+            },
+            "sk": {
+                "text": "Vlk prišiel k domčeku z dreva. „Nebojte sa, prasiatka, poďte von, budeme sa hrať,“ volal.",
+                "start": 138.808,
+                "end": 147.3955
             },
             "uk": {
                 "text": "Вовк прийшов до дерев’яної хатинки. „Не бійтеся, поросята, виходьте, будемо гратися“, – покликав він.",
@@ -186,6 +261,11 @@
                 "start": 151.983,
                 "end": 167.1205
             },
+            "sk": {
+                "text": "Keď sa prasiatka neozývali, nadýchol sa, fúkol, ale nič sa nestalo. Drevo bolo ťažšie než slama. Tak sa vlk nadýchol viac, fúkol a domček sa rozsypal.",
+                "start": 147.3955,
+                "end": 160.9705
+            },
             "uk": {
                 "text": "Коли поросята не відповіли, він набрав повітря, дмухнув, але нічого не сталося. Дерево було важче за солому. Тоді вовк набрав ще повітря, дмухнув, і хатинка розвалилася.",
                 "start": 155.5205,
@@ -197,6 +277,11 @@
                 "text": "Vystrašená prasátka stihla utéct do domečku z cihel.",
                 "start": 167.1205,
                 "end": 172.5705
+            },
+            "sk": {
+                "text": "Vystrašené prasiatka stihli utiecť do domčeka z tehál.",
+                "start": 160.9705,
+                "end": 166.308
             },
             "uk": {
                 "text": "Переляканим поросятам вдалося втекти до цегляного будиночку.",
@@ -210,6 +295,11 @@
                 "start": 172.5705,
                 "end": 183.758
             },
+            "sk": {
+                "text": "Vlk pribehol k domčeku tretieho prasiatka a začal fúkať. Fúkal zo všetkých síl. Domček sa mu však zrútiť nepodarilo.",
+                "start": 166.308,
+                "end": 177.208
+            },
             "uk": {
                 "text": "Вовк побіг до третьої хатинки й почав дути. Він дув-дув, дув-дув, а хатинка ні з місця.",
                 "start": 176.6955,
@@ -221,6 +311,11 @@
                 "text": "Dvě prasátka se bála, ale třetí je utěšovalo: „Nebojte se, můj domeček je pevný, sem se vlk nedostane!“",
                 "start": 183.758,
                 "end": 193.4205
+            },
+            "sk": {
+                "text": "Dve prasiatka sa báli, ale tretie ich utešovalo: „Nebojte sa, môj domček je pevný, sem sa vlk nedostane!“",
+                "start": 177.208,
+                "end": 186.0705
             },
             "uk": {
                 "text": "Двоє поросят злякалися, але третє заспокоїло їх: „Не бійтеся, мій дім міцний, вовк сюди не потрапить!“",
@@ -234,6 +329,11 @@
                 "start": 193.4205,
                 "end": 208.708
             },
+            "sk": {
+                "text": "Vlk chvíľu premýšľal, potom sa rozbehol a do domčeka celou silou narazil. Ten sa ale ani nepohol. Vlk to nechcel vzdať. Vyliezol na strechu a chcel sa spustiť komínom.",
+                "start": 186.0705,
+                "end": 200.9455
+            },
             "uk": {
                 "text": "Вовк на мить замислився, потім розігнався та налетів на хатинку з усією силою. Але вона й не похитнулась. Вовк не здавався. Він виліз на дах і спробував спуститися по димарЮ.",
                 "start": 196.283,
@@ -245,6 +345,11 @@
                 "text": "Prasátko rychle zatopilo v kamnech. Když vlk vlezl do komína spálil si ocas o oheň a měl plné oči kouře. Lekl se, spadl ze střechy a utíkal pryč.",
                 "start": 208.708,
                 "end": 222.658
+            },
+            "sk": {
+                "text": "Prasiatko rýchlo zakúrilo v peci. Keď vlk vliezol do komína, spálil si chvost o oheň a oči mal plné dymu. Zľakol sa, spadol zo strechy a utekal preč.",
+                "start": 200.9455,
+                "end": 214.5705
             },
             "uk": {
                 "text": "Порося швиденько розпалило піч. Вовк заліз у димар, обпалив хвоста, а дим почав виїдати йому очі. Вовчисько злякався, впав з даху та втік.",
@@ -258,6 +363,11 @@
                 "start": 222.658,
                 "end": 231.0705
             },
+            "sk": {
+                "text": "Tak tretie prasiatko vlka prekabátilo. Ten sa od tej doby už nikdy na čistinke neukázal.",
+                "start": 214.5705,
+                "end": 222.583
+            },
             "uk": {
                 "text": "Тож третє порося виявилось розумнішим за вовка. Вовчисько з того часу більше не з’являвся на пасовищі.",
                 "start": 224.1205,
@@ -269,6 +379,11 @@
                 "text": "Všichni žili společně v domečku z cihel a první dvě prasátka už nebyla ani trochu líná a vše dělala tak, jak se má.",
                 "start": 231.0705,
                 "end": 238.5705
+            },
+            "sk": {
+                "text": "Všetci žili spoločne v domčeku z tehál a prvé dve prasiatka už neboli ani trochu lenivé a všetko robili tak, ako sa má.",
+                "start": 222.583,
+                "end": 230.033
             },
             "uk": {
                 "text": "Поросята жили разом у цегляній хатинці. Перші два порося більше не лінувалися й робили все так, як слід.",
