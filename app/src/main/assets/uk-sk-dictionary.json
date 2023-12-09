@@ -27092,9 +27092,9 @@
 				"transcription": "Чо са стане, кедь кнігу вратім нескоро?"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/c/cf4b9d0a69f4a74e333838e7f26a6133.mp3",
-				"translation": "Що станеться, якщо я повернену книги із запізненням?",
-				"transcription": "Ščo staneťsja, jakščo ja povernenu knyhy iz zapiznennjam?"
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e9ccdb906d8a01be8bd67aec7ac7c77b.mp3",
+				"translation": "Що станеться, якщо я поверну книги із запізненням?",
+				"transcription": "Ščo staneťsja, jakščo ja povernu knyhy iz zapiznennjam?"
 			},
 			"image_url": null
 		},
@@ -27106,9 +27106,9 @@
 				"transcription": "За онескорене вратеніе заплатіте 5 центов за день."
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/8/86b0ee51f776f80f6879634515b2d4fd.mp3",
-				"translation": "Ви заплатите за затримку, 5 крон на день.",
-				"transcription": "Vy zaplatyte za zatrymku, 5 kron na deň."
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/3aa70e7dd22c30c78121bdc3d306ef64.mp3",
+				"translation": "Вы заплатите за затримку, 5 крон на день.",
+				"transcription": "Vы zaplatyte za zatrymku, 5 kron na deň."
 			},
 			"image_url": null
 		},
@@ -27148,9 +27148,9 @@
 				"transcription": "Кнігу мусіте заплатіть."
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/1/1db8afb16e5c30c855e1dfc2b98e0c54.mp3",
-				"translation": "Ва потрібно буде заплатити за книгу.",
-				"transcription": "Va potribno bude zaplatyty za knyhu."
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/9525f0af4f8c763b47db2e93cbdc3a90.mp3",
+				"translation": "Вам потрібно буде заплатити за книгу.",
+				"transcription": "Vam potribno bude zaplatyty za knyhu."
 			},
 			"image_url": null
 		},
@@ -28632,7 +28632,7 @@
 				"transcription": "Мyoжем го просім погладкать?"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/0/05b02dfc330d62173819ca5425cecd42.mp3",
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/76e6d085183d250ebb88e464f4a2ab4b.mp3",
 				"translation": "Можна його погладити?",
 				"transcription": "Možna joho pohladyty?"
 			},
@@ -28646,9 +28646,9 @@
 				"transcription": "Мyoжем ю просім погладкать?"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/7/7fc4137e8856e563956c1e3d8e6bad95.mp3",
-				"translation": "Можна її погладити?",
-				"transcription": "Možna jiji pohladyty?"
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a2bc1d31851001870aa3304bee911916.mp3",
+				"translation": "Можна ии  погладити",
+				"transcription": "Možna yy  pohladyty"
 			},
 			"image_url": null
 		},
