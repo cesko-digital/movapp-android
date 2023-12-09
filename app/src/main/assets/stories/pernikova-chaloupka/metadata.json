@@ -1,10 +1,15 @@
-{
+﻿{
     "timeline": [
         {
             "cs": {
                 "text": "Byl jednou jeden tatínek, který žil se svou dceruškou Mařenkou a synkem Jeníčkem.",
                 "start": 14.3455,
                 "end": 21.533
+            },
+            "sk": {
+                "text": "Bol raz jeden otecko, ktorý mal dcérku Marienku a synčeka Janka.",
+                "start": 14.3455,
+                "end": 20.558
             },
             "uk": {
                 "text": "Жив був один тато, який жив з донькою Маренкою та сином Єнічком.",
@@ -18,6 +23,11 @@
                 "start": 21.533,
                 "end": 25.5705
             },
+            "sk": {
+                "text": "Bývali v chalúpke uprostred lesa.",
+                "start": 20.558,
+                "end": 24.558
+            },
             "uk": {
                 "text": "Жили вони в хатинці посеред лісу.",
                 "start": 20.258,
@@ -29,6 +39,11 @@
                 "text": "Tatínek pracoval jako dřevorubec a děti s ním často chodily do lesa, když tatínek pracoval.",
                 "start": 25.5705,
                 "end": 33.183
+            },
+            "sk": {
+                "text": "Otecko pracoval ako drevorubač a deti s ním často chodili do lesa.",
+                "start": 24.558,
+                "end": 30.408
             },
             "uk": {
                 "text": "Татусь працював лісорубом, і діти часто ходили з ним до лісу, коли він працював.",
@@ -42,6 +57,11 @@
                 "start": 33.183,
                 "end": 40.1455
             },
+            "sk": {
+                "text": "Kým on rúbal stromy, deti sa hrali v lese a pochutnávali si na lesných jahodách a čučoriedkach.",
+                "start": 30.408,
+                "end": 38.4955
+            },
             "uk": {
                 "text": "Поки він рубав дерева, діти гралися в лісі і ласували лісовою суницею та чорницею.",
                 "start": 31.108,
@@ -53,6 +73,11 @@
                 "text": "Jednoho dne se zatoulaly příliš daleko a nemohly najít cestu domů.",
                 "start": 40.1455,
                 "end": 46.208
+            },
+            "sk": {
+                "text": "Jedného dňa sa zatúlali príliš ďaleko a nevedeli nájsť cestu domov.",
+                "start": 38.4955,
+                "end": 44.7455
             },
             "uk": {
                 "text": "Одного разу вони зайшли дуже далеко і не могли знайти дорогу додому.",
@@ -66,6 +91,11 @@
                 "start": 46.208,
                 "end": 54.383
             },
+            "sk": {
+                "text": "Blúdili lesom, volali na otca a plakali. Hľadali, ale nevedeli ho nájsť.",
+                "start": 44.7455,
+                "end": 52.608
+            },
             "uk": {
                 "text": "Вони блукали лісом, кликали тата, плакали. Шукали, але знайти не змогли.",
                 "start": 44.308,
@@ -77,6 +107,11 @@
                 "text": "Když padla tma, vylezl Jeníček na strom a rozhlédl se po lese.",
                 "start": 54.383,
                 "end": 60.633
+            },
+            "sk": {
+                "text": "Keď sa zotmelo, Janko vyliezol na strom a rozhliadol sa po lese.",
+                "start": 52.608,
+                "end": 58.533
             },
             "uk": {
                 "text": "Коли стало поночі, Єнічек виліз на дерево і подивився на ліс.",
@@ -90,6 +125,11 @@
                 "start": 60.633,
                 "end": 68.6205
             },
+            "sk": {
+                "text": "V diaľke uvidel svetielko. „To bude určite naša chalúpka!“ zakričal Marienke.",
+                "start": 58.533,
+                "end": 66.9255
+            },
             "uk": {
                 "text": "Вдалині він побачив світло. - Мабуть, це наша хатинка! - закричав він Маренці.",
                 "start": 58.608,
@@ -101,6 +141,11 @@
                 "text": "Děti se vydaly za světlem a opravdu zakrátko došly k chaloupce.",
                 "start": 68.6205,
                 "end": 74.3955
+            },
+            "sk": {
+                "text": "Deti sa vydali za svetlom a čoskoro naozaj prišli k chalúpke.",
+                "start": 66.9255,
+                "end": 72.6755
             },
             "uk": {
                 "text": "Діти попрямували за світлом і невдовзі дійшли до хатинки.",
@@ -114,6 +159,11 @@
                 "start": 74.3955,
                 "end": 80.733
             },
+            "sk": {
+                "text": "Nebola to však ich chalúpka. Táto bola celá postavená z perníkov.",
+                "start": 72.6755,
+                "end": 79.438
+            },
             "uk": {
                 "text": "Але це була не їхня хатинка. Ця хатинка була повністю зроблена із пряника.",
                 "start": 72.9705,
@@ -125,6 +175,11 @@
                 "text": "Děti se zaradovaly! Měly už hlad, a tak si opatrně vzaly z chaloupky kousek perníku.",
                 "start": 80.733,
                 "end": 88.9705
+            },
+            "sk": {
+                "text": "Deti sa potešili! Boli už hladné, a tak si z chalúpky opatrne zobrali kúsok perníka.",
+                "start": 79.438,
+                "end": 87.6505
             },
             "uk": {
                 "text": "Діти зраділи! Вони вже були голодні, тому обережно відламали від хатинки шматок пряника.",
@@ -138,6 +193,11 @@
                 "start": 88.9705,
                 "end": 95.4455
             },
+            "sk": {
+                "text": "Zrazu sa s buchnutím otvorili dvere. Deti sa naľakali.",
+                "start": 87.6505,
+                "end": 93.738
+            },
             "uk": {
                 "text": "Раптом з тріском відчинилися двері. Діти злякалися.",
                 "start": 89.1455,
@@ -149,6 +209,11 @@
                 "text": "Z chaloupky se vyšourala babička. Pozvala děti do chaloupky, nabídla jim jídlo a přespání.",
                 "start": 95.4455,
                 "end": 104.283
+            },
+            "sk": {
+                "text": "Z chalúpky vyšla babička. Pozvala deti do chalúpky, ponúkla im jedlo a nocľah.",
+                "start": 93.738,
+                "end": 101.513
             },
             "uk": {
                 "text": "З хатинки вийшла бабуся. Вона запросила дітей до хатинки, пригостила їх їжею та запропонувала ночівлю.",
@@ -162,6 +227,11 @@
                 "start": 104.283,
                 "end": 109.908
             },
+            "sk": {
+                "text": "Nebola to však dobrá babička, bola to zlá čarodejnica.",
+                "start": 101.513,
+                "end": 106.9755
+            },
             "uk": {
                 "text": "Але це не була добра бабуся, це була зла відьма.",
                 "start": 104.4955,
@@ -173,6 +243,11 @@
                 "text": "Děti zavřela do komory, aby si je tam vykrmila a mohla je pak sníst.",
                 "start": 109.908,
                 "end": 116.208
+            },
+            "sk": {
+                "text": "Zavrela deti do komory, aby si ich tam vykŕmila a potom ich mohla zjesť.",
+                "start": 106.9755,
+                "end": 113.2755
             },
             "uk": {
                 "text": "Вона зачинила дітей у погріб, щоб відгодувати їх  і потім  з'їсти.",
@@ -186,6 +261,11 @@
                 "start": 116.208,
                 "end": 121.2955
             },
+            "sk": {
+                "text": "Deťom sa podarilo preliezť okienkom a utiecť.",
+                "start": 113.2755,
+                "end": 118.238
+            },
             "uk": {
                 "text": "Дітям вдалося вибратися через вікно і втекти.",
                 "start": 115.4705,
@@ -197,6 +277,11 @@
                 "text": "Běžely temným lesem, utíkaly a utíkaly, co jim síly stačily.",
                 "start": 121.2955,
                 "end": 127.9455
+            },
+            "sk": {
+                "text": "Bežali tmavým lesom, utekali a utekali, ako najrýchlejšie vedeli.",
+                "start": 118.238,
+                "end": 124.4505
             },
             "uk": {
                 "text": "Вони бігли темним лісом, тікали і тікали, поки вистачало сил.",
@@ -210,6 +295,11 @@
                 "start": 127.9455,
                 "end": 134.8205
             },
+            "sk": {
+                "text": "Zrazu sa ocitli pred ďalšou chalúpkou. A bola to ich chalúpka!",
+                "start": 124.4505,
+                "end": 131.0505
+            },
             "uk": {
                 "text": "Раптом вони опинилися перед іншою хатинкою. І це була їхня хатинка!",
                 "start": 126.483,
@@ -222,6 +312,11 @@
                 "start": 134.8205,
                 "end": 143.0205
             },
+            "sk": {
+                "text": "Z chalúpky vybehol otecko. Objal obe deti a všetci boli šťastní, že sa opäť našli.",
+                "start": 131.0505,
+                "end": 139.1255
+            },
             "uk": {
                 "text": "З хатинки вибіг тато. Він обійняв обох дітей, і всі були раді, що вони знайшлися.",
                 "start": 133.833,
@@ -233,6 +328,11 @@
                 "text": "A už se nikdy nespustili z očí.",
                 "start": 143.0205,
                 "end": 145.583
+            },
+            "sk": {
+                "text": "A už nikdy sa nespustili z očí.",
+                "start": 139.1255,
+                "end": 141.2255
             },
             "uk": {
                 "text": "І відтоді вони ніколи не випускали один одного з очей.",

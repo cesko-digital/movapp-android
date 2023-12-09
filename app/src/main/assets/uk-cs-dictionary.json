@@ -27186,7 +27186,7 @@
 		"recQv9LwNTZ8vBq8F": {
 			"id": "recQv9LwNTZ8vBq8F",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/a/a2dad0cb827e0e832581e3afae21da67.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/1/1aeda4a6d57640d63f4b6cd6e10b945b.mp3",
 				"translation": "Chci si zařídit kartičku do knihovny.",
 				"transcription": "Хці сі заржідіт картічку до кніговни."
 			},
@@ -27200,7 +27200,7 @@
 		"recH2oCDV8qAEG7JZ": {
 			"id": "recH2oCDV8qAEG7JZ",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/a/afe42ce128da75168dc7863df1966315.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/8/86471429465935c1b41094d3245e9d1d.mp3",
 				"translation": "Kolik zaplatím za kartičku?",
 				"transcription": "Колік заплатім за картічку?"
 			},
@@ -27214,7 +27214,7 @@
 		"recOMmxhKffHDCpFc": {
 			"id": "recOMmxhKffHDCpFc",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/8/8467ce316acb6b9b7c0f2dd4d69f9cbc.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/7/7e2537389c892c5281a34e47abec3e9f.mp3",
 				"translation": "Na jak dlouho si můžu vypůjčit knihu?",
 				"transcription": "На як длоуго сі мужу випуйчіт кнігу?"
 			},
@@ -27242,7 +27242,7 @@
 		"recfibkBzlZO1fbPz": {
 			"id": "recfibkBzlZO1fbPz",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/e/e58166d049bc3f6b356c88ae4c8bbf78.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/8/87c18f994ccbcc18b53c468f9b87e239.mp3",
 				"translation": "Kdy musím knihu vrátit?",
 				"transcription": "Кди мусім кнігу вратіт?"
 			},
@@ -27256,7 +27256,7 @@
 		"recaCVH2QnRLrQjVa": {
 			"id": "recaCVH2QnRLrQjVa",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/8/8c591dc817b6c715c8bbec0a3825ceaa.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/4/4efb10283ce1936468e05871c2eebf0e.mp3",
 				"translation": "Mohu si knihu prodloužit?",
 				"transcription": "Могу сі кнігу продлоужіт?"
 			},
@@ -27326,7 +27326,7 @@
 		"recDPWrGruGcFErjD": {
 			"id": "recDPWrGruGcFErjD",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/f/f3d27651b80d6992d800c8f9eff62089.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/3/3379e02e4fc5c88e8a975d35413ed54f.mp3",
 				"translation": "Kolik stojí rezervace knihy?",
 				"transcription": "Колік стої резерваце кніги?"
 			},
@@ -27340,35 +27340,35 @@
 		"recIqYBSufFdRhu8t": {
 			"id": "recIqYBSufFdRhu8t",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/7/7f8532ae3b6651faae34f8e22b445ad7.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/6/629ec410f7d1d451433e01136c5148bf.mp3",
 				"translation": "Co se stane, když knihu vrátím pozdě?",
 				"transcription": "Цо се стане, кдиж кнігу вратім поздє?"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/c/cf4b9d0a69f4a74e333838e7f26a6133.mp3",
-				"translation": "Що станеться, якщо я повернену книги із запізненням?",
-				"transcription": "Ščo staneťsja, jakščo ja povernenu knyhy iz zapiznennjam?"
+				"sound_url": "https://data.movapp.eu/uk-sounds/e/e9ccdb906d8a01be8bd67aec7ac7c77b.mp3",
+				"translation": "Що станеться, якщо я поверну книги із запізненням?",
+				"transcription": "Ščo staneťsja, jakščo ja povernu knyhy iz zapiznennjam?"
 			},
 			"image_url": null
 		},
 		"recxg9ZCzQV7I25sk": {
 			"id": "recxg9ZCzQV7I25sk",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/5/5dc2661c3c540f79057bba181f14ac1f.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/9/953e0e9aca76997a3ff1859d622512b2.mp3",
 				"translation": "Zaplatíte zpozdné, 5 korun za den.",
 				"transcription": "Заплатіте зпоздне, 5 корун за ден."
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/8/86b0ee51f776f80f6879634515b2d4fd.mp3",
-				"translation": "Ви заплатите за затримку, 5 крон на день.",
-				"transcription": "Vy zaplatyte za zatrymku, 5 kron na deň."
+				"sound_url": "https://data.movapp.eu/uk-sounds/3/3aa70e7dd22c30c78121bdc3d306ef64.mp3",
+				"translation": "Вы заплатите за затримку, 5 крон на день.",
+				"transcription": "Vы zaplatyte za zatrymku, 5 kron na deň."
 			},
 			"image_url": null
 		},
 		"rec5OKmIu4tsO7H4V": {
 			"id": "rec5OKmIu4tsO7H4V",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/1/15184bab70b83da0ba3d62da5837df4f.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/2/2fe4fce5fe002bc6816c3c6c59beaea0.mp3",
 				"translation": "Co se stane, když knihu ztratím?",
 				"transcription": "Цо се стане, кдиж кнігу зтратім?"
 			},
@@ -27382,7 +27382,7 @@
 		"recsW11SRLnEncc1u": {
 			"id": "recsW11SRLnEncc1u",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/8/8773f26f37d76f8a885b9127892e9a56.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/4/4c028f14e618009d0457131bb4237d50.mp3",
 				"translation": "Co se stane, když knihu poničím?",
 				"transcription": "Цо се стане, кдиж кнігу понічім?"
 			},
@@ -27401,9 +27401,9 @@
 				"transcription": "Мусіте кнігу заплатіт."
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/1/1db8afb16e5c30c855e1dfc2b98e0c54.mp3",
-				"translation": "Ва потрібно буде заплатити за книгу.",
-				"transcription": "Va potribno bude zaplatyty za knyhu."
+				"sound_url": "https://data.movapp.eu/uk-sounds/9/9525f0af4f8c763b47db2e93cbdc3a90.mp3",
+				"translation": "Вам потрібно буде заплатити за книгу.",
+				"transcription": "Vam potribno bude zaplatyty za knyhu."
 			},
 			"image_url": null
 		},
@@ -27480,7 +27480,7 @@
 		"recNwvMqO3XcgbSMm": {
 			"id": "recNwvMqO3XcgbSMm",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/0/0ff5ddb7406ab9659a1e81a43b385403.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/6/699f9f3e7f5117b42b8338f631102c7b.mp3",
 				"translation": "Máte více poboček?",
 				"transcription": "Мате віце побочек?"
 			},
@@ -27494,7 +27494,7 @@
 		"recnSwSCATaabJL6D": {
 			"id": "recnSwSCATaabJL6D",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/7/7d21cad485f26ebf84dd94e435123a32.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/2/2c5d0ac56f9c268f8b533b0efaf7e7e7.mp3",
 				"translation": "Na které pobočce mohu knihu vrátit?",
 				"transcription": "На ктере побочце могу кнігу вратіт?"
 			},
@@ -27522,7 +27522,7 @@
 		"recALaAVRYydbohUd": {
 			"id": "recALaAVRYydbohUd",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/d/d76e8acf6ba8e5d857b33b9227659a2e.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/4/411caa5e8991e208dc18761a089d1cc2.mp3",
 				"translation": "Mohu si knihu číst v knihovně?",
 				"transcription": "Могу сі кнігу чіст в кніговнє?"
 			},
@@ -27550,7 +27550,7 @@
 		"recp8nSN6t718GgGW": {
 			"id": "recp8nSN6t718GgGW",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/8/80b586990aa67a79effd7b3f10126cec.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/b/b9ab427ac64b010be43542edc15a425b.mp3",
 				"translation": "Můžete zde být na počítači a na internetu.",
 				"transcription": "Мужете зде бит на почітачі а на інтернету."
 			},
@@ -27788,7 +27788,7 @@
 		"recyEprHkvsj9PlAD": {
 			"id": "recyEprHkvsj9PlAD",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/2/20fb250b69be8a13b26c3cfae3b6ef08.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/4/4b3732e3d282501df5d63018918ff3e2.mp3",
 				"translation": "Bydlíte tady dlouho?",
 				"transcription": "Бидліте тади длоуго?"
 			},
@@ -27830,7 +27830,7 @@
 		"recyxbqKH3kcEsLSa": {
 			"id": "recyxbqKH3kcEsLSa",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/a/a918164685c487c5a6d8ec314f41cadf.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/d/db960c1961b6c87cb4ef69afc6a4b516.mp3",
 				"translation": "Líbí se vám tu?",
 				"transcription": "Лібі се вам ту?"
 			},
@@ -27886,7 +27886,7 @@
 		"recO53qw2O9cgJ5wP": {
 			"id": "recO53qw2O9cgJ5wP",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/0/0ac9c2ef704d93babeefd0b86597162a.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/8/8ccc794f63786b2ee23754caca06e618.mp3",
 				"translation": "Nestěžuji si.",
 				"transcription": "Нестєжуї сі."
 			},
@@ -27900,7 +27900,7 @@
 		"recDPZADG53dWimhP": {
 			"id": "recDPZADG53dWimhP",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/c/c3f7dad71f0406b6e73ad05672ee1ec7.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/d/d1d807fe4ae431c86181775814668c03.mp3",
 				"translation": "Chodíš sem často?",
 				"transcription": "Ходіш сем часто?"
 			},
@@ -27984,7 +27984,7 @@
 		"recS8XZ9bnvueO0P0": {
 			"id": "recS8XZ9bnvueO0P0",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/3/3ec56f69870ca35c11f70f0dddd1cf42.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/8/8e949a0d08343ea4627c29b70db3f2bd.mp3",
 				"translation": "Opravdu?",
 				"transcription": "Оправду?"
 			},
@@ -28152,7 +28152,7 @@
 		"rec5TV3hBQjsPIzcD": {
 			"id": "rec5TV3hBQjsPIzcD",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/8/8657e3cd47118502c25e0b8f3c3b657f.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/e/efce823d9541ac7b614937c379b3311a.mp3",
 				"translation": "Můžu si to prosím půjčit?",
 				"transcription": "Мужу сі то просім пуйчіт?"
 			},
@@ -28180,7 +28180,7 @@
 		"recZunuDPjW6XA86Q": {
 			"id": "recZunuDPjW6XA86Q",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/7/7f724656fb68636463e2f6f8d334f4f5.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/4/4add528932c65ca1640275d595aaceb9.mp3",
 				"translation": "Řekněte to pomaleji, prosím.",
 				"transcription": "Ржекнєте то помалеї, просім."
 			},
@@ -28236,7 +28236,7 @@
 		"recsx96y4EGQWJ8Ge": {
 			"id": "recsx96y4EGQWJ8Ge",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/f/f17b99673eaee832d0d1022d538dccc8.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/a/af9f91b2d1ac17a89b423ae978303360.mp3",
 				"translation": "To je vaše dcera?",
 				"transcription": "То є ваше дцера?"
 			},
@@ -28292,7 +28292,7 @@
 		"recFeuMr7TiaeqlPi": {
 			"id": "recFeuMr7TiaeqlPi",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/3/3cc4ed113ddb9d2ecc1c140f8f9482ba.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/7/72be60aba710069f3ddfb820e3e9e98f.mp3",
 				"translation": "Kolik je jí let?",
 				"transcription": "Колік є ї лет?"
 			},
@@ -28334,7 +28334,7 @@
 		"rec28hSUpQkaM9V38": {
 			"id": "rec28hSUpQkaM9V38",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/5/59691b031c5948aa41841e5faa1ca0a0.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/3/3ba2d2fcede12b3d4f65cf5edd07c8a9.mp3",
 				"translation": "Pojďme spolu na skluzavku.",
 				"transcription": "Пойдьме сполу на склузавку."
 			},
@@ -28348,7 +28348,7 @@
 		"recokFuMU4hQgRy4G": {
 			"id": "recokFuMU4hQgRy4G",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/2/225236f70b08bde71b75021865b02fc4.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/6/6ee154f228afbb973cceaa269b7e9aa7.mp3",
 				"translation": "Běžte spolu na skluzavku.",
 				"transcription": "Бєжте сполу на склузавку."
 			},
@@ -28362,7 +28362,7 @@
 		"recgZMpO4hlnuGtD5": {
 			"id": "recgZMpO4hlnuGtD5",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/b/b186bfbbdfb92b07d2aea195cc5a0678.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/a/adbf7fd91a18608537e8939da1356c08.mp3",
 				"translation": "Pojď se houpat na houpačku.",
 				"transcription": "Пойдь се гоупат на гоупачку."
 			},
@@ -28376,7 +28376,7 @@
 		"recxuLCbgd0cnAGAN": {
 			"id": "recxuLCbgd0cnAGAN",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/e/e6ff0fa7fc9eae3b62f526c491f1da51.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/a/acd2e16e2c50b5a80d84129b9af98701.mp3",
 				"translation": "Běžte spolu na průlezku",
 				"transcription": "Бєжте сполу на прулезку"
 			},
@@ -28390,7 +28390,7 @@
 		"rechccDftrGisJF9L": {
 			"id": "rechccDftrGisJF9L",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/d/da4371731eaacdeb2f153c231eb1aced.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/7/785ea2a91848eeef4bf128c5dbbf8646.mp3",
 				"translation": "Chodíte sem často?",
 				"transcription": "Ходіте сем часто?"
 			},
@@ -28432,7 +28432,7 @@
 		"recApG00jA5xgEhnp": {
 			"id": "recApG00jA5xgEhnp",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/a/ab3807e09b2661f61642d60e6aeff54f.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/5/537334909a523a18f80a5b7f6bcbb250.mp3",
 				"translation": "Na shledanou.",
 				"transcription": "На сгледаноу."
 			},
@@ -28446,7 +28446,7 @@
 		"recPVLYrkUJPLf4pi": {
 			"id": "recPVLYrkUJPLf4pi",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/c/cb3972baa0785653c130d0089bd663c9.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/f/f8cc71937ca4390cfb607bd58a451e83.mp3",
 				"translation": "To jsou vaše děti?",
 				"transcription": "То йсоу ваше дєті?"
 			},
@@ -28460,7 +28460,7 @@
 		"recvSbpK4o9D8hD1R": {
 			"id": "recvSbpK4o9D8hD1R",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/b/bf5052bfc442af385f6afe28aced3aa2.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/4/459a8b6e959ce6c2a847511c38d585cf.mp3",
 				"translation": "Jak se jmenují?",
 				"transcription": "Як се йменуї?"
 			},
@@ -28488,7 +28488,7 @@
 		"recltjJeEpQttMmzn": {
 			"id": "recltjJeEpQttMmzn",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/9/9f180e1b07e5fa2583adb3407e579cb0.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/b/b780258e7cd488cfb77b3c7d300fd951.mp3",
 				"translation": "To je váš syn?",
 				"transcription": "То є ваш син?"
 			},
@@ -28502,7 +28502,7 @@
 		"recaqdywCeFXiXQDh": {
 			"id": "recaqdywCeFXiXQDh",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/2/2fd964ea89c53cb71e6e2d406936dd35.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/6/6c98e21228159f8caa920c9f36f15bed.mp3",
 				"translation": "Kolik mu je let?",
 				"transcription": "Колік му є лет?"
 			},
@@ -28516,7 +28516,7 @@
 		"recrBcM48b5QhXhQ1": {
 			"id": "recrBcM48b5QhXhQ1",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/b/b5076c207b39cd4842a48857e61a27ad.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/8/8e15461dae59d44c16259c3f280a7eff.mp3",
 				"translation": "Kolik jim je let?",
 				"transcription": "Колік їм є лет?"
 			},
@@ -28530,7 +28530,7 @@
 		"recKAMABPEpyLuxXg": {
 			"id": "recKAMABPEpyLuxXg",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/2/23b9d47cc6faff81d62fab66a1894597.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/b/bca3b77bd8f0eb74f61e3aa59e29c109.mp3",
 				"translation": "Můžou si spolu hrát?",
 				"transcription": "Мужоу сі сполу грат?"
 			},
@@ -28656,7 +28656,7 @@
 		"rec3Sg9pHlTWNPRtZ": {
 			"id": "rec3Sg9pHlTWNPRtZ",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/e/e34f1147961424f1f8601a14b68801ba.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/7/7b2a9a96f60f15e2520a51d7263061bf.mp3",
 				"translation": "Dnes hodně fouká.",
 				"transcription": "Днес годнє фоука."
 			},
@@ -28670,7 +28670,7 @@
 		"recIBLe1tEzsLfVZJ": {
 			"id": "recIBLe1tEzsLfVZJ",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/f/f9fafe651fd5e72d3290397c3e95965e.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/d/d5e9769cd129f57a5750299597f84f86.mp3",
 				"translation": "Je vám taky takové horko?",
 				"transcription": "Є вам таки такове горко?"
 			},
@@ -28740,7 +28740,7 @@
 		"recMJua6YcgDUgakU": {
 			"id": "recMJua6YcgDUgakU",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/9/92b99f6a98cc19f77d2ba4fdfea80f61.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/5/57bbfbe2b8180379eed66803ea9471e3.mp3",
 				"translation": "Je vám také taková zima?",
 				"transcription": "Є вам таке такова зіма?"
 			},
@@ -28824,7 +28824,7 @@
 		"recAfwDLnganQWIch": {
 			"id": "recAfwDLnganQWIch",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/6/6b55958f1cf0c13b3760e1235f0ad080.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/b/b022381a92a627bb80114fad4fe699a7.mp3",
 				"translation": "To je váš pes?",
 				"transcription": "То є ваш пес?"
 			},
@@ -28838,7 +28838,7 @@
 		"rech2VHHRNDyabFFe": {
 			"id": "rech2VHHRNDyabFFe",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/8/816e7c1e127c2033c635af2078f8cd4d.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/d/dfcb4fea1cba20b832180a191fc51aab.mp3",
 				"translation": "To je váš pejsek?",
 				"transcription": "То є ваш пейсек?"
 			},
@@ -28894,12 +28894,12 @@
 		"rec8cVlEP7MGbAsOu": {
 			"id": "rec8cVlEP7MGbAsOu",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/b/b591546b37deb750445cda9401f85177.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/8/85226c42a0cf194c38d64898b41e6c1a.mp3",
 				"translation": "Mohu si ho prosím pohladit?",
 				"transcription": "Могу сі го просім погладіт?"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/0/05b02dfc330d62173819ca5425cecd42.mp3",
+				"sound_url": "https://data.movapp.eu/uk-sounds/7/76e6d085183d250ebb88e464f4a2ab4b.mp3",
 				"translation": "Можна його погладити?",
 				"transcription": "Možna joho pohladyty?"
 			},
@@ -28908,21 +28908,21 @@
 		"recXLa10xU9hLxZfJ": {
 			"id": "recXLa10xU9hLxZfJ",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/7/7889294b9a361135ad0cc4c6744bd409.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/9/95602d10ee498e9b3447130d0affdfaa.mp3",
 				"translation": "Mohu si ji prosím pohladit?",
 				"transcription": "Могу сі ї просім погладіт?"
 			},
 			"source": {
-				"sound_url": "https://data.movapp.eu/uk-sounds/7/7fc4137e8856e563956c1e3d8e6bad95.mp3",
-				"translation": "Можна її погладити?",
-				"transcription": "Možna jiji pohladyty?"
+				"sound_url": "https://data.movapp.eu/uk-sounds/a/a2bc1d31851001870aa3304bee911916.mp3",
+				"translation": "Можна ии  погладити",
+				"transcription": "Možna yy  pohladyty"
 			},
 			"image_url": null
 		},
 		"recOtMzX7Ptv6Q62f": {
 			"id": "recOtMzX7Ptv6Q62f",
 			"main": {
-				"sound_url": "https://data.movapp.eu/cs-sounds/d/d9877079d0b49297541e08da53c64927.mp3",
+				"sound_url": "https://data.movapp.eu/cs-sounds/9/961e8cfbc0f22a3d413bf3b3a009b82a.mp3",
 				"translation": "Nekouše?",
 				"transcription": "Некоуше?"
 			},
