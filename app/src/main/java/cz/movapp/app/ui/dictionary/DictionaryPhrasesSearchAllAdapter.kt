@@ -18,7 +18,7 @@ class DictionaryPhrasesSearchAllAdapter(
         UNSET, FROM, TO
     }
 
-    fun search(constraint: String, isFavorites : Boolean = false) {
+    fun search(constraint: String, isFavorites: Boolean = false) {
         val searchString = stripDiacritics(constraint.lowercase(Locale.getDefault()).trim())
         var result = if (searchString.isEmpty()) {
             wholeDataset
@@ -34,19 +34,22 @@ class DictionaryPhrasesSearchAllAdapter(
             filtered.sortedWith(firstFavoritesThenByLevenshteinThenRestComparator(constraint))
         }
 
-        if(isFavorites){
+        if (isFavorites) {
             result = result.filter { favoritesIds.contains(it.id) }
         }
 
         submitList(result)
     }
 
-    fun setFavorites() {
-        submitList(if (languagePair.isReversed) {
-            wholeDataset.filter { favoritesIds.contains(it.id) }.sortedBy { it.source_stripped }
-        } else {
-            wholeDataset.filter { favoritesIds.contains(it.id) }.sortedBy { it.main_stripped }
-        })
+    fun setFavorites(force: Boolean) {
+        val filteredDataset = wholeDataset.filter { favoritesIds.contains(it.id) }
+        if (force || currentList.isEmpty() || (filteredDataset - currentList.toSet()).isNotEmpty()) {
+            submitList(if (languagePair.isReversed) {
+                filteredDataset.sortedBy { it.source_stripped }
+            } else {
+                filteredDataset.sortedBy { it.main_stripped }
+            })
+        }
     }
 
     private fun firstFavoritesThenByLevenshteinThenRestComparator(constraint: String) =
