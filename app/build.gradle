@@ -8,14 +8,14 @@ plugins {
 apply from: rootProject.file("Utils.gradle")
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "cz.movapp.app"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode getGitVersionCode()
-        versionName "1.7.5"
+        versionName "1.7.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
