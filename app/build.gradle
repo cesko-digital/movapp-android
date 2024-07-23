@@ -8,7 +8,7 @@ plugins {
 apply from: rootProject.file("Utils.gradle")
 
 android {
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         applicationId "cz.movapp.app"
